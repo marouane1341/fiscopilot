@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FiscoPilot AI ELITE MAX 🇧🇪</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">FiscoPilot <span class="gold">AI ELITE MAX 🇧🇪</span></div>
+    <button class="iconbtn" id="btnMenu" aria-label="Menu">☰</button>
+  </header>
+
+  <nav class="sidebar" id="sidebar">
+    <button class="navitem" data-view="dashboard">🏠 Dashboard</button>
+    <button class="navitem" data-view="modules">📚 Modules</button>
+    <button class="navitem" data-view="quiz">🧪 Quiz</button>
+    <button class="navitem" data-view="exam">📝 Examen blanc</button>
+    <button class="navitem" data-view="tutor">🤖 Prof IA</button>
+    <button class="navitem" data-view="flashcards">🧠 Flashcards</button>
+    <button class="navitem" data-view="stats">📊 Statistiques</button>
+    <button class="navitem" data-view="updates">📰 Actus</button>
+    <button class="navitem" data-view="settings">⚙️ Paramètres</button>
+  </nav>
+
+  <main class="content" id="content">
+    <!-- Dashboard -->
+    <section class="view" id="view-dashboard">
+      <h1>Dashboard</h1>
+      <div class="grid">
+        <div class="card">
+          <div class="cardtitle">Progression</div>
+          <div id="dashProgress" class="big">—</div>
+          <div class="muted" id="dashHint"></div>
+        </div>
+        <div class="card">
+          <div class="cardtitle">Streak</div>
+          <div id="dashStreak" class="big">—</div>
+          <div class="muted">Jours consécutifs</div>
+        </div>
+        <div class="card">
+          <div class="cardtitle">Dernier score examen</div>
+          <div id="dashLastExam" class="big">—</div>
+          <div class="muted">Historique sauvegardé</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cardtitle">Raccourcis</div>
+        <div class="row">
+          <button class="btn" data-goto="tutor">Prof IA</button>
+          <button class="btn" data-goto="exam">Examen blanc</button>
+          <button class="btn" data-goto="flashcards">Flashcards</button>
+          <button class="btn" data-goto="modules">Cours</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="cardtitle">Sync base hebdo</div>
+        <div class="row">
+          <button class="btn" id="btnSyncNow">Mettre à jour maintenant</button>
+          <div class="muted" id="syncStatus">—</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modules -->
+    <section class="view" id="view-modules">
+      <h1>Modules</h1>
+      <div class="muted">Choisis un module pour accéder aux cours + quiz ciblés.</div>
+      <div id="modulesList" class="list"></div>
+
+      <div class="card">
+        <div class="cardtitle">Cours</div>
+        <div class="muted">Sélectionne un module ci-dessus, puis ouvre une leçon.</div>
+        <div id="lessonBox" class="lesson"></div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="view" id="view-quiz">
+      <h1>Quiz</h1>
+      <div class="row">
+        <select id="quizModule" class="select"></select>
+        <select id="quizMode" class="select">
+          <option value="quick">Rapide (10)</option>
+          <option value="module">Module (20)</option>
+          <option value="adaptive">Adaptatif (20)</option>
+        </select>
+        <button class="btn" id="btnStartQuiz">Démarrer</button>
+      </div>
+
+      <div class="card">
+        <div class="cardtitle">Question</div>
+        <div id="quizBox" class="quizbox"></div>
+      </div>
+    </section>
+
+    <!-- Exam -->
+    <section class="view" id="view-exam">
+      <h1>Examen blanc</h1>
+      <div class="row">
+        <select id="examModule" class="select"></select>
+        <select id="examDuration" class="select">
+          <option value="30">30 min</option>
+          <option value="60" selected>60 min</option>
+          <option value="120">120 min</option>
+        </select>
+        <button class="btn" id="btnStartExam">Commencer</button>
+      </div>
+
+      <div class="card">
+        <div class="cardtitle">Chrono</div>
+        <div class="big" id="examTimer">—</div>
+        <div class="muted" id="examInfo">Examen = 50 questions (mix cours + cas).</div>
+      </div>
+
+      <div class="card">
+        <div class="cardtitle">Examen</div>
+        <div id="examBox" class="quizbox"></div>
+        <div id="examScore" class="big"></div>
+      </div>
+    </section>
+
+    <!-- Tutor -->
+    <section class="view" id="view-tutor">
+      <h1>Prof IA</h1>
+      <div class="muted">Mode offline (base ITAA) + Boost en ligne si configuré.</div>
+
+      <div class="card">
+        <div class="cardtitle">Question</div>
+        <input id="tutorQ" class="input" placeholder="Ex: Explique la déduction TVA véhicule en Belgique" />
+        <div class="row">
+          <button class="btn" id="btnTutorAsk">Répondre</button>
+          <button class="btn2" id="btnTutorBoost">Boost en ligne</button>
+        </div>
+        <div id="tutorA" class="answer"></div>
+      </div>
+
+      <div class="card">
+        <div class="cardtitle">Mode oral ITAA (simulation jury)</div>
+        <div class="row">
+          <button class="btn" id="btnOralNext">Question du jury</button>
+          <button class="btn2" id="btnOralReveal">Voir réponse</button>
+        </div>
+        <div id="oralQ" class="answer"></div>
+        <div id="oralA" class="answer muted"></div>
+      </div>
+    </section>
+
+    <!-- Flashcards -->
+    <section class="view" id="view-flashcards">
+      <h1>Flashcards (Leitner)</h1>
+      <div class="muted">Répétition espacée : boîte 1 → 5. Tu peux réviser hors ligne.</div>
+
+      <div class="card">
+        <div class="row">
+          <select id="fcModule" class="select"></select>
+          <button class="btn" id="btnFcNext">Nouvelle carte</button>
+        </div>
+        <div id="fcCard" class="flashcard"></div>
+        <div class="row">
+          <button class="btn2" id="btnFcHard">Difficile</button>
+          <button class="btn" id="btnFcGood">Bien</button>
+          <button class="btn2" id="btnFcEasy">Facile</button>
+        </div>
+        <div class="muted" id="fcMeta"></div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="view" id="view-stats">
+      <h1>Statistiques</h1>
+      <div class="grid">
+        <div class="card">
+          <div class="cardtitle">Scores</div>
+          <div id="statsScores" class="answer"></div>
+        </div>
+        <div class="card">
+          <div class="cardtitle">Forces / Faiblesses</div>
+          <div id="statsWeak" class="answer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Updates -->
+    <section class="view" id="view-updates">
+      <h1>Actus (sync GitHub)</h1>
+      <div class="muted">Cette section se met à jour via la base hebdomadaire (gratuite).</div>
+      <div id="updatesList" class="list"></div>
+    </section>
+
+    <!-- Settings -->
+    <section class="view" id="view-settings">
+      <h1>Paramètres</h1>
+
+      <div class="card">
+        <div class="cardtitle">Boost IA (en ligne)</div>
+        <div class="muted">Optionnel. La clé reste sur ton téléphone (jamais sur GitHub).</div>
+        <input id="hfToken" class="input" placeholder="Colle ton token Hugging Face (hf_...)" />
+        <div class="row">
+          <button class="btn" id="btnSaveToken">Enregistrer</button>
+          <button class="btn2" id="btnClearToken">Supprimer</button>
+        </div>
+        <div class="muted" id="tokenStatus">—</div>
+      </div>
+
+      <div class="card">
+        <div class="cardtitle">Données</div>
+        <div class="row">
+          <button class="btn2" id="btnReset">Réinitialiser (local)</button>
+          <div class="muted">⚠️ Efface stats + historique + cartes.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="sync.js"></script>
+
