@@ -1,0 +1,82 @@
+{
+  "lessons": [
+    {
+      "id": "tva_base",
+      "title": "Principes fondamentaux TVA",
+      "text": "La TVA est un impôt indirect sur la consommation. Elle est supportée par le consommateur final mais collectée par les entreprises.\n\nConditions pour déduction :\n- Assujetti TVA\n- Dépense professionnelle\n- Facture conforme\n\nTaux Belgique : 21%, 12%, 6%."
+    },
+    {
+      "id": "tva_deduction",
+      "title": "Déduction TVA",
+      "text": "La TVA est déductible si elle concerne une activité économique taxable.\n\nLimitations :\n- Véhicules\n- Dépenses mixtes\n- Dépenses privées"
+    }
+  ],
+
+  "qa": [
+    {
+      "q": "déduction tva véhicule",
+      "a": "La TVA sur un véhicule est déductible selon l’usage professionnel avec un maximum de 50% pour les voitures de tourisme.",
+      "tags": ["tva", "déduction"]
+    },
+    {
+      "q": "taux tva belgique",
+      "a": "Les taux TVA en Belgique sont 21% (normal), 12% et 6% (réduits selon conditions).",
+      "tags": ["tva"]
+    }
+  ],
+
+  "questions": [
+    {
+      "id": "q1",
+      "q": "Quel est le taux TVA standard en Belgique ?",
+      "o": ["6%", "12%", "21%", "0%"],
+      "a": 2,
+      "exp": "Le taux normal est 21%.",
+      "tags": ["tva"]
+    },
+    {
+      "id": "q2",
+      "q": "La TVA est déductible si :",
+      "o": [
+        "Dépense professionnelle",
+        "Dépense privée",
+        "Sans facture",
+        "Toujours"
+      ],
+      "a": 0,
+      "exp": "La TVA doit concerner une activité professionnelle.",
+      "tags": ["tva"]
+    }
+  ],
+
+  "flashcards": [
+    {
+      "id": "f1",
+      "front": "TVA",
+      "back": "Taxe sur la valeur ajoutée."
+    },
+    {
+      "id": "f2",
+      "front": "Taux TVA Belgique",
+      "back": "21%, 12%, 6%."
+    }
+  ],
+
+  "oral": [
+    {
+      "q": "Explique la déduction TVA",
+      "a": "La déduction TVA permet à l’assujetti de récupérer la TVA payée sur ses achats professionnels."
+    },
+    {
+      "q": "Quand la TVA n’est-elle pas déductible ?",
+      "a": "Lorsque la dépense est privée ou exemptée."
+    }
+  ],
+
+  "cases": [
+    {
+      "q": "Une société achète un véhicule 30 000€ HTVA avec usage professionnel 60%. Quelle TVA déductible ?",
+      "a": "TVA = 30 000 × 21% = 6 300€. Déduction limitée à 50% max donc 3 150€."
+    }
+  ]
+}
