@@ -1,5 +1,5 @@
 {
-  "meta": { "title": "TVA 1 — Fondations (Cabinet)", "version": 3 },
+  "meta": { "title": "TVA 1 — Fondations (Cabinet)", "version": 4 },
 
   "lessons": [
     {
@@ -24,7 +24,7 @@
       "id": "tva1_04",
       "title": "Assujetti : définition + cas concrets",
       "level": "🟡 Intermédiaire",
-      "text": "Assujetti = personne qui exerce de manière indépendante une activité économique.\n\nCas cabinet :\n- indépendant : oui\n- société : oui\n- salarié : non (subordination)\n- ASBL : parfois (si activité économique)\n\nPiège : “exempté” ≠ “hors TVA”. Beaucoup d’exemptions restent dans la sphère TVA (impact prorata / régularisations)."
+      "text": "Assujetti = personne qui exerce de manière indépendante une activité économique.\n\nCas cabinet :\n- indépendant : oui\n- société : oui\n- ASBL : parfois (si activité économique)\n\nPiège : “exempté” ≠ “hors TVA”. Beaucoup d’exemptions restent dans la sphère TVA (impact prorata / régularisations)."
     },
     {
       "id": "tva1_05",
@@ -54,84 +54,97 @@
       "id": "tva1_09",
       "title": "Base d’imposition : ce qui entre (et ce qui n’entre pas)",
       "level": "🟡 Intermédiaire",
-      "text": "Base = contrepartie totale reçue.\n\nInclut souvent : frais accessoires (transport, assurance, emballage) facturés au client.\n\nPièges :\n- confondre remise commerciale vs réduction financière\n- oublier frais refacturés\n\nRéflexe : base ≠ juste “prix”."
+      "text": "Base = contrepartie totale reçue.\n\nInclut souvent : frais accessoires (transport, assurance, emballage) facturés au client.\n\nRéflexe : base ≠ juste “prix”."
     },
     {
       "id": "tva1_10",
       "title": "Taux TVA en Belgique : méthode prudente",
       "level": "🟡 Intermédiaire",
-      "text": "Méthode cabinet :\n1) partir du taux normal (21%)\n2) vérifier si 12% ou 6% s’applique\n3) vérifier conditions + preuves\n\nPiège : appliquer un taux réduit “par habitude”.\n\nAstuce : si doute → position prudente + documentation."
+      "text": "Méthode cabinet :\n1) partir du taux normal (21%)\n2) vérifier si 12% ou 6% s’applique\n3) vérifier conditions + preuves\n\nAstuce : si doute → position prudente + documentation."
     },
     {
       "id": "tva1_11",
       "title": "Mentions de facture : pourquoi le contrôle commence ici",
       "level": "🟡 Intermédiaire",
-      "text": "La déduction TVA est fragile si la facture est non conforme.\n\nRéflexe :\n- contrôler mentions essentielles\n- vérifier identification TVA (client/fournisseur)\n- vérifier taux et base\n\nAstuce cabinet : établir une mini-checklist factures à l’entrée."
+      "text": "La déduction TVA est fragile si la facture est non conforme.\n\nRéflexe :\n- contrôler mentions essentielles\n- vérifier identification TVA (client/fournisseur)\n- vérifier taux et base\n\nAstuce cabinet : mini-checklist factures à l’entrée."
     },
     {
       "id": "tva1_12",
       "title": "Erreurs juniors fréquentes (et comment les éviter)",
       "level": "🟡 Intermédiaire",
-      "text": "Top erreurs :\n- déduire TVA sans facture conforme\n- oublier acomptes\n- confondre B2B / B2C\n- taux réduit sans conditions\n- TVA voiture au hasard\n\nRéflexe : appliquer l’algorithme TVA + documenter."
+      "text": "Top erreurs :\n- déduire TVA sans facture conforme\n- oublier acomptes\n- confondre B2B / B2C\n- taux réduit sans preuves\n- TVA voiture au hasard\n\nRéflexe : appliquer l’algorithme TVA + documenter."
+    },
+
+    {
+      "id": "tva1_13",
+      "title": "B2B vs B2C : le réflexe qui change tout",
+      "level": "🟡 Intermédiaire",
+      "text": "Toujours identifier si le client est assujetti (B2B) ou consommateur (B2C).\n\nPourquoi c’est crucial :\n- les règles de lieu de taxation changent\n- les obligations facture/mentions changent\n\nRéflexe : demander n° TVA + vérifier validité (si pertinent)."
+    },
+    {
+      "id": "tva1_14",
+      "title": "Opérations taxables vs non taxables : clarifier avant de calculer",
+      "level": "🟡 Intermédiaire",
+      "text": "Avant tout calcul, clarifier :\n- est-ce une opération dans le champ TVA ?\n- est-ce une opération imposable ou exemptée ?\n\nPiège : mélanger “exempté” et “hors champ”. Les effets sur la déduction ne sont pas les mêmes."
+    },
+    {
+      "id": "tva1_15",
+      "title": "Exemptions : comprendre l’impact sur la déduction",
+      "level": "🟠 Avancé",
+      "text": "Exempté = pas de TVA facturée, mais attention :\n- souvent, pas de déduction sur les achats liés\n- si activité mixte : prorata sur frais généraux\n\nRéflexe cabinet : toute exemption = question prorata/régularisation potentielle."
+    },
+    {
+      "id": "tva1_16",
+      "title": "Lieu de taxation : méthode simplifiée (sans se perdre)",
+      "level": "🟠 Avancé",
+      "text": "Méthode :\n1) qualifier bien/service\n2) déterminer B2B/B2C\n3) appliquer règle générale puis vérifier exceptions\n\nAstuce : note interne “règle générale + 5 exceptions fréquentes” (immobilier, événements, transport, etc.)."
+    },
+    {
+      "id": "tva1_17",
+      "title": "Frais refacturés : accessoires ou débours ?",
+      "level": "🟠 Avancé",
+      "text": "Deux cas :\n- frais accessoires à ta prestation → même traitement TVA que la prestation\n- débours (au nom et pour compte du client, conditions strictes) → hors base\n\nPiège : tout appeler “débours”.\nRéflexe : regarder le contrat + la facture d’origine."
+    },
+    {
+      "id": "tva1_18",
+      "title": "TVA et remises : éviter les erreurs de base",
+      "level": "🟡 Intermédiaire",
+      "text": "Remise commerciale : réduit la base.\nEscompte/ristourne : dépend du contexte.\n\nRéflexe : si la contrepartie diminue, la TVA suit. En correction : note de crédit propre."
+    },
+    {
+      "id": "tva1_19",
+      "title": "Pourquoi l’administration adore les incohérences TVA",
+      "level": "🟡 Intermédiaire",
+      "text": "Les contrôles ciblent souvent :\n- TVA due ≠ ventes comptables\n- TVA déductible élevée sans explication\n- taux réduits répétitifs\n- intracom sans preuves\n\nAstuce : mini-rapprochement mensuel (comptes TVA ↔ déclaration)."
+    },
+    {
+      "id": "tva1_20",
+      "title": "Réflexe cabinet : conclure par obligations",
+      "level": "🟡 Intermédiaire",
+      "text": "Une réponse TVA pro se termine toujours par :\n- facture (mentions)\n- déclaration (grilles)\n- listing / intracom si nécessaire\n- preuve à archiver\n\nÇa te protège en contrôle."
     }
   ],
 
   "qcm": [
-    {
-      "level": "🟢",
-      "question": "La meilleure première étape en cabinet pour décider “TVA ou pas TVA” est :",
-      "choices": ["Choisir le taux", "Vérifier le régime du client (assujetti/régime)", "Calculer la base", "Regarder la compta"],
-      "answer": 1,
-      "explain": "Sans identifier le régime/assujettissement, tu risques de te tromper sur tout le reste."
-    },
-    {
-      "level": "🟡",
-      "question": "La base d’imposition correspond le plus souvent à :",
-      "choices": ["Le prix hors TVA uniquement", "La contrepartie totale reçue", "Le prix TTC", "Les frais uniquement"],
-      "answer": 1,
-      "explain": "La base est la contrepartie totale (souvent plus large que le prix “nu”)."
-    },
-    {
-      "level": "🟡",
-      "question": "En cas de doute sur un taux réduit, la position cabinet la plus sûre est :",
-      "choices": ["Appliquer le taux réduit", "Appliquer 21% jusqu’à preuve", "Ne pas facturer", "Facturer sans TVA"],
-      "answer": 1,
-      "explain": "Méthode prudente : 21% tant que les conditions du taux réduit ne sont pas prouvées."
-    },
-    {
-      "level": "🟠",
-      "question": "Pourquoi “bien vs service” est crucial ?",
-      "choices": ["Ça change le logo de la facture", "Ça impacte lieu de taxation et règles", "Ça ne sert qu’en théorie", "Ça supprime l’obligation de facture"],
-      "answer": 1,
-      "explain": "La qualification influence lieu de taxation, règles B2B/B2C et régimes."
-    },
-    {
-      "level": "🟡",
-      "question": "Une facture non conforme est surtout un problème car :",
-      "choices": ["Elle est plus longue", "Elle fragilise la déduction TVA", "Elle augmente la TVA", "Elle empêche le paiement client"],
-      "answer": 1,
-      "explain": "Le droit à déduction repose notamment sur une facture conforme."
-    }
+    { "level": "🟢", "question": "La meilleure première étape en cabinet pour décider “TVA ou pas TVA” est :", "choices": ["Choisir le taux", "Vérifier le régime du client (assujetti/régime)", "Calculer la base", "Regarder la compta"], "answer": 1, "explain": "Sans identifier le régime/assujettissement, tu risques de te tromper sur tout le reste." },
+    { "level": "🟡", "question": "La base d’imposition correspond le plus souvent à :", "choices": ["Le prix hors TVA uniquement", "La contrepartie totale reçue", "Le prix TTC", "Les frais uniquement"], "answer": 1, "explain": "La base est la contrepartie totale (souvent plus large que le prix “nu”)." },
+    { "level": "🟡", "question": "En cas de doute sur un taux réduit, la position cabinet la plus sûre est :", "choices": ["Appliquer le taux réduit", "Appliquer 21% jusqu’à preuve", "Ne pas facturer", "Facturer sans TVA"], "answer": 1, "explain": "Méthode prudente : 21% tant que les conditions du taux réduit ne sont pas prouvées." },
+    { "level": "🟠", "question": "Pourquoi “bien vs service” est crucial ?", "choices": ["Ça change le logo de la facture", "Ça impacte lieu de taxation et règles", "Ça ne sert qu’en théorie", "Ça supprime l’obligation de facture"], "answer": 1, "explain": "La qualification influence lieu de taxation, règles B2B/B2C et régimes." },
+    { "level": "🟡", "question": "Une facture non conforme est surtout un problème car :", "choices": ["Elle est plus longue", "Elle fragilise la déduction TVA", "Elle augmente la TVA", "Elle empêche le paiement client"], "answer": 1, "explain": "Le droit à déduction repose notamment sur une facture conforme." },
+
+    { "level": "🟡", "question": "Avant d’appliquer une règle de lieu de taxation, tu dois d’abord :", "choices": ["Choisir le taux", "Qualifier bien/service et B2B/B2C", "Regarder la déclaration TVA", "Demander le bilan"], "answer": 1, "explain": "Lieu de taxation dépend de la qualification et du statut du client." },
+    { "level": "🟠", "question": "Des frais refacturés sont en principe :", "choices": ["Toujours hors TVA", "Souvent accessoires à la prestation (même TVA)", "Toujours des débours", "Toujours à 0%"], "answer": 1, "explain": "En pratique, la plupart des refacturations sont accessoires (même traitement TVA)." },
+    { "level": "🟡", "question": "“Exempté TVA” signifie généralement :", "choices": ["Hors champ TVA", "Dans le champ mais pas de TVA facturée", "Toujours droit à déduction", "Toujours 21%"], "answer": 1, "explain": "Exempté ≠ hors champ. L’impact sur la déduction est souvent important." },
+    { "level": "🟡", "question": "Un bon réflexe cabinet pour réduire le risque contrôle est :", "choices": ["Ne jamais archiver", "Rapprocher comptes TVA et déclaration", "Mettre 6% partout", "Ignorer intracom"], "answer": 1, "explain": "La cohérence compta ↔ déclaration est un point clé en contrôle." },
+    { "level": "🟡", "question": "Une réponse TVA “pro” se termine souvent par :", "choices": ["Une blague", "Les obligations (facture, grilles, preuves)", "Uniquement le taux", "Uniquement la base"], "answer": 1, "explain": "En cabinet, on conclut toujours avec obligations et preuves." }
   ],
 
   "cases": [
-    {
-      "title": "Réflexe cabinet",
-      "level": "🟡",
-      "question": "Un client te dit : “je facture à un client français, je mets TVA belge ?” Quelle est ta première réaction ?",
-      "answer_md": "Je ne réponds pas “oui/non” tout de suite. J’applique :\n1) Qui (B2B/B2C ?) \n2) Quoi (bien/service ?) \n3) Où (lieu taxation) \nPuis seulement je conclus (TVA belge / autoliquidation / etc.)."
-    },
-    {
-      "title": "Base d’imposition",
-      "level": "🟡",
-      "question": "Facture : service 1.000€ + frais de déplacement refacturés 80€. Sur quoi calculer la TVA ?",
-      "answer_md": "En pratique, la TVA se calcule sur la base d’imposition : 1.000 + 80 si les frais sont refacturés comme accessoires à la prestation."
-    },
-    {
-      "title": "Facture conforme",
-      "level": "🟡",
-      "question": "Le client veut déduire la TVA mais la facture ne mentionne pas correctement l’identification TVA du fournisseur. Risque ?",
-      "answer_md": "Risque de refus de déduction en contrôle. Réflexe : demander facture corrigée (note de crédit + nouvelle facture si nécessaire)."
-    }
+    { "title": "Réflexe cabinet", "level": "🟡", "question": "Un client dit : “je facture à un client français, je mets TVA belge ?” Quelle est ta première réaction ?", "answer_md": "Je ne réponds pas “oui/non” tout de suite. Je fais : (1) B2B/B2C ? (2) bien/service ? (3) lieu de taxation. Ensuite seulement je conclus (TVA belge / autoliquidation / etc.)." },
+    { "title": "Base d’imposition", "level": "🟡", "question": "Service 1.000€ + déplacement refacturé 80€. Sur quoi calculer la TVA ?", "answer_md": "Base d’imposition = 1.000 + 80 si les frais sont accessoires à la prestation (cas le plus courant en cabinet)." },
+    { "title": "Facture conforme", "level": "🟡", "question": "Le client veut déduire la TVA mais la facture a une identification TVA fournisseur incorrecte. Risque ?", "answer_md": "Risque de refus de déduction. Réflexe : demander facture corrigée (note de crédit + nouvelle facture si nécessaire) et archiver la correction." },
+
+    { "title": "B2B/B2C", "level": "🟠", "question": "Un client vend un service en ligne à un particulier UE. Quel réflexe ?", "answer_md": "Toujours clarifier B2C, puis appliquer les règles spécifiques (lieu de taxation des services, obligations, preuves). Ne pas “copier” le B2B." },
+    { "title": "Débours", "level": "🟠", "question": "Le client appelle tout “débours”. Que vérifies-tu ?", "answer_md": "Conditions strictes : dépenses au nom et pour compte du client, refacturation exacte, preuve. Sinon : frais accessoires → dans la base TVA." }
   ]
 }
