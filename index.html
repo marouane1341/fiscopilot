@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FiscoPilot AI ELITE MAX 🇧🇪</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    FiscoPilot <span class="gold">AI ELITE MAX 🇧🇪</span>
+  </div>
+
+  <button id="btnMenu" class="iconbtn">☰</button>
+</header>
+
+
+<nav class="sidebar" id="sidebar">
+
+  <button class="navitem" onclick="setView('dashboard')">🏠 Dashboard</button>
+  <button class="navitem" onclick="setView('modules')">📚 Modules</button>
+  <button class="navitem" onclick="setView('quiz')">🧪 Quiz</button>
+  <button class="navitem" onclick="setView('exam')">📝 Examen</button>
+  <button class="navitem" onclick="setView('tutor')">🤖 Prof IA</button>
+  <button class="navitem" onclick="setView('flashcards')">🧠 Flashcards</button>
+  <button class="navitem" onclick="setView('stats')">📊 Stats</button>
+  <button class="navitem" onclick="setView('settings')">⚙️ Paramètres</button>
+
+</nav>
+
+
+<main class="content">
+
+<section id="view-dashboard" class="view active">
+  <h1>Dashboard</h1>
+  <button onclick="syncNow()">Mettre à jour maintenant</button>
+  <div id="syncStatus"></div>
+</section>
+
+<section id="view-modules" class="view">
+  <h1>Modules</h1>
+  <div id="modulesList"></div>
+</section>
+
+<section id="view-quiz" class="view">
+  <h1>Quiz</h1>
+</section>
+
+<section id="view-exam" class="view">
+  <h1>Examen blanc</h1>
+</section>
+
+<section id="view-tutor" class="view">
+  <h1>Prof IA</h1>
+
+  <input id="tutorQ" placeholder="Pose une question...">
+  <button onclick="tutorAskOffline()">Répondre</button>
+
+  <div id="tutorA"></div>
+</section>
+
+<section id="view-flashcards" class="view">
+  <h1>Flashcards</h1>
+</section>
+
+<section id="view-stats" class="view">
+  <h1>Statistiques</h1>
+</section>
+
+<section id="view-settings" class="view">
+  <h1>Paramètres</h1>
+</section>
+
+</main>
+
+
+<script src="sync.js"></script>
+<script src="app.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
