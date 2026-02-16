@@ -1,11 +1,30 @@
 {
-  "meta": { "title": "TVA Belgique MASTER (split)", "version": 2 },
-  "parts": [
-    { "title": "Fondations", "path": "db/tva_1_fondations.json" },
-    { "title": "Pratique cabinet", "path": "db/tva_2_pratique.json" },
-    { "title": "Expert / ITAA", "path": "db/tva_3_expert.json" }
+  "courses": [
+    {
+      "title": "Méthode TVA cabinet",
+      "content": "Un expert raisonne toujours dans cet ordre : Qui ? Quoi ? Où ? Quand ? Combien ? Déduction ? Obligations."
+    },
+    {
+      "title": "Neutralité TVA",
+      "content": "La TVA est neutre pour l'assujetti : il collecte pour l'État mais récupère sur ses achats."
+    }
   ],
-  "lessons": [],
-  "qcm": [],
-  "cases": []
+  "qcm": [
+    {
+      "question": "La TVA est payée par :",
+      "options": [
+        "L'entreprise",
+        "Le consommateur final",
+        "Le comptable",
+        "L'État"
+      ],
+      "answer": "Le consommateur final"
+    }
+  ],
+  "cases": [
+    {
+      "question": "Un indépendant achète du matériel 100% pro. TVA déductible ?",
+      "answer": "Oui si facture conforme et usage professionnel."
+    }
+  ]
 }
