@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "id": "tva",
+    "title": "TVA Belgique — Expert",
+    "level": "Niveau 2 (cabinet + ITAA)",
+    "version": 2,
+    "updated_at": "2026-01-01"
+  },
+  "lessons": [
+    {
+      "id": "tva_01",
+      "title": "TVA : logique et mécanisme",
+      "text": "La TVA est un impôt indirect sur la consommation. Les assujettis facturent la TVA (TVA due) et récupèrent la TVA sur leurs achats (TVA déductible) si les conditions sont remplies.\n\nRéflexe cabinet : toujours raisonner en 3 étapes : (1) opération taxable ? (2) taux/base ? (3) déduction/prorata/régularisation ?"
+    },
+    {
+      "id": "tva_02",
+      "title": "Assujettissement : qui est assujetti ?",
+      "text": "Est assujetti celui qui exerce de manière indépendante une activité économique (livraisons de biens / prestations de services) à titre habituel.\n\nAttention : associations, dirigeants, professions libérales, activités mixtes.\n\nPiège : certaines activités peuvent être exemptées (art. 44) mais restent 'assujetties' au sens large (impact sur déduction)."
+    },
+    {
+      "id": "tva_03",
+      "title": "Opérations imposables : biens vs services",
+      "text": "TVA vise principalement :\n- livraisons de biens\n- prestations de services\n- importations\n- acquisitions intracommunautaires.\n\nRéflexe : qualifier correctement (bien/service) influence lieu, exigibilité, règles intracom."
+    },
+    {
+      "id": "tva_04",
+      "title": "Lieu de taxation (bases utiles)",
+      "text": "Le lieu de taxation dépend du type d’opération (bien/service) et du statut du client (B2B/B2C).\n\nRéflexe cabinet : identifier B2B vs B2C + pays du client + où se situe le bien au moment de la livraison."
+    },
+    {
+      "id": "tva_05",
+      "title": "Base d’imposition : ce qui entre dans la base",
+      "text": "La base d’imposition inclut tout ce qui constitue la contrepartie obtenue (prix, frais accessoires liés à l’opération, etc.).\n\nPiège : remises, ristournes, notes de crédit → impactent base et TVA."
+    },
+    {
+      "id": "tva_06",
+      "title": "Taux en Belgique : 21% / 12% / 6%",
+      "text": "Taux normal : 21%.\nTaux réduits : 12% et 6% selon conditions.\n\nRéflexe cabinet : ne pas mémoriser 'au hasard' : vérifier la condition (nature du bien/service + contexte)."
+    },
+    {
+      "id": "tva_07",
+      "title": "Exigibilité : quand la TVA devient due ?",
+      "text": "La TVA devient due selon le moment de l’exigibilité (livraison/prestation, facturation, paiement selon règles applicables).\n\nRéflexe cabinet : éviter décalages (factures tardives, acomptes) et erreurs de période."
+    },
+    {
+      "id": "tva_08",
+      "title": "Facture conforme : condition clé",
+      "text": "La déduction TVA exige une facture conforme (mentions obligatoires) et une affectation à l’activité taxable.\n\nPièges : mentions manquantes, mauvais n° TVA, date, libellé imprécis, facture au mauvais nom."
+    },
+    {
+      "id": "tva_09",
+      "title": "Déduction TVA : conditions (checklist)",
+      "text": "Conditions générales :\n1) assujetti\n2) achat utilisé pour opérations ouvrant droit à déduction\n3) facture conforme\n4) TVA légalement due\n\nRéflexe : si activité exemptée (art. 44) → souvent pas/peu de déduction (prorata)."
+    },
+    {
+      "id": "tva_10",
+      "title": "Activités mixtes et prorata (base)",
+      "text": "Assujetti mixte : réalise des opérations taxées ET exemptées. La déduction est limitée via prorata (général ou réel selon cas).\n\nRéflexe cabinet : documenter la méthode, garder cohérence, anticiper contrôles."
+    },
+    {
+      "id": "tva_11",
+      "title": "Biens d’investissement : régularisations",
+      "text": "Les biens d’investissement peuvent entraîner des régularisations de déduction sur plusieurs années si l’affectation change.\n\nRéflexe : immobilisations + usage mixte = zone à risque en contrôle."
+    },
+    {
+      "id": "tva_12",
+      "title": "Voitures : règle pratique et pièges",
+      "text": "Pour voitures de tourisme : limitations fréquentes sur la TVA déductible (souvent plafonnée à 50% selon situations).\n\nRéflexe cabinet : établir politique véhicule + preuve d’usage + cohérence avec frais (carburant, entretien)."
+    },
+    {
+      "id": "tva_13",
+      "title": "Notes de crédit et corrections",
+      "text": "Une note de crédit corrige une facture (retour, remise, erreur). Elle corrige base et TVA.\n\nRéflexe : la correction doit se retrouver dans la période correcte."
+    },
+    {
+      "id": "tva_14",
+      "title": "Autoliquidation (principes)",
+      "text": "Autoliquidation : la TVA est déclarée par le preneur (client) au lieu du fournisseur dans certains cas.\n\nRéflexe : vérifier la mention sur facture + statut des parties + opération concernée."
+    },
+    {
+      "id": "tva_15",
+      "title": "Intracommunautaire : vue d’ensemble",
+      "text": "Intracom : opérations au sein de l’UE. Souvent TVA à 0% chez le fournisseur si conditions remplies (client assujetti + n° TVA valide + preuves).\n\nRéflexe : validation n° TVA + preuves de transport + bonne mention."
+    },
+    {
+      "id": "tva_16",
+      "title": "Import / export : logique",
+      "text": "Importation : entrée de biens depuis hors UE → TVA à l’import.\nExportation : sortie hors UE → souvent exonération sous conditions et preuves.\n\nRéflexe : documents douane = essentiels."
+    },
+    {
+      "id": "tva_17",
+      "title": "Déclaration périodique : logique des grilles",
+      "text": "La déclaration TVA reprend opérations (ventes) et déductions (achats). Les grilles doivent être cohérentes avec comptabilité.\n\nRéflexe : recouper : CA, comptes TVA, listing clients, intracom."
+    },
+    {
+      "id": "tva_18",
+      "title": "Listing clients et obligations",
+      "text": "Certaines obligations (listing clients, intracom, conservation pièces) sont sensibles.\n\nRéflexe : check calendrier + preuves + archivage."
+    },
+    {
+      "id": "tva_19",
+      "title": "Contrôles TVA : comment raisonner",
+      "text": "Contrôle TVA vise : cohérence des grilles, déductions sensibles (voitures, restaurant, mixtes), intracom, immobilisations.\n\nRéflexe : tracer la justification (factures, contrats, usage)."
+    },
+    {
+      "id": "tva_20",
+      "title": "Méthode ITAA : répondre comme un pro",
+      "text": "Toujours répondre avec :\n1) Qualification (bien/service, B2B/B2C, taxable/exempt)\n2) Règle + condition\n3) Application au cas\n4) Point d’attention (preuve, prorata, limitation)\n\nC’est ça qui fait la différence à l’ITAA."
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "q": "La TVA est principalement :",
+      "o": ["Un impôt direct", "Un impôt indirect", "Une taxe communale", "Une cotisation sociale"],
+      "a": 1,
+      "exp": "La TVA est un impôt indirect sur la consommation.",
+      "tags": ["tva", "bases"]
+    },
+    {
+      "id": "q02",
+      "q": "Pour déduire la TVA, il faut notamment :",
+      "o": ["Une facture conforme", "Avoir payé en espèces", "Avoir un compte TVA spécial", "Être toujours en bénéfice"],
+      "a": 0,
+      "exp": "La facture conforme est une condition essentielle (avec usage pro et activité ouvrant droit).",
+      "tags": ["tva", "deduction"]
+    },
+    {
+      "id": "q03",
+      "q": "Quel est le taux TVA normal en Belgique ?",
+      "o": ["6%", "12%", "21%", "0%"],
+      "a": 2,
+      "exp": "Taux normal : 21%.",
+      "tags": ["tva", "taux"]
+    },
+    {
+      "id": "q04",
+      "q": "Une note de crédit sert principalement à :",
+      "o": ["Augmenter une facture", "Corriger une facture (remise/retour/erreur)", "Remplacer une déclaration", "Créer une nouvelle TVA"],
+      "a": 1,
+      "exp": "Elle corrige base et TVA de la facture initiale.",
+      "tags": ["tva", "facturation"]
+    },
+    {
+      "id": "q05",
+      "q": "Une activité exemptée (ex: art. 44) implique souvent :",
+      "o": ["Déduction TVA totale", "Déduction TVA limitée voire nulle", "TVA toujours à 21%", "Aucune obligation TVA"],
+      "a": 1,
+      "exp": "Les opérations exemptées n’ouvrent souvent pas droit à déduction (prorata/mixte).",
+      "tags": ["tva", "exemption"]
+    },
+    {
+      "id": "q06",
+      "q": "Assujetti mixte :",
+      "o": ["Ne fait que du B2C", "Fait taxé + exempté", "Ne facture jamais", "N’a jamais de TVA déductible"],
+      "a": 1,
+      "exp": "Mixte = opérations taxées et exemptées → prorata/limitation.",
+      "tags": ["tva", "prorata"]
+    },
+    {
+      "id": "q07",
+      "q": "Autoliquidation signifie que :",
+      "o": ["Le fournisseur paie la TVA à la place du client", "Le client déclare la TVA", "La TVA n’existe pas", "La facture est toujours à 0%"],
+      "a": 1,
+      "exp": "Le preneur déclare (selon régime/cas).",
+      "tags": ["tva", "autoliquidation"]
+    },
+    {
+      "id": "q08",
+      "q": "Intracom : avant d’exonérer, réflexe n°1 :",
+      "o": ["Changer de taux", "Vérifier le n° TVA du client + preuves", "Ne rien faire", "Supprimer la facture"],
+      "a": 1,
+      "exp": "Validation n° TVA + preuves transport = clés.",
+      "tags": ["tva", "intracom"]
+    },
+    {
+      "id": "q09",
+      "q": "La base d’imposition inclut généralement :",
+      "o": ["Uniquement le prix hors frais", "La contrepartie + frais accessoires liés", "Uniquement la marge", "Uniquement le TTC"],
+      "a": 1,
+      "exp": "La base comprend la contrepartie totale liée à l’opération.",
+      "tags": ["tva", "base"]
+    },
+    {
+      "id": "q10",
+      "q": "Pour une voiture de tourisme, la TVA déductible est souvent :",
+      "o": ["Toujours 100%", "Souvent limitée (ex: max 50% selon cas)", "Toujours 0%", "Toujours 12%"],
+      "a": 1,
+      "exp": "Les voitures sont une zone à limitation fréquente.",
+      "tags": ["tva", "voitures"]
+    },
+    {
+      "id": "q11",
+      "q": "Une facture au mauvais nom (mauvais assujetti) :",
+      "o": ["Ne pose jamais de problème", "Peut bloquer la déduction", "Augmente la déduction", "Supprime la TVA due"],
+      "a": 1,
+      "exp": "Facture conforme et correctement établie est essentielle.",
+      "tags": ["tva", "facture"]
+    },
+    {
+      "id": "q12",
+      "q": "Contrôle TVA : poste le plus sensible en pratique :",
+      "o": ["Papeterie", "Voitures + dépenses mixtes", "Eau", "Téléphone"],
+      "a": 1,
+      "exp": "Voitures/mixtes/immobilisations sont typiquement ciblés.",
+      "tags": ["tva", "controle"]
+    }
+  ],
+  "flashcards": [
+    { "id": "f01", "front": "TVA", "back": "Impôt indirect sur la consommation ; collecté par les assujettis." },
+    { "id": "f02", "front": "Taux normal BE", "back": "21%." },
+    { "id": "f03", "front": "Taux réduits BE", "back": "12% et 6% (selon conditions)." },
+    { "id": "f04", "front": "Déduction TVA : 3 conditions clés", "back": "Assujetti + usage pro pour opérations ouvrant droit + facture conforme." },
+    { "id": "f05", "front": "Assujetti mixte", "back": "Opérations taxées + exemptées → prorata/limitation de déduction." },
+    { "id": "f06", "front": "Note de crédit", "back": "Corrige une facture : base et TVA." },
+    { "id": "f07", "front": "Autoliquidation", "back": "TVA déclarée par le client (preneur) dans certains cas." },
+    { "id": "f08", "front": "Intracom : réflexe", "back": "Valider n° TVA + preuves de transport + mentions facture." },
+    { "id": "f09", "front": "Zone à risque contrôle", "back": "Voitures, mixtes, immobilisations, intracom." },
+    { "id": "f10", "front": "Méthode ITAA réponse", "back": "Qualification → règle + conditions → application → point d’attention." }
+  ],
+  "oral": [
+    {
+      "q": "Explique la différence TVA due / TVA déductible.",
+      "a": "TVA due = TVA facturée sur ventes ; TVA déductible = TVA récupérable sur achats liés à l’activité taxable (conditions + limites)."
+    },
+    {
+      "q": "Comment raisonner sur une opération intracom ?",
+      "a": "Identifier statut B2B, valider n° TVA, vérifier conditions d’exonération, preuves transport, mentions facture, cohérence déclaration."
+    },
+    {
+      "q": "Pourquoi les voitures sont sensibles en TVA ?",
+      "a": "Usage mixte fréquent et règles de limitation : la déduction TVA est souvent plafonnée, nécessité de preuves et cohérence avec frais."
+    }
+  ],
+  "cases": [
+    {
+      "q": "Un indépendant achète un ordinateur utilisé 90% pro. TVA déductible ?",
+      "a": "En principe oui à concurrence de l’usage pro (90%), si assujetti et facture conforme (et activité ouvrant droit)."
+    },
+    {
+      "q": "Société achète un véhicule 30 000€ HTVA. Usage pro 60%. TVA déductible ?",
+      "a": "TVA = 30 000 × 21% = 6 300€. Pour voiture de tourisme, limitation fréquente (souvent max 50% selon cas) → 3 150€."
+    },
+    {
+      "q": "Facture fournisseur : n° TVA client erroné et nom incomplet. Déduction TVA possible ?",
+      "a": "Risque élevé : facture potentiellement non conforme. Demander facture corrigée (avoir/refacturation) avant de sécuriser la déduction."
+    },
+    {
+      "q": "Une note de crédit est émise pour une remise après facturation. Conséquence TVA ?",
+      "a": "La base d’imposition diminue ; la TVA doit être corrigée via note de crédit et reflétée dans la déclaration de la période concernée."
+    },
+    {
+      "q": "Activité mixte : 60% taxable, 40% exemptée. Déduction TVA sur frais généraux ?",
+      "a": "Déduction limitée via prorata (souvent proche de 60% si prorata général), selon méthode retenue et documentation."
+    },
+    {
+      "q": "Client UE assujetti achète un bien expédié hors Belgique. Conditions pour facturer à 0% ?",
+      "a": "Valider n° TVA client, preuves transport, mentions facture, respect des règles intracom et cohérence déclarative."
+    }
+  ]
+}
