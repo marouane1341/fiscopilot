@@ -1,0 +1,169 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #07142a, #0b1d3a);
+  color: #ffffff;
+  overflow-x: hidden; /* IMPORTANT : supprime ligne gauche */
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  background: #0d2345;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+.header-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-btn {
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+}
+
+/* =========================
+   SIDEBAR (MENU)
+========================= */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;   /* CACHE TOTAL */
+  width: 260px;
+  height: 100%;
+  background: #081a34;
+  padding: 20px 10px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+/* Items menu */
+
+.navitem {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  color: white;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.navitem:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main {
+  padding: 16px;
+}
+
+/* =========================
+   CARDS / MODULES
+========================= */
+
+.card {
+  background: #0d2345;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+  background: #2d6cdf;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.btn:hover {
+  background: #1f57ba;
+}
+
+/* =========================
+   QUIZ OPTIONS
+========================= */
+
+.option {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 6px 0;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.06);
+  color: white;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* =========================
+   SCROLLBAR (optionnel)
+========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+/* =========================
+   MOBILE SAFE AREA
+========================= */
+
+@media (max-width: 600px) {
+  .main {
+    padding: 12px;
+  }
+}
