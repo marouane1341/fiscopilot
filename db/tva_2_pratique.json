@@ -1,0 +1,62 @@
+{
+  "meta": { "title": "TVA 2 — Pratique cabinet", "version": 2 },
+
+  "lessons": [
+    {
+      "id": "tva2_01",
+      "title": "Base d’imposition : ce qui entre (et n’entre pas)",
+      "level": "🟡 Intermédiaire",
+      "text": "La base d’imposition = tout ce que le fournisseur reçoit en contrepartie.\n\nInclut souvent : frais accessoires (transport, emballage) si facturés au client.\n\nExclut selon cas : rabais/ristournes accordés correctement.\n\nPiège : confondre “prix” et “base”. La base peut être plus large.\n\nRéf : Art. 26 CTVA."
+    },
+    {
+      "id": "tva2_02",
+      "title": "Taux TVA : méthode pro (21% puis exceptions)",
+      "level": "🟡 Intermédiaire",
+      "text": "Méthode cabinet :\n1) je pars du principe 21%\n2) je vérifie si exception 12% ou 6%\n3) je vérifie les conditions (preuve, nature du bien/service)\n\nPiège : appliquer 6% “par habitude” sans vérifier conditions.\n\nRéflexe expert : si doute → 21% jusqu’à preuve du contraire."
+    },
+    {
+      "id": "tva2_03",
+      "title": "Droit à déduction : conditions et preuves",
+      "level": "🟠 Avancé",
+      "text": "Pour déduire la TVA, il faut :\n1) être assujetti\n2) usage professionnel (activité économique)\n3) facture conforme (mentions)\n\nPreuve : facture + cohérence comptable + réalité économique.\n\nPiège : facture non conforme → déduction refusée.\n\nRéf : Art. 45 CTVA."
+    },
+    {
+      "id": "tva2_04",
+      "title": "Voitures : la règle pratique (et le piège classique)",
+      "level": "🟠 Avancé",
+      "text": "En pratique, la déduction TVA sur voitures est limitée.\n\nMéthode :\n- déterminer l’usage pro réel\n- appliquer la limitation légale\n- documenter (agenda, politique véhicule, etc.)\n\nPiège : déduire 100% sans justification.\n\nRéflexe expert : “usage pro prouvé” = clé."
+    }
+  ],
+
+  "qcm": [
+    {
+      "level": "🟡",
+      "question": "La base d’imposition TVA correspond :",
+      "choices": ["Uniquement au prix hors TVA", "À la contrepartie reçue (souvent plus large)", "Toujours au prix TTC", "Uniquement aux frais de transport"],
+      "answer": 1,
+      "explain": "Base = contrepartie totale reçue (voir Art. 26 CTVA)."
+    },
+    {
+      "level": "🟠",
+      "question": "Le droit à déduction exige notamment :",
+      "choices": ["Une facture conforme", "Un paiement cash", "Un bon de commande", "Une déclaration annuelle"],
+      "answer": 0,
+      "explain": "Sans facture conforme, la déduction est fragile/refusée."
+    }
+  ],
+
+  "cases": [
+    {
+      "title": "Déduction TVA (usage pro)",
+      "level": "🟠",
+      "question": "Un indépendant achète un laptop. Il l’utilise 60% pro / 40% privé. Peut-il déduire la TVA à 100% ?",
+      "answer_md": "Non. La déduction doit refléter l’usage pro réel (60% si c’est l’usage prouvé).\nRéflexe : documenter l’usage et garder facture conforme."
+    },
+    {
+      "title": "Taux TVA (prudence)",
+      "level": "🟡",
+      "question": "Un client te dit : “c’est toujours 6%”. Que fais-tu ?",
+      "answer_md": "Réflexe cabinet : je pars de 21% et je vérifie le régime + conditions. Sans preuve → 21%."
+    }
+  ]
+}
