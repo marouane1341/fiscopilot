@@ -1,69 +1,137 @@
 {
-  "meta": { "title": "TVA 1 — Fondations", "version": 2 },
+  "meta": { "title": "TVA 1 — Fondations (Cabinet)", "version": 3 },
 
   "lessons": [
     {
       "id": "tva1_01",
-      "title": "TVA : logique, neutralité et mécanisme",
-      "level": "🟢 Débutant",
-      "text": "La TVA est un impôt sur la consommation, collecté par les entreprises.\n\nMécanisme : TVA due (ventes) – TVA déductible (achats) = TVA à payer / crédit.\n\nPourquoi “neutralité” ? Parce qu’en chaîne B2B, l’entreprise ne supporte normalement pas le coût final : elle collecte et déduit.\n\nExemple :\n- Achat : 100 + 21 TVA\n- Vente : 200 + 42 TVA\nTVA à payer = 42 – 21 = 21.\n\nRéflexe expert : toujours raisonner en 3 étapes : (1) TVA due ? (2) TVA déductible ? (3) solde.\n\nRéf : principes généraux Code TVA + Directive TVA."
+      "title": "Méthode cabinet : l’algorithme TVA en 7 questions",
+      "level": "🟡 Intermédiaire",
+      "text": "Quand un client demande “TVA ou pas TVA ?”, un expert applique toujours la même séquence :\n\n1) QUI ? (assujetti ? type : ordinaire / exempté / mixte / franchisé)\n2) QUOI ? (bien ou service ? opération taxable ?)\n3) OÙ ? (lieu de taxation : Belgique, UE, hors UE)\n4) QUAND ? (fait générateur / exigibilité, acomptes)\n5) COMBIEN ? (base d’imposition + taux)\n6) DÉDUCTION ? (conditions + limites)\n7) OBLIGATIONS ? (facture, déclaration, listing, intracom)\n\nRéflexe cabinet : tant que tu n’as pas répondu à ces 7 points, tu ne “tranches” pas."
     },
     {
       "id": "tva1_02",
-      "title": "Les 4 conditions TVA : le filtre de base",
+      "title": "TVA : neutralité et mécanisme pro",
       "level": "🟢 Débutant",
-      "text": "Pour appliquer la TVA :\n1) opération (bien/service)\n2) par un assujetti\n3) à titre onéreux\n4) au bon territoire.\n\nSi une condition manque → pas de TVA (ou régime spécifique).\n\nRéflexe expert : avant de penser taux/déduction, passe ce filtre."
+      "text": "La TVA est un impôt sur la consommation : l’entreprise collecte pour l’État et récupère la TVA sur ses achats (si conditions).\n\nSchéma : TVA due (ventes) – TVA déductible (achats) = solde.\n\nPiège : croire que “TVA = charge”. En B2B, la TVA est neutre si tout est correct.\n\nRéflexe : isoler la TVA en compta et vérifier cohérence avec déclaration."
     },
     {
       "id": "tva1_03",
-      "title": "Assujetti : qui est concerné et pourquoi ça change tout",
-      "level": "🟡 Intermédiaire",
-      "text": "Assujetti = personne qui exerce de façon indépendante une activité économique.\n\nIndépendant ≠ salarié : pas de lien de subordination.\nActivité économique = production, commerce, services.\n\nExemples :\n- indépendant, SRL, SA\n- ASBL : parfois assujettie si elle exerce une activité économique (même partielle)\n\nPiège : certaines activités sont exemptées mais restent “dans le monde TVA” (impact sur prorata).\n\nRéf : Art. 4 CTVA (assujetti)."
+      "title": "Les 4 conditions TVA (filtre d’entrée)",
+      "level": "🟢 Débutant",
+      "text": "Avant tout :\n1) opération (bien/service)\n2) par un assujetti\n3) à titre onéreux\n4) sur le territoire pertinent\n\nSi une condition manque : pas de TVA (ou régime particulier).\n\nAstuce cabinet : ce filtre évite 80% des erreurs."
     },
     {
       "id": "tva1_04",
-      "title": "Bien vs Service : savoir qualifier vite",
+      "title": "Assujetti : définition + cas concrets",
       "level": "🟡 Intermédiaire",
-      "text": "Bien = transfert du pouvoir de disposer comme propriétaire.\nService = tout le reste.\n\nPourquoi c’est crucial ? Le lieu de taxation et certaines obligations diffèrent.\n\nRéflexe expert : si pas d’objet transféré → service."
+      "text": "Assujetti = personne qui exerce de manière indépendante une activité économique.\n\nCas cabinet :\n- indépendant : oui\n- société : oui\n- salarié : non (subordination)\n- ASBL : parfois (si activité économique)\n\nPiège : “exempté” ≠ “hors TVA”. Beaucoup d’exemptions restent dans la sphère TVA (impact prorata / régularisations)."
     },
     {
       "id": "tva1_05",
-      "title": "Fait générateur et exigibilité : ne plus confondre",
+      "title": "Régimes fréquents : ordinaire, franchise, exempté, mixte",
       "level": "🟡 Intermédiaire",
-      "text": "Fait générateur = l’événement qui “fait naître” la TVA.\nExigibilité = moment où l’État peut exiger le paiement.\n\nEx : livraison aujourd’hui, facture demain : la TVA peut exister avant la facture.\n\nPiège ITAA : question “quand la TVA est due ?” = exigibilité.\n\nRéflexe expert : je réponds toujours : FG puis exigibilité."
+      "text": "En cabinet tu vois surtout :\n- Régime ordinaire : facture TVA + déduction possible\n- Franchise (petit assujetti) : pas de TVA facturée (conditions), déduction limitée\n- Exempté : pas de TVA sur ventes, souvent pas de déduction\n- Mixte : ventes taxées + exemptées → prorata\n\nRéflexe : identifier le régime AVANT de parler “déduction”."
+    },
+    {
+      "id": "tva1_06",
+      "title": "Bien vs service : qualification rapide (avec pièges)",
+      "level": "🟡 Intermédiaire",
+      "text": "Bien : transfert du pouvoir de disposer comme un propriétaire.\nService : tout ce qui n’est pas livraison de biens.\n\nPièges cabinet :\n- logiciel / accès SaaS : souvent service\n- montage + fourniture : analyser l’opération principale\n\nRéflexe : qualifier = condition pour lieu de taxation et règles B2B/B2C."
+    },
+    {
+      "id": "tva1_07",
+      "title": "Fait générateur vs exigibilité : répondre ITAA correctement",
+      "level": "🟡 Intermédiaire",
+      "text": "Fait générateur = naissance de la TVA.\nExigibilité = moment où la TVA est due à l’État.\n\nCas cabinet : facturation tardive, livraison partielle, acomptes.\n\nRéflexe : si question = “quand la TVA est due ?” → exigibilité."
+    },
+    {
+      "id": "tva1_08",
+      "title": "Acomptes : quand la TVA se déclenche (réflexe pro)",
+      "level": "🟠 Avancé",
+      "text": "Les acomptes peuvent rendre la TVA exigible avant la livraison finale (selon situation).\n\nPiège : oublier l’acompte → déclaration fausse.\n\nAstuce légale : cadrer le contrat + documents (acompte clairement identifié) pour éviter contestations."
+    },
+    {
+      "id": "tva1_09",
+      "title": "Base d’imposition : ce qui entre (et ce qui n’entre pas)",
+      "level": "🟡 Intermédiaire",
+      "text": "Base = contrepartie totale reçue.\n\nInclut souvent : frais accessoires (transport, assurance, emballage) facturés au client.\n\nPièges :\n- confondre remise commerciale vs réduction financière\n- oublier frais refacturés\n\nRéflexe : base ≠ juste “prix”."
+    },
+    {
+      "id": "tva1_10",
+      "title": "Taux TVA en Belgique : méthode prudente",
+      "level": "🟡 Intermédiaire",
+      "text": "Méthode cabinet :\n1) partir du taux normal (21%)\n2) vérifier si 12% ou 6% s’applique\n3) vérifier conditions + preuves\n\nPiège : appliquer un taux réduit “par habitude”.\n\nAstuce : si doute → position prudente + documentation."
+    },
+    {
+      "id": "tva1_11",
+      "title": "Mentions de facture : pourquoi le contrôle commence ici",
+      "level": "🟡 Intermédiaire",
+      "text": "La déduction TVA est fragile si la facture est non conforme.\n\nRéflexe :\n- contrôler mentions essentielles\n- vérifier identification TVA (client/fournisseur)\n- vérifier taux et base\n\nAstuce cabinet : établir une mini-checklist factures à l’entrée."
+    },
+    {
+      "id": "tva1_12",
+      "title": "Erreurs juniors fréquentes (et comment les éviter)",
+      "level": "🟡 Intermédiaire",
+      "text": "Top erreurs :\n- déduire TVA sans facture conforme\n- oublier acomptes\n- confondre B2B / B2C\n- taux réduit sans conditions\n- TVA voiture au hasard\n\nRéflexe : appliquer l’algorithme TVA + documenter."
     }
   ],
 
   "qcm": [
     {
       "level": "🟢",
-      "question": "La TVA est principalement supportée par :",
-      "choices": ["L'entreprise", "Le consommateur final", "Le comptable", "Le fournisseur"],
+      "question": "La meilleure première étape en cabinet pour décider “TVA ou pas TVA” est :",
+      "choices": ["Choisir le taux", "Vérifier le régime du client (assujetti/régime)", "Calculer la base", "Regarder la compta"],
       "answer": 1,
-      "explain": "La TVA est un impôt sur la consommation : le consommateur final en supporte la charge."
-    },
-    {
-      "level": "🟢",
-      "question": "Combien de conditions de base faut-il vérifier pour soumettre une opération à la TVA ?",
-      "choices": ["2", "3", "4", "6"],
-      "answer": 2,
-      "explain": "Opération + assujetti + onéreux + territoire."
+      "explain": "Sans identifier le régime/assujettissement, tu risques de te tromper sur tout le reste."
     },
     {
       "level": "🟡",
-      "question": "Une prestation sans transfert d'objet matériel est généralement :",
-      "choices": ["Une livraison de biens", "Une prestation de services", "Une importation", "Toujours exemptée"],
+      "question": "La base d’imposition correspond le plus souvent à :",
+      "choices": ["Le prix hors TVA uniquement", "La contrepartie totale reçue", "Le prix TTC", "Les frais uniquement"],
       "answer": 1,
-      "explain": "Service = tout ce qui n'est pas livraison de biens."
+      "explain": "La base est la contrepartie totale (souvent plus large que le prix “nu”)."
+    },
+    {
+      "level": "🟡",
+      "question": "En cas de doute sur un taux réduit, la position cabinet la plus sûre est :",
+      "choices": ["Appliquer le taux réduit", "Appliquer 21% jusqu’à preuve", "Ne pas facturer", "Facturer sans TVA"],
+      "answer": 1,
+      "explain": "Méthode prudente : 21% tant que les conditions du taux réduit ne sont pas prouvées."
+    },
+    {
+      "level": "🟠",
+      "question": "Pourquoi “bien vs service” est crucial ?",
+      "choices": ["Ça change le logo de la facture", "Ça impacte lieu de taxation et règles", "Ça ne sert qu’en théorie", "Ça supprime l’obligation de facture"],
+      "answer": 1,
+      "explain": "La qualification influence lieu de taxation, règles B2B/B2C et régimes."
+    },
+    {
+      "level": "🟡",
+      "question": "Une facture non conforme est surtout un problème car :",
+      "choices": ["Elle est plus longue", "Elle fragilise la déduction TVA", "Elle augmente la TVA", "Elle empêche le paiement client"],
+      "answer": 1,
+      "explain": "Le droit à déduction repose notamment sur une facture conforme."
     }
   ],
 
   "cases": [
     {
-      "title": "Méthode TVA (réflexe)",
-      "level": "🟢",
-      "question": "Un client te demande : “je dois facturer de la TVA ?”. Quelle est ta méthode rapide ?",
-      "answer_md": "Réponse cabinet :\n1) Qui (assujetti ?) \n2) Quoi (bien/service, taxable ?) \n3) Où (lieu taxation) \n4) Quand (exigibilité) \n5) Combien (base/taux) \n6) Déduction (si achat) \n7) Obligations (facture/décla)."
+      "title": "Réflexe cabinet",
+      "level": "🟡",
+      "question": "Un client te dit : “je facture à un client français, je mets TVA belge ?” Quelle est ta première réaction ?",
+      "answer_md": "Je ne réponds pas “oui/non” tout de suite. J’applique :\n1) Qui (B2B/B2C ?) \n2) Quoi (bien/service ?) \n3) Où (lieu taxation) \nPuis seulement je conclus (TVA belge / autoliquidation / etc.)."
+    },
+    {
+      "title": "Base d’imposition",
+      "level": "🟡",
+      "question": "Facture : service 1.000€ + frais de déplacement refacturés 80€. Sur quoi calculer la TVA ?",
+      "answer_md": "En pratique, la TVA se calcule sur la base d’imposition : 1.000 + 80 si les frais sont refacturés comme accessoires à la prestation."
+    },
+    {
+      "title": "Facture conforme",
+      "level": "🟡",
+      "question": "Le client veut déduire la TVA mais la facture ne mentionne pas correctement l’identification TVA du fournisseur. Risque ?",
+      "answer_md": "Risque de refus de déduction en contrôle. Réflexe : demander facture corrigée (note de crédit + nouvelle facture si nécessaire)."
     }
   ]
 }
