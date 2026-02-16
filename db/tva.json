@@ -1,0 +1,11 @@
+{
+  "meta": { "title": "TVA Belgique MASTER (split)", "version": 2 },
+  "parts": [
+    { "title": "Fondations", "path": "db/tva_1_fondations.json" },
+    { "title": "Pratique cabinet", "path": "db/tva_2_pratique.json" },
+    { "title": "Expert / ITAA", "path": "db/tva_3_expert.json" }
+  ],
+  "lessons": [],
+  "qcm": [],
+  "cases": []
+}
