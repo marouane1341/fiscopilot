@@ -1,43 +1,125 @@
 {
-  "meta": { "title": "TVA 3 — Expert / ITAA", "version": 2 },
+  "meta": { "title": "TVA 3 — Expert / ITAA (Cabinet)", "version": 3 },
 
   "lessons": [
     {
       "id": "tva3_01",
-      "title": "Assujetti mixte : logique du prorata (niveau ITAA)",
+      "title": "Assujetti mixte : la méthode de classement (avant prorata)",
       "level": "🔴 Expert",
-      "text": "Assujetti mixte = opérations taxées + exemptées.\n\nConséquence : la TVA sur certains frais n’est pas 100% déductible.\n\nMéthode :\n1) frais directement liés à des opérations taxées → déduction possible\n2) frais directement liés à exemptées → pas de déduction\n3) frais généraux → prorata\n\nPiège ITAA : oublier de distinguer “frais directs” et “frais généraux”.\n\nRéflexe expert : je classe les dépenses avant de calculer.\n\nRéf : logique Art. 45 CTVA + règles prorata."
+      "text": "Avant de calculer un prorata, on CLASSE :\n1) dépenses directement liées à opérations taxées → déduction (si conditions)\n2) dépenses directement liées à opérations exemptées → pas de déduction\n3) frais généraux → prorata\n\nPiège ITAA : calculer d’abord sans classer.\n\nAstuce cabinet : tableau simple “direct taxé / direct exempté / généraux”."
     },
     {
       "id": "tva3_02",
-      "title": "Régularisations : quand il faut “rendre” de la TVA",
+      "title": "Prorata : logique pro (sans se perdre)",
       "level": "🔴 Expert",
-      "text": "Si l’affectation d’un bien change (plus privé, plus exempté…), la TVA déduite peut devoir être régularisée.\n\nEx : bien d’investissement utilisé différemment.\n\nRéflexe expert : dès qu’il y a changement d’affectation → je pense “régularisation”."
+      "text": "Le prorata sert à limiter la TVA déductible sur les frais généraux quand le client fait taxé + exempté.\n\nRéflexe :\n- prorata = outil de prudence\n- documenter la méthode\n\nAstuce légale : si l’activité évolue, mettre à jour le prorata (et garder la justification)."
     },
     {
       "id": "tva3_03",
-      "title": "Contrôle TVA : comment sécuriser un dossier (astuces légales)",
+      "title": "Biens d’investissement : période de révision (idée clé)",
       "level": "🔴 Expert",
-      "text": "Objectif : être cohérent et documenté.\n\nChecklist cabinet :\n- factures conformes\n- liens avec activité pro\n- cohérence journaux/compte TVA/déclarations\n- preuves (contrats, mails, livraisons)\n\nAstuce légale : mieux vaut une position prudente + documentation complète qu’un avantage agressif non prouvable."
+      "text": "Un bien d’investissement peut déclencher des révisions de TVA si l’affectation change.\n\nRéflexe : dès qu’un bien “long terme” change d’usage (plus privé/exempté) → penser révision.\n\nAstuce : liste des biens sensibles + suivi annuel."
+    },
+    {
+      "id": "tva3_04",
+      "title": "Régularisations : quand il faut “rendre” ou récupérer de la TVA",
+      "level": "🔴 Expert",
+      "text": "Si l’usage change, la TVA déduite doit parfois être ajustée.\n\nPiège : oublier la régularisation après changement d’activité.\n\nAstuce : à chaque clôture, poser la question : “affectation inchangée ?”."
+    },
+    {
+      "id": "tva3_05",
+      "title": "Immobilier : pourquoi c’est un terrain à risques (approche cabinet)",
+      "level": "🔴 Expert",
+      "text": "Immobilier TVA = règles spécifiques et contrôles fréquents.\n\nRéflexe :\n- qualifier l’opération (location/cession/travaux)\n- vérifier options / exceptions\n- documenter\n\nAstuce prudence : en cas d’incertitude, position conservatrice + dossier complet."
+    },
+    {
+      "id": "tva3_06",
+      "title": "Contrôle TVA : comment sécuriser un dossier",
+      "level": "🔴 Expert",
+      "text": "Un contrôle TVA juge la cohérence.\n\nChecklist cabinet :\n- factures conformes\n- cohérence journaux/comptes TVA/déclaration\n- pièces sensibles annotées\n- preuves intracom / export\n\nAstuce : la meilleure défense = dossier propre AVANT le contrôle."
+    },
+    {
+      "id": "tva3_07",
+      "title": "Astuces légales : 5 réflexes qui font gagner du temps",
+      "level": "🟠 Avancé",
+      "text": "1) Standardiser une checklist factures\n2) Suivre intracom avec preuves\n3) Documenter l’usage pro (voiture/mixte)\n4) Faire un mini-rapprochement TVA chaque période\n5) Tracer toutes corrections (notes de crédit)\n\nRésultat : moins d’erreurs + moins de stress en contrôle."
+    },
+    {
+      "id": "tva3_08",
+      "title": "Réponse ITAA : structure “qualification → règle → application → conclusion”",
+      "level": "🔴 Expert",
+      "text": "Pour les questions ITAA/cabinet :\n1) Qualification (bien/service, B2B/B2C, régime)\n2) Règle (principe)\n3) Application au cas\n4) Conclusion (TVA, mentions, obligations)\n\nAstuce : une réponse structurée vaut plus que des mots-clés."
+    },
+    {
+      "id": "tva3_09",
+      "title": "Gestion du risque : prudence, preuve, cohérence",
+      "level": "🔴 Expert",
+      "text": "En TVA, le risque vient souvent de :\n- manque de preuve\n- incohérence compta/décla\n- application d’un régime favorable sans base\n\nAstuce légale : choisir une position défendable + documenter."
+    },
+    {
+      "id": "tva3_10",
+      "title": "Plan d’action cabinet : comment progresser vite",
+      "level": "🟠 Avancé",
+      "text": "Semaine type :\n- 3 cours (déduction/intracom/contrôle)\n- 20 QCM\n- 3 cas pratiques\n\nBut : automatiser la méthode TVA et repérer les pièges."
     }
   ],
 
   "qcm": [
     {
       "level": "🔴",
-      "question": "Dans un dossier mixte, avant de calculer un prorata, il faut d’abord :",
-      "choices": ["Calculer le prorata directement", "Classer les dépenses (direct taxé / direct exempté / frais généraux)", "Tout mettre en frais généraux", "Refuser toute déduction"],
+      "question": "Avant de calculer un prorata, le premier réflexe expert est :",
+      "choices": ["Calculer immédiatement", "Classer les dépenses (direct taxé/direct exempté/généraux)", "Tout mettre en généraux", "Refuser toute déduction"],
       "answer": 1,
-      "explain": "Réflexe expert : on classe d’abord, on calcule ensuite."
+      "explain": "La classification est la base. Sans elle, prorata = faux ou fragile."
+    },
+    {
+      "level": "🔴",
+      "question": "Le contrôle TVA cherche principalement :",
+      "choices": ["Des couleurs sur la facture", "La cohérence + preuves", "Le bénéfice ISOC", "Le logo de l’entreprise"],
+      "answer": 1,
+      "explain": "Cohérence journaux/comptes/décla + preuves (intracom, usage pro, etc.)."
+    },
+    {
+      "level": "🟠",
+      "question": "Une stratégie légale “cabinet-safe” en TVA est :",
+      "choices": ["Maximiser sans preuve", "Prudence + documentation complète", "Ignorer les obligations", "Toujours 0%"],
+      "answer": 1,
+      "explain": "Le meilleur ROI = une position défendable, justifiée, cohérente."
+    },
+    {
+      "level": "🔴",
+      "question": "En réponse ITAA, une structure efficace est :",
+      "choices": ["Conclusion directe sans explication", "Qualification → règle → application → conclusion", "Mots-clés uniquement", "Copier-coller du code"],
+      "answer": 1,
+      "explain": "La structure montre le raisonnement, c’est ce qui est évalué."
+    },
+    {
+      "level": "🔴",
+      "question": "Quand penser “régularisation” en TVA ?",
+      "choices": ["Jamais", "Quand l’affectation/usage change", "Quand le client change de banque", "Quand la facture est en PDF"],
+      "answer": 1,
+      "explain": "Changement d’usage = signal régularisation/révision."
     }
   ],
 
   "cases": [
     {
-      "title": "Assujetti mixte : méthode",
+      "title": "Assujetti mixte (méthode)",
       "level": "🔴",
       "question": "Une ASBL a une activité exemptée + une boutique taxable. Comment traiter la TVA sur frais généraux ?",
-      "answer_md": "Frais généraux → prorata. Mais d’abord : séparer les frais directement liés (taxé/exempté) puis prorata sur le reste.\nRéflexe : classification avant calcul."
+      "answer_md": "1) Identifier dépenses directes taxées (déduction possible si conditions)\n2) Identifier dépenses directes exemptées (pas de déduction)\n3) Frais généraux : appliquer prorata et documenter la méthode."
+    },
+    {
+      "title": "Contrôle TVA (sécurisation)",
+      "level": "🔴",
+      "question": "Le contrôleur demande la justification d’une déduction TVA sur dépenses sensibles. Que fournis-tu ?",
+      "answer_md": "Factures conformes + preuve du lien pro (contrats, mails, livraisons/prestations) + cohérence compta/déclaration + explication structurée."
+    },
+    {
+      "title": "Régularisation",
+      "level": "🔴",
+      "question": "Un bien d’investissement est maintenant utilisé davantage à titre privé. Quel réflexe TVA ?",
+      "answer_md": "Penser révision/régularisation de TVA déduite. Vérifier la période et documenter le changement d’affectation."
     }
   ]
 }
