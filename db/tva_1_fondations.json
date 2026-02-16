@@ -1,0 +1,69 @@
+{
+  "meta": { "title": "TVA 1 — Fondations", "version": 2 },
+
+  "lessons": [
+    {
+      "id": "tva1_01",
+      "title": "TVA : logique, neutralité et mécanisme",
+      "level": "🟢 Débutant",
+      "text": "La TVA est un impôt sur la consommation, collecté par les entreprises.\n\nMécanisme : TVA due (ventes) – TVA déductible (achats) = TVA à payer / crédit.\n\nPourquoi “neutralité” ? Parce qu’en chaîne B2B, l’entreprise ne supporte normalement pas le coût final : elle collecte et déduit.\n\nExemple :\n- Achat : 100 + 21 TVA\n- Vente : 200 + 42 TVA\nTVA à payer = 42 – 21 = 21.\n\nRéflexe expert : toujours raisonner en 3 étapes : (1) TVA due ? (2) TVA déductible ? (3) solde.\n\nRéf : principes généraux Code TVA + Directive TVA."
+    },
+    {
+      "id": "tva1_02",
+      "title": "Les 4 conditions TVA : le filtre de base",
+      "level": "🟢 Débutant",
+      "text": "Pour appliquer la TVA :\n1) opération (bien/service)\n2) par un assujetti\n3) à titre onéreux\n4) au bon territoire.\n\nSi une condition manque → pas de TVA (ou régime spécifique).\n\nRéflexe expert : avant de penser taux/déduction, passe ce filtre."
+    },
+    {
+      "id": "tva1_03",
+      "title": "Assujetti : qui est concerné et pourquoi ça change tout",
+      "level": "🟡 Intermédiaire",
+      "text": "Assujetti = personne qui exerce de façon indépendante une activité économique.\n\nIndépendant ≠ salarié : pas de lien de subordination.\nActivité économique = production, commerce, services.\n\nExemples :\n- indépendant, SRL, SA\n- ASBL : parfois assujettie si elle exerce une activité économique (même partielle)\n\nPiège : certaines activités sont exemptées mais restent “dans le monde TVA” (impact sur prorata).\n\nRéf : Art. 4 CTVA (assujetti)."
+    },
+    {
+      "id": "tva1_04",
+      "title": "Bien vs Service : savoir qualifier vite",
+      "level": "🟡 Intermédiaire",
+      "text": "Bien = transfert du pouvoir de disposer comme propriétaire.\nService = tout le reste.\n\nPourquoi c’est crucial ? Le lieu de taxation et certaines obligations diffèrent.\n\nRéflexe expert : si pas d’objet transféré → service."
+    },
+    {
+      "id": "tva1_05",
+      "title": "Fait générateur et exigibilité : ne plus confondre",
+      "level": "🟡 Intermédiaire",
+      "text": "Fait générateur = l’événement qui “fait naître” la TVA.\nExigibilité = moment où l’État peut exiger le paiement.\n\nEx : livraison aujourd’hui, facture demain : la TVA peut exister avant la facture.\n\nPiège ITAA : question “quand la TVA est due ?” = exigibilité.\n\nRéflexe expert : je réponds toujours : FG puis exigibilité."
+    }
+  ],
+
+  "qcm": [
+    {
+      "level": "🟢",
+      "question": "La TVA est principalement supportée par :",
+      "choices": ["L'entreprise", "Le consommateur final", "Le comptable", "Le fournisseur"],
+      "answer": 1,
+      "explain": "La TVA est un impôt sur la consommation : le consommateur final en supporte la charge."
+    },
+    {
+      "level": "🟢",
+      "question": "Combien de conditions de base faut-il vérifier pour soumettre une opération à la TVA ?",
+      "choices": ["2", "3", "4", "6"],
+      "answer": 2,
+      "explain": "Opération + assujetti + onéreux + territoire."
+    },
+    {
+      "level": "🟡",
+      "question": "Une prestation sans transfert d'objet matériel est généralement :",
+      "choices": ["Une livraison de biens", "Une prestation de services", "Une importation", "Toujours exemptée"],
+      "answer": 1,
+      "explain": "Service = tout ce qui n'est pas livraison de biens."
+    }
+  ],
+
+  "cases": [
+    {
+      "title": "Méthode TVA (réflexe)",
+      "level": "🟢",
+      "question": "Un client te demande : “je dois facturer de la TVA ?”. Quelle est ta méthode rapide ?",
+      "answer_md": "Réponse cabinet :\n1) Qui (assujetti ?) \n2) Quoi (bien/service, taxable ?) \n3) Où (lieu taxation) \n4) Quand (exigibilité) \n5) Combien (base/taux) \n6) Déduction (si achat) \n7) Obligations (facture/décla)."
+    }
+  ]
+}
