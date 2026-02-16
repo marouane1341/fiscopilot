@@ -1,0 +1,55 @@
+{
+  "lessons": [
+    {
+      "id": "tva_1",
+      "title": "TVA : principes & taux",
+      "text": "La TVA est une taxe indirecte sur la consommation. Elle est supportée par le consommateur final mais collectée par les assujettis.\n\nTaux en Belgique :\n- 21% (taux normal)\n- 12% (taux réduit)\n- 6% (taux réduit)\n\nOpérations : livraisons de biens et prestations de services, importations, acquisitions intracommunautaires."
+    },
+    {
+      "id": "tva_2",
+      "title": "Déduction TVA : conditions & limites",
+      "text": "Conditions générales de déduction :\n1) être assujetti TVA\n2) utiliser le bien/service pour des opérations ouvrant droit à déduction\n3) disposer d'une facture conforme\n\nLimites fréquentes : usage privé, dépenses mixtes, voitures de tourisme (plafonds), activités exemptées (prorata)."
+    },
+    {
+      "id": "tva_3",
+      "title": "TVA voitures : règle pratique",
+      "text": "Pour les voitures de tourisme, la déduction TVA est limitée (souvent max 50%) selon l'usage professionnel et les règles applicables.\n\nEn pratique cabinet : documenter l'usage (journal de bord / politique véhicule) et appliquer la limitation de déduction."
+    }
+  ],
+  "questions": [
+    {
+      "id": "tva_q1",
+      "q": "Quel est le taux TVA normal en Belgique ?",
+      "o": ["6%", "12%", "21%", "25%"],
+      "a": 2,
+      "exp": "Le taux normal est 21%.",
+      "tags": ["tva"]
+    },
+    {
+      "id": "tva_q2",
+      "q": "Quelle condition est indispensable pour déduire la TVA ?",
+      "o": ["Avoir une facture conforme", "Avoir payé en cash", "Avoir une facture en PDF uniquement", "Avoir un compte bancaire belge"],
+      "a": 0,
+      "exp": "La facture conforme est une condition clé (avec l'affectation pro et l'assujettissement).",
+      "tags": ["tva", "déduction"]
+    },
+    {
+      "id": "tva_q3",
+      "q": "La TVA est un impôt :",
+      "o": ["Direct", "Indirect", "Local uniquement", "Sans déclaration"],
+      "a": 1,
+      "exp": "La TVA est un impôt indirect.",
+      "tags": ["tva"]
+    }
+  ],
+  "cases": [
+    {
+      "q": "Une société achète un véhicule 30 000€ HTVA. Usage pro estimé : 60%. TVA déductible ?",
+      "a": "TVA = 30 000 × 21% = 6 300€. Pour voitures de tourisme, déduction souvent limitée à 50% max → 3 150€ (même si usage 60%)."
+    },
+    {
+      "q": "Un indépendant achète un ordinateur utilisé 90% pro. TVA déductible ?",
+      "a": "Oui, en principe à concurrence de l'usage pro (ici 90%), sous réserve d'être assujetti et d'avoir une facture conforme."
+    }
+  ]
+}
