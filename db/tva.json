@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "id": "tva_be_v1",
+    "title": "TVA Belgique — PRO (v1)",
+    "level": "junior → confirmé",
+    "last_update_hint": "base locale"
+  },
+  "lessons": [
+    {
+      "id": "tva-001",
+      "title": "TVA : logique, mécanisme et réflexe ITAA",
+      "sections": [
+        {
+          "h": "Objectif",
+          "md": "Comprendre **qui facture**, **qui déduit**, **quand** la TVA est due, et **comment raisonner** sans apprendre par cœur."
+        },
+        {
+          "h": "Réflexe cabinet (3 questions)",
+          "md": "1) **Opération taxable ?** (bien/service, lieu, assujetti)\n2) **Taux & base ?**\n3) **Déduction / prorata / régularisations ?**"
+        },
+        {
+          "h": "Pièges fréquents",
+          "md": "- Confondre **fait générateur** vs **exigibilité**\n- Oublier que la TVA est une **taxe neutre** *si* droit à déduction\n- Mélanger **exemption** (pas de TVA + souvent pas de déduction) et **exonération** (souvent 0% avec droit à déduction selon cas)"
+        }
+      ]
+    },
+    {
+      "id": "tva-002",
+      "title": "Assujetti : qui est concerné (et pourquoi ça change tout)",
+      "sections": [
+        {
+          "h": "Idée clé",
+          "md": "En TVA, la bonne question n’est pas “entreprise ou pas”, mais **activité économique** + **indépendance** + **habituel**."
+        },
+        {
+          "h": "Mini-checklist",
+          "md": "- Ai-je une **contrepartie** (prix) ?\n- L’activité est-elle **indépendante** ?\n- Est-ce **répété/habituel** ?\n- Suis-je **identifié TVA** ou dois-je l’être ?"
+        }
+      ]
+    },
+    {
+      "id": "tva-003",
+      "title": "Bien vs service : savoir qualifier vite",
+      "sections": [
+        {
+          "h": "Pourquoi c’est crucial",
+          "md": "La qualification impacte : **lieu**, **exigibilité**, **taux**, **formalités**."
+        },
+        {
+          "h": "Travaux immobiliers (important !)",
+          "md": "Le Code précise ce qu’on entend par **travail immobilier** (construction, transformation, réparation, entretien, nettoyage, démolition, + fourniture + placement rendant le bien immeuble).3"
+        },
+        {
+          "h": "Piège",
+          "md": "Une opération peut ressembler à de la vente de biens, mais être juridiquement un **travail immobilier** (et donc suivre ses règles)."
+        }
+      ]
+    },
+    {
+      "id": "tva-004",
+      "title": "Fait générateur vs exigibilité : le moment où la TVA “tombe”",
+      "sections": [
+        {
+          "h": "Réflexe",
+          "md": "Toujours isoler :\n- **Fait générateur** (l’opération est réalisée)\n- **Exigibilité** (le Trésor peut réclamer la taxe)"
+        },
+        {
+          "h": "Cas typiques",
+          "md": "- Livraison continue / paiements successifs : logique “période”\n- Facture avant la livraison : attention à l’exigibilité déclenchée par facturation\n- Acompte : l’encaissement peut déclencher l’exigibilité sur le montant perçu"
+        }
+      ]
+    },
+    {
+      "id": "tva-005",
+      "title": "Base d’imposition : ce qui entre (et ce qui n’entre pas)",
+      "sections": [
+        {
+          "h": "Principe",
+          "md": "Base = tout ce qui constitue la **contrepartie** obtenue (prix, accessoires, frais liés)."
+        },
+        {
+          "h": "Pièges",
+          "md": "- Réductions/remises\n- Débours (au sens strict)\n- Indemnités vs dommages et intérêts (pas automatique !)"
+        }
+      ]
+    },
+    {
+      "id": "tva-006",
+      "title": "Déduction TVA : le cœur du métier (conditions + preuves)",
+      "sections": [
+        {
+          "h": "Les 3 conditions “pro”",
+          "md": "1) assujetti agissant comme tel\n2) biens/services utilisés pour opérations ouvrant droit\n3) **facture conforme** et TVA légalement due"
+        },
+        {
+          "h": "Révisions : biens d’investissement",
+          "md": "Le Code prévoit une **révision sur 5 ans** (1/5 par an) pour biens d’investissement, et **15 ans** pour certains immobiliers (1/15), et même **25 ans** dans un cas spécifique de location visée à l’art. 44, §3, 2°, d).4"
+        }
+      ]
+    },
+    {
+      "id": "tva-007",
+      "title": "Prorata & affectation : mixte, exempté, privé",
+      "sections": [
+        {
+          "h": "Pourquoi tu te fais souvent piéger",
+          "md": "Parce qu’on confond :\n- affectation réelle (usage)\n- prorata général\n- régularisations (révisions)"
+        },
+        {
+          "h": "Réflexe",
+          "md": "Toujours noter : **% pro**, **% opérations avec droit**, **% exemptées**, puis décider si prorata/révision."
+        }
+      ]
+    },
+    {
+      "id": "tva-008",
+      "title": "Travaux immobiliers : qualification + risques",
+      "sections": [
+        {
+          "h": "Définition légale",
+          "md": "Travail immobilier = construction/transformation/achèvement/aménagement/réparation/entretien/nettoyage/démolition, + fourniture & placement rendant le meuble immeuble.5"
+        },
+        {
+          "h": "Cas assimilés à une prestation à titre onéreux",
+          "md": "Certains travaux immobiliers exécutés par l’assujetti peuvent être **assimilés** à une prestation à titre onéreux dans des situations prévues (notamment usages privés / fins étrangères à l’activité).6"
+        }
+      ]
+    },
+    {
+      "id": "tva-009",
+      "title": "Contrôle TVA : demandes de renseignements, délais, réflexes",
+      "sections": [
+        {
+          "h": "À connaître (pratique)",
+          "md": "Toute personne doit répondre **par écrit** aux demandes de renseignements : en principe **dans le mois** (calculé à partir du 3e jour ouvrable après envoi), avec possibilité de prolongation pour justes motifs. Dans certains cas, délai raccourci **à 10 jours** (ex. droits du Trésor en péril).7"
+        }
+      ]
+    },
+    {
+      "id": "tva-010",
+      "title": "Révisions & régularisations : méthode “1/5 – 1/15 – 1/25”",
+      "sections": [
+        {
+          "h": "Méthode",
+          "md": "Tu calcules la TVA initialement déduite, puis tu ajustes annuellement si l’usage/les droits changent."
+        },
+        {
+          "h": "Base légale (rappel)",
+          "md": "Périodes de révision : **5 ans** (1/5), **15 ans** (1/15) pour certains immobiliers, **25 ans** dans un cas particulier (location art. 44, §3, 2°, d)).8"
+        }
+      ]
+    }
+  ],
+  "qcm": [
+    {
+      "id": "q-001",
+      "question": "Une opération de fourniture + placement d’un bien meuble dans un immeuble, de sorte qu’il devienne immeuble par nature, se qualifie comme :",
+      "choices": ["Vente de biens", "Travail immobilier", "Prestation électronique", "Opération hors champ"],
+      "answer": 1,
+      "explain": "Le Code inclut explicitement la fourniture + placement rendant le bien immeuble dans la définition du travail immobilier.9"
+    },
+    {
+      "id": "q-002",
+      "question": "La révision TVA sur biens d’investissement (règle générale) se fait sur :",
+      "choices": ["1 an", "3 ans", "5 ans", "10 ans"],
+      "answer": 2,
+      "explain": "Révision sur 5 ans, à concurrence d’1/5 par an.10"
+    },
+    {
+      "id": "q-003",
+      "question": "En cas de demande de renseignements TVA, le délai “standard” de réponse est :",
+      "choices": ["10 jours", "15 jours", "1 mois", "3 mois"],
+      "answer": 2,
+      "explain": "Réponse par écrit dans le mois (avec exceptions à 10 jours).11"
+    },
+    {
+      "id": "q-004",
+      "question": "Une variation des éléments utilisés pour calculer la TVA déductible sur un bien d’investissement entraîne :",
+      "choices": ["Aucun effet", "Une révision annuelle", "Une amende automatique", "Une exonération"],
+      "answer": 1,
+      "explain": "Le mécanisme de révision s’opère chaque année sur la fraction (1/5, 1/15, …) lorsque des variations sont intervenues.12"
+    },
+    {
+      "id": "q-005",
+      "question": "Les travaux immobiliers effectués à titre gratuit pour besoins privés peuvent être :",
+      "choices": ["Toujours hors champ", "Assimilés à une prestation à titre onéreux", "Toujours exemptés", "Toujours soumis au taux 0%"],
+      "answer": 1,
+      "explain": "Le Code prévoit l’assimilation à une prestation à titre onéreux dans ce type de cas.13"
+    }
+  ],
+  "cases": [
+    {
+      "id": "c-001",
+      "title": "Déduction TVA voiture (usage mixte)",
+      "question": "Un indépendant utilise une voiture 70% pro / 30% privé. Comment raisonner pour la TVA (sans chiffres) ?",
+      "answer_md": "Réflexe :\n1) vérifier si l’opération (achat/charges) ouvre droit à déduction\n2) déterminer l’**affectation réelle** (70% pro)\n3) appliquer la déduction selon l’usage + vérifier si une **révision** est nécessaire si l’usage change dans le temps (logique des révisions)."
+    },
+    {
+      "id": "c-002",
+      "title": "Travail immobilier déguisé",
+      "question": "Une société vend et installe un système fixé de manière permanente dans un immeuble (il devient immeuble par nature). Bien ou service ?",
+      "answer_md": "C’est un **travail immobilier** si la fourniture + placement fait devenir le bien immeuble par nature. Impacts : règles propres, risques de mauvaise qualification.14"
+    },
+    {
+      "id": "c-003",
+      "title": "Contrôle TVA : demande de renseignements",
+      "question": "Tu reçois une demande de renseignements TVA. Quels réflexes et délais ?",
+      "answer_md": "Répondre **par écrit** dans le délai applicable : en principe **1 mois** (calculé à partir du 3e jour ouvrable après envoi), possibilité de prolongation ; certains cas → **10 jours**. Documenter et garder preuve d’envoi.15"
+    }
+  ]
+}
