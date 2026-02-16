@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FiscoPilot AI ELITE MAX 🇧🇪</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-title">
+      FiscoPilot AI ELITE MAX 🇧🇪
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </div>
+
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+
+    <button class="navitem" onclick="loadModules()">🏠 Dashboard</button>
+    <button class="navitem">📚 Modules</button>
+    <button class="navitem">🧪 Quiz</button>
+    <button class="navitem">🧾 Examen</button>
+    <button class="navitem">🤖 Prof IA</button>
+    <button class="navitem">🧠 Flashcards</button>
+    <button class="navitem">📊 Stats</button>
+    <button class="navitem">⚙️ Paramètres</button>
+
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <h2>Modules</h2>
+
+    <div id="modulesList">
+      Chargement...
+    </div>
+
+  </div>
+
+
+  <script src="app.js"></script>
+
+</body>
+</html>
