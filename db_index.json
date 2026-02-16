@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "updated_at": "2026-01-01",
+  "modules": [
+    {
+      "id": "tva",
+      "title": "TVA Belgique",
+      "db_url": "db/tva.json",
+      "tags": ["tva"]
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-01-01",
+      "title": "Base initiale",
+      "summary": "Première version."
+    }
+  ]
+}
