@@ -1,0 +1,43 @@
+{
+  "meta": { "title": "TVA 3 — Expert / ITAA", "version": 2 },
+
+  "lessons": [
+    {
+      "id": "tva3_01",
+      "title": "Assujetti mixte : logique du prorata (niveau ITAA)",
+      "level": "🔴 Expert",
+      "text": "Assujetti mixte = opérations taxées + exemptées.\n\nConséquence : la TVA sur certains frais n’est pas 100% déductible.\n\nMéthode :\n1) frais directement liés à des opérations taxées → déduction possible\n2) frais directement liés à exemptées → pas de déduction\n3) frais généraux → prorata\n\nPiège ITAA : oublier de distinguer “frais directs” et “frais généraux”.\n\nRéflexe expert : je classe les dépenses avant de calculer.\n\nRéf : logique Art. 45 CTVA + règles prorata."
+    },
+    {
+      "id": "tva3_02",
+      "title": "Régularisations : quand il faut “rendre” de la TVA",
+      "level": "🔴 Expert",
+      "text": "Si l’affectation d’un bien change (plus privé, plus exempté…), la TVA déduite peut devoir être régularisée.\n\nEx : bien d’investissement utilisé différemment.\n\nRéflexe expert : dès qu’il y a changement d’affectation → je pense “régularisation”."
+    },
+    {
+      "id": "tva3_03",
+      "title": "Contrôle TVA : comment sécuriser un dossier (astuces légales)",
+      "level": "🔴 Expert",
+      "text": "Objectif : être cohérent et documenté.\n\nChecklist cabinet :\n- factures conformes\n- liens avec activité pro\n- cohérence journaux/compte TVA/déclarations\n- preuves (contrats, mails, livraisons)\n\nAstuce légale : mieux vaut une position prudente + documentation complète qu’un avantage agressif non prouvable."
+    }
+  ],
+
+  "qcm": [
+    {
+      "level": "🔴",
+      "question": "Dans un dossier mixte, avant de calculer un prorata, il faut d’abord :",
+      "choices": ["Calculer le prorata directement", "Classer les dépenses (direct taxé / direct exempté / frais généraux)", "Tout mettre en frais généraux", "Refuser toute déduction"],
+      "answer": 1,
+      "explain": "Réflexe expert : on classe d’abord, on calcule ensuite."
+    }
+  ],
+
+  "cases": [
+    {
+      "title": "Assujetti mixte : méthode",
+      "level": "🔴",
+      "question": "Une ASBL a une activité exemptée + une boutique taxable. Comment traiter la TVA sur frais généraux ?",
+      "answer_md": "Frais généraux → prorata. Mais d’abord : séparer les frais directement liés (taxé/exempté) puis prorata sur le reste.\nRéflexe : classification avant calcul."
+    }
+  ]
+}
