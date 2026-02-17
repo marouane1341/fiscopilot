@@ -1,0 +1,509 @@
+/* =========================================================
+   FiscoPilot — Premium UI (style.css)
+   Compatible with app.js Premium V2 (classes fp-*)
+   ========================================================= */
+
+/* ---------- Reset / Base ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  color: rgba(255,255,255,0.92);
+  background:
+    radial-gradient(900px 700px at 15% 10%, rgba(55, 120, 255, 0.18), transparent 60%),
+    radial-gradient(900px 700px at 85% 0%, rgba(0, 255, 180, 0.10), transparent 55%),
+    radial-gradient(900px 900px at 50% 100%, rgba(255, 190, 70, 0.08), transparent 60%),
+    linear-gradient(180deg, #071428 0%, #050b16 55%, #040812 100%);
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* important: avoid weird "fixed overlay" feeling on mobile */
+  overflow-x: hidden;
+}
+
+/* Optional: improve font rendering */
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+a { color: inherit; }
+
+/* ---------- Shell / Layout ---------- */
+.fp-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* topbar (sticky) */
+.fp-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: calc(10px + env(safe-area-inset-top)) 14px 10px 14px;
+
+  background: rgba(7, 14, 28, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.fp-brand { flex: 1; min-width: 0; }
+.fp-title {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fp-accent { color: #f3c05f; }
+.fp-sub {
+  margin-top: 2px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+}
+
+/* online badge */
+.fp-status {
+  font-size: 12px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.86);
+  white-space: nowrap;
+}
+.fp-status.on {
+  border-color: rgba(0, 255, 170, 0.30);
+  background: rgba(0, 255, 170, 0.10);
+}
+.fp-status.off {
+  border-color: rgba(255, 90, 90, 0.30);
+  background: rgba(255, 90, 90, 0.12);
+}
+
+/* main */
+.fp-main {
+  flex: 1;
+  padding: 16px 14px 24px 14px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ---------- Typography ---------- */
+.fp-h1 {
+  font-size: 54px;
+  line-height: 1.02;
+  font-weight: 950;
+  letter-spacing: -0.8px;
+  margin: 8px 0 8px 0;
+}
+
+.fp-h2 {
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.fp-muted { color: rgba(255,255,255,0.70); }
+.fp-muted.small { font-size: 13px; }
+.fp-muted.tiny { font-size: 12px; opacity: 0.85; }
+
+.fp-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.90);
+}
+
+/* ---------- Buttons ---------- */
+.fp-iconbtn {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.fp-iconbtn:active { transform: scale(0.98); }
+.fp-iconbtn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.16); }
+
+.fp-btn {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  padding: 12px 14px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.fp-btn:hover { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.18); }
+.fp-btn:active { transform: scale(0.99); }
+
+.fp-btnPrimary {
+  border-color: rgba(80, 150, 255, 0.40);
+  background: linear-gradient(180deg, rgba(72, 140, 255, 0.90), rgba(50, 108, 210, 0.88));
+  box-shadow: 0 10px 24px rgba(40, 110, 255, 0.22);
+}
+.fp-btnPrimary:hover {
+  border-color: rgba(105, 175, 255, 0.50);
+  box-shadow: 0 12px 30px rgba(40, 110, 255, 0.28);
+}
+.fp-btnGhost {
+  background: rgba(255,255,255,0.06);
+}
+
+.fp-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.10);
+  margin: 14px 0;
+}
+
+/* ---------- Hero ---------- */
+.fp-hero {
+  padding: 8px 2px 14px 2px;
+}
+.fp-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fp-rowWrap { flex-wrap: wrap; }
+
+/* ---------- Tabs ---------- */
+.fp-tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+.fp-tab {
+  flex: 1;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.05);
+  border-radius: 18px;
+  padding: 12px 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background .12s ease, border-color .12s ease;
+}
+.fp-tab:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.14); }
+.fp-tab.active {
+  border-color: rgba(60, 170, 255, 0.35);
+  background: rgba(60, 170, 255, 0.12);
+}
+
+/* ---------- Cards / Grid / List ---------- */
+.fp-card {
+  padding: 16px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+  overflow: hidden; /* avoid any scrolling shadow artifacts */
+}
+
+.fp-cardHover { cursor: pointer; }
+.fp-cardHover:hover {
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+}
+
+.fp-cardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fp-cardTitle { font-weight: 950; font-size: 16px; }
+
+.fp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.fp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fp-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.fp-itemTitle {
+  font-weight: 950;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.fp-pillRow { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.fp-pill {
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.88);
+}
+.fp-pill.ghost {
+  background: rgba(255,255,255,0.035);
+  color: rgba(255,255,255,0.70);
+}
+
+/* ---------- Inputs ---------- */
+.fp-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.92);
+  outline: none;
+}
+.fp-input::placeholder { color: rgba(255,255,255,0.45); }
+.fp-input:focus {
+  border-color: rgba(80, 150, 255, 0.45);
+  box-shadow: 0 0 0 3px rgba(80, 150, 255, 0.18);
+}
+
+/* ---------- QCM / Cases blocks ---------- */
+.fp-q { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); }
+.fp-qTitle { font-weight: 950; margin-bottom: 10px; }
+.fp-ul, .fp-ol { margin: 0; padding-left: 18px; }
+.fp-pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: rgba(0,0,0,0.25);
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.fp-details { margin-top: 10px; }
+.fp-details summary { cursor: pointer; font-weight: 900; }
+
+/* ---------- Drawer ---------- */
+.fp-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: none;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: calc(12px + env(safe-area-inset-top)) 12px 12px 12px;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.fp-drawer.open { display: flex; }
+
+.fp-drawerCard {
+  width: min(420px, 100%);
+  border-radius: 26px;
+  background: rgba(10, 18, 36, 0.92);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+  overflow: hidden;
+}
+.fp-drawerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.fp-drawerTitle { font-weight: 950; font-size: 16px; }
+.fp-drawerBody { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+
+/* ---------- Modal (Lesson Reader) ---------- */
+.fp-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: none;
+  padding: calc(12px + env(safe-area-inset-top)) 12px calc(12px + env(safe-area-inset-bottom)) 12px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.fp-modal.open { display: block; }
+
+.fp-modalInner {
+  max-width: 980px;
+  margin: 0 auto;
+  height: calc(100vh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  display: flex;
+}
+
+.fp-modalCard {
+  width: 100%;
+  border-radius: 26px;
+  background: rgba(10, 18, 36, 0.94);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 30px 120px rgba(0,0,0,0.60);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header in modal */
+.fp-modalHead {
+  padding: 12px 12px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.fp-modalTitle { min-width: 0; }
+.fp-modalTitle .fp-h2 {
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* modal body: toc + article */
+.fp-modalBody {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 12px;
+  overflow: hidden; /* avoid strange overlay artifacts */
+}
+
+/* toc drawer inside modal */
+.fp-toc {
+  display: none;
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.08);
+  max-height: 40vh;
+  overflow: auto;
+}
+.fp-toc.open { display: block; }
+.fp-tocTitle { font-weight: 950; margin-bottom: 10px; }
+
+.fp-tocLink {
+  display: block;
+  padding: 10px 10px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.92);
+  opacity: 0.92;
+}
+.fp-tocLink:hover { background: rgba(255,255,255,0.06); }
+
+/* article scroll area */
+.fp-article {
+  padding: 6px;
+  overflow: auto; /* internal scroll, not weird fixed background */
+  -webkit-overflow-scrolling: touch;
+  border-radius: 22px;
+}
+
+/* sections */
+.fp-sec {
+  margin: 14px 0;
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.fp-secTitle {
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  opacity: 0.92;
+  margin-bottom: 10px;
+}
+
+/* modal footer */
+.fp-modalFoot {
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.fp-modalFoot .fp-btn { flex: 1; }
+
+/* ---------- Responsive ---------- */
+@media (min-width: 860px) {
+  .fp-main { padding: 18px 18px 28px 18px; }
+  .fp-grid { grid-template-columns: 1fr 1fr; }
+  .fp-h1 { font-size: 64px; }
+
+  .fp-modalBody {
+    grid-template-columns: 320px 1fr;
+    align-items: start;
+  }
+  .fp-toc { display: block; max-height: calc(100vh - 240px); }
+  .fp-toc.open { display: block; } /* keep same */
+  .fp-article { padding: 10px; }
+}
+
+/* ---------- Accessibility / Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- Small utility tweaks ---------- */
+::selection { background: rgba(80, 150, 255, 0.35); }
+
+/* Prevent iOS zoom on input focus */
+input, textarea, select { font-size: 16px; }
+/* =========================================================
+   CORRECTION BUG FOND QUI RESTE (drawer / modal)
+   ========================================================= */
+
+.fp-modal,
+.fp-drawer {
+  display: block !important;
+
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+
+  background: rgba(0,0,0,0.55) !important;
+}
+
+.fp-modal.open,
+.fp-drawer.open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* sécurité Android backdrop */
+.fp-modal:not(.open),
+.fp-drawer:not(.open) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
