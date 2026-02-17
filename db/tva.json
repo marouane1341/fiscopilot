@@ -1,30 +1,275 @@
 {
-  "courses": [
+  "meta": { "title": "TVA Belgique — Cours (Premium V2)", "version": 21 },
+  "lessons": [
     {
-      "title": "Méthode TVA cabinet",
-      "content": "Un expert raisonne toujours dans cet ordre : Qui ? Quoi ? Où ? Quand ? Combien ? Déduction ? Obligations."
-    },
-    {
-      "title": "Neutralité TVA",
-      "content": "La TVA est neutre pour l'assujetti : il collecte pour l'État mais récupère sur ses achats."
-    }
-  ],
-  "qcm": [
-    {
-      "question": "La TVA est payée par :",
-      "options": [
-        "L'entreprise",
-        "Le consommateur final",
-        "Le comptable",
-        "L'État"
+      "id": "tva_01",
+      "title": "TVA : neutralité et mécanisme (raisonnement cabinet)",
+      "level": "🟢 Débutant",
+      "module": "TVA Belgique",
+
+      "outline": [
+        "Objectif",
+        "Explication",
+        "Exemple chiffré",
+        "À retenir",
+        "Pièges",
+        "Checklist cabinet",
+        "Mini-exercice"
       ],
-      "answer": "Le consommateur final"
-    }
-  ],
-  "cases": [
+
+      "objective": "Comprendre la logique complète TVA (TVA due vs TVA déductible) et savoir l’expliquer proprement à un client : pourquoi la TVA n’est pas censée être un coût pour une entreprise… sauf exceptions.",
+      "explanation": "La TVA est un impôt sur la consommation. L’entreprise assujettie agit comme intermédiaire : elle collecte la TVA sur ses ventes (TVA due) et récupère, sous conditions, la TVA payée sur ses achats professionnels (TVA déductible).\n\nLa neutralité signifie que la TVA n’est pas un coût final pour l’assujetti qui remplit les conditions de déduction : il reverse la différence entre TVA due et TVA déductible. En pratique, la TVA devient un coût quand :\n- l’activité est exemptée (droit à déduction limité)\n- la dépense n’a pas de lien suffisant avec l’activité économique\n- la facture n’est pas conforme\n- une limitation légale s’applique (ex. voiture, usage privé, etc.).",
+
+      "example": "Une société vend pour 1.000€ HTVA au taux 21% → TVA due = 210€.\nElle achète des marchandises 600€ HTVA au taux 21% → TVA déductible = 126€.\nTVA à payer = 210 - 126 = 84€.\n\nSi la facture d’achat est non conforme, la TVA déductible peut être refusée → TVA à payer augmente.",
+
+      "takeaways": [
+        "TVA due = TVA sur ventes ; TVA déductible = TVA sur achats pro (si conditions).",
+        "La TVA est neutre seulement si les conditions de déduction sont remplies.",
+        "En cabinet, la TVA se défend par la preuve + la cohérence (factures/compta/déclaration)."
+      ],
+
+      "traps": "Confondre TVA due et TVA déductible.\nPenser que toute TVA payée est récupérable : conditions + limites.\nSous-estimer l’importance de la facture conforme.",
+
+      "checklist": "Réflexe cabinet en 3 étapes :\n1) Opération taxable ? (hors champ / exemptée / taxable)\n2) Taux + base ?\n3) Déduction ? (conditions + limites + prorata/régularisation)\n\nSi point sensible : note interne courte + pièces classées.",
+
+      "mini_exercise": {
+        "question": "Une entreprise facture 2.000€ HTVA à 21%. Elle a 900€ HTVA d’achats à 21%. Calcule la TVA à payer et cite 2 raisons fréquentes de refus de déduction.",
+        "answer": "TVA due = 2.000×21% = 420€.\nTVA déductible = 900×21% = 189€.\nTVA à payer = 420 - 189 = 231€.\nRefus fréquent : facture non conforme ; usage non pro / dépense privée ; limitation légale (voiture…)."
+      }
+    },
+
     {
-      "question": "Un indépendant achète du matériel 100% pro. TVA déductible ?",
-      "answer": "Oui si facture conforme et usage professionnel."
+      "id": "tva_02",
+      "title": "Les 4 conditions TVA : le filtre d’entrée (avant tout calcul)",
+      "level": "🟢 Débutant",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Exemples", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Savoir déterminer rapidement si une opération tombe dans le champ de la TVA. Si une condition manque, tu changes de logique (hors champ / exempté / régime spécial).",
+      "explanation": "Avant de parler taux, facture ou déduction, on passe le “filtre TVA”. Une opération est en principe dans la TVA si :\n1) il y a livraison de biens ou prestation de services,\n2) à titre onéreux (contrepartie réelle),\n3) réalisée par un assujetti agissant comme tel,\n4) localisée sur le territoire selon les règles de lieu.\n\nSi une condition manque, on peut être hors champ (pas TVA), ou dans une situation nécessitant un traitement particulier (subvention, indemnité, opération gratuite…).",
+      "example": "Subvention sans contrepartie directe : souvent pas une opération à titre onéreux → hors champ TVA (à analyser selon réalité économique).\nService facturé à un client : onéreux → champ TVA (reste à vérifier le lieu).",
+      "takeaways": [
+        "Avant le taux : vérifier champ (bien/service + onéreux + assujetti + lieu).",
+        "Une mauvaise qualification au départ fait tomber tout le raisonnement.",
+        "Toujours reformuler l’opération en une phrase simple."
+      ],
+      "traps": "Confondre subvention (sans contrepartie) et prix (contrepartie).\nOublier “assujetti agissant comme tel”.",
+      "checklist": "Question rapide :\n- Bien ou service ?\n- Contrepartie ?\n- Assujetti ?\n- Où est l’opération ?",
+      "mini_exercise": {
+        "question": "Une ASBL reçoit 5.000€ d’une commune pour “soutenir ses activités”. Aucune contrepartie contractuelle. TVA ?",
+        "answer": "Souvent hors champ (pas de contrepartie directe). Mais il faut vérifier la réalité : existe-t-il un service rendu identifié à la commune ? Si oui → opération onéreuse potentielle."
+      }
+    },
+
+    {
+      "id": "tva_03",
+      "title": "Assujetti : qui est concerné (et pourquoi ça change tout)",
+      "level": "🟡 Intermédiaire",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Cas concrets", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Savoir qualifier le statut TVA d’un client (ordinaire, exempté, franchise, mixte). Ce statut pilote facturation, déduction et obligations.",
+      "explanation": "Un assujetti exerce de manière indépendante une activité économique de façon habituelle. En pratique, on rencontre :\n- Assujetti ordinaire : facture TVA, déduit TVA si conditions.\n- Assujetti exempté (souvent art. 44) : ne facture pas la TVA mais droit à déduction limité.\n- Franchise (petite entreprise) : régime simplifié, souvent sans TVA sur ventes mais restrictions.\n- Assujetti mixte : taxé + exempté → prorata sur frais généraux.\n\nUn client peut basculer (nouvelle activité, changement modèle). En cabinet, c’est un point de risque : si le statut change, le traitement TVA change.",
+      "example": "Un consultant taxable lance une formation exemptée : il peut devenir mixte → frais généraux (loyer, téléphone) soumis au prorata.",
+      "takeaways": [
+        "Exempté ≠ hors TVA : c’est dans la TVA mais sans TVA facturée, avec impact sur déduction.",
+        "Le statut peut évoluer : toujours re-check quand l’activité change.",
+        "Un client mixte = classification des dépenses + prorata sur frais généraux."
+      ],
+      "traps": "Penser “exempté = zéro obligations”.\nOublier le prorata et les ajustements.",
+      "checklist": "Toujours demander :\n- Activités exactes ?\n- Taxable/exemptée/franchise ?\n- Mixité ?\n- Impact déduction + obligations.",
+      "mini_exercise": {
+        "question": "Une société fait 70% de ventes taxées et 30% d’activité exemptée. Comment traiter l’électricité du bureau ?",
+        "answer": "Électricité = frais général. Si société mixte, appliquer un prorata (méthode documentée) sur la TVA déductible de ce poste."
+      }
+    },
+
+    {
+      "id": "tva_04",
+      "title": "Biens vs services : qualifier vite (avec pièges)",
+      "level": "🟡 Intermédiaire",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Exemples", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Distinguer livraison de biens et prestation de services, car la localisation, l’exigibilité et le traitement international changent.",
+      "explanation": "Un bien est corporel (marchandise, matériel). Un service est tout le reste (consulting, abonnement, travaux…). La distinction compte surtout en UE/hors UE : une mauvaise qualification peut mener au mauvais pays de TVA ou au mauvais mécanisme (TVA locale vs autoliquidation).",
+      "example": "Ordinateur vendu : bien.\nSaaS (abonnement logiciel) : service.\nTravaux rénovation : service lié à immeuble (règles spécifiques).",
+      "takeaways": [
+        "Bien/service = point pivot pour le lieu de taxation.",
+        "Travaux immobiliers : exceptions fréquentes → prudence.",
+        "SaaS ≠ “vente de logiciel” automatique : souvent service."
+      ],
+      "traps": "Traiter SaaS comme livraison.\nOublier exceptions immobilier.",
+      "checklist": "Toujours clarifier :\n- Qu’est-ce qui est livré ?\n- Élément principal ?\n- Lien immeuble ?",
+      "mini_exercise": {
+        "question": "Une société belge facture un abonnement mensuel à une plateforme à un client UE (B2B). Bien ou service ?",
+        "answer": "En général service (SaaS). Ensuite appliquer règles de lieu B2B (souvent preneur → autoliquidation), sous réserve d’exceptions."
+      }
+    },
+
+    {
+      "id": "tva_05",
+      "title": "Lieu de taxation : Belgique, UE, hors UE (méthode cabinet)",
+      "level": "🟡 Intermédiaire",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Méthode", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Déterminer dans quel pays la TVA est due, sans se perdre dans la théorie : méthode en 3 questions.",
+      "explanation": "Méthode cabinet :\n1) Bien ou service ?\n2) B2B ou B2C ?\n3) Règle générale + exceptions (immobilier, e-services, événements, transport…).\n\nB2B services : souvent lieu du preneur (autoliquidation). B2C : souvent lieu du prestataire, sauf exceptions.",
+      "takeaways": [
+        "B2B/B2C est souvent le “switch” principal.",
+        "Toujours vérifier n° TVA client en B2B.",
+        "Chercher l’exception avant de conclure."
+      ],
+      "traps": "Appliquer B2B sans vérifier le n° TVA.\nIgnorer exceptions (immobilier).",
+      "checklist": "Données à exiger :\n- Statut client\n- N° TVA valide\n- Description opération\n- Lieu réel/immobilier",
+      "mini_exercise": {
+        "question": "Consulting BE → client FR assujetti (n° TVA valide). TVA belge sur facture ?",
+        "answer": "Souvent non : service B2B → lieu du preneur (FR) → autoliquidation + mention adéquate. Vérifier exceptions."
+      }
+    },
+
+    {
+      "id": "tva_06",
+      "title": "Fait générateur vs exigibilité : le bon moment de déclaration",
+      "level": "🟡 Intermédiaire",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Cas acomptes", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Éviter les erreurs de période (TVA déclarée trop tôt/trop tard) : comprendre exigibilité et impact des acomptes.",
+      "explanation": "Fait générateur = naissance de l’opération. Exigibilité = moment où la TVA devient due à l’administration. Les acomptes peuvent déclencher de la TVA avant la fin d’un projet.\n\nEn cabinet, on vise la cohérence : facture/paiement/livraison → période correcte → déclaration correcte.",
+      "takeaways": [
+        "Acompte = signal d’exigibilité possible.",
+        "Les décalages de période créent des incohérences repérables.",
+        "Toujours relier facture/paiement/prestation."
+      ],
+      "traps": "Déclarer seulement à la fin malgré des acomptes.\nFacturer tard et “oublier” les conséquences.",
+      "checklist": "Toujours vérifier :\n- acomptes ?\n- date facture ?\n- date paiement ?\n- période déclaration ?",
+      "mini_exercise": {
+        "question": "Acompte reçu en février, prestation terminée en mars. Risque ?",
+        "answer": "Risque de déclarer trop tard : une partie de la TVA peut être exigible en février selon règles. Vérifier régime et aligner compta/déclaration."
+      }
+    },
+
+    {
+      "id": "tva_07",
+      "title": "Base d’imposition : ce qui entre (et ce qui n’entre pas)",
+      "level": "🟡 Intermédiaire",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Exemples", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Calculer une base HTVA correcte (frais, remises, refacturations). Éviter les erreurs classiques en contrôle.",
+      "explanation": "La base TVA = contrepartie totale liée à l’opération. On inclut souvent les frais accessoires (transport, emballage…). Les remises réduisent la base. Les débours “au nom et pour compte” sont un cas spécial : ils exigent preuve et structure correcte.",
+      "takeaways": [
+        "Frais accessoires liés au prix entrent souvent dans la base.",
+        "Remises : base après remise.",
+        "Débours : preuve + traitement strict."
+      ],
+      "traps": "Refacturer des frais en pensant que c’est hors TVA sans preuve.\nConfondre débours et refacturation.",
+      "checklist": "Toujours vérifier :\n- frais accessoires ?\n- remises ?\n- débours prouvés ?",
+      "mini_exercise": {
+        "question": "Facture 1.000€ + 50€ livraison. Base TVA ?",
+        "answer": "1.050€ (frais accessoires liés à l’opération)."
+      }
+    },
+
+    {
+      "id": "tva_08",
+      "title": "Taux TVA Belgique : méthode pro (21/12/6) + prudence",
+      "level": "🟡 Intermédiaire",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Méthode", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Choisir le bon taux avec une méthode défendable. Un taux réduit n’est pas “un choix”, c’est une justification.",
+      "explanation": "Le taux standard = 21%. Les taux réduits = uniquement si conditions légales strictes. Méthode : qualifier précisément → vérifier base légale → vérifier conditions → documenter si sensible.",
+      "takeaways": [
+        "Le taux réduit = preuve + conditions.",
+        "Si tu ne peux pas justifier, tu es en risque.",
+        "En cas de doute : position prudente + note interne."
+      ],
+      "traps": "Appliquer 6% “par habitude”.\nNe pas garder preuves/attestations.",
+      "checklist": "Si taux réduit :\n- base légale ?\n- conditions remplies ?\n- preuves conservées ?\n- mentions facture ?",
+      "mini_exercise": {
+        "question": "Ton client veut 6% “parce que c’est un logement”. Quel réflexe ?",
+        "answer": "Stop réflexe : vérifier conditions exactes (nature travaux, conditions, preuves/attestation). Sans justification : prudence (souvent 21%)."
+      }
+    },
+
+    {
+      "id": "tva_09",
+      "title": "Facture conforme : le point n°1 qui casse la déduction",
+      "level": "🟡 Intermédiaire",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Exemples", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Comprendre pourquoi la facture est la pièce reine : une facture faible = déduction fragile.",
+      "explanation": "La facture est la preuve principale. Si mentions essentielles manquent (identité, n° TVA, base, taux, description…), l’administration peut refuser la déduction même si l’achat est réel. En cabinet : mini-checklist à l’entrée, surtout sur postes sensibles.",
+      "takeaways": [
+        "Facture faible = déduction contestable.",
+        "Intracom/autoliquidation : mentions + n° TVA indispensables.",
+        "Décrire l’opération clairement (pas “services divers”)."
+      ],
+      "traps": "Factures vagues.\nN° TVA client/fournisseur non vérifié.\nMentions autoliquidation manquantes.",
+      "checklist": "Contrôle rapide :\n- identités + n° TVA\n- description précise\n- base/taux/TVA\n- mentions spéciales",
+      "mini_exercise": {
+        "question": "Facture : “Prestations”, pas de n° TVA fournisseur. Risque ?",
+        "answer": "Risque refus de déduction (mentions essentielles + preuve insuffisante). Demander une facture corrigée."
+      }
+    },
+
+    {
+      "id": "tva_10",
+      "title": "Droit à déduction : règle + preuve (le cœur du métier)",
+      "level": "🟠 Avancé",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Exemples", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Maîtriser les conditions de déduction et surtout la logique “preuve + cohérence” en cabinet.",
+      "explanation": "Déduction si : assujetti + usage pro (activité économique) + facture conforme + pas de limitation. En pratique : démontrer le lien pro et garder cohérence facture↔compta↔déclaration. Les points sensibles exigent souvent une justification écrite.",
+      "takeaways": [
+        "Déduction = conditions + preuve.",
+        "La cohérence compta/décla est un test de contrôle.",
+        "Les dépenses mixtes = clé prudente et stable."
+      ],
+      "traps": "Déduire sans facture correcte.\nUsage privé déguisé.\nIgnorer limitations (voiture, mixte).",
+      "checklist": "Avant déduction :\n- facture OK ?\n- lien pro ?\n- limitation ?\n- cohérence compta/décla ?",
+      "mini_exercise": {
+        "question": "Ordinateur utilisé 90% pro / 10% privé : TVA déductible ?",
+        "answer": "En principe déduction à hauteur de l’usage pro (clé réaliste et documentée)."
+      }
+    },
+
+    {
+      "id": "tva_11",
+      "title": "Dépenses mixtes : pro vs privé (méthode cabinet)",
+      "level": "🟠 Avancé",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Méthode", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Mettre en place une méthode stable pour les frais mixtes (téléphone, internet, domicile, etc.) : clé défendable + documentation.",
+      "explanation": "Les dépenses mixtes sont un classique de redressement. L’idée n’est pas d’avoir la perfection, mais une méthode cohérente : définir une clé pro/privé raisonnable, stable, et documentée (même simplement).",
+      "takeaways": [
+        "Une clé stable > une clé “optimisée” non prouvée.",
+        "Documentation minimale = bouclier en contrôle.",
+        "Toujours aligner la clé entre postes similaires."
+      ],
+      "traps": "100% pro sans preuve.\nClés changeantes sans logique.\nIncohérences entre dépenses similaires.",
+      "checklist": "Pour chaque poste mixte :\n- clé pro/privé\n- justification\n- cohérence dans le temps",
+      "mini_exercise": {
+        "question": "Téléphone pro mais usage privé ponctuel. Que fais-tu ?",
+        "answer": "Définir une clé prudente (ex. 80/20) + justification (fonction/besoin) + cohérence."
+      }
+    },
+
+    {
+      "id": "tva_12",
+      "title": "Voitures : règle pratique + dossier anti-redressement",
+      "level": "🟠 Avancé",
+      "module": "TVA Belgique",
+      "outline": ["Objectif", "Explication", "Méthode", "À retenir", "Pièges", "Checklist", "Mini-exercice"],
+      "objective": "Savoir appliquer une logique simple et défendable sur les voitures : clé, preuves minimales, cohérence.",
+      "explanation": "La voiture est un terrain de contrôle fréquent. L’administration attend une méthode : usage pro réel, clé cohérente, pièces classées. Une position 100% sans preuve est fragile.\n\nEn cabinet : politique véhicule + clé + preuve minimale + cohérence compta/déclaration.",
+      "takeaways": [
+        "Voiture = poste “risque” → prudence + dossier.",
+        "Clé cohérente sur tous frais liés.",
+        "Preuve minimale vaut mieux que rien."
+      ],
+      "traps": "100% pro sans preuve.\nCarburant 100% mais entretien 50% sans logique.",
+      "checklist": "Dossier voiture :\n- politique\n- clé\n- cohérence\n- preuve minimale (agenda/notes/logique)",
+      "mini_exercise": {
+        "question": "Client veut 100% TVA déductible sur voiture, aucune preuve. Réponse ?",
+        "answer": "Position fragile. Proposer clé réaliste + documentation. Sans preuve, risque redressement élevé."
+      }
     }
   ]
 }
