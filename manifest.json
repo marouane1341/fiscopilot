@@ -1,0 +1,15 @@
+{
+  "name": "FiscoPilot AI ELITE MAX",
+  "short_name": "FiscoPilot",
+  "start_url": "./?pwa=1",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    {
+      "src": "1771157559196.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
