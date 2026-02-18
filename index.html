@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="manifest" href="manifest.json?v=34" />
+
+  <!-- ✅ CSS (nom standard : styles.css) -->
+  <link rel="stylesheet" href="styles.css?v=34" />
+
+  <title>FiscoPilot AI ELITE MAX</title>
+</head>
+
+<body>
+  <div class="bg"></div>
+
+  <header class="topbar">
+    <button class="iconBtn" id="btnMenu" aria-label="Menu">
+      <span class="icon">≡</span>
+    </button>
+
+    <div class="brand">
+      <div class="brandTitle">FiscoPilot <span class="gold">AI ELITE MAX</span> 🇧🇪</div>
+      <div class="brandSub">Mode PWA • Offline-ready • Build <span id="buildNum">34</span></div>
+    </div>
+
+    <div class="right">
+      <div class="pill online" id="netPill">En ligne</div>
+    </div>
+  </header>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawerHead">
+      <div class="drawerTitle">Menu</div>
+      <button class="iconBtn" id="btnClose" aria-label="Fermer">
+        <span class="icon">×</span>
+      </button>
+    </div>
+
+    <div class="drawerBody">
+      <button class="navBtn" id="navModules">📚 Modules</button>
+      <button class="navBtn" id="navForceRefresh">🔄 Forcer refresh</button>
+
+      <div class="hint">
+        Astuce : si tu modifies les JSON, incrémente <b>APP_BUILD</b> (app.js) et <b>CACHE_NAME</b> (sw.js).
+      </div>
+    </div>
+  </aside>
+
+  <main class="container" id="app"></main>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modalSheet">
+      <div class="modalTop">
+        <button class="iconBtn" id="modalClose" aria-label="Fermer"><span class="icon">×</span></button>
+        <div class="modalMeta">
+          <div class="pill" id="modalLevel">Niveau</div>
+          <div class="pill" id="modalPos">1/1</div>
+        </div>
+        <button class="iconBtn" id="modalMenu" aria-label="Menu"><span class="icon">≡</span></button>
+      </div>
+
+      <div class="modalBody" id="modalBody"></div>
+
+      <div class="modalBottom">
+        <button class="btn ghost" id="prevBtn">◀ Précédent</button>
+        <button class="btn primary" id="nextBtn">Suivant ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ JS -->
+  <script src="app.js?v=34"></script>
+
+  <!-- ✅ SW : on force une URL versionnée pour casser le cache -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", async () => {
+        try {
+          await navigator.serviceWorker.register("sw.js?v=34");
+        } catch (e) {}
+      });
+    }
+  </script>
+</body>
+</html>
