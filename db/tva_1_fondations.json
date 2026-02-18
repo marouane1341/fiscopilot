@@ -1,13 +1,72 @@
 {
-  "meta": { "title": "TVA 1 — Fondations (cours longs)", "version": 1 },
+  "meta": { "title": "TVA 1 — Fondations Premium (Cabinet)", "version": 1 },
+
   "lessons": [
     {
       "id": "tva1_01",
-      "title": "TVA : neutralité et mécanisme (raisonnement cabinet)",
+      "title": "Droit à déduction : la règle simple + la preuve",
+      "level": "🟡 Intermédiaire",
+      "text": "OBJECTIF\nSavoir quand la TVA est déductible et surtout comment la sécuriser en contrôle.\n\nEXPLICATION\nLe droit à déduction n’est pas une « option ». C’est un mécanisme encadré : TVA déductible seulement si la dépense sert à des opérations taxables (ou assimilées) et si les conditions formelles sont respectées.\n\nCONDITIONS CABINET (les 5 checks)\n1) Dépense professionnelle : lien réel avec l’activité.\n2) Facture conforme : mentions obligatoires, n° TVA, base, taux.\n3) Dépense non exclue/limitée : voiture, logement, frais mixtes…\n4) Affectation correcte : pro vs privé, usage mixte.\n5) Preuves : contrat, email, bon de livraison, justificatifs.\n\nEXEMPLE\nUn consultant achète un laptop (usage pro). Facture OK + paiement + usage pro documenté → déduction possible.\nPiège : « facture OK » mais usage privé dominant sans preuve → risque de redressement.\n\nÀ RETENIR\n- Le contrôleur conteste rarement une dépense bien documentée.\n- Une facture seule n’est pas toujours suffisante si l’usage pro est douteux.\n\nMINI-EXERCICE\nTu dois défendre une déduction sur un abonnement téléphonique. Écris la preuve minimum à conserver (contrat + usage pro + politique interne)."
+    },
+    {
+      "id": "tva1_02",
+      "title": "Facture conforme : la checklist anti-problèmes",
       "level": "🟢 Débutant",
-      "text": "OBJECTIF:\nComprendre la logique complète TVA (TVA due vs TVA déductible) et savoir expliquer le mécanisme clairement à un client.\n\nEXPLICATION:\nLa TVA est un impôt sur la consommation. Une entreprise assujettie joue un rôle d’intermédiaire : elle collecte la TVA sur ses ventes (TVA due) et récupère, sous conditions, la TVA payée sur ses achats professionnels (TVA déductible).\n\nLa neutralité signifie que, pour une entreprise qui remplit les conditions de déduction, la TVA n’est pas un coût final : le coût économique est le montant hors TVA. MAIS cette neutralité est limitée par des règles : facture conforme, usage professionnel, exclusions (ex. voiture, frais mixtes), activités exemptées, etc.\n\nEn cabinet, on ne \"fait pas de TVA\" au feeling. On distingue toujours :\n- TVA due (ce que l’entreprise doit reverser)\n- TVA déductible (ce que l’entreprise peut récupérer)\n- TVA à payer / à récupérer (différence)\n\nEXEMPLE:\nUn consultant facture 1.000€ HT à un client belge.\n- TVA due = 21% de 1.000€ = 210€ (il la collecte pour l’État)\nIl achète un ordinateur pour 800€ HT.\n- TVA sur achat = 168€.\nSi usage 100% pro + facture conforme :\nTVA à payer = 210 - 168 = 42€.\n\nSi l’ordinateur est utilisé à 60% pro / 40% privé :\nTVA déductible = 168€ × 60% = 100,80€.\nTVA à payer = 210 - 100,80 = 109,20€.\n\nPIÈGES:\n- Confondre TVA et chiffre d’affaires : la TVA n’est pas un revenu.\n- Croire que toute TVA est déductible : usage pro + facture conforme + pas d’exclusion.\n- Oublier que certaines opérations sont exemptées (ex. certaines prestations médicales) : alors la déduction change.\n- Ne pas documenter l’usage pro (voiture, téléphone, mixte) : en contrôle, sans preuve → risque.\n\nCHECKLIST:\n- Identifier l’opération : taxable / exemptée / hors champ.\n- Déterminer le taux applicable.\n- Vérifier la facture (mentions, identité, n° TVA si requis).\n- Vérifier le lien avec l’activité pro (preuve : contrat, mails, livraison, politique interne).\n- Vérifier les limites de déduction (voitures, mixtes, exclusions).\n- Rapprocher : journaux TVA ↔ comptes TVA ↔ déclaration.\n\nMINI-TEST:\n1) Pourquoi dit-on que la TVA est neutre pour un assujetti ?\n2) Quelles sont les 2 conditions minimum à vérifier avant toute déduction ?\n3) Dans l’exemple, que change un usage mixte 60/40 ?"
+      "text": "OBJECTIF\nSavoir contrôler une facture en 60 secondes et repérer les erreurs fréquentes.\n\nEXPLICATION\nLa facture est la pièce centrale en TVA. Une facture incomplète ou incohérente fragilise la déduction et peut créer des corrections (notes de crédit, refacturations…).\n\nCHECKLIST CABINET (rapide)\n- Identité fournisseur + client : nom/adresse.\n- Numéros TVA (si applicable) : exacts.\n- Date + numéro de facture.\n- Description claire : nature du bien/service.\n- Base imposable, taux, montant TVA.\n- Mentions spéciales : autoliquidation, exonération, intracom, etc.\n\nPIÈGES\n- Mauvais n° TVA ou client incorrect.\n- Libellé trop vague (« prestations diverses »).\n- Mention exonération absente.\n\nÀ RETENIR\nFacture = preuve formelle. Sans facture correcte, tu te bats inutilement.\n\nMINI-EXERCICE\nPrends une facture réelle (sans données sensibles) et coche la checklist. Note 2 améliorations possibles."
+    },
+    {
+      "id": "tva1_03",
+      "title": "Dépenses mixtes : pro vs privé (méthode cabinet)",
+      "level": "🟡 Intermédiaire",
+      "text": "OBJECTIF\nÉviter le piège des dépenses mixtes (voiture, téléphone, logement) et sécuriser la déduction.\n\nEXPLICATION\nUne dépense mixte implique un usage professionnel et privé. En TVA, cela implique souvent une limitation de déduction ou une méthode de ventilation. Le risque : déduire « trop » sans justification.\n\nMÉTHODE CABINET\n1) Identifier si mixte (oui/non).\n2) Choisir une clé raisonnable (km pro, usage, temps…).\n3) Documenter : politique interne + preuves (agenda, logs, etc.).\n4) Appliquer de façon cohérente dans le temps.\n\nEXEMPLE\nTéléphone : si 70% usage pro, garder une preuve (contrat pro, relevés, justification). Si incertain → clé prudente.\n\nÀ RETENIR\nEn contrôle, la question n’est pas « combien tu déduis », mais « comment tu peux le prouver ».\n\nMINI-EXERCICE\nPropose une clé de ventilation pour une voiture (ex : carnet km) et une pour un téléphone (ex : forfait pro + justification)."
+    },
+    {
+      "id": "tva1_04",
+      "title": "Exonération vs hors champ : ne pas confondre",
+      "level": "🟡 Intermédiaire",
+      "text": "OBJECTIF\nDistinguer clairement « hors champ » (pas TVA) et « exonéré » (TVA mais exonération) car les conséquences sont très différentes.\n\nEXPLICATION\n- Hors champ : l’opération ne remplit pas les conditions TVA (ex : pas de contrepartie directe, pas d’assujetti agissant comme tel…).\n- Exonéré : l’opération est dans le champ TVA mais une règle prévoit une exonération (souvent avec obligations/mentions).\n\nCONSÉQUENCES\n- Hors champ : en principe pas de TVA à facturer.\n- Exonéré : souvent facture sans TVA mais mention obligatoire + impact possible sur droit à déduction.\n\nEXEMPLE\nCertaines activités médicales/enseignement peuvent être exonérées. Cela peut limiter la déduction sur les frais généraux.\n\nÀ RETENIR\nExonéré ≠ « tranquille ». Ça peut impacter le prorata et déclencher obligations.\n\nMINI-EXERCICE\nClasse : subvention sans service (hors champ), formation exonérée (exonéré), vente classique (taxable)."
     }
   ],
-  "qcm": [],
-  "cases": []
+
+  "qcm": [
+    {
+      "level": "🟡",
+      "question": "Pour sécuriser une TVA déductible « sensible », le meilleur combo est :",
+      "choices": [
+        "Rien, la facture suffit toujours",
+        "Facture + lien pro documenté (contrat/preuves) + cohérence comptable",
+        "Uniquement un mail",
+        "Uniquement une capture d’écran"
+      ],
+      "answer": 1,
+      "explain": "Le contrôle cherche la cohérence et les preuves, pas seulement la facture."
+    },
+    {
+      "level": "🟢",
+      "question": "Une facture « conforme » sert principalement à :",
+      "choices": [
+        "Faire joli",
+        "Justifier légalement la TVA (due et déductible)",
+        "Remplacer les contrats",
+        "Éviter toute obligation"
+      ],
+      "answer": 1,
+      "explain": "La facture est la pièce formelle clé en TVA."
+    }
+  ],
+
+  "cases": [
+    {
+      "title": "Dépense mixte (téléphone)",
+      "level": "🟡",
+      "question": "Un indépendant veut déduire 100% de la TVA sur un téléphone utilisé aussi en privé. Que fais-tu ?",
+      "answer_md": "Je conseille une clé réaliste (ex : 60–80% selon usage), documentée (contrat pro, relevés, politique). 100% sans preuve = risque."
+    },
+    {
+      "title": "Facture invalide",
+      "level": "🟢",
+      "question": "Une facture a un n° TVA fournisseur incorrect. Peut-on déduire ?",
+      "answer_md": "Risque élevé. Il faut demander une facture corrigée/avoir une preuve correcte. Sans correction, déduction fragile."
+    }
+  ]
 }
