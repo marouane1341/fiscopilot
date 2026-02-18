@@ -1,177 +1,96 @@
 {
   "meta": { "title": "TVA 3 — Expert / ITAA (Cabinet)", "version": 5 },
 
-  "courses": [
-    {
-      "id": "tva3_01",
-      "title": "Assujetti mixte : méthode de classement (avant prorata)",
-      "level": "🔴 Expert",
-      "content": "Avant de calculer un prorata, on CLASSE :\n1) dépenses direct taxées → déduction (si conditions)\n2) dépenses direct exemptées → pas de déduction\n3) frais généraux → prorata\n\nAstuce : tableau simple “direct taxé / direct exempté / généraux”.",
-      "text": "Avant de calculer un prorata, on CLASSE :\n1) dépenses direct taxées → déduction (si conditions)\n2) dépenses direct exemptées → pas de déduction\n3) frais généraux → prorata\n\nAstuce : tableau simple “direct taxé / direct exempté / généraux”."
-    },
-    {
-      "id": "tva3_02",
-      "title": "Prorata : logique pro (sans se perdre)",
-      "level": "🔴 Expert",
-      "content": "Le prorata limite la TVA déductible sur frais généraux quand taxé + exempté.\n\nRéflexe : documenter la méthode.\nAstuce : si l’activité évolue, mettre à jour le prorata + justification.",
-      "text": "Le prorata limite la TVA déductible sur frais généraux quand taxé + exempté.\n\nRéflexe : documenter la méthode.\nAstuce : si l’activité évolue, mettre à jour le prorata + justification."
-    },
-    {
-      "id": "tva3_03",
-      "title": "Biens d’investissement : idée clé (révisions)",
-      "level": "🔴 Expert",
-      "content": "Bien d’investissement : si l’affectation change, la TVA déduite peut devoir être ajustée.\n\nRéflexe : dès que l’usage change → penser révision.",
-      "text": "Bien d’investissement : si l’affectation change, la TVA déduite peut devoir être ajustée.\n\nRéflexe : dès que l’usage change → penser révision."
-    },
-    {
-      "id": "tva3_04",
-      "title": "Régularisations : quand il faut “rendre” ou récupérer",
-      "level": "🔴 Expert",
-      "content": "Changement d’usage = ajustement possible.\n\nAstuce : à chaque clôture, se poser la question “affectation inchangée ?”.",
-      "text": "Changement d’usage = ajustement possible.\n\nAstuce : à chaque clôture, se poser la question “affectation inchangée ?”."
-    },
-    {
-      "id": "tva3_05",
-      "title": "Immobilier : terrain à risques (approche cabinet)",
-      "level": "🔴 Expert",
-      "content": "Immobilier TVA = règles spécifiques + contrôles.\n\nRéflexe : qualifier (location/cession/travaux), vérifier options/exceptions, documenter.",
-      "text": "Immobilier TVA = règles spécifiques + contrôles.\n\nRéflexe : qualifier (location/cession/travaux), vérifier options/exceptions, documenter."
-    },
-    {
-      "id": "tva3_06",
-      "title": "Contrôle TVA : sécuriser un dossier",
-      "level": "🔴 Expert",
-      "content": "Checklist :\n- factures conformes\n- cohérence journaux/comptes TVA/déclaration\n- pièces sensibles annotées\n- preuves intracom/export\n\nLa meilleure défense = dossier propre avant contrôle.",
-      "text": "Checklist :\n- factures conformes\n- cohérence journaux/comptes TVA/déclaration\n- pièces sensibles annotées\n- preuves intracom/export\n\nLa meilleure défense = dossier propre avant contrôle."
-    },
-    {
-      "id": "tva3_07",
-      "title": "Astuces légales : 5 réflexes cabinet",
-      "level": "🟠 Avancé",
-      "content": "1) checklist factures\n2) intracom avec preuves\n3) usage pro documenté (voiture/mixte)\n4) rapprochement TVA périodique\n5) corrections tracées (notes de crédit)\n\nRésultat : moins d’erreurs, moins de stress.",
-      "text": "1) checklist factures\n2) intracom avec preuves\n3) usage pro documenté (voiture/mixte)\n4) rapprochement TVA périodique\n5) corrections tracées (notes de crédit)\n\nRésultat : moins d’erreurs, moins de stress."
-    },
-    {
-      "id": "tva3_08",
-      "title": "Réponse ITAA : structure gagnante",
-      "level": "🔴 Expert",
-      "content": "Structure :\n1) qualification\n2) règle\n3) application\n4) conclusion + obligations\n\nUne réponse structurée vaut plus que des mots-clés.",
-      "text": "Structure :\n1) qualification\n2) règle\n3) application\n4) conclusion + obligations\n\nUne réponse structurée vaut plus que des mots-clés."
-    },
-    {
-      "id": "tva3_09",
-      "title": "Gestion du risque : prudence, preuve, cohérence",
-      "level": "🔴 Expert",
-      "content": "Risque TVA = manque de preuve + incohérence + position favorable sans base.\n\nAstuce : choisir une position défendable + documenter.",
-      "text": "Risque TVA = manque de preuve + incohérence + position favorable sans base.\n\nAstuce : choisir une position défendable + documenter."
-    },
-    {
-      "id": "tva3_10",
-      "title": "Plan d’action cabinet : progresser vite",
-      "level": "🟠 Avancé",
-      "content": "Semaine type :\n- 3 cours (déduction/intracom/contrôle)\n- 20 QCM\n- 3 cas\n\nBut : automatiser la méthode et repérer pièges.",
-      "text": "Semaine type :\n- 3 cours (déduction/intracom/contrôle)\n- 20 QCM\n- 3 cas\n\nBut : automatiser la méthode et repérer pièges."
-    },
-    {
-      "id": "tva3_11",
-      "title": "Prorata : méthode cabinet (étapes + preuve)",
-      "level": "🔴 Expert",
-      "content": "Étapes :\n1) classer les dépenses\n2) calculer prorata sur frais généraux\n3) appliquer avec prudence\n4) documenter base de calcul et hypothèses\n\nAstuce : une méthode stable + justification = défense en contrôle.",
-      "text": "Étapes :\n1) classer les dépenses\n2) calculer prorata sur frais généraux\n3) appliquer avec prudence\n4) documenter base de calcul et hypothèses\n\nAstuce : une méthode stable + justification = défense en contrôle."
-    },
-    {
-      "id": "tva3_12",
-      "title": "Régularisations : cas typiques à surveiller",
-      "level": "🔴 Expert",
-      "content": "Cas typiques :\n- passage de taxé → exempté\n- augmentation usage privé\n- changement activité\n\nRéflexe : dès qu’un client “change son modèle”, penser TVA.",
-      "text": "Cas typiques :\n- passage de taxé → exempté\n- augmentation usage privé\n- changement activité\n\nRéflexe : dès qu’un client “change son modèle”, penser TVA."
-    },
-    {
-      "id": "tva3_13",
-      "title": "Contrôle : comment répondre sans se piéger",
-      "level": "🔴 Expert",
-      "content": "Réflexe :\n- répondre factuellement\n- fournir pièces demandées (pas plus)\n- expliquer le raisonnement\n- corriger si erreur (mieux vaut correction maîtrisée)\n\nBut : cohérence, calme, preuves.",
-      "text": "Réflexe :\n- répondre factuellement\n- fournir pièces demandées (pas plus)\n- expliquer le raisonnement\n- corriger si erreur (mieux vaut correction maîtrisée)\n\nBut : cohérence, calme, preuves."
-    },
-    {
-      "id": "tva3_14",
-      "title": "Position prudente vs agressive : règle d’or cabinet",
-      "level": "🟠 Avancé",
-      "content": "Si un avantage TVA est “faible” mais le risque contrôle élevé :\n→ choisir prudence + dossier solide.\n\nAstuce : documentation > optimisation fragile.",
-      "text": "Si un avantage TVA est “faible” mais le risque contrôle élevé :\n→ choisir prudence + dossier solide.\n\nAstuce : documentation > optimisation fragile."
-    },
-    {
-      "id": "tva3_15",
-      "title": "Cas ITAA : lire le piège avant de répondre",
-      "level": "🔴 Expert",
-      "content": "En examen, les pièges sont :\n- mauvaise qualification\n- oubli B2B/B2C\n- absence de preuve\n- confusion exemptions/hors champ\n\nRéflexe : reformuler le cas, puis appliquer la méthode 7 questions.",
-      "text": "En examen, les pièges sont :\n- mauvaise qualification\n- oubli B2B/B2C\n- absence de preuve\n- confusion exemptions/hors champ\n\nRéflexe : reformuler le cas, puis appliquer la méthode 7 questions."
-    },
-    {
-      "id": "tva3_16",
-      "title": "Dossier intracom béton : check-list finale",
-      "level": "🔴 Expert",
-      "content": "Pour biens :\n- n° TVA valide\n- preuve transport/livraison\n- facture avec mentions\n- listing/relevé intracom cohérents\n\nAstuce : dossier par période, prêt en cas de contrôle.",
-      "text": "Pour biens :\n- n° TVA valide\n- preuve transport/livraison\n- facture avec mentions\n- listing/relevé intracom cohérents\n\nAstuce : dossier par période, prêt en cas de contrôle."
-    },
-    {
-      "id": "tva3_17",
-      "title": "Dossier voiture : check-list anti-redressement",
-      "level": "🔴 Expert",
-      "content": "Pièces :\n- politique véhicule\n- preuve usage pro\n- cohérence comptable\n- clé de déduction prudente\n\nObjectif : éviter “100% sans preuve”.",
-      "text": "Pièces :\n- politique véhicule\n- preuve usage pro\n- cohérence comptable\n- clé de déduction prudente\n\nObjectif : éviter “100% sans preuve”."
-    },
-    {
-      "id": "tva3_18",
-      "title": "La règle d’or : ce que tu dois pouvoir prouver",
-      "level": "🔴 Expert",
-      "content": "Tu dois pouvoir prouver :\n- réalité de l’opération\n- qualification\n- droit à déduction\n- cohérence déclaration\n\nEn TVA, la preuve est souvent plus importante que l’intuition.",
-      "text": "Tu dois pouvoir prouver :\n- réalité de l’opération\n- qualification\n- droit à déduction\n- cohérence déclaration\n\nEn TVA, la preuve est souvent plus importante que l’intuition."
-    },
-    {
-      "id": "tva3_19",
-      "title": "Réflexe expert : note interne quand c’est sensible",
-      "level": "🟠 Avancé",
-      "content": "Quand un point est sensible (0%, prorata, voiture, intracom) :\n→ écrire une note interne courte (raisonnement + pièces).\n\nÇa te sauve en contrôle.",
-      "text": "Quand un point est sensible (0%, prorata, voiture, intracom) :\n→ écrire une note interne courte (raisonnement + pièces).\n\nÇa te sauve en contrôle."
-    },
-    {
-      "id": "tva3_20",
-      "title": "Routine cabinet : 10 minutes qui évitent 10 heures",
-      "level": "🟡 Intermédiaire",
-      "content": "Avant dépôt :\n- top 10 pièces sensibles revues\n- cohérence TVA due/déductible\n- obligations (listing/intracom)\n\nC’est le meilleur investissement de temps.",
-      "text": "Avant dépôt :\n- top 10 pièces sensibles revues\n- cohérence TVA due/déductible\n- obligations (listing/intracom)\n\nC’est le meilleur investissement de temps."
-    }
-  ],
-
   "lessons": [
     {
       "id": "tva3_01",
       "title": "Assujetti mixte : méthode de classement (avant prorata)",
       "level": "🔴 Expert",
-      "text": "Avant de calculer un prorata, on CLASSE :\n1) dépenses direct taxées → déduction (si conditions)\n2) dépenses direct exemptées → pas de déduction\n3) frais généraux → prorata\n\nAstuce : tableau simple “direct taxé / direct exempté / généraux”.",
-      "content": "Avant de calculer un prorata, on CLASSE :\n1) dépenses direct taxées → déduction (si conditions)\n2) dépenses direct exemptées → pas de déduction\n3) frais généraux → prorata\n\nAstuce : tableau simple “direct taxé / direct exempté / généraux”."
+      "text": "OBJECTIF\nSavoir traiter un assujetti mixte sans se perdre : classer d’abord, prorata ensuite, et documenter la méthode.\n\nEXPLICATION\nUn assujetti mixte réalise à la fois des opérations taxables et des opérations exemptées. Le grand piège est de « calculer un prorata partout ». En pratique cabinet, on commence par classer les dépenses.\n\nMÉTHODE CABINET (la règle d’or)\n1) Dépenses directement liées à du taxable → déduction possible (si conditions).\n2) Dépenses directement liées à de l’exempté → pas de déduction.\n3) Frais généraux (non attribuables directement) → prorata.\n\nPREUVES / DOSSIER\n- Tableau de classement (simple et clair)\n- Justification de l’affectation (contrats, description activité)\n- Méthode stable et cohérente\n\nEXEMPLE\nCabinet avec activité taxable (conseil) + activité exonérée (ex : certains services). Loyer du bureau = frais général → prorata. Matériel utilisé uniquement pour l’activité taxable → déduction.\n\nÀ RETENIR\n- Classer = sécuriser.\n- Prorata = uniquement sur les frais généraux.\n\nMINI-EXERCICE\nCrée un tableau « direct taxable / direct exempté / généraux » et place 8 dépenses typiques."
+    },
+    {
+      "id": "tva3_02",
+      "title": "Prorata : logique pro (sans se perdre) + preuve",
+      "level": "🔴 Expert",
+      "text": "OBJECTIF\nSavoir expliquer et défendre un prorata en contrôle (méthode + documentation).\n\nEXPLICATION\nLe prorata limite la TVA déductible sur les frais généraux lorsque l’assujetti fait du taxable et de l’exempté. Le point clé : le prorata n’est pas qu’un chiffre, c’est une méthode défendable.\n\nMÉTHODE CABINET\n1) Définir le périmètre : uniquement frais généraux.\n2) Choisir la base : chiffre d’affaires taxable / total pertinent (selon règles applicables).\n3) Documenter les hypothèses : activité, ventilation, exclusions.\n4) Mettre à jour si l’activité change.\n\nEXEMPLE\nSi l’activité taxable augmente fortement, conserver l’ancienne méthode sans justification devient fragile.\n\nÀ RETENIR\nEn contrôle, on te demande : « comment tu l’as calculé » + « pourquoi c’est cohérent ».\n\nMINI-EXERCICE\nÉcris une note interne de 6 lignes : base de calcul + hypothèses + pièces à conserver."
+    },
+    {
+      "id": "tva3_03",
+      "title": "Biens d’investissement : révisions (logique cabinet)",
+      "level": "🔴 Expert",
+      "text": "OBJECTIF\nComprendre le réflexe : quand l’usage/affectation change, la TVA déduite peut être ajustée.\n\nEXPLICATION\nUn bien d’investissement suit une logique de « révision ». Si tu as déduit de la TVA et que l’utilisation change (plus privé, passage en exempté, changement activité), il peut y avoir régularisation.\n\nMÉTHODE CABINET\n1) Identifier le bien : investissement ou non.\n2) Comparer usage initial vs usage actuel.\n3) Mesurer l’impact TVA (régularisation).\n4) Documenter le changement (date, faits, preuves).\n\nÀ RETENIR\nDès qu’un client dit : « on change le modèle / on loue / on n’utilise plus », pense révision.\n\nMINI-EXERCICE\nDonne 3 signaux d’alerte (phrases client) qui doivent te faire penser « régularisation TVA »."
+    },
+    {
+      "id": "tva3_04",
+      "title": "Contrôle TVA : sécuriser un dossier (anti-stress)",
+      "level": "🔴 Expert",
+      "text": "OBJECTIF\nAvoir une checklist cabinet pour réduire le risque de redressement.\n\nEXPLICATION\nEn contrôle, l’administration cherche surtout : incohérences + manque de preuves. Un dossier bien préparé « désamorce » la plupart des questions.\n\nCHECKLIST CABINET\n- Factures conformes et classées\n- Cohérence journaux/comptes TVA/déclaration\n- Pièces sensibles annotées (intracom, 0%, voiture, mixte)\n- Preuves transport/livraison si intracom/export\n- Corrections tracées (notes de crédit, explications)\n\nMÉTHODE DE RÉPONSE\n1) Répondre factuellement\n2) Donner les pièces demandées (pas plus)\n3) Expliquer le raisonnement (qualification → règle → application)\n4) Corriger si erreur (correction maîtrisée)\n\nÀ RETENIR\nLe meilleur contrôle est celui que tu prépares avant qu’il arrive.\n\nMINI-EXERCICE\nPrépare une liste « top 10 pièces sensibles » pour un trimestre."
+    },
+    {
+      "id": "tva3_05",
+      "title": "Réponse ITAA : structure gagnante (points faciles)",
+      "level": "🔴 Expert",
+      "text": "OBJECTIF\nDonner des réponses ITAA propres, structurées, et maximiser les points.\n\nSTRUCTURE (à recopier)\n1) Qualification des faits\n2) Règle applicable\n3) Application au cas\n4) Conclusion + obligations (facture, mention, listing, preuve)\n\nPIÈGES CLASSIQUES\n- Mauvaise qualification initiale\n- Oubli B2B/B2C\n- Absence de preuve\n- Confusion exonéré/hors champ\n\nÀ RETENIR\nUne réponse structurée vaut plus qu’un texte long sans logique.\n\nMINI-EXERCICE\nPrends un cas simple (intracom ou prorata) et fais une réponse en 8 lignes avec la structure."
     }
   ],
 
   "qcm": [
-    { "level": "🔴", "question": "Avant de calculer un prorata, le premier réflexe expert est :", "choices": ["Calculer immédiatement", "Classer les dépenses (direct taxé/direct exempté/généraux)", "Tout mettre en généraux", "Refuser toute déduction"], "answer": 1, "explain": "La classification est la base. Sans elle, prorata = fragile." },
-    { "level": "🔴", "question": "Le contrôle TVA cherche principalement :", "choices": ["Des couleurs sur la facture", "La cohérence + preuves", "Le bénéfice ISOC", "Le logo"], "answer": 1, "explain": "Cohérence journaux/comptes/décla + preuves." },
-    { "level": "🟠", "question": "Une stratégie légale “cabinet-safe” en TVA est :", "choices": ["Maximiser sans preuve", "Prudence + documentation complète", "Ignorer obligations", "Toujours 0%"], "answer": 1, "explain": "Position défendable + preuves = sécurité." },
-    { "level": "🔴", "question": "En réponse ITAA, la structure efficace est :", "choices": ["Conclusion sans explication", "Qualification → règle → application → conclusion", "Mots-clés uniquement", "Copier du code"], "answer": 1, "explain": "On évalue surtout le raisonnement structuré." },
-    { "level": "🔴", "question": "Quand penser “régularisation” en TVA ?", "choices": ["Jamais", "Quand l’affectation/usage change", "Quand la banque change", "Quand c’est en PDF"], "answer": 1, "explain": "Changement d’usage = signal régularisation." },
-    { "level": "🔴", "question": "Une bonne défense en contrôle commence par :", "choices": ["Improviser", "Dossier complet (preuves + cohérence)", "Nier", "Supprimer les pièces"], "answer": 1, "explain": "La cohérence et les preuves font la défense." },
-    { "level": "🟠", "question": "Une note interne cabinet sert surtout à :", "choices": ["Faire joli", "Fixer le raisonnement + pièces", "Remplacer les factures", "Éviter la déclaration"], "answer": 1, "explain": "Elle documente et sécurise en cas de question." },
-    { "level": "🔴", "question": "Dans un cas ITAA, le piège le plus fréquent est :", "choices": ["La couleur du site", "La mauvaise qualification initiale", "Le nombre de pages", "Le menu hamburger"], "answer": 1, "explain": "Si tu qualifies mal, tout le raisonnement tombe." },
-    { "level": "🔴", "question": "Pour un dossier intracom biens, l’élément clé est :", "choices": ["Une promesse", "Preuves de transport/livraison", "Une facture sans n° TVA", "Un message vocal"], "answer": 1, "explain": "Sans preuves, l’exonération peut être contestée." },
-    { "level": "🟠", "question": "Prudence vs agressif : le bon réflexe est :", "choices": ["Toujours agressif", "Choisir la position défendable", "Toujours 0%", "Toujours 21% sans analyse"], "answer": 1, "explain": "On choisit une position justifiable, documentée, cohérente." }
+    {
+      "level": "🔴",
+      "question": "Avant de calculer un prorata, le premier réflexe expert est :",
+      "choices": [
+        "Calculer immédiatement",
+        "Classer les dépenses (direct taxé/direct exempté/généraux)",
+        "Tout mettre en généraux",
+        "Refuser toute déduction"
+      ],
+      "answer": 1,
+      "explain": "Sans classification, le prorata est fragile et difficile à défendre."
+    },
+    {
+      "level": "🔴",
+      "question": "En contrôle TVA, le point central recherché est :",
+      "choices": [
+        "La mise en page",
+        "La cohérence + les preuves",
+        "La couleur du logo",
+        "La police d’écriture"
+      ],
+      "answer": 1,
+      "explain": "Les incohérences et l’absence de preuve déclenchent les redressements."
+    },
+    {
+      "level": "🔴",
+      "question": "Une réponse ITAA efficace suit :",
+      "choices": [
+        "Conclusion sans explication",
+        "Qualification → règle → application → conclusion + obligations",
+        "Mots-clés uniquement",
+        "Copier-coller de textes"
+      ],
+      "answer": 1,
+      "explain": "La structure montre la maîtrise du raisonnement."
+    }
   ],
 
   "cases": [
-    { "title": "Assujetti mixte (méthode)", "level": "🔴", "question": "Une ASBL a une activité exemptée + une boutique taxable. Comment traiter la TVA sur frais généraux ?", "answer_md": "1) dépenses direct taxées : déduction possible (si conditions)\n2) dépenses direct exemptées : pas de déduction\n3) frais généraux : prorata documenté" },
-    { "title": "Contrôle TVA (sécurisation)", "level": "🔴", "question": "Le contrôleur demande la justification d’une déduction TVA sensible. Que fournis-tu ?", "answer_md": "Factures conformes + preuves lien pro (contrats/mails/livraisons) + cohérence compta/décla + explication structurée." },
-    { "title": "Régularisation", "level": "🔴", "question": "Un bien d’investissement est maintenant utilisé plus à titre privé. Quel réflexe TVA ?", "answer_md": "Penser révision/régularisation TVA. Vérifier période et documenter changement d’affectation." },
-    { "title": "Note interne", "level": "🟠", "question": "Tu appliques 0% sur une opération sensible. Que fais-tu pour te protéger ?", "answer_md": "Je rédige une note interne courte : qualification, règle, preuves, obligations. Je classe les pièces (n° TVA, preuves, mention facture, intracom/listing)." },
-    { "title": "Prorata contesté", "level": "🔴", "question": "Le contrôleur conteste ton prorata. Comment réagir ?", "answer_md": "Je montre la méthode : classification des dépenses, base de calcul, cohérence avec activité, justification écrite. Si une erreur est réelle : correction maîtrisée." }
+    {
+      "title": "Assujetti mixte (méthode)",
+      "level": "🔴",
+      "question": "Une ASBL a une activité exemptée + une boutique taxable. Comment traiter la TVA sur frais généraux ?",
+      "answer_md": "1) Classer : direct taxable / direct exempté / généraux\n2) Direct taxable : déduction possible si conditions\n3) Direct exempté : pas de déduction\n4) Frais généraux : prorata documenté (base + hypothèses + pièces)"
+    },
+    {
+      "title": "Contrôle TVA (sécurisation)",
+      "level": "🔴",
+      "question": "Le contrôleur demande la justification d’une déduction TVA sensible. Que fournis-tu ?",
+      "answer_md": "Facture conforme + preuve du lien pro (contrat/mails/livraison) + cohérence compta/décla + explication structurée. Je fournis uniquement ce qui est demandé, de manière claire."
+    },
+    {
+      "title": "Régularisation investissement",
+      "level": "🔴",
+      "question": "Un bien d’investissement est désormais utilisé davantage à titre privé. Quel réflexe TVA ?",
+      "answer_md": "Penser révision/régularisation : comparer usage initial vs usage actuel, calculer l’ajustement éventuel, documenter la date et la preuve du changement d’affectation."
+    }
   ]
 }
