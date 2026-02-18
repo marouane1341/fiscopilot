@@ -1,110 +1,72 @@
 {
-  "meta": { "title": "TVA 2 — Pratique cabinet", "version": 4 },
+  "meta": { "title": "TVA 2 — Pratique Premium (Terrain)", "version": 1 },
 
   "lessons": [
     {
       "id": "tva2_01",
-      "title": "Droit à déduction : la règle simple + la preuve",
-      "level": "🟠 Avancé",
-      "text": "Le droit à déduction TVA est un “droit” mais il se prouve.\n\nChecklist cabinet :\n- facture conforme\n- achat lié à l’activité économique\n- cohérence avec compta et réalité\n\nAstuce : archiver contrat, bon de commande, preuve de livraison/prestation si dossier sensible."
+      "title": "Lieu de taxation : Belgique, UE, hors UE (réflexe rapide)",
+      "level": "🟡 Intermédiaire",
+      "text": "OBJECTIF\nSavoir poser les 3 questions de lieu qui évitent 80% des erreurs (surtout en international).\n\nEXPLICATION\nLe lieu de taxation détermine où la TVA est due. Les règles changent selon : bien vs service, B2B vs B2C, et le pays.\n\nMÉTHODE CABINET (3 questions)\n1) C’est un bien ou un service ?\n2) Client B2B (n° TVA) ou B2C ?\n3) Où est le client / où se fait la livraison / où s’exécute le service ?\n\nEXEMPLE\n- Service B2B à un client UE avec n° TVA : souvent règle du preneur (à vérifier selon type).\n- Vente de biens intracom : règles + preuves transport.\n\nÀ RETENIR\nSans lieu correct, tu peux facturer le mauvais pays → correction coûteuse.\n\nMINI-EXERCICE\nTu as 3 clients : Belgique, France (TVA valide), Suisse. Pour un service de consulting : propose la logique de lieu."
     },
     {
       "id": "tva2_02",
-      "title": "Dépenses mixtes : pro vs privé (méthode cabinet)",
+      "title": "Intracom biens : le dossier de preuve « béton »",
       "level": "🟠 Avancé",
-      "text": "Dépense mixte :\n1) estimer usage pro réel\n2) appliquer une clé raisonnable\n3) documenter (agenda, politique interne, justification)\n\nAstuce : une clé prudente + dossier propre vaut mieux qu’un 100% fragile."
+      "text": "OBJECTIF\nSavoir constituer un dossier intracom qui résiste à un contrôle (preuve transport/livraison).\n\nEXPLICATION\nUne livraison intracom de biens peut être exonérée sous conditions. Le risque principal en contrôle : absence ou faiblesse de preuve de transport hors Belgique.\n\nCHECKLIST PREUVES (cabinet)\n- N° TVA client valide (vérification + capture/trace)\n- Facture avec mention intracom/exonération\n- Preuve transport/livraison : CMR signé, BL, tracking, documents transporteur\n- Cohérence avec listings et déclarations\n\nEXEMPLE\nClient FR avec n° TVA valide. Si tu n’as que « un email », c’est fragile. Avec CMR/BL + facture correcte + cohérence listing, tu es solide.\n\nÀ RETENIR\nEn intracom, la preuve vaut parfois plus que la facture.\n\nMINI-EXERCICE\nListe 4 pièces minimales que tu veux dans un dossier intracom par période."
     },
     {
       "id": "tva2_03",
-      "title": "Voitures : déduction TVA + pièges contrôle",
-      "level": "🟠 Avancé",
-      "text": "Voiture = zone de risque.\n\nRéflexe :\n- déterminer l’usage pro (preuve)\n- appliquer limitation\n- distinguer carburant/entretien/leasing/achat\n\nAstuce : politique véhicule simple + suivi (preuves)."
+      "title": "Autoliquidation (reverse charge) : comprendre et appliquer",
+      "level": "🟡 Intermédiaire",
+      "text": "OBJECTIF\nSavoir reconnaître une situation d’autoliquidation et éviter les factures incorrectes.\n\nEXPLICATION\nL’autoliquidation signifie que la TVA n’est pas payée au fournisseur mais auto-déclarée par le client (souvent en B2B). Il existe des cas domestiques et internationaux.\n\nMÉTHODE CABINET\n1) Identifier si reverse charge s’applique (type d’opération + statut client)\n2) Facture : pas de TVA facturée + mention obligatoire\n3) Comptabilisation : TVA due et TVA déductible (selon droit)\n\nEXEMPLE\nPrestataire UE facture un client BE B2B : souvent reverse charge. Le client BE auto-déclare.\n\nÀ RETENIR\nPiège : facture avec TVA étrangère alors que reverse charge devait s’appliquer.\n\nMINI-EXERCICE\nDonne 2 alertes : (1) mention facture, (2) contrôle n° TVA."
     },
     {
       "id": "tva2_04",
-      "title": "Restaurant, réception, cadeaux : sécuriser la déduction",
-      "level": "🟠 Avancé",
-      "text": "Dépenses sensibles : réception, cadeaux, restaurant.\n\nRéflexe : lien pro réel + annotation pièce (qui, pourquoi, dossier)."
-    },
-    {
-      "id": "tva2_05",
-      "title": "Intracom UE : check-list cabinet",
-      "level": "🔴 Expert",
-      "text": "Intracom :\n1) vérifier n° TVA\n2) qualifier bien/service\n3) déterminer lieu\n4) obligations (listing, intracom, mentions)\n\nAstuce : conserver preuves de transport/livraison pour biens."
-    },
-    {
-      "id": "tva2_06",
-      "title": "Autoliquidation : identifier et encoder correctement",
-      "level": "🔴 Expert",
-      "text": "Autoliquidation : TVA due par le client dans certains cas.\n\nRéflexe : mentions correctes + grilles déclaration correctes.\n\nPiège : traiter comme facture classique."
-    },
-    {
-      "id": "tva2_07",
-      "title": "Déclaration TVA : logique cabinet des grilles",
+      "title": "Notes de crédit : corriger proprement sans se piéger",
       "level": "🟡 Intermédiaire",
-      "text": "Déclaration = traduction de la compta.\n\nRéflexe :\n- TVA due = ventes\n- TVA déductible = achats\n- rapprochement comptes TVA ↔ déclaration"
-    },
-    {
-      "id": "tva2_08",
-      "title": "Listing clients & obligations : éviter les red flags",
-      "level": "🟡 Intermédiaire",
-      "text": "Les obligations (listing, intracom) déclenchent des contrôles si incohérences.\n\nRéflexe : calendrier cabinet + checklist dépôt."
-    },
-    {
-      "id": "tva2_09",
-      "title": "Notes de crédit : corriger sans casser la TVA",
-      "level": "🟡 Intermédiaire",
-      "text": "Correction propre : note de crédit + nouvelle facture.\n\nRéflexe : tracer motif + références."
-    },
-    {
-      "id": "tva2_10",
-      "title": "Acomptes : impact pratique sur la déclaration",
-      "level": "🟠 Avancé",
-      "text": "Si TVA exigible à l’acompte : intégrer dans la déclaration.\n\nAstuce : suivi acomptes (tableau simple)."
-    },
-    {
-      "id": "tva2_11",
-      "title": "Import/Export : réflexe cabinet (preuves)",
-      "level": "🔴 Expert",
-      "text": "Hors UE :\n- export : souvent 0% sous conditions + preuves\n- import : TVA import + documents douane\n\nAstuce : archiver documents douaniers."
-    },
-    {
-      "id": "tva2_12",
-      "title": "Audit interne TVA : mini-check périodique",
-      "level": "🟡 Intermédiaire",
-      "text": "Chaque période :\n- factures sensibles (voiture, réception, intracom)\n- taux réduits (preuves)\n- notes de crédit\n- cohérence TVA ↔ déclaration"
-    },
-
-    { "id": "tva2_13", "title": "Factures d’achat : le contrôle en 30 secondes", "level": "🟡 Intermédiaire", "text": "Mini check :\n- fournisseur identifié\n- base/taux/TVA cohérents\n- description réelle (pas “prestation”) \n- date correcte\n- lien pro plausible\n\nAstuce : si une pièce est faible, demander correction immédiatement." },
-    { "id": "tva2_14", "title": "Factures de vente : mentions pro (et éviter le 0% dangereux)", "level": "🟠 Avancé", "text": "Un 0% doit être justifié.\nRéflexe :\n- mention correcte (ex : autoliquidation, intracom…)\n- preuve (transport/livraison / statut client)\n\nAstuce : “0% sans preuve” = redressement probable." },
-    { "id": "tva2_15", "title": "Grilles déclaration : raisonner par familles d’opérations", "level": "🟠 Avancé", "text": "Méthode : classer les opérations (ventes BE, intracom, export, achats BE, intracom, import…)\nPuis alimenter les grilles.\n\nAstuce : éviter l’encodage “au feeling”." },
-    { "id": "tva2_16", "title": "TVA déductible élevée : comment se justifier en cabinet", "level": "🟠 Avancé", "text": "Si TVA déductible anormalement haute :\n- investissement ?\n- import ?\n- correction ?\n\nRéflexe : note interne explicative + pièces prêtes = dossier solide." },
-    { "id": "tva2_17", "title": "Intracom biens : preuves de transport (terrain)", "level": "🔴 Expert", "text": "En pratique, la preuve transporte la crédibilité.\nRéflexe : CMR, documents transport, mails, tracking.\n\nAstuce : archiver dans un dossier par période." },
-    { "id": "tva2_18", "title": "Prestations de services internationales : piège fréquent", "level": "🔴 Expert", "text": "Services = règles différentes des biens.\nRéflexe : B2B/B2C d’abord, puis règle générale + exceptions.\n\nAstuce : fiche “services internationaux” à part." },
-    { "id": "tva2_19", "title": "Refacturation : comment décider “accessoire” ou “débours”", "level": "🟠 Avancé", "text": "Si c’est ta prestation + frais : accessoire.\nDébours : conditions strictes (au nom du client, pour compte client, refacturé à l’euro).\n\nAstuce : en doute, traiter comme accessoire (plus sûr) et documenter." },
-    { "id": "tva2_20", "title": "Contrôle de cohérence : 3 ratios simples", "level": "🟡 Intermédiaire", "text": "Ratios utiles :\n1) TVA due / CA\n2) TVA déductible / achats\n3) variation TVA vs période précédente\n\nObjectif : repérer anomalies avant dépôt." }
+      "text": "OBJECTIF\nSavoir corriger une TVA facturée à tort (ou base erronée) avec une trace claire.\n\nEXPLICATION\nUne correction TVA se fait via note de crédit (ou facture corrective) pour garder une piste d’audit. Le but : cohérence entre compta, déclaration et pièces.\n\nMÉTHODE CABINET\n1) Identifier l’erreur (taux, base, client, lieu)\n2) Émettre note de crédit liée à la facture initiale\n3) Émettre la facture correcte\n4) Documenter la raison (mail interne + pièces)\n\nÀ RETENIR\nCorrection tracée = moins de stress en contrôle.\n\nMINI-EXERCICE\nRédige en 2 lignes la justification interne d’une note de crédit (raison + référence)."
+    }
   ],
 
   "qcm": [
-    { "level": "🟠", "question": "La meilleure preuve cabinet pour sécuriser une déduction TVA sensible est :", "choices": ["Rien, la facture suffit toujours", "Facture + lien pro documenté (contrat/preuves)", "Une capture d’écran", "Un avis oral"], "answer": 1, "explain": "La facture est nécessaire, mais le lien pro et la réalité économique doivent être défendables." },
-    { "level": "🟠", "question": "Sur dépenses mixtes (pro/privé), un réflexe prudent est :", "choices": ["100% pro", "Clé d’usage pro réaliste + documentation", "0% pro", "Déduction au hasard"], "answer": 1, "explain": "Clé raisonnable + preuves = position cabinet solide." },
-    { "level": "🔴", "question": "En intracom, avant de conclure au régime, tu dois d’abord :", "choices": ["Choisir 0%", "Vérifier n° TVA + qualifier bien/service + lieu", "Ignorer le n° TVA", "Mettre TVA belge"], "answer": 1, "explain": "Intracom = contrôle fréquent : numéro TVA + qualification + lieu + obligations." },
-    { "level": "🟡", "question": "Pour corriger une facture, la méthode standard est :", "choices": ["Modifier la facture originale", "Note de crédit + nouvelle facture", "Ne rien faire", "Annuler la compta"], "answer": 1, "explain": "Trace claire = cohérence TVA et preuve en contrôle." },
-    { "level": "🔴", "question": "L’autoliquidation implique surtout :", "choices": ["TVA payée par le fournisseur", "TVA due par le client selon cas", "Aucune TVA", "Toujours 6%"], "answer": 1, "explain": "Dans certains cas, la TVA est due par le client." },
-
-    { "level": "🟡", "question": "Une facture d’achat trop vague est dangereuse surtout car :", "choices": ["Elle est moche", "Elle fragilise le lien pro et la déduction", "Elle augmente le CA", "Elle supprime la TVA"], "answer": 1, "explain": "Plus c’est vague, plus c’est contestable en contrôle." },
-    { "level": "🟠", "question": "“0%” sur une facture de vente doit être :", "choices": ["Automatique", "Justifié et documenté", "Toujours interdit", "Toujours 6%"], "answer": 1, "explain": "0% sans base = risque redressement." },
-    { "level": "🟠", "question": "Le meilleur moyen d’éviter une déclaration TVA “au hasard” est :", "choices": ["Deviner", "Classer les opérations par familles", "Copier le trimestre précédent", "Ne rien déposer"], "answer": 1, "explain": "Familles d’opérations → grilles → cohérence." },
-    { "level": "🟠", "question": "TVA déductible très élevée sur une période : réflexe cabinet ?", "choices": ["Ignorer", "Expliquer (investissement/import/correction) et archiver", "Cacher", "Mettre 0"], "answer": 1, "explain": "Une note explicative et des pièces prêtes protègent en contrôle." },
-    { "level": "🔴", "question": "Intracom biens : la preuve clé est souvent :", "choices": ["Un selfie", "Preuves de transport/livraison", "Un avis client", "Un bon de caisse"], "answer": 1, "explain": "Le régime intracom est souvent conditionné par des preuves concrètes." }
+    {
+      "level": "🟠",
+      "question": "Dans une livraison intracom de biens, l’élément le plus attaqué en contrôle est :",
+      "choices": [
+        "La couleur de la facture",
+        "La preuve de transport/livraison hors Belgique",
+        "Le logo du client",
+        "Le nom du chauffeur"
+      ],
+      "answer": 1,
+      "explain": "Sans preuve de transport, l’exonération intracom peut être remise en cause."
+    },
+    {
+      "level": "🟡",
+      "question": "Le réflexe pour déterminer le lieu TVA est d’abord :",
+      "choices": [
+        "Choisir 21%",
+        "Déterminer bien vs service + B2B/B2C + pays",
+        "Regarder uniquement le prix",
+        "Demander au client de choisir"
+      ],
+      "answer": 1,
+      "explain": "La structure bien/service + B2B/B2C + pays guide la règle de lieu."
+    }
   ],
 
   "cases": [
-    { "title": "Voiture (risque contrôle)", "level": "🟠", "question": "Client déduit TVA voiture à 100% mais pas de preuve d’usage pro. Que conseilles-tu ?", "answer_md": "Position cabinet : réduire à une déduction défendable + mettre une preuve d’usage (kilométrage/politique véhicule). Corriger vaut mieux que redressement + amendes." },
-    { "title": "Intracom (preuves)", "level": "🔴", "question": "Livraison UE de biens : quel document peut devenir critique en contrôle ?", "answer_md": "Les preuves de transport/livraison (CMR, documents logistiques, mails, tracking) + vérification n° TVA. Sans preuves, le régime peut être contesté." },
-    { "title": "Notes de crédit", "level": "🟡", "question": "Une facture a été émise au mauvais taux. Comment corriger proprement ?", "answer_md": "Note de crédit qui annule l’ancienne facture + nouvelle facture correcte. Tracer le motif et la référence." },
-
-    { "title": "Déclaration cohérence", "level": "🟠", "question": "Ton ratio TVA due/CA explose ce mois-ci. Comment réagir ?", "answer_md": "Je vérifie : erreurs de taux, factures manquantes, notes de crédit, opérations intracom/export mal traitées. Je documente l’explication si c’est réel (ex: CA différent par nature)." },
-    { "title": "0% dangereux", "level": "🔴", "question": "Client veut mettre 0% “car c’est en UE”. Que fais-tu ?", "answer_md": "Je stoppe l’automatisme : je vérifie n° TVA, qualification bien/service, preuves, obligations (intracom). Sans ça, 0% = risque redressement." }
+    {
+      "title": "Intracom sans preuves",
+      "level": "🟠",
+      "question": "Tu as facturé une vente intracom exonérée mais tu n’as pas de preuve de transport. Que fais-tu ?",
+      "answer_md": "Je tente d’obtenir des preuves (CMR, tracking, BL, transporteur). Sans preuves suffisantes, j’évalue le risque : correction possible (TVA due) ou dossier complémentaire, en documentant."
+    },
+    {
+      "title": "TVA étrangère facturée à tort",
+      "level": "🟡",
+      "question": "Un fournisseur UE te facture avec TVA de son pays alors que tu as un n° TVA BE valide. Réflexe ?",
+      "answer_md": "Je demande une facture corrigée (reverse charge) et j’évite de déduire une TVA étrangère de façon incorrecte. Je documente la demande."
+    }
   ]
 }
