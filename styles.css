@@ -1,0 +1,449 @@
+/* =========================
+   FiscoPilot AI ELITE MAX — Premium UI
+   (No "voile" : background derrière, jamais au-dessus)
+   ========================= */
+
+:root{
+  --bg0:#070b12;
+  --bg1:#0b1220;
+  --bg2:#0e1a2f;
+
+  --card: rgba(255,255,255,.06);
+  --card2: rgba(255,255,255,.08);
+  --stroke: rgba(255,255,255,.10);
+  --stroke2: rgba(255,255,255,.14);
+
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.65);
+
+  --blue: #3b82f6;
+  --blue2:#60a5fa;
+  --gold:#f4b24e;
+
+  --shadow: 0 18px 60px rgba(0,0,0,.55);
+  --r: 22px;
+  --r2: 28px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  color:var(--text);
+  background: radial-gradient(1200px 700px at 20% -10%, rgba(59,130,246,.35), transparent 60%),
+              radial-gradient(900px 600px at 90% 0%, rgba(244,178,78,.18), transparent 55%),
+              linear-gradient(180deg, var(--bg2), var(--bg1) 40%, var(--bg0));
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow-x:hidden;
+}
+
+/* Fix Android "voile" : aucun overlay global */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;          /* IMPORTANT : derrière tout */
+  background: radial-gradient(1000px 800px at 30% -20%, rgba(96,165,250,.18), transparent 55%),
+              radial-gradient(1000px 800px at 80% 10%, rgba(244,178,78,.10), transparent 55%);
+}
+
+/* (si une ancienne .bg traîne encore) */
+.bg{ display:none !important; }
+
+/* =========================
+   Topbar
+   ========================= */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  padding: 14px 14px calc(14px + env(safe-area-inset-top));
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background: rgba(7,11,18,.55);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+}
+
+.brand{ flex:1; min-width:0; }
+.brandTitle{
+  font-weight:800;
+  letter-spacing:.2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size: 18px;
+}
+.gold{ color: var(--gold); }
+.brandSub{
+  margin-top:2px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.right{ display:flex; align-items:center; gap:10px; }
+
+.iconBtn{
+  width:44px;
+  height:44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  display:grid;
+  place-items:center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.iconBtn:active{ transform: translateY(1px); }
+.icon{ font-size:20px; line-height:1; }
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  font-size: 13px;
+  color: var(--text);
+  white-space:nowrap;
+}
+
+.pill.online{
+  border-color: rgba(34,197,94,.35);
+  background: rgba(34,197,94,.12);
+}
+.pill.offline{
+  border-color: rgba(239,68,68,.35);
+  background: rgba(239,68,68,.12);
+}
+
+/* =========================
+   Drawer
+   ========================= */
+.drawer{
+  position:fixed;
+  inset:0 auto 0 0;
+  width:min(340px, 86vw);
+  transform: translateX(-110%);
+  transition: transform .22s ease;
+  z-index:80;
+  background: rgba(10,16,28,.82);
+  border-right: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+.drawer.open{ transform: translateX(0); }
+
+.drawerHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom: 10px;
+}
+.drawerTitle{ font-weight:800; font-size:16px; }
+
+.drawerBody{ display:flex; flex-direction:column; gap:10px; padding-top: 8px; }
+.navBtn{
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  text-align:left;
+  font-weight:700;
+}
+.hint{
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.35;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px dashed rgba(255,255,255,.18);
+  background: rgba(255,255,255,.04);
+}
+
+/* =========================
+   Layout
+   ========================= */
+.container{
+  padding: 18px 14px 110px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Cards / Blocks
+   ========================= */
+.card{
+  border-radius: var(--r2);
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 18px 55px rgba(0,0,0,.35);
+}
+
+.block{
+  padding: 16px;
+  border-radius: var(--r2);
+}
+
+.h1{
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -.6px;
+  margin: 18px 0 8px;
+}
+.sub{
+  color: var(--muted);
+  line-height:1.35;
+}
+
+/* =========================
+   Tabs + Search row
+   ========================= */
+.tabs{
+  display:flex;
+  gap:10px;
+  margin-top: 14px;
+}
+.tab{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding: 14px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  font-weight: 800;
+}
+.tab.active{
+  border-color: rgba(59,130,246,.42);
+  background: rgba(59,130,246,.18);
+}
+
+.searchRow{
+  margin-top: 14px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.search{
+  flex:1;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  outline:none;
+}
+.search::placeholder{ color: rgba(255,255,255,.45); }
+
+.btn{
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 14px 16px;
+  font-weight: 900;
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+}
+.btn.primary{
+  border-color: rgba(59,130,246,.45);
+  background: linear-gradient(180deg, rgba(59,130,246,.85), rgba(59,130,246,.55));
+}
+.btn.ghost{ background: rgba(255,255,255,.05); }
+.btn:active{ transform: translateY(1px); }
+
+/* =========================
+   Lesson list cards
+   ========================= */
+.lessonCard{
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  box-shadow: 0 16px 45px rgba(0,0,0,.25);
+}
+.lessonTop{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+.lessonTitle{
+  font-size: 20px;
+  font-weight: 900;
+  line-height:1.15;
+  margin: 0;
+}
+.badges{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top: 10px;
+}
+
+.preview{
+  margin-top: 12px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.45;
+  font-size: 14.5px;
+}
+
+.openBtn{
+  align-self:flex-start;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  font-weight: 900;
+  min-width: 92px;
+}
+
+/* =========================
+   Modal
+   ========================= */
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:120;
+  background: rgba(0,0,0,.45);
+}
+.modal.open{ display:block; }
+
+.modalSheet{
+  position:absolute;
+  inset: 10px 10px 10px 10px;
+  border-radius: 28px;
+  background: rgba(10,16,28,.92);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.modalTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.04);
+}
+.modalMeta{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex:1;
+  justify-content:center;
+}
+
+.modalBody{
+  padding: 16px;
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modalBottom{
+  display:flex;
+  gap:12px;
+  padding: 12px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.04);
+}
+
+/* =========================
+   Premium course sections
+   ========================= */
+.sec{
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+}
+.secTitle{
+  font-weight: 950;
+  letter-spacing:.6px;
+  font-size: 13px;
+  color: rgba(255,255,255,.78);
+  margin-bottom: 10px;
+}
+.secText{
+  color: rgba(255,255,255,.92);
+  line-height: 1.55;
+  font-size: 15.5px;
+  white-space: pre-wrap;
+}
+
+.kbd{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.toc{
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+}
+.toc a{
+  display:block;
+  color: rgba(255,255,255,.86);
+  text-decoration:none;
+  padding: 10px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.03);
+  margin-top: 10px;
+}
+.toc a:active{ transform: translateY(1px); }
+
+/* Audio bar */
+.audioBar{
+  margin-top: 12px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.audioBar .btn{
+  border-radius: 999px;
+  padding: 12px 14px;
+}
+.range{
+  flex:1;
+  min-width: 160px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.range input{ width: 100%; }
+
+/* =========================
+   Small screens tweaks
+   ========================= */
+@media (max-width:420px){
+  .h1{ font-size: 40px; }
+  .lessonTitle{ font-size: 18px; }
+  .modalMeta{ justify-content:flex-start; }
+}
