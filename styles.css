@@ -1,0 +1,344 @@
+/* ===============================
+   FISCOPILOT AI ELITE MAX — CSS PREMIUM
+   FIX SCROLL + GLASS CLEAN
+================================= */
+
+:root{
+  --bg1:#071226;
+  --bg2:#0b1f3f;
+  --card:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.12);
+  --text:#eaf2ff;
+  --muted:#9fb3d9;
+  --primary:#4da3ff;
+  --radius:20px;
+}
+
+/* RESET */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  height:100%;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  overflow-x:hidden;
+}
+
+/* 🔥 FIX VOILE QUI SUIT */
+body::before,
+body::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* ===============================
+   TOPBAR
+================================= */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  padding:14px 16px;
+  backdrop-filter:blur(10px);
+  background:rgba(5,10,25,0.6);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brandTitle{
+  font-weight:700;
+  font-size:18px;
+}
+
+.gold{
+  color:#ffd76a;
+}
+
+.brandSub{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.pill{
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.08);
+  font-size:12px;
+}
+
+.pill.online{
+  background:rgba(0,200,120,0.15);
+  color:#6cffb0;
+}
+
+/* ===============================
+   CONTAINER
+================================= */
+
+.container{
+  padding:20px 16px 80px;
+  max-width:900px;
+  margin:auto;
+}
+
+/* ===============================
+   CARDS
+================================= */
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px;
+  margin-bottom:16px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.cardTitle{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.cardMeta{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ===============================
+   BUTTONS
+================================= */
+
+button{
+  border:none;
+  border-radius:14px;
+  padding:10px 14px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.btn{
+  background:rgba(255,255,255,0.08);
+  color:var(--text);
+}
+
+.btn.primary{
+  background:linear-gradient(135deg,#3d8bff,#6bb6ff);
+  color:white;
+}
+
+.btn.ghost{
+  background:transparent;
+  border:1px solid var(--border);
+}
+
+.btnRow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* ===============================
+   SEARCH BAR
+================================= */
+
+.searchBox{
+  background:rgba(255,255,255,0.06);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:12px;
+  width:100%;
+  color:white;
+  outline:none;
+  margin-bottom:12px;
+}
+
+/* ===============================
+   COURSE LIST ITEM
+================================= */
+
+.courseItem{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.badges{
+  display:flex;
+  gap:8px;
+  margin-top:8px;
+  flex-wrap:wrap;
+}
+
+.badge{
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.08);
+}
+
+.badge.green{
+  background:rgba(0,200,120,0.18);
+  color:#7dffbf;
+}
+
+.badge.orange{
+  background:rgba(255,170,0,0.18);
+  color:#ffc56b;
+}
+
+/* ===============================
+   MODAL COURS PREMIUM
+================================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:100;
+}
+
+.modal.active{
+  display:block;
+}
+
+.modalSheet{
+  position:absolute;
+  inset:0;
+  overflow-y:auto;
+  padding-bottom:120px;
+
+  /* 🔥 IMPORTANT : PAS DE VOILE FIXE */
+  background:linear-gradient(180deg,#071226,#0b1f3f);
+}
+
+/* HEADER MODAL */
+
+.modalTop{
+  position:sticky;
+  top:0;
+  z-index:5;
+  backdrop-filter:blur(10px);
+  background:rgba(5,10,25,0.7);
+  border-bottom:1px solid var(--border);
+
+  padding:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* BODY */
+
+.modalBody{
+  padding:18px;
+}
+
+/* SECTIONS COURS */
+
+.section{
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:14px;
+}
+
+.sectionTitle{
+  font-weight:700;
+  margin-bottom:6px;
+  color:#9ec5ff;
+}
+
+.section p{
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+/* EXAMPLE BLOCK */
+
+.example{
+  background:rgba(0,0,0,0.25);
+  border-radius:12px;
+  padding:12px;
+  font-family:monospace;
+}
+
+/* BOTTOM NAV */
+
+.modalBottom{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:14px;
+  backdrop-filter:blur(10px);
+  background:rgba(5,10,25,0.7);
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+}
+
+/* ===============================
+   DRAWER MENU
+================================= */
+
+.drawer{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:200;
+}
+
+.drawer.active{
+  display:block;
+}
+
+.drawerBody{
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:260px;
+  background:#071226;
+  padding:18px;
+  border-right:1px solid var(--border);
+}
+
+/* ===============================
+   ICON BUTTON
+================================= */
+
+.iconBtn{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ===============================
+   SCROLLBAR
+================================= */
+
+::-webkit-scrollbar{
+  width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,0.2);
+  border-radius:10px;
+}
