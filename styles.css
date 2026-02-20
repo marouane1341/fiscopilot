@@ -1,0 +1,373 @@
+/* =========================
+   FiscoPilot Premium UI
+   Stable version — no scroll overlay bug
+========================= */
+
+:root{
+  --bg1:#061226;
+  --bg2:#0b1f3f;
+  --glass:rgba(255,255,255,0.06);
+  --glass-border:rgba(255,255,255,0.12);
+  --text:#eaf2ff;
+  --muted:#9fb0d0;
+  --primary:#3b82f6;
+  --primary2:#60a5fa;
+  --danger:#ef4444;
+  --radius:22px;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  min-height:100vh;
+}
+
+/* IMPORTANT — FIX SCROLL BUG */
+html.modalOpen,
+body.modalOpen{
+  overflow:hidden;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(16px);
+  background:rgba(10,20,40,0.7);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  padding:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brandTitle{
+  font-weight:700;
+  font-size:18px;
+}
+
+.brandSub{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.pill{
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:13px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.pill.online{
+  background:rgba(34,197,94,0.2);
+  border-color:rgba(34,197,94,0.4);
+}
+
+.pill.offline{
+  background:rgba(239,68,68,0.2);
+  border-color:rgba(239,68,68,0.4);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+  border:none;
+  border-radius:16px;
+  padding:12px 18px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.btn.primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:white;
+  box-shadow:0 8px 20px rgba(59,130,246,0.35);
+}
+
+.btn.ghost{
+  background:rgba(255,255,255,0.05);
+  color:var(--text);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container{
+  padding:18px;
+  max-width:900px;
+  margin:auto;
+}
+
+.row{
+  display:flex;
+  align-items:center;
+}
+
+.between{
+  justify-content:space-between;
+}
+
+.gap{
+  gap:12px;
+}
+
+.h1{
+  font-size:22px;
+  font-weight:700;
+}
+
+.h2{
+  font-size:18px;
+  font-weight:600;
+}
+
+.muted{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  padding:18px;
+  margin-bottom:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   TABS
+========================= */
+
+.tabs{
+  display:flex;
+  gap:10px;
+}
+
+.tab{
+  flex:1;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.05);
+  color:var(--text);
+  font-weight:600;
+  cursor:pointer;
+}
+
+.tab.active{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  border:none;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.input{
+  flex:1;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);
+  color:white;
+  outline:none;
+}
+
+/* =========================
+   DRAWER
+========================= */
+
+.drawer{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  z-index:100;
+  display:flex;
+}
+
+.drawer[aria-hidden="true"]{
+  display:none;
+}
+
+.drawerBody{
+  width:260px;
+  background:#0b1f3f;
+  padding:18px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:200;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.modal[aria-hidden="true"]{
+  display:none;
+}
+
+.modalSheet{
+  width:100%;
+  max-width:900px;
+  background:linear-gradient(180deg,#081a36,#0b2246);
+  border-radius:26px 26px 0 0;
+  padding:18px;
+  border:1px solid rgba(255,255,255,0.1);
+  max-height:92vh;
+  overflow:auto;
+}
+
+.modalTitle{
+  font-size:20px;
+  font-weight:700;
+}
+
+/* =========================
+   BLOCKS (cours premium)
+========================= */
+
+.block{
+  margin-top:14px;
+  padding:16px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.blockTitle{
+  font-weight:700;
+  margin-bottom:8px;
+  font-size:14px;
+  color:#cfe1ff;
+  letter-spacing:0.5px;
+}
+
+.blockBody{
+  font-size:15px;
+  line-height:1.6;
+}
+
+.blockBody.mono{
+  font-family:ui-monospace,Menlo,monospace;
+}
+
+.pre{
+  white-space:pre-wrap;
+  margin:0;
+}
+
+/* =========================
+   MODAL BOTTOM NAV
+========================= */
+
+.modalBottom{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:14px;
+}
+
+.modalBottom .btn{
+  flex:1;
+}
+
+/* =========================
+   CHOICES (QCM)
+========================= */
+
+.choice{
+  display:block;
+  width:100%;
+  text-align:left;
+  margin-bottom:8px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);
+  color:white;
+  cursor:pointer;
+}
+
+/* =========================
+   ICON BUTTON
+========================= */
+
+.iconBtn{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+#toast{
+  pointer-events:none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:600px){
+
+  .h1{
+    font-size:20px;
+  }
+
+  .card{
+    padding:14px;
+  }
+
+  .modalSheet{
+    border-radius:22px 22px 0 0;
+  }
+
+}
