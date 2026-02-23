@@ -1,0 +1,194 @@
+:root{
+  --bg1:#061321;
+  --bg2:#0b2036;
+  --card: rgba(255,255,255,.06);
+  --card2: rgba(255,255,255,.08);
+  --txt: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.65);
+  --accent:#ffcc66;
+  --blue:#3b82f6;
+  --blue2:#2563eb;
+  --shadow: 0 20px 60px rgba(0,0,0,.45);
+  --radius: 22px;
+  --radius2: 16px;
+  --border: 1px solid rgba(255,255,255,.10);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--txt);
+  background: radial-gradient(1200px 900px at 30% 0%, #103a63 0%, transparent 55%),
+              linear-gradient(180deg, var(--bg2), var(--bg1));
+}
+
+.hidden{display:none !important;}
+
+.topbar{
+  display:flex; align-items:center; gap:12px;
+  padding:14px 14px 10px;
+  position:sticky; top:0;
+  backdrop-filter: blur(14px);
+  background: rgba(6,19,33,.65);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  z-index:10;
+}
+.iconbtn{
+  border: var(--border);
+  background: rgba(255,255,255,.06);
+  color: var(--txt);
+  border-radius: 16px;
+  width:44px; height:44px;
+  display:grid; place-items:center;
+  font-size:18px;
+}
+.brand{flex:1; min-width:0}
+.title{font-weight:800; letter-spacing:.2px}
+.accent{color:var(--accent)}
+.subtitle{font-size:12px; color:var(--muted); margin-top:2px}
+.pill{
+  border: var(--border);
+  background: rgba(34,197,94,.14);
+  color: rgba(255,255,255,.92);
+  padding:10px 14px;
+  border-radius: 999px;
+  font-weight:600;
+}
+
+.shell{padding:14px; max-width:860px; margin:0 auto;}
+.view{min-height: calc(100vh - 84px);}
+
+.hero{
+  padding:18px 14px 6px;
+}
+.heroTitle{font-size:44px; font-weight:900; letter-spacing:-.8px}
+.heroSub{color:var(--muted); margin-top:6px}
+
+.moduleCard{
+  margin-top:10px;
+  border: var(--border);
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding:14px;
+}
+
+.moduleHead{display:flex; align-items:flex-end; justify-content:space-between; gap:10px;}
+.moduleTitle{font-size:22px; font-weight:800}
+.moduleMeta{font-size:12px; color:var(--muted)}
+
+.tabs{
+  display:flex; gap:10px;
+  margin-top:14px;
+}
+.tab{
+  flex:1;
+  border: var(--border);
+  background: rgba(255,255,255,.05);
+  color: var(--txt);
+  border-radius: 18px;
+  padding:12px 10px;
+  font-weight:700;
+}
+.tab.active{
+  background: rgba(59,130,246,.35);
+  border-color: rgba(59,130,246,.55);
+}
+
+.searchRow{
+  display:flex; gap:10px;
+  margin-top:12px;
+}
+.search{
+  flex:1;
+  border: var(--border);
+  background: rgba(0,0,0,.18);
+  color: var(--txt);
+  border-radius: 18px;
+  padding:12px 14px;
+  outline:none;
+}
+.btn{
+  border: var(--border);
+  background: rgba(59,130,246,.35);
+  color: var(--txt);
+  border-radius: 18px;
+  padding:12px 14px;
+  font-weight:800;
+}
+.btn.primary{background: rgba(37,99,235,.7)}
+.btn.ghost{background: rgba(255,255,255,.06)}
+
+.counts{
+  margin-top:10px;
+  color: var(--muted);
+  font-size:13px;
+}
+
+.list{margin-top:12px; display:flex; flex-direction:column; gap:10px;}
+.item{
+  border: var(--border);
+  background: rgba(255,255,255,.05);
+  border-radius: var(--radius2);
+  padding:12px 12px;
+  display:flex; flex-direction:column; gap:6px;
+}
+.itemTop{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+.itemTitle{font-weight:900}
+.itemMeta{font-size:12px; color:var(--muted)}
+.itemText{color:rgba(255,255,255,.82); font-size:13px; line-height:1.35}
+
+.empty{
+  margin-top:12px;
+  border: var(--border);
+  background: rgba(255,255,255,.05);
+  border-radius: 18px;
+  padding:14px;
+  color: var(--muted);
+}
+
+.readerTop{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-top:6px;
+}
+.readerBadge{display:flex; gap:10px; align-items:center}
+.badge{
+  border: var(--border);
+  background: rgba(255,255,255,.06);
+  border-radius: 999px;
+  padding:8px 12px;
+  color: var(--txt);
+  font-weight:800;
+  font-size:12px;
+}
+
+.readerCard{
+  margin-top:12px;
+  border: var(--border);
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding:14px;
+}
+.readerTitle{margin:0 0 10px 0; font-size:26px; font-weight:1000}
+.readerBody{
+  border: var(--border);
+  background: rgba(0,0,0,.16);
+  border-radius: 18px;
+  padding:14px;
+  color: rgba(255,255,255,.88);
+  line-height:1.45;
+  white-space:pre-wrap;
+}
+.readerNav{
+  display:flex; gap:10px;
+  margin-top:12px;
+}
+.readerNav .btn{flex:1}
+.hint{
+  margin-top:10px;
+  color: var(--muted);
+  font-size:13px;
+}

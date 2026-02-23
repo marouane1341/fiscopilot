@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1b2d" />
+  <title>FiscoPilot AI ELITE MAX</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <button id="btnMenu" class="iconbtn" aria-label="Menu">☰</button>
+    <div class="brand">
+      <div class="title">FiscoPilot <span class="accent">AI ELITE MAX</span> 🇧🇪</div>
+      <div class="subtitle">Mode PWA • Offline-ready • Build STABLE</div>
+    </div>
+    <button id="btnOnline" class="pill">En ligne</button>
+  </header>
+
+  <main class="shell">
+    <!-- HOME -->
+    <section id="homeView" class="view">
+      <div class="hero">
+        <div class="heroTitle">Modules</div>
+        <div class="heroSub">Choisis un module. Cours + QCM + Cas, recherche et aléatoire.</div>
+      </div>
+
+      <div class="moduleCard">
+        <div class="moduleHead">
+          <div class="moduleTitle">📚 TVA Belgique</div>
+          <div id="srcInfo" class="moduleMeta">Sources: —</div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="cours">📘 Cours</button>
+          <button class="tab" data-tab="qcm">🧪 QCM</button>
+          <button class="tab" data-tab="cas">🧾 Cas</button>
+        </div>
+
+        <div class="searchRow">
+          <input id="searchInput" class="search" placeholder="Rechercher (ex: prorata, facture, 44)" />
+          <button id="btnRandom" class="btn">Aléatoire</button>
+        </div>
+
+        <div id="counts" class="counts">Cours: 0 • QCM: 0 • Cas: 0</div>
+
+        <div id="list" class="list"></div>
+        <div id="empty" class="empty hidden">Aucun résultat.</div>
+      </div>
+    </section>
+
+    <!-- READER -->
+    <section id="readerView" class="view hidden">
+      <div class="readerTop">
+        <button id="btnBack" class="iconbtn" aria-label="Retour">✕</button>
+        <div class="readerBadge">
+          <span id="readerLevel" class="badge">—</span>
+          <span id="readerIndex" class="badge">—/—</span>
+        </div>
+        <button id="btnReaderMenu" class="iconbtn" aria-label="Menu">≡</button>
+      </div>
+
+      <article class="readerCard">
+        <h1 id="readerTitle" class="readerTitle">—</h1>
+
+        <div id="readerBody" class="readerBody"></div>
+
+        <div class="readerNav">
+          <button id="btnPrev" class="btn ghost">Précédent</button>
+          <button id="btnAudio" class="btn">🔊 Audio</button>
+          <button id="btnNext" class="btn primary">Suivant ▶</button>
+        </div>
+
+        <div id="readerHint" class="hint hidden"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+  <script>
+    // PWA (optionnel)
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js").catch(()=>{});
+    }
+  </script>
+</body>
+</html>
