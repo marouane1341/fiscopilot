@@ -25,35 +25,12 @@
       "title": "Biens vs services : qualifier vite (avec pièges)",
       "level": "🟡 Intermédiaire",
       "text": "OBJECTIF\nSavoir distinguer biens/services car ça impacte lieu, taux, obligations et preuve.\n\nEXPLICATION\nUne livraison de biens = transfert du pouvoir de disposer d’un bien corporel. Une prestation de services = tout ce qui n’est pas une livraison de biens. La distinction est essentielle : les règles de lieu diffèrent souvent, surtout en intracom/International.\n\nMÉTHODE CABINET\n- Si c’est « un objet » livré → bien.\n- Si c’est « une action » rendue (conseil, abonnement, travail) → service.\n- Pièges : logiciel, formation, licence, installation, bundle.\n\nEXEMPLE\n- Vente d’un ordinateur + installation : souvent bien + service accessoire.\n- Licence SaaS mensuelle : service.\n\nÀ RETENIR\nQuand c’est mixte, tu identifies la prestation principale et les accessoires.\n\nMINI-EXERCICE\nClasse 5 opérations : formation en ligne, vente + montage, abonnement SaaS, livre papier, consulting."
-    }
-  ],
-  {
-  "meta": { "title": "TVA Belgique — Pack Premium (Base)", "version": 1 },
-
-  "lessons": [
-    {
-      "id": "tva_00_01",
-      "title": "TVA : neutralité et mécanisme (raisonnement cabinet)",
-      "level": "🟢 Débutant",
-      "text": "OBJECTIF\nComprendre la logique TVA (TVA due vs TVA déductible), et savoir l’expliquer clairement à un client sans jargon.\n\nEXPLICATION\nLa TVA est un impôt sur la consommation. L’entreprise assujettie agit comme intermédiaire : elle facture la TVA sur ses ventes (TVA due), puis récupère sous conditions la TVA payée sur ses achats professionnels (TVA déductible). La « neutralité » signifie que, si l’entreprise respecte les règles et a droit à déduction, la TVA n’est pas un coût final pour elle.\n\nMÉTHODE CABINET (3 réflexes)\n1) Identifier la vente : à qui ? quoi ? où ? (qualification + lieu)\n2) Identifier l’achat lié : dépense pro ? facture correcte ? (droit à déduction)\n3) Vérifier la preuve : facture + documents (contrat, livraison, etc.)\n\nEXEMPLE\nUn client facture 1.000€ HT + 21% = 1.210€. Il doit 210€ (TVA due). Il achète du matériel pro 500€ HT + 21% = 605€ : TVA déductible 105€ (si facture OK + usage pro). TVA à payer = 210 – 105 = 105€.\n\nÀ RETENIR\n- TVA due = TVA collectée sur ventes.\n- TVA déductible = TVA récupérable sur achats pro (si conditions).\n- Neutralité ≠ automatique : la preuve et la facture sont clés.\n\nMINI-EXERCICE\nExplique en 2 phrases à un client : « pourquoi tu paies de la TVA » et « quand tu la récupères »."
     },
     {
-      "id": "tva_00_02",
-      "title": "Les 4 conditions TVA : le filtre d’entrée (avant tout calcul)",
-      "level": "🟢 Débutant",
-      "text": "OBJECTIF\nSavoir vérifier en 30 secondes si une opération peut être « dans le champ TVA ».\n\nEXPLICATION\nAvant de parler de taux (0%, 6%, 12%, 21%), on vérifie si l’opération est taxable. Une opération est en principe dans le champ TVA si :\n1) c’est une livraison de biens ou une prestation de services,\n2) réalisée à titre onéreux (contrepartie directe),\n3) par un assujetti agissant comme tel,\n4) localisée sur le territoire selon les règles de lieu.\n\nMÉTHODE CABINET\n- Étape 1 : Y a-t-il une contrepartie directe ? (paiement, avantage, lien direct)\n- Étape 2 : Qui agit ? assujetti ? en tant que professionnel ?\n- Étape 3 : Où est localisée l’opération ? (Belgique/UE/hors UE)\n- Étape 4 : Si oui → seulement après : exonération / taux / obligations.\n\nEXEMPLE\n- Subvention sans contrepartie directe : souvent hors champ (à analyser selon réalité économique).\n- Service facturé à un client : onéreux → champ TVA (reste à vérifier lieu).\n\nÀ RETENIR\nSi une condition manque, tu peux être : hors champ, exonéré, ou dans un régime particulier. Ne saute jamais ce filtre.\n\nMINI-EXERCICE\nPrends 3 opérations : une subvention, une indemnité, une facture client. Classe-les : champ TVA / hors champ / incertain + pourquoi."
-    },
-    {
-      "id": "tva_00_03",
-      "title": "Assujetti : qui est concerné (et pourquoi ça change tout)",
+      "id": "tva_00_05",
+      "title": "Neutralité TVA — checklist cabinet (preuve, déduction, pièges contrôle)",
       "level": "🟡 Intermédiaire",
-      "text": "OBJECTIF\nComprendre la notion d’assujetti et l’impact direct sur facturation, déduction et obligations.\n\nEXPLICATION\nUn assujetti est une personne/entité qui exerce de manière indépendante une activité économique (vente de biens, prestations, exploitation, etc.). Le point clé : l’assujetti « agit comme tel » lorsqu’il agit dans le cadre de son activité économique. Certaines opérations privées ou hors activité peuvent sortir du champ.\n\nMÉTHODE CABINET\n1) Identifier l’entité : personne physique, société, ASBL…\n2) Identifier l’activité : économique ? régulière ? indépendante ?\n3) Vérifier si l’opération est faite « comme assujetti » (cadre pro)\n4) Déduire les conséquences : TVA, facture, obligations.\n\nEXEMPLE\nUn indépendant qui vend un ordinateur de son activité : opération pro. S’il vend un objet strictement privé, c’est souvent hors activité (à vérifier selon contexte et répétition).\n\nÀ RETENIR\n- Assujetti ≠ toujours TVA : il faut aussi « agir comme tel ».\n- La qualification de l’assujetti structure tout le dossier.\n\nMINI-EXERCICE\nDonne 2 exemples : (1) assujetti agissant comme tel, (2) même personne mais opération hors activité."
-    },
-    {
-      "id": "tva_00_04",
-      "title": "Biens vs services : qualifier vite (avec pièges)",
-      "level": "🟡 Intermédiaire",
-      "text": "OBJECTIF\nSavoir distinguer biens/services car ça impacte lieu, taux, obligations et preuve.\n\nEXPLICATION\nUne livraison de biens = transfert du pouvoir de disposer d’un bien corporel. Une prestation de services = tout ce qui n’est pas une livraison de biens. La distinction est essentielle : les règles de lieu diffèrent souvent, surtout en intracom/International.\n\nMÉTHODE CABINET\n- Si c’est « un objet » livré → bien.\n- Si c’est « une action » rendue (conseil, abonnement, travail) → service.\n- Pièges : logiciel, formation, licence, installation, bundle.\n\nEXEMPLE\n- Vente d’un ordinateur + installation : souvent bien + service accessoire.\n- Licence SaaS mensuelle : service.\n\nÀ RETENIR\nQuand c’est mixte, tu identifies la prestation principale et les accessoires.\n\nMINI-EXERCICE\nClasse 5 opérations : formation en ligne, vente + montage, abonnement SaaS, livre papier, consulting."
+      "text": "OBJECTIF\nPasser du concept (TVA due/déductible) à une méthode cabinet utilisable en contrôle : preuves, exclusions, dépenses mixtes, cohérence.\n\nRÈGLE D’OR (cabinet)\nLa TVA n’est neutre QUE si tu peux prouver 3 choses :\n1) Dépense liée à l’activité taxable\n2) Facture conforme\n3) TVA légalement déductible (pas une exclusion / limitation)\n\nCHECKLIST CABINET (rapide)\nA) FACTURE\n- Nom/TVA du fournisseur + client\n- Date, numérotation, description claire\n- Base HT, taux, montant TVA\n- Preuve de paiement (utile)\n\nB) LIEN PRO (cohérence)\n- Pourquoi c’est nécessaire à l’activité ?\n- Le poste est logique vs activité/CA ?\n- Contrat / email / bon de commande / livraison\n\nC) DÉDUCTIBILITÉ\n- Dépense mixte ? (téléphone, voiture, logement) → clé raisonnable + justification\n- Exclusions/limitations possibles (selon règles) → prudence\n\nPIÈGES QUI FONT PERDRE LA NEUTRALITÉ\n- Facture invalide ou au mauvais nom\n- Usage privé non documenté (mixte)\n- Dépense incohérente avec l’activité\n- Confusion : hors champ vs exonéré (pas la même logique)\n\nEXEMPLE ‘CABINET’ (propre)\nSmartphone 800€ HT + 21% : si usage pro/privé, tu ne déduis pas 100% par défaut. Tu documentes une clé (ex 70% pro) + preuves (politique interne, logs, justification).\n\nÀ RETENIR\nNeutralité = droit + preuve + cohérence. Sans preuve, la TVA devient un coût (rejet en contrôle).\n\nMINI-EXERCICE\nDonne une clé d’usage pro pour : voiture, téléphone, abonnement internet. Explique comment tu la justifies en contrôle."
     }
   ],
 
@@ -93,61 +70,30 @@
       ],
       "answer": 1,
       "explain": "On distingue activité économique (pro) et opérations privées/hors activité."
-    }
-  ],
-
-  "cases": [
-    {
-      "title": "TVA due vs TVA déductible",
-      "level": "🟢",
-      "question": "Un client facture 2.000€ HT à 21% et achète pour 1.000€ HT avec facture 21%. Quel est le solde TVA ?",
-      "answer_md": "TVA due = 2.000 × 21% = 420. TVA déductible = 1.000 × 21% = 210. Solde = 420 – 210 = 210€ (si conditions de déduction remplies)."
     },
     {
-      "title": "Filtre d’entrée (subvention)",
       "level": "🟡",
-      "question": "Une ASBL reçoit une subvention sans prestation identifiable en échange. TVA ?",
-      "answer_md": "Souvent hors champ si absence de contrepartie directe. On analyse la réalité économique : y a-t-il un service identifiable rendu au financeur ?"
-    }
-  ]
-}
-
-  "qcm": [
-    {
-      "level": "🟢",
-      "question": "La neutralité TVA signifie principalement :",
+      "question": "Quelle combinaison est la plus solide en cas de contrôle pour déduire la TVA ?",
       "choices": [
-        "La TVA n’existe pas",
-        "La TVA est toujours un coût",
-        "La TVA n’est pas un coût final si droit à déduction + conditions respectées",
-        "On peut toujours déduire sans facture"
+        "Une capture d’écran + paiement cash",
+        "Une facture conforme + lien pro + documents (contrat/email/livraison)",
+        "Un simple mail du client",
+        "Une facture au nom d’un proche"
+      ],
+      "answer": 1,
+      "explain": "Le contrôle cherche facture + cohérence + preuves (et règles de déductibilité)."
+    },
+    {
+      "level": "🟡",
+      "question": "Une dépense mixte (pro/privé) implique en général :",
+      "choices": [
+        "Déduction 100% automatique",
+        "Aucune déduction possible",
+        "Déduction partielle avec clé réaliste + justification",
+        "Déduction possible uniquement si payé en cash"
       ],
       "answer": 2,
-      "explain": "La neutralité dépend du respect des conditions (facture, usage pro, règles)."
-    },
-    {
-      "level": "🟢",
-      "question": "Avant de chercher un taux TVA, le bon réflexe est :",
-      "choices": [
-        "Appliquer 21% par défaut",
-        "Vérifier d’abord les 4 conditions (champ TVA)",
-        "Regarder uniquement le secteur",
-        "Demander au client de deviner"
-      ],
-      "answer": 1,
-      "explain": "On commence par le filtre d’entrée : champ TVA → ensuite exonération/taux."
-    },
-    {
-      "level": "🟡",
-      "question": "Assujetti « agissant comme tel » signifie :",
-      "choices": [
-        "Toujours dans le champ TVA, même privé",
-        "Uniquement quand l’opération est dans le cadre de l’activité économique",
-        "Uniquement quand il y a un paiement en cash",
-        "Uniquement pour les sociétés"
-      ],
-      "answer": 1,
-      "explain": "On distingue activité économique (pro) et opérations privées/hors activité."
+      "explain": "En mixte, on applique une clé raisonnable et on documente la justification."
     }
   ],
 
@@ -163,6 +109,18 @@
       "level": "🟡",
       "question": "Une ASBL reçoit une subvention sans prestation identifiable en échange. TVA ?",
       "answer_md": "Souvent hors champ si absence de contrepartie directe. On analyse la réalité économique : y a-t-il un service identifiable rendu au financeur ?"
+    },
+    {
+      "title": "Dépense mixte (téléphone) : neutralité en pratique",
+      "level": "🟡",
+      "question": "Un indépendant achète un smartphone 900€ HT + 21% utilisé pro et privé. Il veut déduire 100%. Que fais-tu en cabinet ?",
+      "answer_md": "100% = risqué (dépense mixte). On propose une clé réaliste (ex 60–80% selon usage), on documente (politique interne, justification, éléments d’usage). On déduit seulement la part pro. Sinon risque : rejet partiel + intérêts/amendes."
+    },
+    {
+      "title": "Facture invalide : perte de neutralité",
+      "level": "🟡",
+      "question": "Un achat pro a été fait, mais la facture est au mauvais nom (pas celui de l’entreprise/indépendant). Peut-on déduire la TVA ?",
+      "answer_md": "Risque élevé : la facture doit être au bon assujetti pour déduire correctement. Solution : demander une facture corrigée/avoir adéquat au bon nom + garder preuves (commande/paiement/livraison). Sans correction, la TVA peut devenir un coût (rejet en contrôle)."
     }
   ]
 }
