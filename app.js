@@ -2,7 +2,7 @@
 // CONFIG
 // =============================
 
-const DB_URL = "./db/tva.json";
+const DB_URL = "./tva.json";
 const AUDIO_WORKER_URL = "https://apikey.marouane1341.workers.dev/tts";
 
 let db = null;
