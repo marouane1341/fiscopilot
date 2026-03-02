@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <titleFiscoPilot TVA</title>
+
+  <style>
+    :root{
+      --bg1:#0b2940; --bg2:#0a1f33; --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.06); --txt:#eaf3ff; --muted:rgba(234,243,255,.7);
+      --btn:rgba(255,255,255,.10); --btn2:rgba(255,255,255,.16);
+      --ok:#3ddc97; --bad:#ff6b6b;
+      --radius:20px;
+    }
+    *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    body{
+      margin:0; color:var(--txt);
+      min-height:100vh;
+      background: radial-gradient(1200px 600px at 20% 10%, #1b5b7a 0%, transparent 60%),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      padding:20px;
+    }
+    .topbar{
+      max-width:900px;margin:0 auto 16px;
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.3px;
+    }
+    .pill{
+      padding:8px 12px; border-radius:999px;
+      background:rgba(255,255,255,.10); color:var(--muted);
+      font-size:12px;
+    }
+    .wrap{max-width:900px;margin:0 auto;}
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+    }
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .btn{
+      border:none; cursor:pointer; color:var(--txt);
+      background:var(--btn); padding:12px 14px;
+      border-radius:14px; font-weight:700;
+      display:inline-flex; gap:8px; align-items:center;
+    }
+    .btn:hover{background:var(--btn2)}
+    .btn.primary{background:rgba(70,160,255,.22); border:1px solid rgba(70,160,255,.35)}
+    .btn.green{background:rgba(61,220,151,.16); border:1px solid rgba(61,220,151,.28)}
+    .btn.gray{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.10)}
+    .status{font-size:13px;color:var(--muted);line-height:1.35}
+    .status b{color:var(--txt)}
+    .status .ok{color:var(--ok);font-weight:800}
+    .status .bad{color:var(--bad);font-weight:800}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap}
+    .tab{padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.08);cursor:pointer;font-weight:800}
+    .tab.active{background:rgba(70,160,255,.22);border:1px solid rgba(70,160,255,.35)}
+    input{
+      width:min(520px,100%);
+      padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.15); color:var(--txt);
+      outline:none;
+    }
+    .list{display:grid;gap:12px}
+    .item{
+      padding:14px;border-radius:18px;background:var(--card2);
+      border:1px solid rgba(255,255,255,.10); cursor:pointer;
+    }
+    .item:hover{background:rgba(255,255,255,.09)}
+    .item .t{font-weight:900;font-size:16px;margin-bottom:6px}
+    .item .m{color:var(--muted);font-size:13px}
+    .detail h1{margin:0 0 8px;font-size:22px}
+    .badge{
+      display:inline-block;padding:6px 10px;border-radius:999px;
+      background:rgba(255,255,255,.10); color:var(--muted); font-weight:800; font-size:12px;
+    }
+    pre{
+      white-space:pre-wrap; word-break:break-word;
+      background:rgba(0,0,0,.18); padding:14px; border-radius:16px;
+      border:1px solid rgba(255,255,255,.10); margin:12px 0 0;
+      color:rgba(234,243,255,.92);
+      line-height:1.45;
+    }
+    .footerHint{font-size:12px;color:var(--muted);margin-top:10px}
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="brand">📚 FiscoPilot <span style="opacity:.85">AI ELITE MAX 🇧🇪</span></div>
+    <div class="pill" id="netPill">En ligne</div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+      <div class="card">
+        <div class="row" style="justify-content:space-between">
+          <div>
+            <div style="font-size:26px;font-weight:1000;margin-bottom:6px">Modules</div>
+            <div style="color:var(--muted)">Cours + QCM + Cas, recherche et aléatoire.</div>
+          </div>
+          <button class="btn gray" id="reloadBtn">🔄 Recharger DB</button>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="card" style="background:rgba(255,255,255,.06)">
+          <div class="row" style="justify-content:space-between">
+            <div>
+              <div style="font-size:22px;font-weight:1000">📚 TVA Belgique</div>
+              <div class="status" id="dbStatus">⏳ Chargement DB…</div>
+            </div>
+            <div class="tabs">
+              <div class="tab active" data-tab="lessons">📘 Cours</div>
+              <div class="tab" data-tab="qcm">🧪 QCM</div>
+              <div class="tab" data-tab="cases">🗂️ Cas</div>
+            </div>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="row">
+            <input id="search" placeholder="Rechercher (ex: prorata, facture, 4 conditions…)" />
+            <button class="btn primary" id="randomBtn">🎲 Aléatoire</button>
+            <button class="btn green" id="openFirstBtn">📖 Ouvrir le 1er</button>
+          </div>
+
+          <div style="height:12px"></div>
+          <div class="status" id="counts">Cours: 0 • QCM: 0 • Cas: 0</div>
+
+          <div style="height:14px"></div>
+
+          <div id="view"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/** ========= CONFIG ========= */
+const DB_URL = "./db/tva.json"; // ton JSON (OK d'après ton screenshot)
+const AUDIO_WORKER_URL = "https://apikey.marouane1341.workers.dev"; // ton worker OK
+
+/** ========= STATE ========= */
+let db = null;
+let activeTab = "lessons"; // lessons | qcm | cases
+let filtered = [];
+let currentIndex = -1;
+let lastAudioUrl = null;
+
+/** ========= UI HELPERS ========= */
+const $ = (id)=>document.getElementById(id);
+function setNetPill(){
+  $("netPill").textContent = navigator.onLine ? "En ligne" : "Hors ligne";
+}
+window.addEventListener("online", setNetPill);
+window.addEventListener("offline", setNetPill);
+setNetPill();
+
+function escapeHTML(s){
+  return String(s).replace(/[&<>"']/g, m => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[m]));
+}
+
+function statusOK(msg){ $("dbStatus").innerHTML = `✅ <span class="ok">${escapeHTML(msg)}</span>`; }
+function statusBad(msg){ $("dbStatus").innerHTML = `❌ <span class="bad">${escapeHTML(msg)}</span>`; }
+function statusWait(msg){ $("dbStatus").textContent = `⏳ ${msg}`; }
+
+function updateCounts(){
+  const lc = db?.lessons?.length ?? 0;
+  const qc = db?.qcm?.length ?? 0;
+  const cc = db?.cases?.length ?? 0;
+  $("counts").textContent = `Cours: ${lc} • QCM: ${qc} • Cas: ${cc}`;
+}
+
+function getListForTab(){
+  if(!db) return [];
+  if(activeTab==="lessons") return db.lessons || [];
+  if(activeTab==="qcm") return db.qcm || [];
+  return db.cases || [];
+}
+
+function getItemTitle(it){
+  if(activeTab==="lessons") return it.title || it.id || "Cours";
+  if(activeTab==="qcm") return it.question || "QCM";
+  return it.title || "Cas";
+}
+
+function getItemMeta(it){
+  if(activeTab==="lessons") return `${it.level || ""} • ${it.id || ""}`.trim();
+  if(activeTab==="qcm") return `${it.level || ""}`.trim();
+  return `${it.level || ""}`.trim();
+}
+
+/** ========= RENDER ========= */
+function renderList(){
+  const q = $("search").value.trim().toLowerCase();
+  const list = getListForTab();
+
+  filtered = list.filter(it=>{
+    const blob = JSON.stringify(it).toLowerCase();
+    return !q || blob.includes(q);
+  });
+
+  currentIndex = -1;
+
+  const html = `
+    <div class="list">
+      ${filtered.map((it, idx)=>`
+        <div class="item" data-idx="${idx}">
+          <div class="t">${escapeHTML(getItemTitle(it))}</div>
+          <div class="m">${escapeHTML(getItemMeta(it))}</div>
+        </div>
+      `).join("")}
+    </div>
+    <div class="footerHint">Astuce : si tu n’entends rien, monte le volume et réessaie après un clic (autoplay bloqué sur certains téléphones).</div>
+  `;
+  $("view").innerHTML = html;
+
+  document.querySelectorAll(".item").forEach(el=>{
+    el.addEventListener("click", ()=>{
+      openDetail(parseInt(el.dataset.idx,10));
+    });
+  });
+}
+
+function renderDetail(it){
+  let body = "";
+
+  if(activeTab==="lessons"){
+    body = `<pre>${escapeHTML(it.text || "")}</pre>`;
+  } else if(activeTab==="qcm"){
+    const choices = it.choices || [];
+    body = `
+      <pre>${escapeHTML(it.question || "")}</pre>
+      <div style="height:10px"></div>
+      ${choices.map((c,i)=>`<div class="item" style="cursor:default">
+        <div class="t">${i+1}) ${escapeHTML(c)}</div>
+      </div>`).join("")}
+      <div style="height:10px"></div>
+      <div class="status"><b>Réponse :</b> ${escapeHTML(String((it.answer ?? 0)+1))} • ${escapeHTML(it.explain || "")}</div>
+    `;
+  } else {
+    body = `
+      <pre>${escapeHTML(it.question || "")}</pre>
+      <div style="height:10px"></div>
+      <pre>${escapeHTML(it.answer_md || "")}</pre>
+    `;
+  }
+
+  $("view").innerHTML = `
+    <div class="detail">
+      <h1>${escapeHTML(getItemTitle(it))}</h1>
+      <div class="row" style="justify-content:space-between">
+        <div class="badge">${escapeHTML(getItemMeta(it) || "—")}</div>
+        <div class="row">
+          <button class="btn gray" id="backBtn">← Retour</button>
+          <button class="btn gray" id="prevBtn">◀ Précédent</button>
+          <button class="btn green" id="audioBtn">🔊 Audio</button>
+          <button class="btn gray" id="nextBtn">Suivant ▶</button>
+        </div>
+      </div>
+      ${body}
+      <div id="audioLog" class="footerHint"></div>
+    </div>
+  `;
+
+  $("backBtn").onclick = renderList;
+  $("prevBtn").onclick = ()=> step(-1);
+  $("nextBtn").onclick = ()=> step(1);
+  $("audioBtn").onclick = ()=> speakCurrent();
+}
+
+function openDetail(idx){
+  currentIndex = idx;
+  const it = filtered[currentIndex];
+  renderDetail(it);
+}
+
+function step(delta){
+  if(currentIndex<0) return;
+  let next = currentIndex + delta;
+  if(next < 0) next = filtered.length - 1;
+  if(next >= filtered.length) next = 0;
+  openDetail(next);
+}
+
+/** ========= AUDIO ========= */
+async function speakCurrent(){
+  try{
+    if(currentIndex<0){
+      alert("Ouvre un cours/QCM/cas d’abord.");
+      return;
+    }
+    const it = filtered[currentIndex];
+
+    // texte à lire
+    let text = "";
+    if(activeTab==="lessons") text = it.text || it.title || "";
+    else if(activeTab==="qcm") text = `${it.question || ""}\n\nChoix:\n${(it.choices||[]).map((c,i)=>`${i+1}) ${c}`).join("\n")}\n\nRéponse: ${((it.answer??0)+1)}. ${it.explain||""}`;
+    else text = `${it.title || ""}\n\n${it.question || ""}\n\nRéponse:\n${it.answer_md || ""}`;
+
+    text = text.trim();
+    if(!text){
+      alert("Aucun texte à lire.");
+      return;
+    }
+
+    const log = (m)=>{ const el=$("audioLog"); if(el) el.textContent=m; };
+
+    log("⏳ Génération audio…");
+
+    // IMPORTANT: no-store + anti-cache param
+    const res = await fetch(`${AUDIO_WORKER_URL}/tts?v=${Date.now()}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text,
+        // optionnel si ton worker les accepte:
+        // voice_id: "21m00Tcm4TlvDq8ikWAM",
+        // output_format: "mp3"
+      }),
+      cache: "no-store",
+    });
+
+    if(!res.ok){
+      const t = await res.text().catch(()=> "");
+      throw new Error(`HTTP ${res.status} ${t}`.slice(0,200));
+    }
+
+    const buf = await res.arrayBuffer();
+    const blob = new Blob([buf], { type: "audio/mpeg" });
+    const url = URL.createObjectURL(blob);
+
+    if(lastAudioUrl) URL.revokeObjectURL(lastAudioUrl);
+    lastAudioUrl = url;
+
+    const audio = new Audio(url);
+    audio.preload = "auto";
+    audio.onended = ()=> log("✅ Audio terminé.");
+    audio.onerror = ()=> log("❌ Erreur lecture audio (volume/autoplay).");
+
+    // Sur mobile, play peut échouer si pas d’interaction — ici c’est un clic donc OK.
+    await audio.play();
+
+    log(`✅ Audio prêt (${Math.round(buf.byteLength/1024)} KB).`);
+  }catch(e){
+    alert("Erreur audio: " + (e?.message || e));
+  }
+}
+
+/** ========= DB LOAD ========= */
+async function loadDB(){
+  try{
+    statusWait("Chargement DB…");
+    // no-store + anti-cache param
+    const url = `${DB_URL}?v=${Date.now()}`;
+    const res = await fetch(url, { cache:"no-store" });
+
+    if(!res.ok) throw new Error(`DB introuvable: ${res.status} (${url})`);
+
+    db = await res.json();
+    updateCounts();
+
+    const title = db?.meta?.title || "DB";
+    const ver = db?.meta?.version ?? "?";
+    statusOK(`DB chargée: "${title}" • v${ver}`);
+
+    renderList();
+  }catch(e){
+    db = null;
+    updateCounts();
+    statusBad(e?.message || String(e));
+    $("view").innerHTML = `<div class="status">📌 Vérifie que <b>${escapeHTML(DB_URL)}</b> existe bien sur GitHub Pages.</div>`;
+  }
+}
+
+/** ========= EVENTS ========= */
+$("reloadBtn").onclick = loadDB;
+$("search").addEventListener("input", ()=> renderList());
+$("randomBtn").onclick = ()=>{
+  if(!filtered.length) return;
+  openDetail(Math.floor(Math.random()*filtered.length));
+};
+$("openFirstBtn").onclick = ()=>{
+  if(!filtered.length) return;
+  openDetail(0);
+};
+
+document.querySelectorAll(".tab").forEach(t=>{
+  t.addEventListener("click", ()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");
+    activeTab = t.dataset.tab;
+    $("search").value = "";
+    renderList();
+  });
+});
+
+loadDB();
+</script>
+
+</body>
+</html>
