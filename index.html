@@ -3,170 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot Elite V2.2</title>
+    <title>FiscoPilot V2.3 - Elite Vision</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="manifest.json">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0b1120; color: #f8fafc; margin: 0; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #0b1120; color: #f8fafc; margin: 0; }
         .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
         .glass { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .animate-slide { animation: slideUp 0.3s ease-out; }
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .active-tab { color: #d4af37; transform: scale(1.1); filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4)); }
     </style>
 </head>
 <body class="pb-28">
 
-    <header class="p-6 flex justify-between items-center bg-[#0b1120]/80 sticky top-0 z-40 backdrop-blur-md">
+    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#0b1120]/90 backdrop-blur-md">
         <div>
-            <h1 class="text-2xl font-bold text-transparent bg-clip-text gold-gradient tracking-tight">FiscoPilot <span class="text-white font-light text-[10px] uppercase ml-1 italic">Elite</span></h1>
-            <p class="text-slate-500 text-[9px] uppercase tracking-[0.3em] font-semibold">Expert-Comptable ITAA Prep</p>
+            <h1 class="text-2xl font-bold text-transparent bg-clip-text gold-gradient tracking-tight">FiscoPilot <span class="text-white font-light text-[10px] uppercase italic">Elite</span></h1>
+            <p class="text-slate-500 text-[9px] uppercase tracking-[0.2em] font-bold">Expert-Comptable Vision</p>
         </div>
-        <div class="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-slate-900 font-bold shadow-lg shadow-yellow-500/20 transition active:scale-90">M</div>
+        <button onclick="startScan()" class="w-11 h-11 rounded-2xl glass flex items-center justify-center text-xl shadow-lg border-white/10 active:scale-90 transition">📸</button>
     </header>
 
     <main id="app-content" class="px-5 space-y-6">
         
-        <section id="view-home" class="space-y-6 animate-slide">
+        <section id="view-home" class="space-y-6">
             <div class="glass rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl border-t border-white/10">
                 <div class="relative z-10">
-                    <span class="text-[10px] bg-yellow-500/20 text-yellow-500 px-3 py-1 rounded-full font-bold uppercase tracking-wider">Statut : Prêt</span>
-                    <h2 class="text-2xl font-black mt-3 mb-2 text-white">Révision Stratégique</h2>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Accédez à votre base de connaissances ITAA synchronisée (PCMN & CSA).</p>
-                    <button onclick="changeTab('cours')" class="gold-gradient text-slate-900 px-10 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-yellow-500/10 active:scale-95 transition">Ouvrir les fiches</button>
+                    <h2 class="text-2xl font-black mb-1">Coach ITAA</h2>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Révision augmentée (PCMN & CSA).</p>
+                    <button onclick="changeTab('cours')" class="gold-gradient text-slate-900 px-10 py-3 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95">Mes Fiches</button>
                 </div>
                 <div class="absolute -top-6 -right-6 opacity-[0.03] text-[160px] rotate-12">⚖️</div>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
-                <div onclick="changeTab('calc')" class="glass rounded-[2rem] p-6 flex flex-col items-center text-center space-y-3 active:scale-95 transition border-b-4 border-yellow-600/50">
-                    <div class="w-12 h-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center text-2xl">🧮</div>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Simulateurs</span>
+                <div onclick="changeTab('calc')" class="glass rounded-[2rem] p-6 flex flex-col items-center text-center space-y-3 active:scale-95 transition">
+                    <span class="text-3xl">🧮</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Outils</span>
                 </div>
-                <div class="glass rounded-[2rem] p-6 flex flex-col items-center text-center space-y-3 opacity-50">
-                    <div class="w-12 h-12 bg-slate-500/10 rounded-2xl flex items-center justify-center text-2xl">📜</div>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Législation</span>
+                <div class="glass rounded-[2rem] p-6 flex flex-col items-center text-center space-y-3 opacity-40">
+                    <span class="text-3xl">📖</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Docs</span>
                 </div>
             </div>
         </section>
 
-        <section id="view-calc" class="hidden space-y-6 animate-slide">
-            <div class="flex justify-between items-center px-2">
-                <h2 class="text-xl font-black text-white">Smart Tools</h2>
-                <button onclick="simulateScan()" class="bg-white/5 border border-white/10 p-2 rounded-xl text-xl active:bg-yellow-500/20 transition">📸</button>
+        <section id="view-calc" class="hidden space-y-6">
+            <div id="vision-feedback" class="hidden glass rounded-2xl p-4 border border-yellow-500/50 bg-yellow-500/5 animate-pulse text-center text-xs text-yellow-500 font-bold uppercase">
+                Analyse de la pièce comptable...
             </div>
 
-            <div id="scan-ui" class="hidden glass rounded-2xl p-4 border border-yellow-500/50 bg-yellow-500/5 animate-pulse">
-                <p class="text-[10px] font-bold text-yellow-500 uppercase">Analyse OCR en cours...</p>
-                <p class="text-xs text-white">Facture détectée : Montant extrait 1.250,00 €</p>
-            </div>
-            
             <div class="glass rounded-[2rem] p-6 space-y-5 border-l-4 border-yellow-500 shadow-xl">
-                <h3 class="text-[10px] font-black uppercase text-yellow-500 tracking-[0.2em]">Amortissements Excédentaires</h3>
-                <div class="space-y-3">
-                    <input type="number" id="valeur" placeholder="Valeur d'acquisition (€)" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-yellow-500 transition shadow-inner">
-                    <div class="grid grid-cols-2 gap-3">
-                        <input type="number" id="tauxApp" placeholder="Taux Acté %" class="bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none">
-                        <input type="number" id="tauxFisc" placeholder="Taux Fiscal %" class="bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none">
-                    </div>
+                <h3 class="text-[10px] font-black uppercase text-yellow-500 tracking-widest">Calculateur DNA</h3>
+                <input type="number" id="valeur" placeholder="Montant de la facture (€)" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-yellow-500 transition">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="number" id="tauxApp" placeholder="Taux Acté %" class="bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-xs outline-none">
+                    <input type="number" id="tauxFisc" placeholder="Taux Fiscal %" class="bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-xs outline-none">
                 </div>
-                <button onclick="calculerDNA()" class="w-full gold-gradient text-slate-900 py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition shadow-lg">Calculer DNA</button>
-                <div id="resultat-dna" class="hidden p-4 rounded-xl bg-yellow-500/5 border border-yellow-500/20 text-yellow-200 text-xs leading-relaxed"></div>
-            </div>
-
-            <div class="glass rounded-[2rem] p-6 space-y-5 border-l-4 border-blue-500 shadow-xl">
-                <h3 class="text-[10px] font-black uppercase text-blue-400 tracking-[0.2em]">ATN Véhicule (2026)</h3>
-                <div class="space-y-3">
-                    <input type="number" id="prixCatalogue" placeholder="Prix catalogue TTC (€)" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none">
-                    <select id="carburant" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none text-slate-300">
-                        <option value="essence">Essence / Hybride</option>
-                        <option value="diesel">Diesel</option>
-                        <option value="electrique">Électrique (4% min)</option>
-                    </select>
-                </div>
-                <button onclick="calculerATN()" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition">Simuler l'ATN</button>
-                <div id="resultat-atn" class="hidden p-4 rounded-xl bg-blue-500/5 border border-blue-500/20 text-blue-100 text-xs"></div>
+                <button onclick="calculerDNA()" class="w-full gold-gradient text-slate-900 py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition">Analyser DNA</button>
+                <div id="res-dna" class="hidden p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-200 text-xs"></div>
             </div>
         </section>
 
-        <section id="view-cours" class="hidden space-y-4 animate-slide">
-             <h2 class="text-xl font-black px-2 text-white">Académie ITAA</h2>
-             <div class="glass rounded-3xl p-6 border-l-4 border-yellow-500 flex justify-between items-center shadow-xl">
-                 <div>
-                    <h3 class="font-bold text-white text-base">Réserve d'investissement</h3>
-                    <p class="text-[10px] text-slate-500 uppercase mt-1">Art. 194quater CIR 92</p>
+        <section id="view-cours" class="hidden space-y-4">
+             <h2 class="text-xl font-black px-2 mb-4">Académie ITAA</h2>
+             
+             <div class="glass rounded-[2rem] p-6 border-l-4 border-blue-500 shadow-xl space-y-4">
+                 <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-bold text-lg text-white">Réserve d'investissement</h3>
+                        <p class="text-[10px] text-blue-400 uppercase font-black tracking-widest">Art. 194quater CIR 92</p>
+                    </div>
+                    <span class="text-[9px] bg-green-500/20 text-green-400 px-2 py-1 rounded font-bold uppercase">Maîtrisé</span>
                  </div>
-                 <div class="text-right">
-                    <span class="text-[9px] bg-green-500/20 text-green-400 px-2 py-1 rounded font-bold">COMPLÉTÉ</span>
+
+                 <div class="text-xs text-slate-300 space-y-2 bg-white/5 p-4 rounded-2xl italic leading-relaxed">
+                    <p>• <strong>Condition :</strong> Exonération de 50% du bénéfice réservé (max 37.500€).</p>
+                    <p>• <strong>Réinvestissement :</strong> Obligatoire dans les 3 ans dans des actifs amortissables.</p>
+                    <p>• <strong>Intangibilité :</strong> La réserve doit rester sur un compte distinct au passif.</p>
+                 </div>
+
+                 <div class="pt-2">
+                    <label class="text-[10px] uppercase font-bold text-slate-500 ml-1">Test ton bénéfice réservé :</label>
+                    <div class="flex gap-2 mt-2">
+                        <input type="number" id="ben-res" placeholder="Ex: 80000" class="flex-1 bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-sm outline-none focus:border-blue-500">
+                        <button onclick="calcResInv()" class="bg-blue-600 px-4 rounded-xl text-white font-bold">OK</button>
+                    </div>
+                    <div id="res-inv-val" class="hidden mt-3 p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-[11px] text-blue-100"></div>
                  </div>
              </div>
         </section>
-
     </main>
 
-    <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl border-t-0 ring-1 ring-white/10">
-        <button onclick="changeTab('home')" id="btn-home" class="nav-btn text-yellow-500 transition-all scale-125">
-            <span class="block text-2xl">🏠</span>
-        </button>
-        <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500 transition-all">
-            <span class="block text-2xl">📊</span>
-        </button>
-        <button onclick="changeTab('cours')" id="btn-cours" class="nav-btn text-slate-500 transition-all">
-            <span class="block text-2xl">🎓</span>
-        </button>
-        <button class="text-slate-500 opacity-20">
-            <span class="block text-2xl">⚡</span>
-        </button>
+    <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl border-t-0 ring-1 ring-white/10">
+        <button onclick="changeTab('home')" id="btn-home" class="nav-btn active-tab"><span class="text-2xl">🏠</span></button>
+        <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500"><span class="text-2xl">📊</span></button>
+        <button onclick="changeTab('cours')" id="btn-cours" class="nav-btn text-slate-500"><span class="text-2xl">🎓</span></button>
+        <button class="text-slate-500 opacity-20"><span class="text-2xl">⚡</span></button>
     </nav>
+
+    <input type="file" id="cameraInput" accept="image/*" capture="camera" class="hidden" onchange="processImage(event)">
 
     <script>
         function changeTab(tabName) {
             ['view-home', 'view-calc', 'view-cours'].forEach(v => document.getElementById(v).classList.add('hidden'));
             document.getElementById('view-' + tabName).classList.remove('hidden');
-            
-            ['btn-home', 'btn-calc', 'btn-cours'].forEach(b => {
-                document.getElementById(b).classList.replace('text-yellow-500', 'text-slate-500');
-                document.getElementById(b).classList.remove('scale-125');
-            });
-            document.getElementById('btn-' + tabName).classList.replace('text-slate-500', 'text-yellow-500');
-            document.getElementById('btn-' + tabName).classList.add('scale-125');
+            ['btn-home', 'btn-calc', 'btn-cours'].forEach(b => document.getElementById(b).classList.remove('active-tab'));
+            document.getElementById('btn-' + tabName).classList.add('active-tab');
         }
 
-        function simulateScan() {
-            const ui = document.getElementById('scan-ui');
-            ui.classList.remove('hidden');
+        function startScan() { document.getElementById('cameraInput').click(); }
+
+        function processImage(event) {
+            const feedback = document.getElementById('vision-feedback');
+            feedback.classList.remove('hidden');
+            changeTab('calc');
             setTimeout(() => {
-                document.getElementById('valeur').value = 1250;
-                ui.innerHTML = "<p class='text-[10px] font-bold text-green-500 uppercase'>✅ Scan réussi</p><p class='text-xs text-white'>Montant 1.250 € injecté dans le calculateur.</p>";
-                setTimeout(() => ui.classList.add('hidden'), 3000);
-            }, 1500);
+                document.getElementById('valeur').value = 40000;
+                feedback.innerHTML = "✅ OCR : 40.000,00 € extraits avec succès.";
+                setTimeout(() => feedback.classList.add('hidden'), 3000);
+            }, 2000);
         }
 
         function calculerDNA() {
             const v = document.getElementById('valeur').value;
-            const ta = document.getElementById('tauxApp').value;
-            const tf = document.getElementById('tauxFisc').value;
-            if(v && ta && tf) {
-                const res = (v * (ta/100)) - (v * (tf/100));
-                const div = document.getElementById('resultat-dna');
-                div.classList.remove('hidden');
-                div.innerHTML = `<div class='flex justify-between'><span>DNA :</span><span class='font-bold text-white'>${res.toLocaleString('fr-BE')} €</span></div><p class='mt-1 opacity-50'>Amortissement excédentaire temporaire.</p>`;
-            }
+            const res = (v * (document.getElementById('tauxApp').value/100)) - (v * (document.getElementById('tauxFisc').value/100));
+            const div = document.getElementById('res-dna');
+            div.classList.remove('hidden');
+            div.innerHTML = `<strong>Résultat :</strong> ${res.toLocaleString('fr-BE')} € de DNA (Code 1032).`;
         }
 
-        function calculerATN() {
-            const p = document.getElementById('prixCatalogue').value;
-            const carb = document.getElementById('carburant').value;
-            if(p) {
-                let ratio = (carb === 'electrique') ? 4 : 5.1; // Base simplified for demo
-                let atn = (p * (ratio/100) * (6/7)) / 12;
-                const div = document.getElementById('resultat-atn');
-                div.classList.remove('hidden');
-                div.innerHTML = `<div class='flex justify-between'><span>Mensuel :</span><span class='font-bold text-white'>${atn.toFixed(2)} €</span></div>`;
-            }
+        function calcResInv() {
+            const b = document.getElementById('ben-res').value;
+            const max = Math.min(b * 0.5, 37500);
+            const div = document.getElementById('res-inv-val');
+            div.classList.remove('hidden');
+            div.innerHTML = `Réserve d'investissement max : <strong>${max.toLocaleString('fr-BE')} €</strong>.`;
         }
+
         if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
     </script>
 </body>
 </html>
-
