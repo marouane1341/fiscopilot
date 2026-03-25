@@ -1,154 +1,158 @@
 <!DOCTYPE html>
-<html lang="fr-BE">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours - Réserve d'investissement | FiscoPilot V2</title>
-    <meta name="theme-color" content="#111827">
-    
-    <!-- Tailwind CSS -->
+    <title>FiscoPilot V2 - Elite</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: { colors: { gold: { DEFAULT: '#D4AF37', hover: '#F3E5AB', dark: '#AA8C2C' } } }
-            }
-        }
-    </script>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0b1120; color: #f8fafc; margin: 0; }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
+        .glass { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .nav-active { color: #d4af37; transform: scale(1.1); }
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans antialiased min-h-screen flex flex-col selection:bg-gold selection:text-gray-900">
-    
-    <!-- Header -->
-    <header class="bg-gray-800 border-b border-gold/30 shadow-lg sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-                <!-- Bouton Retour -->
-                <a href="index.html" class="p-2 -ml-2 rounded-lg hover:bg-gray-700 text-gold transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                </a>
-                <h1 class="text-xl font-bold tracking-wider text-white">FISCO<span class="text-gold">PILOT</span> <span class="text-gray-400 text-sm font-normal">| Fiches de révision</span></h1>
-            </div>
+<body class="pb-24">
+
+    <header class="p-6 flex justify-between items-center">
+        <div>
+            <h1 class="text-2xl font-bold text-transparent bg-clip-text gold-gradient tracking-tight">FiscoPilot <span class="text-white font-light text-xs italic">Elite</span></h1>
+            <p class="text-slate-500 text-[10px] uppercase tracking-[0.2em]">Expert-Comptable ITAA Prep</p>
         </div>
+        <div class="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-slate-900 font-bold shadow-lg shadow-yellow-500/20">M</div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow max-w-4xl mx-auto w-full px-4 py-8 flex flex-col space-y-8">
+    <main id="app-content" class="px-5 space-y-6">
         
-        <!-- En-tête de la fiche -->
-        <div class="space-y-4">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold to-gold-hover">
-                Réserve d'investissement
-            </h2>
-            <p class="text-gray-400 text-lg">Article 194quater CIR 92</p>
-
-            <!-- Alerte Examen -->
-            <div class="bg-red-900/20 border border-red-500/50 rounded-xl p-5 flex items-start space-x-4">
-                <div class="bg-red-500/20 p-2 rounded-full">
-                    <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+        <section id="view-home" class="space-y-5">
+            <div class="glass rounded-[2rem] p-7 relative overflow-hidden shadow-2xl">
+                <div class="relative z-10">
+                    <h2 class="text-xl font-bold mb-1 text-white">Prêt pour l'examen ?</h2>
+                    <p class="text-slate-400 text-sm mb-5 leading-relaxed">Révisons vos fiches basées sur le PCMN et le CSA.</p>
+                    <button onclick="changeTab('cours')" class="gold-gradient text-slate-900 px-8 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider transition active:scale-95">Réviser maintenant</button>
                 </div>
-                <p class="text-sm text-red-200 leading-relaxed">
-                    <strong class="font-bold text-white">Attention - Piège classique ITAA :</strong> Ce mécanisme a été <span class="underline">abrogé</span> par la loi de réforme de l'ISoc pour les exercices débutant à partir du 01/01/2018. L'examen vérifiera toutefois votre capacité à traiter les <strong>réserves historiques</strong> encore au bilan, le respect de leur condition d'intangibilité, et les conséquences fiscales en cas de prélèvement.
-                </p>
-            </div>
-        </div>
-
-        <!-- Théorie : Fond & Forme -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Conditions de fond -->
-            <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700 shadow-lg">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Limites historiques (Fond)
-                </h3>
-                <ul class="space-y-3 text-gray-300 text-sm">
-                    <li><span class="text-gold font-semibold">1. Sociétés visées :</span> Uniquement les PME (art. 1:24 CSA).</li>
-                    <li><span class="text-gold font-semibold">2. Base :</span> Max. 50% de l'accroissement du bénéfice réservé imposable.</li>
-                    <li><span class="text-gold font-semibold">3. Plafond absolu :</span> Limite stricte de 37.500 € par période imposable.</li>
-                    <li><span class="text-gold font-semibold">4. Investissement :</span> À réaliser dans les 3 ans de la constitution.</li>
-                    <li><span class="text-gold font-semibold">5. Nature de l'actif :</span> Immo. corporelles ou incorporelles, <span class="italic text-white">neuves</span>, amortissables sur au moins 3 ans, et affectées en Belgique.</li>
-                </ul>
+                <div class="absolute -top-4 -right-4 opacity-10 text-[120px] rotate-12">⚖️</div>
             </div>
 
-            <!-- Conditions de forme -->
-            <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700 shadow-lg">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                    Traitement (Forme)
-                </h3>
-                <ul class="space-y-3 text-gray-300 text-sm">
-                    <li>
-                        <span class="text-gold font-semibold">Compte PCMN officiel :</span><br>
-                        La réserve doit être comptabilisée et maintenue au passif sous peine de taxation.<br>
-                        <code class="bg-gray-900 px-3 py-1.5 rounded text-gold mt-2 block w-max border border-gray-700 text-xs">1321 Réserves immunisées (réserves d'investissements)</code>
-                    </li>
-                    <li class="pt-2">
-                        <span class="text-gold font-semibold">Déclaration ISoc :</span><br>
-                        Maintien de la condition d'intangibilité et relevé 275U.
-                    </li>
-                    <li class="pt-2">
-                        <span class="text-gold font-semibold">Sanction sur prélèvement :</span><br>
-                        Si la réserve est prélevée (ex: distribuée en dividende), elle est imposée <strong>au taux plein de l'exercice au cours duquel elle a été constituée</strong> (mécanisme anti-abus introduit par la loi).
-                    </li>
-                </ul>
+            <div class="grid grid-cols-2 gap-4">
+                <div onclick="changeTab('calc')" class="glass rounded-3xl p-5 flex flex-col items-center text-center space-y-3 active:scale-95 transition border-b-2 border-yellow-500/30">
+                    <span class="text-3xl">🧮</span>
+                    <span class="text-xs font-bold uppercase tracking-tight text-white">Calculateurs</span>
+                </div>
+                <div class="glass rounded-3xl p-5 flex flex-col items-center text-center space-y-3 opacity-60">
+                    <span class="text-3xl">📖</span>
+                    <span class="text-xs font-bold uppercase tracking-tight text-white text-slate-400">Avis CNC</span>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Simulateur -->
-        <div class="bg-gray-800 rounded-2xl p-6 border border-gold/50 shadow-lg relative overflow-hidden mt-4">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full -mr-4 -mt-4"></div>
+        <section id="view-calc" class="hidden space-y-6">
+            <h2 class="text-xl font-bold px-2 text-white">Outils de Simulation</h2>
             
-            <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Simulateur d'exemption historique</h3>
-            <p class="text-gray-400 text-sm mb-6 relative z-10">Vérifiez les calculs de vos dossiers de révision.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
-                <div class="space-y-4">
-                    <div>
-                        <label for="accroissement" class="block text-sm font-medium text-gray-300 mb-1">Accroissement du bénéfice réservé (€)</label>
-                        <input type="number" id="accroissement" placeholder="Ex: 85000" class="w-full bg-gray-900 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors">
+            <div class="glass rounded-3xl p-6 space-y-4 border-l-4 border-yellow-500">
+                <h3 class="text-xs font-black uppercase text-yellow-500 tracking-widest">Amortissements Excédentaires</h3>
+                <div class="space-y-3">
+                    <input type="number" id="valeur" placeholder="Valeur d'acquisition (€)" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-sm outline-none focus:border-yellow-500">
+                    <div class="grid grid-cols-2 gap-2">
+                        <input type="number" id="tauxApp" placeholder="Taux Acté %" class="bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-sm outline-none">
+                        <input type="number" id="tauxFisc" placeholder="Taux Fiscal %" class="bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-sm outline-none">
                     </div>
-                    <button onclick="calculerReserve()" class="w-full bg-gold hover:bg-gold-hover text-gray-900 font-bold py-3 px-4 rounded-lg transition-colors shadow-lg">
-                        Calculer le plafond 194quater
-                    </button>
                 </div>
-
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center flex flex-col justify-center h-full shadow-inner">
-                    <p class="text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Montant Maximum Exonérable</p>
-                    <p id="resultat" class="text-4xl font-extrabold text-gold transition-all duration-200">0,00 €</p>
-                    <p class="text-xs text-gray-500 mt-3 italic">Calcul : 50% de l'accroissement (plafond absolu 37.500 €)</p>
-                </div>
+                <button onclick="calculerDNA()" class="w-full gold-gradient text-slate-900 py-3 rounded-xl font-bold text-xs uppercase active:scale-95 transition">Calculer la DNA</button>
+                <div id="resultat-dna" class="hidden p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-200 text-xs"></div>
             </div>
-        </div>
+
+            <div class="glass rounded-3xl p-6 space-y-4 border-l-4 border-blue-500">
+                <h3 class="text-xs font-black uppercase text-blue-400 tracking-widest">ATN Voiture (Estimation 2026)</h3>
+                <div class="space-y-3 text-white">
+                    <input type="number" id="prixCatalogue" placeholder="Prix catalogue TTC (€)" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-sm outline-none">
+                    <select id="carburant" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-sm outline-none">
+                        <option value="essence">Essence / Hybride</option>
+                        <option value="diesel">Diesel</option>
+                        <option value="electrique">Électrique (Minimum 4%)</option>
+                    </select>
+                    <input type="number" id="co2" placeholder="Émissions CO2 (g/km)" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-sm outline-none">
+                </div>
+                <button onclick="calculerATN()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold text-xs uppercase active:scale-95 transition">Calculer l'ATN</button>
+                <div id="resultat-atn" class="hidden p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-100 text-xs"></div>
+            </div>
+        </section>
+
+        <section id="view-cours" class="hidden space-y-4">
+             <h2 class="text-xl font-bold px-2 text-white">Fiches de Révision</h2>
+             <div class="glass rounded-2xl p-5 border-l-4 border-yellow-500 flex justify-between items-center shadow-lg">
+                 <div>
+                    <h3 class="font-bold text-sm text-white">Subsides de capital</h3>
+                    <p class="text-[10px] text-slate-500 uppercase">PCMN: Comptes 15 & 912</p>
+                 </div>
+                 <span class="text-[10px] bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded-md font-bold">ITAA</span>
+             </div>
+        </section>
+
     </main>
 
-    <!-- Script de calcul -->
+    <nav class="fixed bottom-6 left-5 right-5 glass rounded-full px-8 py-4 flex justify-between items-center z-50 shadow-2xl border-t-0">
+        <button onclick="changeTab('home')" id="btn-home" class="nav-btn text-yellow-500 transition-all scale-110">
+            <span class="block text-2xl">🏠</span>
+        </button>
+        <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500 transition-all">
+            <span class="block text-2xl">📊</span>
+        </button>
+        <button onclick="changeTab('cours')" id="btn-cours" class="nav-btn text-slate-500 transition-all">
+            <span class="block text-2xl">🎓</span>
+        </button>
+        <button class="text-slate-500 opacity-20 cursor-not-allowed">
+            <span class="block text-2xl">💬</span>
+        </button>
+    </nav>
+
     <script>
-        function calculerReserve() {
-            const inputVal = document.getElementById('accroissement').value;
-            const accroissement = parseFloat(inputVal);
-            const resultatEl = document.getElementById('resultat');
+        // NAVIGATION ENTRE LES ONGLETS
+        function changeTab(tabName) {
+            const views = ['view-home', 'view-calc', 'view-cours'];
+            const buttons = ['btn-home', 'btn-calc', 'btn-cours'];
             
-            if (isNaN(accroissement) || accroissement <= 0) {
-                resultatEl.innerText = "0,00 €";
-                return;
-            }
-
-            // L'intelligence du calcul : 50% max avec plafond absolu
-            const limite = Math.min(accroissement * 0.5, 37500);
-
-            // Affichage formaté en Euro Belge
-            resultatEl.innerText = new Intl.NumberFormat('fr-BE', { 
-                style: 'currency', 
-                currency: 'EUR' 
-            }).format(limite);
+            views.forEach(v => document.getElementById(v).classList.add('hidden'));
+            document.getElementById('view-' + tabName).classList.remove('hidden');
             
-            // Petit effet visuel pour confirmer le calcul
-            resultatEl.style.transform = "scale(1.05)";
-            resultatEl.style.color = "#FFF";
-            setTimeout(() => {
-                resultatEl.style.transform = "scale(1)";
-                resultatEl.style.color = "#D4AF37";
-            }, 200);
+            buttons.forEach(b => {
+                document.getElementById(b).classList.replace('text-yellow-500', 'text-slate-500');
+                document.getElementById(b).classList.remove('scale-110');
+            });
+            document.getElementById('btn-' + tabName).classList.replace('text-slate-500', 'text-yellow-500');
+            document.getElementById('btn-' + tabName).classList.add('scale-110');
         }
+
+        // LOGIQUE DNA
+        function calculerDNA() {
+            const v = document.getElementById('valeur').value;
+            const ta = document.getElementById('tauxApp').value;
+            const tf = document.getElementById('tauxFisc').value;
+            if(v && ta && tf) {
+                const res = (v * (ta/100)) - (v * (tf/100));
+                const div = document.getElementById('resultat-dna');
+                div.classList.remove('hidden');
+                div.innerHTML = `<strong>DNA estimée :</strong> ${res.toLocaleString('fr-BE')} €<br><small class="opacity-70">Différence temporelle (Code 1032)</small>`;
+            }
+        }
+
+        // LOGIQUE ATN
+        function calculerATN() {
+            const p = document.getElementById('prixCatalogue').value;
+            const c = document.getElementById('co2').value;
+            const type = document.getElementById('carburant').value;
+            if(p) {
+                let ratio = (type === 'electrique') ? 4 : 5.5 + (0.1 * (c - 78)); // Base simplifiée
+                let atnAn = p * (Math.max(4, Math.min(18, ratio)) / 100) * (6/7);
+                const div = document.getElementById('resultat-atn');
+                div.classList.remove('hidden');
+                div.innerHTML = `<strong>ATN Mensuel :</strong> ${(atnAn/12).toFixed(2)} €<br><small class="opacity-70">Minimum fiscal respecté.</small>`;
+            }
+        }
+
+        if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
     </script>
 </body>
 </html>
