@@ -1,0 +1,16 @@
+{
+  "name": "FiscoPilot Elite",
+  "short_name": "FiscoPilot",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3203/3203932.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
