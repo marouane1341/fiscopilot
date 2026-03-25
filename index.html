@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiscoPilot V2 - Elite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="pb-20">
+
+    <header class="p-6">
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold text-transparent bg-clip-text gold-gradient">FiscoPilot <span class="text-white font-light text-sm italic">Elite</span></h1>
+                <p class="text-slate-400 text-xs uppercase tracking-widest">Expert-Comptable ITAA Prep</p>
+            </div>
+            <div class="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-slate-900 font-bold">M</div>
+        </div>
+    </header>
+
+    <main id="app-content" class="px-4 space-y-6">
+        <section id="view-home" class="space-y-4">
+            <div class="glass rounded-3xl p-6 relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-xl font-semibold">Prêt pour l'examen ?</h2>
+                    <p class="text-slate-400 text-sm mb-4">Analysez vos fiches de révision basées sur le PCMN et le CSA.</p>
+                    <button onclick="changeTab('cours')" class="gold-gradient text-slate-900 px-6 py-2 rounded-full font-semibold text-sm">Réviser maintenant</button>
+                </div>
+                <div class="absolute top-0 right-0 opacity-10 text-8xl">⚖️</div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div onclick="changeTab('calc')" class="glass rounded-2xl p-4 flex flex-col items-center text-center space-y-2 cursor-pointer active:scale-95 transition">
+                    <span class="text-3xl">🧮</span>
+                    <span class="text-sm font-medium leading-tight">Calculateur DNA / ATN</span>
+                </div>
+                <div class="glass rounded-2xl p-4 flex flex-col items-center text-center space-y-2 cursor-pointer active:scale-95 transition">
+                    <span class="text-3xl">📖</span>
+                    <span class="text-sm font-medium leading-tight">Avis CNC & Lois</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-calc" class="hidden space-y-4">
+            <h2 class="text-xl font-bold">Amortissements Excédentaires</h2>
+            <div class="glass rounded-2xl p-6 space-y-4 text-sm">
+                <div>
+                    <label class="block text-slate-400 mb-1 italic">Valeur d'acquisition (€)</label>
+                    <input type="number" id="valeur" placeholder="Ex: 40000" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-yellow-500">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-slate-400 mb-1 italic">Taux appliqué (%)</label>
+                        <input type="number" id="tauxApp" placeholder="40" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1 italic">Taux fiscal (%)</label>
+                        <input type="number" id="tauxFisc" placeholder="20" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-yellow-500 font-bold">
+                    </div>
+                </div>
+                <button onclick="calculerDNA()" class="w-full gold-gradient text-slate-900 py-3 rounded-xl font-bold uppercase tracking-widest mt-2">Calculer la DNA</button>
+                <div id="resultat-dna" class="hidden mt-4 p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/50 text-yellow-200">
+                    </div>
+            </div>
+        </section>
+        
+        <section id="view-cours" class="hidden space-y-4">
+             <h2 class="text-xl font-bold">Fiches de Révision</h2>
+             <div class="glass rounded-2xl p-4 border-l-4 border-yellow-500">
+                 <h3 class="font-bold">Subsides de capital</h3>
+                 <p class="text-xs text-slate-400">PCMN: Comptes 15 & 912</p>
+             </div>
+             <div class="glass rounded-2xl p-4 border-l-4 border-blue-500">
+                 <h3 class="font-bold">Passifs éventuels</h3>
+                 <p class="text-xs text-slate-400">Avis CNC 2018/09</p>
+             </div>
+        </section>
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 glass border-t border-white/5 px-6 py-3 flex justify-between items-center z-50">
+        <button onclick="changeTab('home')" class="flex flex-col items-center text-yellow-500">
+            <span class="text-xl">🏠</span>
+            <span class="text-[10px] uppercase font-bold">Home</span>
+        </button>
+        <button onclick="changeTab('calc')" class="flex flex-col items-center text-slate-400">
+            <span class="text-xl">📊</span>
+            <span class="text-[10px] uppercase">Outils</span>
+        </button>
+        <button onclick="changeTab('cours')" class="flex flex-col items-center text-slate-400">
+            <span class="text-xl">🎓</span>
+            <span class="text-[10px] uppercase">Cours</span>
+        </button>
+        <button class="flex flex-col items-center text-slate-400">
+            <span class="text-xl">💬</span>
+            <span class="text-[10px] uppercase">Ask AI</span>
+        </button>
+    </nav>
+
+    <script>
+        function changeTab(tabName) {
+            // Cacher toutes les vues
+            ['view-home', 'view-calc', 'view-cours'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            // Afficher la vue sélectionnée
+            document.getElementById('view-' + tabName).classList.remove('hidden');
+            
+            // Mettre à jour les couleurs des icônes (simplifié)
+            const navButtons = document.querySelectorAll('nav button span');
+            // Logique de couleur à peaufiner
+        }
+
+        function calculerDNA() {
+            const val = document.getElementById('valeur').value;
+            const tApp = document.getElementById('tauxApp').value;
+            const tFisc = document.getElementById('tauxFisc').value;
+            
+            if(val && tApp && tFisc) {
+                const dna = (val * (tApp/100)) - (val * (tFisc/100));
+                const resDiv = document.getElementById('resultat-dna');
+                resDiv.classList.remove('hidden');
+                resDiv.innerHTML = `<strong>DNA Amortissement Excédentaire :</strong><br><span class="text-2xl font-bold">${dna.toLocaleString('fr-BE')} €</span><br><small class="italic">À reporter en code 1032 de la déclaration ISoc.</small>`;
+            }
+        }
+
+        // Service Worker Register
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
+
