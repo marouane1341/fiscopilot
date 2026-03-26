@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V2.6 - ITAA & CSA</title>
+    <title>FiscoPilot V2.7 - Expert ITAA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="manifest.json">
     <style>
@@ -11,18 +11,19 @@
         body { font-family: 'Inter', sans-serif; background-color: #0b1120; color: #f8fafc; margin: 0; }
         .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
         .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .active-tab { color: #d4af37; transform: scale(1.15); filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6)); }
+        .active-tab { color: #d4af37; transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
+        .alert-red { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; }
     </style>
 </head>
 <body class="pb-32">
 
     <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#0b1120]/95 backdrop-blur-xl">
-        <div onclick="changeTab('home')">
+        <div onclick="location.reload()">
             <h1 class="text-2xl font-black text-transparent bg-clip-text gold-gradient tracking-tighter italic">FiscoPilot</h1>
-            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black">Elite Edition 2026</p>
+            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black italic">Syllabus Master</p>
         </div>
         <div class="flex gap-3">
-            <button onclick="generateExamQuestion()" class="w-10 h-10 rounded-2xl glass flex items-center justify-center text-lg active:scale-90 transition shadow-inner">❓</button>
+            <button onclick="generateExamQuestion()" class="w-10 h-10 rounded-2xl glass flex items-center justify-center text-lg active:scale-90 transition">❓</button>
             <div class="w-10 h-10 rounded-2xl gold-gradient flex items-center justify-center text-slate-900 font-black shadow-lg shadow-yellow-500/20">M</div>
         </div>
     </header>
@@ -30,60 +31,69 @@
     <main id="app-content" class="px-5 space-y-7">
         
         <section id="view-home" class="space-y-6">
-            <div class="relative group">
-                <input type="text" placeholder="Rechercher dans le programme ITAA..." class="w-full bg-white/5 border border-white/10 rounded-[1.5rem] py-5 px-14 text-sm outline-none focus:border-yellow-500/40 transition-all placeholder:text-slate-600 shadow-2xl">
-                <span class="absolute left-5 top-5 text-xl opacity-30">🔍</span>
-            </div>
-
-            <div class="glass rounded-[2.5rem] p-8 border-t border-white/10 shadow-2xl bg-gradient-to-br from-white/5 to-transparent">
-                <h2 class="text-xs font-black text-yellow-500 uppercase tracking-[0.3em] mb-4 text-center">Progression Stage</h2>
-                <div class="flex items-end justify-between mb-2">
-                    <span class="text-3xl font-black text-white">18<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
-                    <span class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Syllabus ITAA</span>
-                </div>
-                <div class="w-full bg-white/5 h-3 rounded-full overflow-hidden border border-white/5">
-                    <div class="gold-gradient h-full w-[18%] shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all duration-1000"></div>
-                </div>
+            <div class="relative">
+                <input type="text" id="syllabusSearch" onkeyup="filterCourses()" placeholder="Rechercher un mot-clé (ex: Sonnette, TVA)..." class="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-12 text-sm outline-none focus:border-yellow-500/40 transition-all">
+                <span class="absolute left-4 top-4 opacity-30">🔍</span>
             </div>
 
             <div id="exam-box" class="hidden glass rounded-3xl p-6 border border-yellow-500/30 bg-yellow-500/5 animate-pulse">
-                <p class="text-[10px] font-black text-yellow-500 uppercase mb-2">Question Flash</p>
+                <p class="text-[10px] font-black text-yellow-500 uppercase mb-2 tracking-widest">Question Examen Oral</p>
                 <p id="question-text" class="text-sm font-medium text-white leading-relaxed italic"></p>
+            </div>
+
+            <div class="glass rounded-[2.5rem] p-8 border-t border-white/10 shadow-2xl">
+                <h2 class="text-xs font-black text-yellow-500 uppercase tracking-[0.3em] mb-4">Progression Syllabus</h2>
+                <div class="flex items-end justify-between mb-2">
+                    <span class="text-3xl font-black text-white">22<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
+                    <span class="text-[10px] text-slate-400 uppercase font-bold tracking-widest italic">Actif Net & CSA Injectés</span>
+                </div>
+                <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+                    <div class="gold-gradient h-full w-[22%] transition-all duration-1000"></div>
+                </div>
             </div>
         </section>
 
         <section id="view-calc" class="hidden space-y-6">
-            <h2 class="text-xl font-black px-2 text-white">Décisionnel & Calculs</h2>
+            <h2 class="text-xl font-black px-2 text-white italic">Simulateurs Décisionnels</h2>
             
-            <div class="glass rounded-[2.5rem] p-7 space-y-5 border-l-4 border-emerald-500 shadow-xl">
-                <div class="flex justify-between items-start">
-                    <h3 class="text-[10px] font-black uppercase text-emerald-400 tracking-widest">Test de l'Actif Net (CSA)</h3>
-                    <span class="text-[8px] bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-full font-bold uppercase">Art. 5:142</span>
-                </div>
+            <div class="glass rounded-[2.5rem] p-7 space-y-5 border-l-4 border-red-500 shadow-xl">
+                <h3 class="text-[10px] font-black uppercase text-red-400 tracking-widest">Test de Continuité (Sonnette d'alarme)</h3>
                 <div class="space-y-3">
-                    <input type="number" id="actif-net" placeholder="Actif Net comptable (€)" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-emerald-500 transition">
-                    <input type="number" id="frais-etab" placeholder="Frais d'étab. non amortis (€)" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-emerald-500">
+                    <input type="number" id="an-val" placeholder="Actif Net (Capitaux Propres) €" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-red-500">
+                    <input type="number" id="cap-val" placeholder="Apports (SRL) ou Capital (SA) €" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-red-500">
                 </div>
-                <button onclick="calculerDistribution()" class="w-full bg-emerald-600 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-emerald-500/20 active:scale-95 transition">Vérifier la distribution</button>
-                <div id="res-csa" class="hidden p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-emerald-100 text-[11px] leading-relaxed"></div>
+                <button onclick="verifierSonnette()" class="w-full bg-red-600/80 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition">Analyser la solvabilité</button>
+                <div id="res-sonnette" class="hidden p-5 rounded-2xl text-[11px] leading-relaxed italic"></div>
             </div>
         </section>
 
         <section id="view-cours" class="hidden space-y-4">
-             <h2 class="text-xl font-black px-2 text-white">Matières Prioritaires</h2>
-             <div class="glass rounded-3xl p-6 border-l-4 border-yellow-500 flex justify-between items-center shadow-xl active:bg-white/5 transition">
-                 <div>
-                    <h3 class="font-bold text-white text-sm">Droit des Sociétés (CSA)</h3>
-                    <p class="text-[9px] text-slate-500 uppercase mt-1">Syllabus Page 25 • ASBL, SRL, SA</p>
+             <h2 class="text-xl font-black px-2 text-white italic">Matières du Programme</h2>
+             
+             <div class="course-card glass rounded-3xl p-6 border-l-4 border-blue-500 shadow-xl active:bg-white/5 transition" data-keyword="sonnette csa distribution">
+                 <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="font-bold text-white text-base">Droit des Sociétés (CSA)</h3>
+                        <p class="text-[9px] text-blue-400 uppercase font-black">Syllabus Page 25</p>
+                    </div>
+                    <span class="text-xl">🏢</span>
                  </div>
-                 <span class="text-xl">🏢</span>
+                 <div class="text-[11px] text-slate-400 space-y-2">
+                    <p>• <strong>SRL :</strong> Plus de notion de capital social (Apports).</p>
+                    <p>• <strong>Distributions :</strong> Test d'actif net + Test de liquidité.</p>
+                    <p>• <strong>Sonnette :</strong> Seuil de 50% de l'actif net ou actif net < 0.</p>
+                 </div>
              </div>
-             <div class="glass rounded-3xl p-6 border-l-4 border-blue-500 flex justify-between items-center shadow-xl opacity-60">
-                <div>
-                   <h3 class="font-bold text-white text-sm">TVA & Déductibilité</h3>
-                   <p class="text-[9px] text-slate-500 uppercase mt-1">Syllabus Page 20 • Art. 45 §2</p>
+
+             <div class="course-card glass rounded-3xl p-6 border-l-4 border-yellow-500 shadow-xl opacity-80" data-keyword="tva voiture déduction">
+                <div class="flex justify-between items-start mb-4">
+                   <div>
+                       <h3 class="font-bold text-white text-sm italic">TVA : Frais de voiture</h3>
+                       <p class="text-[9px] text-yellow-500 uppercase font-black">Syllabus Page 20</p>
+                   </div>
+                   <span class="text-xl">🚗</span>
                 </div>
-                <span class="text-xl">🚗</span>
+                <p class="text-[11px] text-slate-400 italic">Limitation à 50% selon l'Art. 45 §2 du CTVA. Analyse des 3 méthodes de déduction.</p>
             </div>
         </section>
     </main>
@@ -92,7 +102,7 @@
         <button onclick="changeTab('home')" id="btn-home" class="nav-btn active-tab transition-all"><span class="text-2xl">🏠</span></button>
         <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">📊</span></button>
         <button onclick="changeTab('cours')" id="btn-cours" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">🎓</span></button>
-        <button onclick="startVision()" class="text-yellow-500/50"><span class="text-2xl">📸</span></button>
+        <button onclick="alert('Module Caméra/OCR ITAA en attente de synchronisation')" class="text-slate-500 opacity-30"><span class="text-2xl">📸</span></button>
     </nav>
 
     <script>
@@ -107,29 +117,43 @@
             document.getElementById('btn-' + tabName).classList.remove('text-slate-500');
         }
 
-        function calculerDistribution() {
-            const an = document.getElementById('actif-net').value;
-            const fe = document.getElementById('frais-etab').value;
-            if(an) {
-                const disponible = an - fe;
-                const div = document.getElementById('res-csa');
-                div.classList.remove('hidden');
-                div.innerHTML = `Distribution Max. (Actif Net) : <strong class="text-white text-sm">${disponible.toLocaleString('fr-BE')} €</strong><br><small class="opacity-70 mt-1 block italic">Sous réserve du test de liquidité par l'organe d'administration.</small>`;
+        function verifierSonnette() {
+            const an = parseFloat(document.getElementById('an-val').value);
+            const cap = parseFloat(document.getElementById('cap-val').value);
+            const res = document.getElementById('res-sonnette');
+            res.classList.remove('hidden');
+
+            if (an < 0) {
+                res.className = "p-5 rounded-2xl alert-red mt-4";
+                res.innerHTML = "<strong>🚨 ALERTE CRITIQUE :</strong> L'actif net est négatif. La procédure de la sonnette d'alarme est <strong>obligatoire</strong> immédiatement (Art. 5:153 CSA).";
+            } else if (an < (cap / 2)) {
+                res.className = "p-5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-200 mt-4";
+                res.innerHTML = "<strong>⚠️ ATTENTION :</strong> L'actif net est tombé sous la moitié des apports. Convocation de l'AG dans les 2 mois requise.";
+            } else {
+                res.className = "p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 mt-4";
+                res.innerHTML = "<strong>✅ SOLVABLE :</strong> Les seuils de la sonnette d'alarme ne sont pas atteints.";
             }
+        }
+
+        function filterCourses() {
+            const input = document.getElementById('syllabusSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.course-card');
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keyword');
+                card.style.display = keywords.includes(input) ? "block" : "none";
+            });
         }
 
         function generateExamQuestion() {
             const qs = [
-                "Citez les deux tests cumulatifs pour une distribution dans une SRL.",
-                "Quelle est la durée minimale de conservation de la réserve d'investissement ?",
-                "En dessous de quel seuil d'actif net la 'sonnette d'alarme' est-elle tirée ?"
+                "Dans quel délai l'organe d'administration doit-il convoquer l'AG en cas de sonnette d'alarme ?",
+                "Citez un exemple de dette fiscale non-déductible au sens du CIR 92.",
+                "Quelle est la différence entre une SRL et une SA concernant le capital social ?"
             ];
-            document.getElementById('exam-box').classList.remove('hidden');
+            const box = document.getElementById('exam-box');
+            box.classList.remove('hidden');
             document.getElementById('question-text').innerText = qs[Math.floor(Math.random() * qs.length)];
         }
-
-        function startVision() { alert("Le module de vision OCR analyse vos documents via Gemini 1.5 Pro Flash."); }
-        if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
     </script>
 </body>
 </html>
