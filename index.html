@@ -3,125 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V2.5 - ITAA Master</title>
+    <title>FiscoPilot V2.6 - ITAA & CSA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="manifest.json">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #0b1120; color: #f8fafc; margin: 0; }
         .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
-        .glass { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .active-tab { color: #d4af37; transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
-        .syllabus-card { border: 1px solid rgba(212, 175, 55, 0.2); background: rgba(212, 175, 55, 0.05); }
+        .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .active-tab { color: #d4af37; transform: scale(1.15); filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6)); }
     </style>
 </head>
-<body class="pb-28">
+<body class="pb-32">
 
-    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#0b1120]/90 backdrop-blur-md">
-        <div>
-            <h1 class="text-2xl font-bold text-transparent bg-clip-text gold-gradient tracking-tight">FiscoPilot <span class="text-white font-light text-[10px] uppercase italic">Master</span></h1>
-            <p class="text-slate-500 text-[9px] uppercase tracking-[0.2em] font-bold">ITAA Syllabus Sync</p>
+    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#0b1120]/95 backdrop-blur-xl">
+        <div onclick="changeTab('home')">
+            <h1 class="text-2xl font-black text-transparent bg-clip-text gold-gradient tracking-tighter italic">FiscoPilot</h1>
+            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black">Elite Edition 2026</p>
         </div>
-        <div class="flex gap-2">
-            <button onclick="generateExamQuestion()" class="w-10 h-10 rounded-xl glass flex items-center justify-center text-lg active:scale-90 transition">❓</button>
-            <button onclick="startScan()" class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center text-slate-900 text-lg shadow-lg active:scale-90 transition">📸</button>
+        <div class="flex gap-3">
+            <button onclick="generateExamQuestion()" class="w-10 h-10 rounded-2xl glass flex items-center justify-center text-lg active:scale-90 transition shadow-inner">❓</button>
+            <div class="w-10 h-10 rounded-2xl gold-gradient flex items-center justify-center text-slate-900 font-black shadow-lg shadow-yellow-500/20">M</div>
         </div>
     </header>
 
-    <main id="app-content" class="px-5 space-y-6">
+    <main id="app-content" class="px-5 space-y-7">
         
         <section id="view-home" class="space-y-6">
-            <div class="relative">
-                <input type="text" placeholder="Rechercher un point du programme..." class="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-12 text-sm outline-none focus:border-yellow-500/50 transition">
-                <span class="absolute left-4 top-4 opacity-40">🔍</span>
+            <div class="relative group">
+                <input type="text" placeholder="Rechercher dans le programme ITAA..." class="w-full bg-white/5 border border-white/10 rounded-[1.5rem] py-5 px-14 text-sm outline-none focus:border-yellow-500/40 transition-all placeholder:text-slate-600 shadow-2xl">
+                <span class="absolute left-5 top-5 text-xl opacity-30">🔍</span>
             </div>
 
-            <div class="glass rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl border-t border-white/10">
-                <div class="relative z-10">
-                    <h2 class="text-2xl font-black mb-1">Status du Stage</h2>
-                    <p class="text-slate-400 text-sm mb-6">Progression basée sur le programme officiel 2026.</p>
-                    <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
-                        <div class="gold-gradient h-full w-[15%]"></div>
-                    </div>
-                    <p class="text-[10px] text-yellow-500 mt-2 font-bold uppercase tracking-wider">15% du syllabus maîtrisé</p>
+            <div class="glass rounded-[2.5rem] p-8 border-t border-white/10 shadow-2xl bg-gradient-to-br from-white/5 to-transparent">
+                <h2 class="text-xs font-black text-yellow-500 uppercase tracking-[0.3em] mb-4 text-center">Progression Stage</h2>
+                <div class="flex items-end justify-between mb-2">
+                    <span class="text-3xl font-black text-white">18<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
+                    <span class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Syllabus ITAA</span>
+                </div>
+                <div class="w-full bg-white/5 h-3 rounded-full overflow-hidden border border-white/5">
+                    <div class="gold-gradient h-full w-[18%] shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all duration-1000"></div>
                 </div>
             </div>
 
-            <div id="exam-box" class="hidden syllabus-card rounded-3xl p-6 space-y-3 animate-pulse">
-                <p class="text-[10px] font-black text-yellow-500 uppercase">Question d'Examen (Aléatoire)</p>
-                <p id="question-text" class="text-sm font-medium text-white"></p>
-                <button onclick="this.parentElement.classList.add('hidden')" class="text-[10px] text-slate-400 underline">Fermer</button>
+            <div id="exam-box" class="hidden glass rounded-3xl p-6 border border-yellow-500/30 bg-yellow-500/5 animate-pulse">
+                <p class="text-[10px] font-black text-yellow-500 uppercase mb-2">Question Flash</p>
+                <p id="question-text" class="text-sm font-medium text-white leading-relaxed italic"></p>
             </div>
         </section>
 
         <section id="view-calc" class="hidden space-y-6">
-            <h2 class="text-xl font-black px-2">Simulateurs Fiscaux</h2>
+            <h2 class="text-xl font-black px-2 text-white">Décisionnel & Calculs</h2>
             
-            <div class="glass rounded-[2.5rem] p-7 space-y-5 border-l-4 border-blue-500 shadow-xl">
-                <h3 class="text-[10px] font-black uppercase text-blue-400 tracking-widest">TVA & Matériel Roulant</h3>
+            <div class="glass rounded-[2.5rem] p-7 space-y-5 border-l-4 border-emerald-500 shadow-xl">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-[10px] font-black uppercase text-emerald-400 tracking-widest">Test de l'Actif Net (CSA)</h3>
+                    <span class="text-[8px] bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-full font-bold uppercase">Art. 5:142</span>
+                </div>
                 <div class="space-y-3">
-                    <input type="number" id="tva-val" placeholder="Montant TVA Facture (€)" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-blue-500 transition">
-                    <div class="flex gap-2">
-                        <button onclick="setTvaMode(0.5)" class="flex-1 py-2 bg-white/5 rounded-xl text-[10px] font-bold border border-white/10 hover:border-blue-500">FORFAIT 50%</button>
-                        <button onclick="setTvaMode(0.35)" class="flex-1 py-2 bg-white/5 rounded-xl text-[10px] font-bold border border-white/10 hover:border-blue-500">PROF. 35%</button>
-                    </div>
+                    <input type="number" id="actif-net" placeholder="Actif Net comptable (€)" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-emerald-500 transition">
+                    <input type="number" id="frais-etab" placeholder="Frais d'étab. non amortis (€)" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-emerald-500">
                 </div>
-                <div id="res-tva-box" class="hidden p-4 rounded-xl bg-blue-500/5 border border-blue-500/20 text-xs">
-                    <div class="flex justify-between text-blue-200"><span>Récupérable :</span><span id="tva-ok" class="font-bold"></span></div>
-                    <div class="flex justify-between mt-1 text-slate-400 italic"><span>Coût (DNA) :</span><span id="tva-dna"></span></div>
-                </div>
+                <button onclick="calculerDistribution()" class="w-full bg-emerald-600 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-emerald-500/20 active:scale-95 transition">Vérifier la distribution</button>
+                <div id="res-csa" class="hidden p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-emerald-100 text-[11px] leading-relaxed"></div>
             </div>
         </section>
 
         <section id="view-cours" class="hidden space-y-4">
-             <h2 class="text-xl font-black px-2">Fiches Syllabus</h2>
-             <div class="glass rounded-2xl p-5 border-l-4 border-yellow-500 flex justify-between items-center opacity-100">
-                 <div><h3 class="font-bold text-sm">Comptabilité Générale</h3><p class="text-[9px] text-slate-500 uppercase">Page 7 du programme</p></div>
-                 <span class="text-[10px] text-yellow-500 font-bold">À RÉVISER</span>
+             <h2 class="text-xl font-black px-2 text-white">Matières Prioritaires</h2>
+             <div class="glass rounded-3xl p-6 border-l-4 border-yellow-500 flex justify-between items-center shadow-xl active:bg-white/5 transition">
+                 <div>
+                    <h3 class="font-bold text-white text-sm">Droit des Sociétés (CSA)</h3>
+                    <p class="text-[9px] text-slate-500 uppercase mt-1">Syllabus Page 25 • ASBL, SRL, SA</p>
+                 </div>
+                 <span class="text-xl">🏢</span>
              </div>
-             <div class="glass rounded-2xl p-5 border-l-4 border-slate-700 flex justify-between items-center opacity-50">
-                <div><h3 class="font-bold text-sm text-slate-400">Comptes Consolidés</h3><p class="text-[9px] text-slate-600 uppercase">Page 12 du programme</p></div>
-                <span class="text-[10px] text-slate-600 font-bold">VERROUILLÉ</span>
+             <div class="glass rounded-3xl p-6 border-l-4 border-blue-500 flex justify-between items-center shadow-xl opacity-60">
+                <div>
+                   <h3 class="font-bold text-white text-sm">TVA & Déductibilité</h3>
+                   <p class="text-[9px] text-slate-500 uppercase mt-1">Syllabus Page 20 • Art. 45 §2</p>
+                </div>
+                <span class="text-xl">🚗</span>
             </div>
         </section>
     </main>
 
-    <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl ring-1 ring-white/10">
-        <button onclick="changeTab('home')" id="btn-home" class="nav-btn active-tab"><span class="text-2xl">🏠</span></button>
-        <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500"><span class="text-2xl">📊</span></button>
-        <button onclick="changeTab('cours')" id="btn-cours" class="nav-btn text-slate-500"><span class="text-2xl">🎓</span></button>
-        <button onclick="alert('Module IA Sync en attente...')" class="text-slate-500 opacity-20"><span class="text-2xl">⚡</span></button>
+    <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl border-t-0 ring-1 ring-white/10">
+        <button onclick="changeTab('home')" id="btn-home" class="nav-btn active-tab transition-all"><span class="text-2xl">🏠</span></button>
+        <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">📊</span></button>
+        <button onclick="changeTab('cours')" id="btn-cours" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">🎓</span></button>
+        <button onclick="startVision()" class="text-yellow-500/50"><span class="text-2xl">📸</span></button>
     </nav>
 
     <script>
         function changeTab(tabName) {
             ['view-home', 'view-calc', 'view-cours'].forEach(v => document.getElementById(v).classList.add('hidden'));
             document.getElementById('view-' + tabName).classList.remove('hidden');
-            ['btn-home', 'btn-calc', 'btn-cours'].forEach(b => document.getElementById(b).classList.remove('active-tab'));
+            ['btn-home', 'btn-calc', 'btn-cours'].forEach(b => {
+                document.getElementById(b).classList.remove('active-tab');
+                document.getElementById(b).classList.add('text-slate-500');
+            });
             document.getElementById('btn-' + tabName).classList.add('active-tab');
+            document.getElementById('btn-' + tabName).classList.remove('text-slate-500');
         }
 
-        function setTvaMode(ratio) {
-            const val = document.getElementById('tva-val').value;
-            if(!val) return;
-            const ok = val * ratio;
-            document.getElementById('res-tva-box').classList.remove('hidden');
-            document.getElementById('tva-ok').innerText = ok.toLocaleString('fr-BE') + " €";
-            document.getElementById('tva-dna').innerText = (val - ok).toLocaleString('fr-BE') + " €";
+        function calculerDistribution() {
+            const an = document.getElementById('actif-net').value;
+            const fe = document.getElementById('frais-etab').value;
+            if(an) {
+                const disponible = an - fe;
+                const div = document.getElementById('res-csa');
+                div.classList.remove('hidden');
+                div.innerHTML = `Distribution Max. (Actif Net) : <strong class="text-white text-sm">${disponible.toLocaleString('fr-BE')} €</strong><br><small class="opacity-70 mt-1 block italic">Sous réserve du test de liquidité par l'organe d'administration.</small>`;
+            }
         }
 
         function generateExamQuestion() {
-            const questions = [
-                "Citez les conditions d'intangibilité de la réserve d'investissement (Art. 194quater).",
-                "Quelle est la limite maximale de déductibilité TVA pour un véhicule mixte ?",
-                "Expliquez la différence entre une erreur comptable et un changement d'estimation selon l'Avis CNC 2020/12."
+            const qs = [
+                "Citez les deux tests cumulatifs pour une distribution dans une SRL.",
+                "Quelle est la durée minimale de conservation de la réserve d'investissement ?",
+                "En dessous de quel seuil d'actif net la 'sonnette d'alarme' est-elle tirée ?"
             ];
-            const q = questions[Math.floor(Math.random() * questions.length)];
             document.getElementById('exam-box').classList.remove('hidden');
-            document.getElementById('question-text').innerText = q;
+            document.getElementById('question-text').innerText = qs[Math.floor(Math.random() * qs.length)];
         }
 
-        function startScan() { alert("Accès caméra en cours d'initialisation sur le serveur..."); }
+        function startVision() { alert("Le module de vision OCR analyse vos documents via Gemini 1.5 Pro Flash."); }
         if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
     </script>
 </body>
