@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V2.3 - Elite Vision</title>
+    <title>FiscoPilot V2.4 - ITAA Syllabus</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="manifest.json">
     <style>
@@ -19,7 +19,7 @@
     <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#0b1120]/90 backdrop-blur-md">
         <div>
             <h1 class="text-2xl font-bold text-transparent bg-clip-text gold-gradient tracking-tight">FiscoPilot <span class="text-white font-light text-[10px] uppercase italic">Elite</span></h1>
-            <p class="text-slate-500 text-[9px] uppercase tracking-[0.2em] font-bold">Expert-Comptable Vision</p>
+            <p class="text-slate-500 text-[9px] uppercase tracking-[0.2em] font-bold">Programme Officiel ITAA</p>
         </div>
         <button onclick="startScan()" class="w-11 h-11 rounded-2xl glass flex items-center justify-center text-xl shadow-lg border-white/10 active:scale-90 transition">📸</button>
     </header>
@@ -29,9 +29,9 @@
         <section id="view-home" class="space-y-6">
             <div class="glass rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl border-t border-white/10">
                 <div class="relative z-10">
-                    <h2 class="text-2xl font-black mb-1">Coach ITAA</h2>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Révision augmentée (PCMN & CSA).</p>
-                    <button onclick="changeTab('cours')" class="gold-gradient text-slate-900 px-10 py-3 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95">Mes Fiches</button>
+                    <h2 class="text-2xl font-black mb-1">Objectif Stage</h2>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Contenu aligné sur le programme d'examen d'admission.</p>
+                    <button onclick="changeTab('cours')" class="gold-gradient text-slate-900 px-10 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-yellow-500/20 active:scale-95 transition">Voir le programme</button>
                 </div>
                 <div class="absolute -top-6 -right-6 opacity-[0.03] text-[160px] rotate-12">⚖️</div>
             </div>
@@ -39,57 +39,47 @@
             <div class="grid grid-cols-2 gap-4">
                 <div onclick="changeTab('calc')" class="glass rounded-[2rem] p-6 flex flex-col items-center text-center space-y-3 active:scale-95 transition">
                     <span class="text-3xl">🧮</span>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Outils</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Calculateurs</span>
                 </div>
                 <div class="glass rounded-[2rem] p-6 flex flex-col items-center text-center space-y-3 opacity-40">
-                    <span class="text-3xl">📖</span>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Docs</span>
+                    <span class="text-3xl">📋</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Syllabus</span>
                 </div>
             </div>
         </section>
 
         <section id="view-calc" class="hidden space-y-6">
-            <div id="vision-feedback" class="hidden glass rounded-2xl p-4 border border-yellow-500/50 bg-yellow-500/5 animate-pulse text-center text-xs text-yellow-500 font-bold uppercase">
-                Analyse de la pièce comptable...
-            </div>
-
-            <div class="glass rounded-[2rem] p-6 space-y-5 border-l-4 border-yellow-500 shadow-xl">
-                <h3 class="text-[10px] font-black uppercase text-yellow-500 tracking-widest">Calculateur DNA</h3>
-                <input type="number" id="valeur" placeholder="Montant de la facture (€)" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-yellow-500 transition">
-                <div class="grid grid-cols-2 gap-4">
-                    <input type="number" id="tauxApp" placeholder="Taux Acté %" class="bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-xs outline-none">
-                    <input type="number" id="tauxFisc" placeholder="Taux Fiscal %" class="bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-xs outline-none">
+            <div id="vision-feedback" class="hidden glass rounded-2xl p-4 border border-yellow-500/50 bg-yellow-500/5 animate-pulse text-center text-xs text-yellow-500 font-bold uppercase">Analyse OCR...</div>
+            
+            <div class="glass rounded-[2rem] p-6 space-y-5 border-l-4 border-blue-500 shadow-xl">
+                <h3 class="text-[10px] font-black uppercase text-blue-400 tracking-widest">TVA Déductible (Art. 45 §2)</h3>
+                <div class="space-y-3">
+                    <input type="number" id="tva-totale" placeholder="TVA Totale sur facture (€)" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-blue-500 transition">
+                    <select id="methode-tva" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none text-slate-400">
+                        <option value="0.5">Forfait Général (50%)</option>
+                        <option value="reel">Réel (Professionnel %)</option>
+                        <option value="nic">Semi-Forfaitaire (NIC)</option>
+                    </select>
                 </div>
-                <button onclick="calculerDNA()" class="w-full gold-gradient text-slate-900 py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition">Analyser DNA</button>
-                <div id="res-dna" class="hidden p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-200 text-xs"></div>
+                <button onclick="calculerTVA()" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition">Calculer la déduction</button>
+                <div id="res-tva" class="hidden p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-200 text-xs leading-relaxed"></div>
             </div>
         </section>
 
         <section id="view-cours" class="hidden space-y-4">
-             <h2 class="text-xl font-black px-2 mb-4">Académie ITAA</h2>
+             <h2 class="text-xl font-black px-2 mb-4">Matières d'Examen</h2>
              
-             <div class="glass rounded-[2rem] p-6 border-l-4 border-blue-500 shadow-xl space-y-4">
-                 <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="font-bold text-lg text-white">Réserve d'investissement</h3>
-                        <p class="text-[10px] text-blue-400 uppercase font-black tracking-widest">Art. 194quater CIR 92</p>
-                    </div>
-                    <span class="text-[9px] bg-green-500/20 text-green-400 px-2 py-1 rounded font-bold uppercase">Maîtrisé</span>
-                 </div>
+             <div class="glass rounded-[2rem] p-6 border-l-4 border-yellow-500 shadow-xl space-y-3">
+                 <h3 class="font-bold text-base text-white">1. Réserve d'investissement</h3>
+                 <p class="text-[10px] text-yellow-500 uppercase font-black">Art. 194quater CIR 92</p>
+                 <button onclick="alert('Bénéfice réservé max exonéré : 37.500 €')" class="text-[10px] text-slate-400 italic underline">Rappel du plafond</button>
+             </div>
 
-                 <div class="text-xs text-slate-300 space-y-2 bg-white/5 p-4 rounded-2xl italic leading-relaxed">
-                    <p>• <strong>Condition :</strong> Exonération de 50% du bénéfice réservé (max 37.500€).</p>
-                    <p>• <strong>Réinvestissement :</strong> Obligatoire dans les 3 ans dans des actifs amortissables.</p>
-                    <p>• <strong>Intangibilité :</strong> La réserve doit rester sur un compte distinct au passif.</p>
-                 </div>
-
-                 <div class="pt-2">
-                    <label class="text-[10px] uppercase font-bold text-slate-500 ml-1">Test ton bénéfice réservé :</label>
-                    <div class="flex gap-2 mt-2">
-                        <input type="number" id="ben-res" placeholder="Ex: 80000" class="flex-1 bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-sm outline-none focus:border-blue-500">
-                        <button onclick="calcResInv()" class="bg-blue-600 px-4 rounded-xl text-white font-bold">OK</button>
-                    </div>
-                    <div id="res-inv-val" class="hidden mt-3 p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-[11px] text-blue-100"></div>
+             <div class="glass rounded-[2rem] p-6 border-l-4 border-blue-500 shadow-xl space-y-3">
+                 <h3 class="font-bold text-base text-white">2. Déductibilité TVA Voitures</h3>
+                 <p class="text-[10px] text-blue-400 uppercase font-black">Art. 45 §2 CTVA</p>
+                 <div class="text-[11px] text-slate-300 leading-relaxed bg-white/5 p-3 rounded-xl italic">
+                    Limite légale absolue : <strong>50%</strong> (sauf exceptions utilitaires).
                  </div>
              </div>
         </section>
@@ -119,29 +109,20 @@
             feedback.classList.remove('hidden');
             changeTab('calc');
             setTimeout(() => {
-                document.getElementById('valeur').value = 40000;
-                feedback.innerHTML = "✅ OCR : 40.000,00 € extraits avec succès.";
+                document.getElementById('tva-totale').value = 210.50;
+                feedback.innerHTML = "✅ OCR : TVA 210,50 € détectée.";
                 setTimeout(() => feedback.classList.add('hidden'), 3000);
             }, 2000);
         }
 
-        function calculerDNA() {
-            const v = document.getElementById('valeur').value;
-            const res = (v * (document.getElementById('tauxApp').value/100)) - (v * (document.getElementById('tauxFisc').value/100));
-            const div = document.getElementById('res-dna');
+        function calculerTVA() {
+            const t = document.getElementById('tva-totale').value;
+            const m = document.getElementById('methode-tva').value;
+            let deduc = (m === 'reel') ? t * 0.35 : t * 0.5; // Demo
+            const div = document.getElementById('res-tva');
             div.classList.remove('hidden');
-            div.innerHTML = `<strong>Résultat :</strong> ${res.toLocaleString('fr-BE')} € de DNA (Code 1032).`;
+            div.innerHTML = `TVA déductible : <strong>${deduc.toFixed(2)} €</strong><br>TVA non-déductible : ${(t-deduc).toFixed(2)} € (à intégrer au coût d'achat).`;
         }
-
-        function calcResInv() {
-            const b = document.getElementById('ben-res').value;
-            const max = Math.min(b * 0.5, 37500);
-            const div = document.getElementById('res-inv-val');
-            div.classList.remove('hidden');
-            div.innerHTML = `Réserve d'investissement max : <strong>${max.toLocaleString('fr-BE')} €</strong>.`;
-        }
-
-        if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
     </script>
 </body>
 </html>
