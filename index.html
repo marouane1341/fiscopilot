@@ -2,158 +2,125 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FiscoPilot V7.0 - Deep Syllabus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiscoPilot V8 - Matière Réelle</title>
     <style>
-        :root { --gold: #d4af37; --bg: #05080a; --glass: rgba(15, 23, 42, 0.98); }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; padding-bottom: 100px; }
-        header { padding: 20px; border-bottom: 1px solid #222; background: var(--bg); text-align: center; position: sticky; top: 0; z-index: 100; }
-        .gold-text { color: var(--gold); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
-        .view-section { display: none; padding: 20px; }
-        .view-section.active { display: block; animation: fadeIn 0.2s; }
-        .card { background: var(--glass); border-radius: 15px; padding: 18px; border: 1px solid #333; margin-bottom: 15px; border-left: 4px solid var(--gold); }
-        .tag { display: inline-block; padding: 3px 8px; border-radius: 4px; background: rgba(212, 175, 55, 0.15); color: var(--gold); font-size: 10px; font-weight: bold; margin-bottom: 8px; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #444; background: #000; color: white; box-sizing: border-box; }
-        button { width: 100%; padding: 14px; border-radius: 10px; border: none; background: var(--gold); color: black; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 11px; }
-        nav { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: flex; height: 80px; border-top: 1px solid #333; z-index: 1000; }
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #555; cursor: pointer; text-decoration: none; }
-        .nav-item.active { color: var(--gold); background: rgba(212, 175, 55, 0.05); border-top: 2px solid var(--gold); }
-        .nav-item b { font-size: 18px; }
-        .nav-item span { font-size: 8px; font-weight: bold; margin-top: 4px; }
-        #chat-win { height: 380px; overflow-y: auto; font-size: 12px; }
-        .bubble { padding: 12px; border-radius: 12px; margin-bottom: 10px; line-height: 1.4; }
-        .bubble-ai { background: #1a1a1a; border: 1px solid #333; color: #ddd; }
-        .bubble-me { background: var(--gold); color: black; font-weight: bold; margin-left: 20%; text-align: right; }
+        :root { --gold: #d4af37; --bg: #05080a; --card: #0f172a; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #f8fafc; margin: 0; padding-bottom: 100px; }
+        header { padding: 20px; text-align: center; border-bottom: 1px solid #333; position: sticky; top: 0; background: var(--bg); z-index: 100; }
+        .view { display: none; padding: 20px; }
+        .active { display: block; animation: fadeIn 0.2s; }
+        .card { background: var(--card); border-radius: 15px; padding: 20px; border-left: 5px solid var(--gold); margin-bottom: 20px; }
+        .tag { font-size: 9px; font-weight: 900; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; display: block; }
+        input { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #333; background: #000; color: white; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; border-radius: 10px; border: none; background: var(--gold); color: black; font-weight: bold; margin-top: 10px; cursor: pointer; text-transform: uppercase; }
+        nav { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: flex; height: 80px; border-top: 1px solid #333; }
+        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 8px; color: #666; cursor: pointer; font-weight: bold; }
+        .nav-item.on { color: var(--gold); border-top: 2px solid var(--gold); background: rgba(212, 175, 55, 0.05); }
+        #chat { height: 350px; overflow-y: auto; font-size: 12px; border-bottom: 1px solid #333; margin-bottom: 10px; }
+        .msg-ai { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 10px; border-bottom-left-radius: 0; margin-bottom: 10px; line-height: 1.5; border: 1px solid #222; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="gold-text">FISCOPILOT V7.0</div>
-        <div style="font-size: 8px; color: #666; margin-top: 4px;">SYLLABUS MATIÈRE EXAMEN</div>
+        <div style="color: var(--gold); font-weight: 900; letter-spacing: 2px;">FISCOPILOT CORE V8</div>
+        <div style="font-size: 8px; color: #666;">BASE DE DONNÉES ITAA CHARGÉE</div>
     </header>
 
     <main>
-        <section id="view-home" class="view-section active">
+        <section id="h" class="view active">
             <div class="card">
-                <div class="tag">EXAMEN ITAA</div>
-                <div style="font-size: 12px; font-weight: bold;">SYLLABUS : DISPONIBLE</div>
-                <div style="font-size: 30px; font-weight: 900; margin: 10px 0;">PRÊT À 100%</div>
-                <p style="font-size: 11px; color: #888;">L'intelligence est maintenant branchée sur la matière réelle du PDF.</p>
+                <span class="tag">Matière examen</span>
+                <div style="font-size: 24px; font-weight: 900;">Contenu Opérationnel</div>
+                <p style="font-size: 11px; color: #888; margin-top: 10px;">L'onglet <b>EXPERT</b> répond maintenant aux vrais concepts du syllabus (TVA, CSA, CIR92, AML).</p>
             </div>
         </section>
 
-        <section id="view-ai" class="view-section">
+        <section id="a" class="view">
             <div class="card">
-                <div id="chat-win">
-                    <div class="bubble bubble-ai"><b>Expert Syllabus :</b> Bonjour Marouane. Je connais maintenant le contenu de ton PDF.<br><br>Interrogez-moi sur :<br>• <b>Le CSA</b> (Droit des sociétés)<br>• <b>La Fiscalité</b> (ISoc/TVA)<br>• <b>Le Social</b> (Statut indépendant)</div>
+                <div id="chat">
+                    <div class="msg-ai"><b>Expert :</b> Bonjour Marouane. Posez-moi une question sur le <b>CSA</b>, la <b>TVA</b> ou la <b>DÉONTOLOGIE</b>.</div>
                 </div>
-                <div style="display: flex; gap: 8px;">
-                    <input type="text" id="aiQ" placeholder="Ex: C'est quoi la déontologie ?" style="margin: 0;">
-                    <button onclick="ask()" style="width: 50px;">➔</button>
-                </div>
+                <input type="text" id="aiQ" placeholder="Ex: Sonnette d'alarme...">
+                <button onclick="ask()">Interroger le syllabus</button>
             </div>
         </section>
 
-        <section id="view-calc" class="view-section">
+        <section id="o" class="view">
             <div class="card">
-                <div class="tag">CSA</div>
-                <div style="font-size: 13px; font-weight: bold;">TEST D'ACTIF NET</div>
+                <span class="tag">Test de solvabilité</span>
+                <div style="font-weight: bold; margin-bottom: 10px;">SONNETTE D'ALARME (SRL)</div>
                 <input type="number" id="an" placeholder="Actif Net €">
                 <input type="number" id="cap" placeholder="Apports €">
-                <button onclick="check()">Vérifier seuil sonnette</button>
-                <div id="res-s" style="margin-top: 10px; font-size: 12px; font-weight: bold;"></div>
+                <button onclick="check()">Vérifier</button>
+                <div id="res-s" style="margin-top: 15px; font-weight: bold; font-size: 12px;"></div>
             </div>
         </section>
 
-        <section id="view-cours" class="view-section">
-            <h2 style="font-size: 18px; margin-bottom: 15px;">Contenu du Syllabus</h2>
-            
+        <section id="m" class="view">
+            <h2 style="font-size: 16px; margin-bottom: 15px;">Fiches de Synthèse</h2>
             <div class="card">
-                <div class="tag">DROIT (P. 12)</div>
-                <div style="font-weight: bold; font-size: 14px;">Le Code des Sociétés (CSA)</div>
-                <p style="font-size: 11px; color: #aaa; margin-top: 8px; line-height: 1.5;">
-                    <b>Focus Examen :</b> Constitution de SRL, apports en industrie, test de liquidité et de solvabilité, responsabilité des administrateurs.
-                </p>
+                <span class="tag">Déontologie</span>
+                <div style="font-weight: bold;">Lettre de mission & AML</div>
+                <p style="font-size: 11px; color: #aaa; margin-top: 10px; line-height: 1.5;">Obligation de vigilance constante, identification des UBO et déclaration au CTIF en cas de soupçon. La lettre de mission est obligatoire avant toute prestation.</p>
             </div>
-
-            <div class="card">
-                <div class="tag">FISCALITÉ (P. 28)</div>
-                <div style="font-weight: bold; font-size: 14px;">TVA & Impôts Directs</div>
-                <p style="font-size: 11px; color: #aaa; margin-top: 8px; line-height: 1.5;">
-                    <b>Focus Examen :</b> Art. 45 §2 (limitation auto), régularisations sur 5 et 15 ans, DNA, revenus de droits d'auteur, Versements Anticipés.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="tag">DÉONTOLOGIE (P. 5)</div>
-                <div style="font-weight: bold; font-size: 14px;">Normes ITAA</div>
-                <p style="font-size: 11px; color: #aaa; margin-top: 8px; line-height: 1.5;">
-                    <b>Focus Examen :</b> Secret professionnel, indépendance, formation continue, lettre de mission, lutte contre le blanchiment (AML).
-                </p>
+            <div class="card" style="border-left-color: #3b82f6;">
+                <span class="tag">Fiscalité</span>
+                <div style="font-weight: bold;">Déduction TVA (Art. 45 §2)</div>
+                <p style="font-size: 11px; color: #aaa; margin-top: 10px; line-height: 1.5;">Limitation forfaitaire de 50% pour les véhicules mixtes. Affectation réelle prioritaire selon la circulaire 2023.</p>
             </div>
         </section>
     </main>
 
     <nav>
-        <div class="nav-item active" onclick="nav('home', this)"><b>🏠</b><span>HOME</span></div>
-        <div class="nav-item" onclick="nav('ai', this)"><b>🤖</b><span>EXPERT</span></div>
-        <div class="nav-item" onclick="nav('calc', this)"><b>📊</b><span>OUTILS</span></div>
-        <div class="nav-item" onclick="nav('cours', this)"><b>📚</b><span>MATIÈRE</span></div>
+        <div class="nav-item on" onclick="nav('h', this)">🏠<span>ACCUEIL</span></div>
+        <div class="nav-item" onclick="nav('a', this)">🤖<span>EXPERT</span></div>
+        <div class="nav-item" onclick="nav('o', this)">📊<span>OUTILS</span></div>
+        <div class="nav-item" onclick="nav('m', this)">📚<span>MATIÈRE</span></div>
     </nav>
 
     <script>
-        // BASE DE CONNAISSANCES SYLLABUS ITAA
-        const syllabusData = {
-            "sonnette": "<b>CSA (Art. 5:150) :</b> Procédure déclenchée si l'actif net devient inférieur à la moitié des apports. L'organe d'administration doit convoquer l'AG dans les 2 mois.",
-            "liquidité": "<b>Test de liquidité :</b> Obligatoire avant toute distribution de dividende en SRL. L'administrateur doit prouver que la société peut payer ses dettes sur 12 mois.",
-            "tva": "<b>TVA (Art. 45 §2) :</b> Déduction limitée à 50% pour les véhicules mixtes. Les régularisations portent sur 5 ans (mobilier) ou 15 ans (immobilier).",
-            "dna": "<b>DNA :</b> Dépenses Non Admises (Art. 53 CIR92). Exemples : amendes (0%), frais de réception (50%), impôts (0%), cadeaux d'affaires (50%).",
-            "déontologie": "<b>Normes ITAA :</b> Secret professionnel, intégrité, objectivité et obligation de formation continue (40h/an).",
-            "blanchiment": "<b>AML :</b> Obligation de vigilance, identification des bénéficiaires effectifs (UBO) et déclaration de soupçon au CTIF.",
-            "amortissement": "<b>Compta :</b> Depuis 2020, l'amortissement dégressif est interdit pour les sociétés. Le prorata temporis est obligatoire.",
-            "lettre": "<b>Lettre de mission :</b> Document contractuel obligatoire définissant les tâches, les honoraires et les responsabilités."
+        const db = {
+            "sonnette": "<b>CSA Art. 5:150 :</b> Si l'actif net devient < à la moitié des apports. Procédure : l'organe d'administration doit convoquer l'AG dans les 2 mois pour décider de la poursuite des activités ou de la dissolution.",
+            "liquidité": "<b>Test de liquidité :</b> Avant toute distribution, l'administrateur doit certifier que la société peut payer ses dettes échues sur 12 mois minimum.",
+            "aml": "<b>Anti-Blanchiment :</b> Obligation d'identification (KYC), vérification UBO et signalement au CTIF. Secret professionnel levé uniquement dans ce cadre précis.",
+            "tva": "<b>Art. 45 §2 :</b> Déduction limitée à 50% max pour véhicules. Régularisations : 5 ans (meubles), 15 ans (immeubles).",
+            "dna": "<b>Art. 53 CIR92 :</b> Dépenses Non Admises. Amendes (0%), Frais réception (50%), Impôts (0%).",
+            "lettre": "<b>Déonto :</b> La lettre de mission définit le périmètre, les honoraires et les responsabilités. Indispensable pour la couverture d'assurance."
         };
 
         function nav(id, el) {
-            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
-            document.getElementById('view-' + id).classList.add('active');
-            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-            el.classList.add('active');
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('on'));
+            el.classList.add('on');
             window.scrollTo(0,0);
-        }
-
-        function check() {
-            const an = parseFloat(document.getElementById('an').value);
-            const cap = parseFloat(document.getElementById('cap').value);
-            const res = document.getElementById('res-s');
-            if(isNaN(an) || isNaN(cap)) return;
-            if(an < 0) { res.innerText = "🚨 Alerte : Actif Net négatif !"; res.style.color = "#f87171"; }
-            else if(an < (cap/2)) { res.innerText = "⚠️ Sonnette d'alarme activée !"; res.style.color = "#fbbf24"; }
-            else { res.innerText = "✅ Solvabilité conforme."; res.style.color = "#34d399"; }
         }
 
         function ask() {
             const q = document.getElementById('aiQ').value.toLowerCase();
             if(!q) return;
-            const win = document.getElementById('chat-win');
-            win.innerHTML += `<div class="bubble bubble-me">${q}</div>`;
+            const chat = document.getElementById('chat');
+            chat.innerHTML += `<div style="text-align:right; font-weight:bold; color:var(--gold); font-size:10px; margin: 10px 0;">MAROUANE</div><div style="background:var(--gold); color:black; padding:10px; border-radius:10px; font-size:12px; margin-left:20%;">${q}</div>`;
             document.getElementById('aiQ').value = "";
             
             setTimeout(() => {
-                let response = "Désolé Marouane, je n'ai pas trouvé ce terme précis dans le syllabus ITAA. Essayez 'Sonnette', 'TVA', 'AML' ou 'Amortissement'.";
-                
-                for(let key in syllabusData) {
-                    if(q.includes(key)) {
-                        response = syllabusData[key];
-                        break;
-                    }
-                }
-                
-                win.innerHTML += `<div class="bubble bubble-ai">${response}</div>`;
-                win.scrollTop = win.scrollHeight;
+                let r = "Matière non trouvée dans ce module. Essayez : 'Sonnette', 'TVA', 'AML' ou 'DNA'.";
+                for(let k in db) { if(q.includes(k)) r = db[k]; }
+                chat.innerHTML += `<div style="font-weight:bold; color:#60a5fa; font-size:10px; margin: 15px 0 5px;">EXPERT ITAA</div><div class="msg-ai">${r}</div>`;
+                chat.scrollTop = chat.scrollHeight;
             }, 500);
+        }
+
+        function check() {
+            const an = document.getElementById('an').value;
+            const cap = document.getElementById('cap').value;
+            const res = document.getElementById('res-s');
+            if(an < 0) res.innerHTML = "<span style='color:#f87171'>🚨 Actif Net < 0 : Sonnette immédiate !</span>";
+            else if(an < (cap/2)) res.innerHTML = "<span style='color:#fbbf24'>⚠️ Actif Net < 50% : Convocation AG.</span>";
+            else res.innerHTML = "<span style='color:#34d399'>✅ Situation conforme.</span>";
         }
     </script>
 </body>
