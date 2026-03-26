@@ -2,145 +2,121 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FiscoPilot V5.3 - Recovery</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiscoPilot V5.4 - Fix</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #05080a; color: #f8fafc; margin: 0; padding-bottom: 120px; }
-        .gold-bg { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
-        .glass { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
-        .view-section { display: none; }
-        .view-section.active { display: block; animation: fadeIn 0.2s; }
-        .nav-btn { color: #64748b; transition: 0.2s; }
-        .nav-btn.active { color: #d4af37; border-top: 2px solid #d4af37; background: rgba(212, 175, 55, 0.05); }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        :root { --gold: #d4af37; --bg: #05080a; --glass: rgba(30, 41, 59, 0.9); }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; padding-bottom: 90px; }
+        header { padding: 20px; border-bottom: 1px solid #222; background: var(--bg); position: sticky; top: 0; z-index: 100; }
+        .gold-text { color: var(--gold); font-weight: 900; letter-spacing: -1px; }
+        .view-section { display: none; padding: 20px; }
+        .view-section.active { display: block; }
+        .card { background: var(--glass); border-radius: 20px; padding: 20px; border: 1px solid #333; margin-bottom: 20px; border-left: 4px solid var(--gold); }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #444; background: #111; color: white; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; border-radius: 12px; border: none; background: var(--gold); color: black; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 12px; }
+        
+        nav { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: flex; height: 80px; border-top: 1px solid #333; z-index: 1000; }
+        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #666; cursor: pointer; font-size: 20px; text-decoration: none; }
+        .nav-item.active { color: var(--gold); border-top: 2px solid var(--gold); background: rgba(212, 175, 55, 0.05); }
+        .nav-item span { font-size: 8px; font-weight: bold; margin-top: 4px; }
+        
+        #chat-win { height: 300px; overflow-y: auto; background: rgba(0,0,0,0.3); border-radius: 10px; padding: 10px; font-size: 12px; }
+        .msg { margin-bottom: 15px; padding: 10px; border-radius: 10px; line-height: 1.4; }
+        .msg-me { background: rgba(212, 175, 55, 0.1); text-align: right; }
+        .msg-ai { background: rgba(255,255,255,0.05); border-left: 2px solid var(--gold); }
     </style>
 </head>
 <body>
 
-    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#05080a] border-b border-white/10">
-        <div>
-            <h1 class="text-xl font-black text-[#d4af37] italic italic">FISCOPILOT V5.3</h1>
-            <p class="text-slate-500 text-[8px] uppercase font-bold tracking-[0.3em]">Navigation Rétablie</p>
-        </div>
-        <div class="w-10 h-10 rounded-lg gold-bg flex items-center justify-center text-slate-900 font-black">M</div>
+    <header>
+        <div class="gold-text" style="font-size: 20px;">FISCOPILOT V5.4</div>
+        <div style="font-size: 8px; color: #666; letter-spacing: 2px;">STABLE MODE</div>
     </header>
 
-    <main class="px-5 mt-6">
-        
+    <main>
         <section id="view-home" class="view-section active">
-            <div class="glass rounded-3xl p-8 border border-white/5 shadow-2xl">
-                <h2 class="text-[10px] font-black text-[#d4af37] uppercase tracking-widest mb-4">Statut de Travail</h2>
-                <div class="text-4xl font-black text-white italic">94%</div>
-                <div class="w-full bg-white/10 h-2 rounded-full mt-4 overflow-hidden">
-                    <div class="gold-bg h-full w-[94%] shadow-[0_0_15px_rgba(212,175,55,0.4)]"></div>
+            <div class="card">
+                <div style="font-size: 10px; color: var(--gold);">PROGRESSION ITAA</div>
+                <div style="font-size: 40px; font-weight: 900;">94%</div>
+            </div>
+            <p style="font-size: 11px; color: #888; text-align: center; font-style: italic;">"La rigueur est la politesse de l'expert-comptable."</p>
+        </section>
+
+        <section id="view-ai" class="view-section">
+            <div class="card">
+                <div id="chat-win">
+                    <div class="msg msg-ai">Bonjour Marouane. Posez votre question sur le programme.</div>
                 </div>
+                <input type="text" id="aiQ" placeholder="Question sur le CIR92 ou CSA...">
+                <button onclick="ask()">Envoyer</button>
             </div>
         </section>
 
-        <section id="view-ai" class="view-section space-y-4">
-            <h2 class="text-xl font-black px-2 italic text-white">Expert Fiscal</h2>
-            <div class="glass rounded-3xl p-6 h-[400px] flex flex-col">
-                <div id="chat" class="flex-1 overflow-y-auto space-y-4 text-[11px] text-slate-300 italic">
-                    <div>Posez-moi une question sur les amortissements ou le CIR92.</div>
-                </div>
-                <div class="flex gap-2 mt-4">
-                    <input type="text" id="aiQ" placeholder="Question..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 text-xs text-white py-3">
-                    <button onclick="doAsk()" class="w-12 gold-bg rounded-xl flex items-center justify-center text-slate-900 font-bold">></button>
-                </div>
+        <section id="view-calc" class="view-section">
+            <div class="card">
+                <div style="font-size: 12px; font-weight: bold; margin-bottom: 10px;">📊 CALCULATEUR CO2 (ART. 66)</div>
+                <input type="number" id="co2" placeholder="CO2 g/km">
+                <button onclick="calc()">Calculer déductibilité</button>
+                <div id="res-c" style="margin-top: 15px; font-weight: bold; color: var(--gold);"></div>
+            </div>
+
+            <div class="card" style="border-left-color: #3b82f6;">
+                <div style="font-size: 12px; font-weight: bold; margin-bottom: 10px;">⚖️ SONNETTE D'ALARME</div>
+                <input type="number" id="an" placeholder="Actif Net €">
+                <input type="number" id="cap" placeholder="Apports €">
+                <button onclick="check()" style="background: #3b82f6; color: white;">Vérifier</button>
+                <div id="res-s" style="margin-top: 15px; font-weight: bold; font-size: 12px;"></div>
             </div>
         </section>
 
-        <section id="view-calc" class="view-section space-y-6">
-            <h2 class="text-xl font-black px-2 italic text-white">Outils</h2>
-            
-            <div class="glass rounded-3xl p-6 border-l-4 border-yellow-500">
-                <h3 class="text-[10px] font-black uppercase text-[#d4af37] italic mb-3">Calculateur Amortissement</h3>
-                <input type="number" id="baseA" placeholder="Base €" class="w-full bg-slate-900 rounded-xl px-4 py-3 text-xs mb-2">
-                <input type="number" id="tauxA" placeholder="Taux %" class="w-full bg-slate-900 rounded-xl px-4 py-3 text-xs mb-3">
-                <button onclick="calcAmort()" class="w-full py-3 gold-bg text-slate-900 rounded-xl font-black text-[10px] uppercase">Calculer Annuité</button>
-                <div id="resA" class="hidden text-xs text-[#d4af37] font-bold pt-3"></div>
-            </div>
-
-            <div class="glass rounded-3xl p-6 border-l-4 border-blue-500">
-                <h3 class="text-[10px] font-black uppercase text-blue-400 italic mb-3">Déductibilité CO2</h3>
-                <input type="number" id="co2" placeholder="CO2 g/km" class="w-full bg-slate-900 rounded-xl px-4 py-3 text-xs mb-3">
-                <button onclick="calcCO2()" class="w-full py-3 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase">Vérifier %</button>
-                <div id="resC" class="hidden text-xs text-blue-300 font-bold pt-3"></div>
+        <section id="view-cours" class="view-section">
+            <div class="card">
+                <div style="font-weight: bold;">Matière : Amortissements</div>
+                <p style="font-size: 12px; color: #aaa;">Rappel : Prorata temporis obligatoire. Linéaire uniquement pour les voitures.</p>
             </div>
         </section>
-
-        <section id="view-cours" class="view-section space-y-4">
-            <div class="glass rounded-3xl p-6 border-l-4 border-emerald-500">
-                <h3 class="font-bold text-sm text-white italic">Syllabus : Amortissements</h3>
-                <p class="text-[11px] text-slate-400 mt-2 italic leading-relaxed">
-                    Depuis 2020, l'amortissement dégressif est supprimé pour les sociétés. Le prorata temporis est obligatoire pour toutes les immobilisations.
-                </p>
-            </div>
-        </section>
-
     </main>
 
-    <nav class="fixed bottom-0 left-0 right-0 bg-[#05080a] flex justify-around items-center border-t border-white/10 z-[100] h-[90px]">
-        <button onclick="nav('home')" id="n-home" class="nav-btn active flex-col flex items-center justify-center w-full h-full">
-            <span class="text-xl">🏠</span>
-            <span class="text-[8px] font-black uppercase mt-1">Accueil</span>
-        </button>
-        <button onclick="nav('ai')" id="n-ai" class="nav-btn flex-col flex items-center justify-center w-full h-full">
-            <span class="text-xl">🤖</span>
-            <span class="text-[8px] font-black uppercase mt-1">Expert IA</span>
-        </button>
-        <button onclick="nav('calc')" id="n-calc" class="nav-btn flex-col flex items-center justify-center w-full h-full">
-            <span class="text-xl">📊</span>
-            <span class="text-[8px] font-black uppercase mt-1">Outils</span>
-        </button>
-        <button onclick="nav('cours')" id="n-cours" class="nav-btn flex-col flex items-center justify-center w-full h-full">
-            <span class="text-xl">🎓</span>
-            <span class="text-[8px] font-black uppercase mt-1">Syllabus</span>
-        </button>
+    <nav>
+        <div class="nav-item active" onclick="nav('home', this)">🏠<span>ACCUEIL</span></div>
+        <div class="nav-item" onclick="nav('ai', this)">🤖<span>EXPERT</span></div>
+        <div class="nav-item" onclick="nav('calc', this)">📊<span>OUTILS</span></div>
+        <div class="nav-item" onclick="nav('cours', this)">🎓<span>MATIÈRE</span></div>
     </nav>
 
     <script>
-        function nav(id) {
+        function nav(id, el) {
             document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
             document.getElementById('view-' + id).classList.add('active');
-            
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('n-' + id).classList.add('active');
-            
+            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
             window.scrollTo(0,0);
         }
 
-        function calcAmort() {
-            const b = parseFloat(document.getElementById('baseA').value);
-            const t = parseFloat(document.getElementById('tauxA').value) / 100;
-            const res = document.getElementById('resA');
-            if(b && t) {
-                res.classList.remove('hidden');
-                res.innerText = `Annuité : ${(b * t).toFixed(2)} €`;
-            }
+        function calc() {
+            const val = document.getElementById('co2').value;
+            let taux = Math.max(50, Math.min(100, 120 - (0.5 * val)));
+            if(val > 200) taux = 40;
+            document.getElementById('res-c').innerText = "Taux : " + taux.toFixed(2) + "%";
         }
 
-        function calcCO2() {
-            const c = document.getElementById('co2').value;
-            const res = document.getElementById('resC');
-            if(c) {
-                let taux = Math.max(50, Math.min(100, 120 - (0.5 * c)));
-                if(c > 200) taux = 40;
-                res.classList.remove('hidden');
-                res.innerText = `Déductibilité : ${taux.toFixed(2)}%`;
-            }
+        function check() {
+            const an = document.getElementById('an').value;
+            const cap = document.getElementById('cap').value;
+            const res = document.getElementById('res-s');
+            if(an < 0) res.innerText = "🚨 ALERTE : Actif Net < 0 !";
+            else if(an < (cap/2)) res.innerText = "⚠️ Attention : Procédure Sonnette !";
+            else res.innerText = "✅ Solvabilité OK";
         }
 
-        function doAsk() {
+        function ask() {
             const q = document.getElementById('aiQ').value;
-            const win = document.getElementById('chat');
             if(!q) return;
-            win.innerHTML += `<div class="text-right text-yellow-500 font-bold mb-1 uppercase text-[9px]">M</div><div class="bg-white/5 p-3 rounded-xl mb-3 text-xs">${q}</div>`;
+            const win = document.getElementById('chat-win');
+            win.innerHTML += '<div class="msg msg-me">' + q + '</div>';
             document.getElementById('aiQ').value = "";
             setTimeout(() => {
-                win.innerHTML += `<div class="text-blue-400 font-bold mb-1 uppercase text-[9px]">BOT</div><div class="bg-blue-500/10 p-3 rounded-xl mb-3 italic text-xs">D'après le CIR92, cette question est liée aux DNA...</div>`;
+                win.innerHTML += '<div class="msg msg-ai">D\'après le syllabus ITAA, ce point est abordé dans le CIR92.</div>';
                 win.scrollTop = win.scrollHeight;
             }, 600);
         }
