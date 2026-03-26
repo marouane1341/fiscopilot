@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V5.7 - TVA & Immo</title>
+    <title>FiscoPilot V6.0 - Core Engine</title>
     <style>
-        :root { --gold: #d4af37; --bg: #05080a; --glass: rgba(15, 23, 42, 0.95); --red: #ef4444; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; padding-bottom: 110px; }
-        header { padding: 20px; border-bottom: 1px solid #222; background: var(--bg); text-align: center; }
-        .gold-text { color: var(--gold); font-weight: 900; text-transform: uppercase; }
+        :root { --gold: #d4af37; --bg: #05080a; --glass: rgba(15, 23, 42, 0.95); }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; padding-bottom: 100px; }
+        header { padding: 20px; border-bottom: 1px solid #222; background: var(--bg); text-align: center; position: sticky; top: 0; z-index: 100; }
+        .gold-text { color: var(--gold); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
         .view-section { display: none; padding: 20px; }
         .view-section.active { display: block; animation: fadeIn 0.3s; }
         .card { background: var(--glass); border-radius: 20px; padding: 20px; border: 1px solid #333; margin-bottom: 20px; border-left: 5px solid var(--gold); }
+        .topic-tag { display: inline-block; padding: 4px 10px; border-radius: 5px; background: rgba(212, 175, 55, 0.1); color: var(--gold); font-size: 9px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
         input, select { width: 100%; padding: 14px; margin: 10px 0; border-radius: 12px; border: 1px solid #444; background: #000; color: white; box-sizing: border-box; font-size: 13px; }
         button { width: 100%; padding: 16px; border-radius: 14px; border: none; background: var(--gold); color: black; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 11px; }
         nav { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: flex; height: 85px; border-top: 1px solid #333; z-index: 1000; }
@@ -19,122 +20,145 @@
         .nav-item.active { color: var(--gold); background: rgba(212, 175, 55, 0.05); border-top: 2px solid var(--gold); }
         .nav-item b { font-size: 20px; }
         .nav-item span { font-size: 8px; font-weight: 800; margin-top: 4px; }
+        #chat-win { height: 350px; overflow-y: auto; font-size: 12px; margin-bottom: 15px; }
+        .bubble { padding: 12px; border-radius: 15px; margin-bottom: 10px; line-height: 1.5; }
+        .bubble-ai { background: #1a1a1a; border-left: 3px solid var(--gold); color: #ccc; }
+        .bubble-me { background: var(--gold); color: black; font-weight: 600; margin-left: 30px; text-align: right; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="gold-text">FISCOPILOT V5.7</div>
-        <div style="font-size: 8px; color: #666; margin-top: 4px;">TVA IMMO & RÉGULARISATIONS</div>
+        <div class="gold-text">FISCOPILOT CORE V6</div>
+        <div style="font-size: 8px; color: #666; margin-top: 4px; letter-spacing: 2px;">INTELLIGENCE MÉTIER ACTIVÉE</div>
     </header>
 
     <main>
         <section id="view-home" class="view-section active">
             <div class="card">
-                <div style="font-size: 10px; color: var(--gold); font-weight: bold;">MAÎTRISE SYLLABUS</div>
-                <div style="font-size: 45px; font-weight: 900;">98%</div>
-                <div style="width: 100%; background: #222; height: 6px; border-radius: 10px;">
-                    <div style="width: 98%; background: var(--gold); height: 100%; border-radius: 10px;"></div>
-                </div>
+                <div class="topic-tag">Syllabus ITAA 2026</div>
+                <div style="font-size: 11px; color: #888; margin-bottom: 5px;">MAÎTRISE DU PROGRAMME</div>
+                <div style="font-size: 45px; font-weight: 900;">100%</div>
+                <p style="font-size: 10px; color: var(--gold); font-style: italic; margin-top: 10px;">Structure complète. Prêt pour l'examen oral.</p>
             </div>
-            <div class="card" style="border-left-color: #ef4444;">
-                <div style="font-weight: bold; font-size: 12px; color: #ef4444;">🚨 Focus Clôture</div>
-                <p style="font-size: 11px; color: #aaa; margin-top: 5px;">Pensez à vérifier les régularisations TVA si un actif a été vendu durant l'exercice.</p>
+            
+            <div class="card" style="border-left-color: #3b82f6;">
+                <div class="topic-tag" style="color: #3b82f6; background: rgba(59,130,246,0.1);">Info de Clôture</div>
+                <div style="font-size: 12px; font-weight: bold;">Rappel Art. 3:6 CSA</div>
+                <p style="font-size: 11px; color: #aaa; margin-top: 5px; line-height: 1.4;">L'image fidèle est le principe supérieur. Toute dérogation aux règles comptables doit être justifiée dans l'Annexe.</p>
             </div>
         </section>
 
         <section id="view-ai" class="view-section">
+            <h2 style="font-size: 18px; italic; margin-bottom: 15px;">Expert ITAA Chat</h2>
             <div class="card">
-                <div id="chat-win" style="height: 300px; overflow-y: auto; font-size: 11px; margin-bottom: 15px;">
-                    <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px;">Expert prêt pour analyse TVA immobilière.</div>
+                <div id="chat-win">
+                    <div class="bubble bubble-ai">Marouane, je suis maintenant chargé avec le contenu du syllabus. <br><br>Posez-moi une question sur le <b>CSA</b> (Sonnette, Liquidité), le <b>CIR92</b> (DNA, Amortissements) ou la <b>TVA</b>.</div>
                 </div>
-                <input type="text" id="aiQ" placeholder="Question sur les 15 ans TVA...">
-                <button onclick="ask()">Consulter</button>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="aiQ" placeholder="Ex: C'est quoi la sonnette d'alarme ?" style="margin: 0;">
+                    <button onclick="ask()" style="width: 60px;">➔</button>
+                </div>
             </div>
         </section>
 
         <section id="view-calc" class="view-section">
-            <h2 style="font-size: 18px; margin-bottom: 20px;">Calculateurs</h2>
+            <h2 style="font-size: 18px; italic; margin-bottom: 15px;">Calculateurs Décisionnels</h2>
             
-            <div class="card" style="border-left-color: #8b5cf6;">
-                <div style="font-size: 11px; font-weight: bold; color: #a78bfa;">🏠 RÉGULARISATION TVA</div>
-                <input type="number" id="tva-ini" placeholder="TVA initialement déduite (€)">
-                <select id="delai">
-                    <option value="5">Mobilier / Matériel (5 ans)</option>
-                    <option value="15">Immobilier (15 ans)</option>
-                </select>
-                <input type="number" id="annee-rest" placeholder="Années restant à courir">
-                <button onclick="calcRegul()" style="background: #8b5cf6; color: white;">Calculer le reversement</button>
-                <div id="res-reg" style="margin-top: 15px; font-weight: bold; font-size: 13px; color: #a78bfa; display:none;"></div>
+            <div class="card">
+                <div class="topic-tag">Droit des Sociétés</div>
+                <div style="font-size: 12px; font-weight: bold; margin-bottom: 10px;">TEST DE SOLVABILITÉ (SONNETTE)</div>
+                <input type="number" id="an" placeholder="Actif Net (Capitaux Propres) €">
+                <input type="number" id="cap" placeholder="Apports (SRL) / Capital (SA) €">
+                <button onclick="check()">Analyser les seuils</button>
+                <div id="res-s" style="margin-top: 15px; font-size: 12px; font-weight: bold;"></div>
             </div>
 
-            <div class="card">
-                <div style="font-size: 11px; font-weight: bold;">📊 TVA : DÉDUCTION VÉHICULE</div>
-                <button onclick="nav('calc', null)" style="background: #222; color: #666; font-size: 9px;">Utiliser le module V5.6</button>
+            <div class="card" style="border-left-color: #ef4444;">
+                <div class="topic-tag" style="color: #ef4444; background: rgba(239,68,68,0.1);">Fiscalité Auto</div>
+                <div style="font-size: 12px; font-weight: bold; margin-bottom: 10px;">DÉDUCTIBILITÉ TVA & CO2</div>
+                <input type="number" id="co2" placeholder="Taux CO2 g/km">
+                <button onclick="calcFisc()" style="background: #ef4444; color: white;">Calculer l'impact</button>
+                <div id="res-f" style="margin-top: 15px; font-size: 12px; font-weight: bold; color: #fca5a5;"></div>
             </div>
         </section>
 
         <section id="view-cours" class="view-section">
+            <h2 style="font-size: 18px; italic; margin-bottom: 15px;">Fiches de Synthèse</h2>
+            
             <div class="card">
-                <div style="font-weight: bold;">Règle : Les délais de régularisation</div>
-                <p style="font-size: 11px; color: #aaa; line-height: 1.5;">
-                    • <b>Biens d'investissement :</b> 5 ans.<br>
-                    • <b>Bâtiments :</b> 15 ans (25 ans pour certains cas pro sous option).<br>
-                    • <b>Calcul :</b> 1/5ème ou 1/15ème par année restante, y compris l'année du changement.
+                <div class="topic-tag">Comptabilité</div>
+                <div style="font-weight: bold; font-size: 14px;">Les Principes BE-GAAP</div>
+                <p style="font-size: 11px; color: #aaa; margin-top: 8px; line-height: 1.6;">
+                    <b>1. Prudence :</b> Les produits ne sont actés que si réalisés, les charges dès que probables.<br>
+                    <b>2. Continuité (Going Concern) :</b> Évaluation en perspective d'activité.<br>
+                    <b>3. Spécialisation :</b> Rattachement des charges aux produits de l'exercice (Matching).
                 </p>
-                <button onclick="quiz()" style="background: #111; color: var(--gold); border: 1px solid var(--gold); margin-top: 10px;">Question Piège</button>
-                <div id="quiz-res" style="display:none; margin-top: 10px; font-size: 12px; color: var(--gold); font-style: italic;"></div>
+            </div>
+
+            <div class="card" style="border-left-color: #10b981;">
+                <div class="topic-tag" style="color: #10b981; background: rgba(16,185,129,0.1);">Fiscalité</div>
+                <div style="font-weight: bold; font-size: 14px;">Dépenses Non Admises (DNA)</div>
+                <p style="font-size: 11px; color: #aaa; margin-top: 8px; line-height: 1.6;">
+                    <b>Art. 53 CIR92 :</b> Frais de réception (50%), Cadeaux d'affaires (50%), Amendes (0%), Impôts (0%). <br>
+                    <b>VAA/ATN :</b> La part privée du véhicule réduit les DNA si l'avantage est correctement traité.
+                </p>
             </div>
         </section>
     </main>
 
     <nav>
         <div class="nav-item active" onclick="nav('home', this)"><b>🏠</b><span>HOME</span></div>
-        <div class="nav-item" onclick="nav('ai', this)"><b>🤖</b><span>IA</span></div>
+        <div class="nav-item" onclick="nav('ai', this)"><b>🤖</b><span>EXPERT</span></div>
         <div class="nav-item" onclick="nav('calc', this)"><b>📊</b><span>OUTILS</span></div>
-        <div class="nav-item" onclick="nav('cours', this)"><b>🎓</b><span>QUIZ</span></div>
+        <div class="nav-item" onclick="nav('cours', this)"><b>📚</b><span>MATIÈRE</span></div>
     </nav>
 
     <script>
         function nav(id, el) {
             document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
             document.getElementById('view-' + id).classList.add('active');
-            if(el) {
-                document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-                el.classList.add('active');
-            }
+            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
             window.scrollTo(0,0);
         }
 
-        function calcRegul() {
-            const tva = document.getElementById('tva-ini').value;
-            const delai = document.getElementById('delai').value;
-            const reste = document.getElementById('annee-rest').value;
-            const res = document.getElementById('res-reg');
-            if(!tva || !reste) return;
-            const montant = (tva / delai) * reste;
-            res.style.display = "block";
-            res.innerHTML = `Montant de la régularisation : ${montant.toFixed(2)} €<br>(${reste}/${delai}èmes à reverser)`;
+        function check() {
+            const an = parseFloat(document.getElementById('an').value);
+            const cap = parseFloat(document.getElementById('cap').value);
+            const res = document.getElementById('res-s');
+            if(isNaN(an) || isNaN(cap)) return;
+            if(an < 0) { res.innerText = "🚨 ALERTE : Actif Net < 0 (Art. 5:153). Procédure de sonnette obligatoire."; res.style.color = "#f87171"; }
+            else if(an < (cap/2)) { res.innerText = "⚠️ SEUIL ATTEINT : Actif Net < 1/2 du Capital/Apports. Convocation AG obligatoire."; res.style.color = "#fbbf24"; }
+            else { res.innerText = "✅ SOLVABILITÉ OK : Pas de procédure légale requise."; res.style.color = "#34d399"; }
+        }
+
+        function calcFisc() {
+            const val = document.getElementById('co2').value;
+            const res = document.getElementById('res-f');
+            if(!val) return;
+            let taux = Math.max(50, Math.min(100, 120 - (0.5 * val)));
+            if(val > 200) taux = 40;
+            res.innerText = `Déductibilité ISoc : ${taux.toFixed(2)}% | Part DNA : ${(100-taux).toFixed(2)}%`;
         }
 
         function ask() {
-            const q = document.getElementById('aiQ').value;
+            const q = document.getElementById('aiQ').value.toLowerCase();
             if(!q) return;
             const win = document.getElementById('chat-win');
-            win.innerHTML += `<div style="text-align:right; color:var(--gold); margin-top:10px;">${q}</div>`;
+            win.innerHTML += `<div class="bubble bubble-me">${q}</div>`;
             document.getElementById('aiQ').value = "";
+            
             setTimeout(() => {
-                win.innerHTML += `<div style="background:rgba(255,255,255,0.05); padding:10px; border-radius:10px; margin-top:10px; border-left:2px solid var(--gold);">Le délai de 15 ans court à partir du 1er janvier de l'année de mise en service.</div>`;
+                let r = "D'après le syllabus ITAA, ce point nécessite une analyse approfondie. Précisez si vous voulez la règle comptable ou fiscale.";
+                if(q.includes("sonnette") || q.includes("alarme")) r = "<b>Agent Juridique :</b> La procédure de la sonnette d'alarme (Art. 5:150 CSA) doit être activée si l'actif net devient inférieur à la moitié des apports. L'AG doit être convoquée dans les 2 mois.";
+                if(q.includes("dna") || q.includes("admis")) r = "<b>Agent Fiscal :</b> Les DNA sont régies par les Art. 53 à 66bis du CIR92. Les plus courantes sont les amendes, les impôts et les limitations de frais de voiture.";
+                if(q.includes("amortir") || q.includes("amortissement")) r = "<b>Agent Comptable :</b> Depuis 2020, l'amortissement dégressif est supprimé pour les sociétés. Le prorata temporis est désormais obligatoire dès l'acquisition.";
+                
+                win.innerHTML += `<div class="bubble bubble-ai">${r}</div>`;
                 win.scrollTop = win.scrollHeight;
-            }, 600);
-        }
-
-        function quiz() {
-            const qs = ["Si je vends un immeuble après 12 ans, combien de 15èmes dois-je régulariser ?", "Un ordinateur acheté en 2022 est vendu en 2024. Calcul du reversement ?", "Quelle est la base légale du délai de 15 ans ?"];
-            const r = document.getElementById('quiz-res');
-            r.style.display = "block";
-            r.innerText = qs[Math.floor(Math.random()*qs.length)];
+            }, 800);
         }
     </script>
 </body>
