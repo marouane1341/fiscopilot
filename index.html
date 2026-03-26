@@ -3,92 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V4.1 - AI Experts</title>
+    <title>FiscoPilot V4.2 - Syllabus Expert</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="manifest" href="manifest.json">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #0b1120; color: #f8fafc; margin: 0; }
         .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
-        .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .active-tab { color: #d4af37; transform: scale(1.1); filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5)); }
-        .chat-msg { animation: fadeIn 0.3s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .glass { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .active-tab { color: #d4af37; transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
+        .card-expert { background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%); border: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body class="pb-32">
 
-    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#0b1120]/95 backdrop-blur-xl">
+    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#0b1120]/90 backdrop-blur-xl">
         <div>
             <h1 class="text-2xl font-black text-transparent bg-clip-text gold-gradient tracking-tighter italic">FiscoPilot</h1>
-            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black italic">Syllabus Master V4.1</p>
+            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black italic">Advanced Knowledge V4.2</p>
         </div>
-        <div class="w-10 h-10 rounded-2xl gold-gradient flex items-center justify-center text-slate-900 font-black shadow-lg shadow-yellow-500/20">M</div>
+        <div class="flex gap-2">
+            <button onclick="changeTab('ai')" class="w-10 h-10 rounded-2xl glass flex items-center justify-center shadow-lg border-white/10 active:scale-90 transition">🧠</button>
+        </div>
     </header>
 
     <main id="app-content" class="px-5 space-y-7">
         
         <section id="view-home" class="space-y-6">
-            <div class="glass rounded-[2.5rem] p-8 border-t border-white/10 shadow-2xl">
-                <h2 class="text-[10px] font-black text-yellow-500 uppercase tracking-[0.3em] mb-4">Statut Master</h2>
-                <div class="flex items-end justify-between mb-3">
-                    <span class="text-4xl font-black text-white">72<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
-                    <span class="text-[10px] text-slate-400 uppercase font-bold italic tracking-tighter text-right">Analyse & Audit<br>Completés</span>
-                </div>
-                <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden border border-white/5">
-                    <div class="gold-gradient h-full w-[72%] transition-all duration-1000 shadow-[0_0_15px_rgba(212,175,55,0.4)]"></div>
+            <div class="glass rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl">
+                <div class="relative z-10">
+                    <h2 class="text-[10px] font-black text-yellow-500 uppercase tracking-[0.3em] mb-4">Maîtrise du Syllabus</h2>
+                    <div class="flex items-end justify-between mb-4">
+                        <span class="text-5xl font-black text-white italic">78<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
+                        <div class="text-right">
+                            <span class="block text-[10px] text-emerald-400 font-bold uppercase tracking-tighter">Matière injectée</span>
+                            <span class="text-[9px] text-slate-500 uppercase">Fiches Doctrine prêtes</span>
+                        </div>
+                    </div>
+                    <div class="w-full bg-white/5 h-3 rounded-full overflow-hidden border border-white/5 ring-1 ring-yellow-500/20">
+                        <div class="gold-gradient h-full w-[78%] shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all duration-1000"></div>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-4">
-                <div onclick="changeTab('ai')" class="glass rounded-3xl p-6 flex items-center gap-5 border border-yellow-500/20 active:scale-95 transition shadow-xl">
-                    <span class="text-4xl">🤖</span>
-                    <div class="text-left">
-                        <span class="block text-xs font-black uppercase text-white tracking-widest">Consultation IA</span>
-                        <span class="text-[10px] text-slate-500 italic">Interrogez vos 3 experts ITAA</span>
+            <div onclick="changeTab('ai')" class="glass rounded-3xl p-6 flex items-center justify-between border border-white/5 active:scale-95 transition">
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl">🤖</span>
+                    <div>
+                        <span class="block text-xs font-black uppercase tracking-widest">IA Expert ITAA</span>
+                        <span class="text-[10px] text-slate-500 italic">Interroger le Code & la Doctrine</span>
                     </div>
                 </div>
+                <span class="text-yellow-500">➔</span>
             </div>
         </section>
 
         <section id="view-ai" class="hidden space-y-4">
-            <div class="flex justify-between items-center px-2">
-                <h2 class="text-xl font-black text-white italic">Agents Experts</h2>
-                <button onclick="clearChat()" class="text-[10px] text-slate-500 uppercase font-bold hover:text-red-400 transition">Effacer</button>
-            </div>
-            
-            <div class="glass rounded-[2rem] p-6 space-y-5 border-t border-white/10 shadow-2xl flex flex-col h-[500px]">
-                <select id="ai-expert" class="w-full bg-slate-900/80 border border-slate-700 rounded-2xl px-5 py-4 text-xs text-yellow-500 font-black outline-none appearance-none shadow-inner ring-1 ring-white/5">
-                    <option value="compta">🏢 Expert-Comptable (BE-GAAP)</option>
-                    <option value="fisc">💰 Fiscaliste Certifié (TVA/ISoc)</option>
-                    <option value="juridique">⚖️ Juriste d'Affaires (CSA)</option>
-                </select>
+            <div class="glass rounded-[2rem] p-6 space-y-4 border-t border-white/10 shadow-2xl flex flex-col h-[550px]">
+                <div class="flex gap-2">
+                    <span class="px-3 py-1 bg-yellow-500/10 text-yellow-500 text-[9px] font-black rounded-full border border-yellow-500/20 uppercase tracking-widest">Mode Analyse Doctrine</span>
+                </div>
                 
-                <div id="chat-window" class="flex-1 overflow-y-auto space-y-4 p-2 text-[11px] scrollbar-hide">
-                    <div class="chat-msg bg-white/5 p-4 rounded-2xl rounded-tl-none border border-white/5 text-slate-300 italic leading-relaxed">
-                        Prêt pour la révision, Marouane. Quel point du syllabus ITAA analysons-nous ?
-                    </div>
+                <div id="chat-window" class="flex-1 overflow-y-auto space-y-4 p-2 text-[11px] scrollbar-hide italic leading-relaxed text-slate-300">
+                    <div>Bonjour Marouane. Le syllabus n'est que la structure. Collez ici un texte de loi ou un avis CNC pour que je l'analyse et l'intègre à vos fiches.</div>
                 </div>
 
                 <div class="flex gap-2 bg-slate-900/50 p-2 rounded-2xl border border-white/10 shadow-inner">
-                    <input type="text" id="ai-query" placeholder="Question sur le programme..." class="flex-1 bg-transparent px-3 text-xs outline-none text-white">
+                    <textarea id="ai-query" placeholder="Collez un article ou posez une question..." class="flex-1 bg-transparent px-3 text-xs outline-none text-white h-12 py-2 resize-none"></textarea>
                     <button onclick="askAgent()" class="w-12 h-12 gold-gradient rounded-xl flex items-center justify-center text-slate-900 shadow-lg active:scale-90 transition">➔</button>
                 </div>
             </div>
         </section>
 
-        <section id="view-calc" class="hidden space-y-6">
-            <h2 class="text-xl font-black px-2 text-white italic">Bibliothèque</h2>
-            <div class="grid grid-cols-1 gap-4">
-                <div class="glass rounded-3xl p-6 border-l-4 border-yellow-500 flex justify-between items-center shadow-lg active:bg-white/5 transition">
-                    <div><h3 class="font-bold text-sm text-white">Fiscalité & DNA</h3><p class="text-[9px] text-slate-500 uppercase font-bold tracking-widest mt-1">CIR 92 & CTVA</p></div>
-                    <span class="text-2xl">💰</span>
-                </div>
-            </div>
+        <section id="view-cours" class="hidden space-y-5">
+             <h2 class="text-xl font-black px-2 text-white italic">Syllabus ITAA (Matière)</h2>
+             
+             <div class="card-expert rounded-3xl p-6 space-y-4 border-l-4 border-blue-500 shadow-xl">
+                 <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-bold text-white text-base">TVA : Art. 45 §2</h3>
+                        <p class="text-[9px] text-blue-400 uppercase font-black">Limitation Matériel Roulant</p>
+                    </div>
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-slate-500 font-bold tracking-tighter">DOC : 100%</span>
+                 </div>
+                 <div class="text-[11px] text-slate-400 space-y-3 leading-relaxed">
+                    <p class="bg-blue-500/5 p-3 rounded-xl border border-blue-500/20"><strong>Matière réelle :</strong> La limitation de 50% s'applique aux véhicules mixtes. <em>Exception :</em> Les véhicules utilitaires (Art. 45 §2, al. 2) permettent une déduction à 100%.</p>
+                    <button onclick="alert('Méthode 1: Réel\nMéthode 2: Semi-forfaitaire (0,35%)\nMéthode 3: Forfait général (50%)')" class="text-blue-400 font-bold uppercase text-[9px] tracking-widest hover:underline">Voir Méthodes de calcul ➔</button>
+                 </div>
+             </div>
         </section>
     </main>
 
-    <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl ring-1 ring-white/10">
+    <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl border-t-0 ring-1 ring-white/10">
         <button onclick="changeTab('home')" id="btn-home" class="nav-btn active-tab transition-all"><span class="text-2xl">🏠</span></button>
         <button onclick="changeTab('ai')" id="btn-ai" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">🤖</span></button>
         <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">📊</span></button>
@@ -97,63 +102,27 @@
 
     <script>
         function changeTab(tabName) {
-            ['view-home', 'view-ai', 'view-calc', 'view-cours'].forEach(v => {
-                const el = document.getElementById(v);
-                if(el) el.classList.add('hidden');
-            });
+            ['view-home', 'view-ai', 'view-calc', 'view-cours'].forEach(v => document.getElementById(v).classList.add('hidden'));
             document.getElementById('view-' + tabName).classList.remove('hidden');
-            
             ['btn-home', 'btn-ai', 'btn-calc', 'btn-cours'].forEach(b => {
-                const btn = document.getElementById(b);
-                if(btn) {
-                    btn.classList.remove('active-tab');
-                    btn.classList.add('text-slate-500');
-                }
+                document.getElementById(b).classList.remove('active-tab');
+                document.getElementById(b).classList.add('text-slate-500');
             });
             document.getElementById('btn-' + tabName).classList.add('active-tab');
         }
 
         function askAgent() {
-            const query = document.getElementById('ai-query').value;
-            const expert = document.getElementById('ai-expert').value;
-            if(!query) return;
-
+            const q = document.getElementById('ai-query').value;
+            if(!q) return;
             const win = document.getElementById('chat-window');
-            win.innerHTML += `
-                <div class="chat-msg flex flex-col items-end">
-                    <span class="text-[8px] text-yellow-500 font-black uppercase mb-1 mr-2">Candidat</span>
-                    <div class="bg-yellow-500 text-slate-900 p-3 rounded-2xl rounded-tr-none text-xs font-bold shadow-lg">${query}</div>
-                </div>`;
-            
+            win.innerHTML += `<div class="text-right text-yellow-500 font-black text-[9px] mb-1">MAROUANE</div><div class="text-white text-xs mb-4 bg-white/5 p-3 rounded-2xl">${q}</div>`;
             document.getElementById('ai-query').value = "";
-            win.scrollTop = win.scrollHeight;
-
+            
             setTimeout(() => {
-                let resp = "Selon le syllabus ITAA (p. 25), ce point est crucial pour l'examen oral. Voulez-vous un résumé des articles du CSA concernés ?";
-                let color = "indigo-400";
-                
-                if(expert === "fisc") {
-                    resp = "D'un point de vue fiscal, l'Art. 45 §2 du CTVA limite la déduction à 50% pour ce type de frais. C'est une question piège classique.";
-                    color = "emerald-400";
-                }
-                if(expert === "compta") {
-                    resp = "En BE-GAAP, le principe de prudence interdit d'acter ce produit avant sa réalisation certaine. Vérifiez l'Avis CNC 2023/04.";
-                    color = "blue-400";
-                }
-
-                win.innerHTML += `
-                    <div class="chat-msg flex flex-col items-start mt-4">
-                        <span class="text-[8px] text-${color} font-black uppercase mb-1 ml-2">Expert ${expert}</span>
-                        <div class="glass p-4 rounded-2xl rounded-tl-none border border-white/10 text-white text-xs italic shadow-xl leading-relaxed">${resp}</div>
-                    </div>`;
+                win.innerHTML += `<div class="text-emerald-400 font-black text-[9px] mb-1 uppercase tracking-widest">Analyse Expert</div><div class="text-slate-300 text-xs italic bg-emerald-500/5 p-4 rounded-2xl border border-emerald-500/20">Analyse terminée. Ce texte concerne le point IV du syllabus. J'ai extrait les règles de déductibilité et mis à jour votre fiche 'TVA Avancée'. Voulez-vous simuler un cas pratique basé sur ce texte ?</div>`;
                 win.scrollTop = win.scrollHeight;
-            }, 1000);
-        }
-
-        function clearChat() {
-            document.getElementById('chat-window').innerHTML = '<div class="chat-msg bg-white/5 p-4 rounded-2xl rounded-tl-none border border-white/5 text-slate-300 italic">Historique effacé. Prêt pour une nouvelle analyse.</div>';
+            }, 1200);
         }
     </script>
 </body>
 </html>
-
