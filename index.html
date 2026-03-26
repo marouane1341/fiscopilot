@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V2.8 - Expert IPP & CSA</title>
+    <title>FiscoPilot V2.9 - Expert Comptable</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="manifest.json">
     <style>
@@ -12,7 +12,6 @@
         .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
         .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .active-tab { color: #d4af37; transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
-        .alert-red { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; }
     </style>
 </head>
 <body class="pb-32">
@@ -20,7 +19,7 @@
     <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#0b1120]/95 backdrop-blur-xl">
         <div onclick="location.reload()">
             <h1 class="text-2xl font-black text-transparent bg-clip-text gold-gradient tracking-tighter italic">FiscoPilot</h1>
-            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black italic">Syllabus Master</p>
+            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black italic">BE-GAAP Specialist</p>
         </div>
         <div class="flex gap-3">
             <button onclick="generateExamQuestion()" class="w-10 h-10 rounded-2xl glass flex items-center justify-center text-lg active:scale-90 transition">❓</button>
@@ -32,87 +31,70 @@
         
         <section id="view-home" class="space-y-6">
             <div class="relative">
-                <input type="text" id="globalSearch" onkeyup="filterEverything()" placeholder="Rechercher (ex: IPP, Sonnette, TVA)..." class="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-12 text-sm outline-none focus:border-yellow-500/40 transition-all shadow-2xl">
+                <input type="text" id="globalSearch" onkeyup="filterEverything()" placeholder="Sujet d'examen (ex: Subsides, IPP)..." class="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-12 text-sm outline-none focus:border-yellow-500/40 transition-all shadow-2xl">
                 <span class="absolute left-4 top-4 opacity-30">🔍</span>
             </div>
 
             <div id="exam-box" class="hidden glass rounded-3xl p-6 border border-yellow-500/30 bg-yellow-500/5 animate-pulse">
-                <p class="text-[10px] font-black text-yellow-500 uppercase mb-2 tracking-widest">Question Examen ITAA</p>
+                <p class="text-[10px] font-black text-yellow-500 uppercase mb-2">Question ITAA - Clôture</p>
                 <p id="question-text" class="text-sm font-medium text-white leading-relaxed italic"></p>
             </div>
 
             <div class="glass rounded-[2.5rem] p-8 border-t border-white/10 shadow-2xl">
-                <h2 class="text-xs font-black text-yellow-500 uppercase tracking-[0.3em] mb-4">Progression Syllabus</h2>
+                <h2 class="text-xs font-black text-yellow-500 uppercase tracking-[0.3em] mb-4 text-center">Progression</h2>
                 <div class="flex items-end justify-between mb-2">
-                    <span class="text-3xl font-black text-white">28<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
-                    <span class="text-[10px] text-slate-400 uppercase font-bold tracking-widest italic">Module IPP Activé</span>
+                    <span class="text-3xl font-black text-white">35<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
+                    <span class="text-[10px] text-slate-400 uppercase font-bold tracking-widest italic tracking-tighter">Comptabilité Générale OK</span>
                 </div>
                 <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
-                    <div class="gold-gradient h-full w-[28%] transition-all duration-1000"></div>
+                    <div class="gold-gradient h-full w-[35%] transition-all duration-1000"></div>
                 </div>
             </div>
         </section>
 
         <section id="view-calc" class="hidden space-y-6">
-            <h2 class="text-xl font-black px-2 text-white italic">Simulateurs</h2>
+            <h2 class="text-xl font-black px-2 text-white italic">Outils de Clôture</h2>
             
-            <div class="tool-card glass rounded-[2.5rem] p-7 space-y-5 border-l-4 border-indigo-500 shadow-xl" data-keyword="ipp indépendant cotisations revenu">
-                <h3 class="text-[10px] font-black uppercase text-indigo-400 tracking-widest">Estimation Indépendant (IPP)</h3>
+            <div class="tool-card glass rounded-[2.5rem] p-7 space-y-5 border-l-4 border-yellow-500 shadow-xl" data-keyword="subside capital 15 impôt différé clôture">
+                <h3 class="text-[10px] font-black uppercase text-yellow-500 tracking-widest">Subsides de Capital (Compte 15)</h3>
                 <div class="space-y-3">
-                    <input type="number" id="brut-indep" placeholder="Revenu Net Imposable (€)" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-indigo-500">
+                    <input type="number" id="subside-total" placeholder="Montant du subside reçu (€)" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none">
+                    <input type="number" id="isoc-taux" placeholder="Taux ISoc estimé (ex: 25) %" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none">
                 </div>
-                <button onclick="calculerIndep()" class="w-full bg-indigo-600/80 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition">Calculer les cotisations</button>
-                <div id="res-indep" class="hidden p-5 rounded-2xl bg-indigo-500/5 border border-indigo-500/20 text-[11px] leading-relaxed italic"></div>
-            </div>
-
-            <div class="tool-card glass rounded-[2.5rem] p-7 space-y-5 border-l-4 border-red-500 shadow-xl" data-keyword="sonnette csa actif net capitaux">
-                <h3 class="text-[10px] font-black uppercase text-red-400 tracking-widest">Sonnette d'alarme (CSA)</h3>
-                <div class="space-y-3 text-xs">
-                    <input type="number" id="an-val" placeholder="Actif Net €" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-red-500 text-white">
-                    <input type="number" id="cap-val" placeholder="Apports (SRL) / Capital (SA) €" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none focus:border-red-500 text-white">
-                </div>
-                <button onclick="verifierSonnette()" class="w-full bg-red-600/80 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition">Lancer le test</button>
-                <div id="res-sonnette" class="hidden p-5 rounded-2xl text-[11px] leading-relaxed italic"></div>
+                <button onclick="calculerSubside()" class="w-full gold-gradient text-slate-900 py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition">Ventiler le subside</button>
+                <div id="res-subside" class="hidden p-5 rounded-2xl bg-yellow-500/5 border border-yellow-500/20 text-[11px] leading-relaxed italic"></div>
             </div>
         </section>
 
         <section id="view-cours" class="hidden space-y-4">
-             <h2 class="text-xl font-black px-2 text-white italic">Matières du Programme</h2>
+             <h2 class="text-xl font-black px-2 text-white italic">Matières Prioritaires</h2>
              
-             <div class="course-card glass rounded-3xl p-6 border-l-4 border-indigo-500 shadow-xl" data-keyword="ipp revenus divers mobiliers professionnels">
+             <div class="course-card glass rounded-3xl p-6 border-l-4 border-emerald-500 shadow-xl" data-keyword="principes prudence image fidèle spécialisation">
                 <div class="flex justify-between items-start mb-4">
                    <div>
-                       <h3 class="font-bold text-white text-base tracking-tight">IPP : Les 4 catégories</h3>
-                       <p class="text-[9px] text-indigo-400 uppercase font-black tracking-widest">Syllabus Page 21</p>
+                       <h3 class="font-bold text-white text-base tracking-tight">Principes BE-GAAP</h3>
+                       <p class="text-[9px] text-emerald-400 uppercase font-black tracking-widest">Syllabus Page 7</p>
                    </div>
-                   <span class="text-xl">👤</span>
+                   <span class="text-xl">⚖️</span>
                 </div>
-                <div class="text-[11px] text-slate-400 space-y-2">
-                   <p>1. <strong>Immobiliers :</strong> Revenu cadastral (RC), loyers.</p>
-                   <p>2. <strong>Mobiliers :</strong> Dividendes, intérêts (Prél. Libératoire).</p>
-                   <p>3. <strong>Professionnels :</strong> Bénéfices, profits, rémunérations.</p>
-                   <p>4. <strong>Divers :</strong> Plus-values occasionnelles (33%).</p>
+                <div class="text-[11px] text-slate-400 space-y-2 leading-relaxed">
+                   <p>• <strong>Prudence :</strong> On actera les charges probables mais pas les produits probables.</p>
+                   <p>• <strong>Non-compensation :</strong> Interdiction de compenser charges/produits ou actifs/passifs.</p>
+                   <p>• <strong>Image Fidèle :</strong> L'objectif ultime des comptes annuels.</p>
                 </div>
             </div>
 
-             <div class="course-card glass rounded-3xl p-6 border-l-4 border-blue-500 shadow-xl" data-keyword="sonnette csa distribution">
-                 <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="font-bold text-white text-base">CSA : Solvabilité</h3>
-                        <p class="text-[9px] text-blue-400 uppercase font-black">Syllabus Page 25</p>
-                    </div>
-                    <span class="text-xl">🏢</span>
-                 </div>
-                 <p class="text-[11px] text-slate-400 italic leading-relaxed">Focus sur les tests de distribution (Art. 5:142) et la responsabilité des administrateurs.</p>
-             </div>
+            <div class="course-card glass rounded-3xl p-5 border-l-4 border-indigo-500 shadow-xl opacity-60" data-keyword="ipp revenus">
+                <h3 class="font-bold text-white text-sm">IPP : Rappel catégories</h3>
+            </div>
         </section>
     </main>
 
-    <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl border-t-0 ring-1 ring-white/10">
+    <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl ring-1 ring-white/10">
         <button onclick="changeTab('home')" id="btn-home" class="nav-btn active-tab transition-all"><span class="text-2xl">🏠</span></button>
         <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">📊</span></button>
         <button onclick="changeTab('cours')" id="btn-cours" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">🎓</span></button>
-        <button onclick="alert('Module Vision ITAA synchronisé')" class="text-yellow-500/40"><span class="text-2xl">📸</span></button>
+        <button onclick="alert('Module Vision PCMN')" class="text-yellow-500/30"><span class="text-2xl">📸</span></button>
     </nav>
 
     <script>
@@ -124,33 +106,17 @@
                 document.getElementById(b).classList.add('text-slate-500');
             });
             document.getElementById('btn-' + tabName).classList.add('active-tab');
-            document.getElementById('btn-' + tabName).classList.remove('text-slate-500');
         }
 
-        function verifierSonnette() {
-            const an = parseFloat(document.getElementById('an-val').value);
-            const cap = parseFloat(document.getElementById('cap-val').value);
-            const res = document.getElementById('res-sonnette');
+        function calculerSubside() {
+            const tot = parseFloat(document.getElementById('subside-total').value);
+            const taux = parseFloat(document.getElementById('isoc-taux').value) / 100;
+            const res = document.getElementById('res-subside');
+            if(!tot || !taux) return;
+            const diff = tot * taux;
+            const net = tot - diff;
             res.classList.remove('hidden');
-            if (an < 0) {
-                res.className = "p-5 rounded-2xl alert-red mt-4";
-                res.innerHTML = "<strong>🚨 SONNETTE D'ALARME :</strong> Actif net négatif. Rapport spécial requis sous 2 mois (Art. 5:153 CSA).";
-            } else if (an < (cap / 2)) {
-                res.className = "p-5 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-200 mt-4";
-                res.innerHTML = "<strong>⚠️ SEUIL FRANCHI :</strong> Actif net < 50% des apports. Procédure légale à activer.";
-            } else {
-                res.className = "p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 mt-4 text-center";
-                res.innerHTML = "✅ Structure financière conforme.";
-            }
-        }
-
-        function calculerIndep() {
-            const brut = parseFloat(document.getElementById('brut-indep').value);
-            const res = document.getElementById('res-indep');
-            if(!brut) return;
-            const cotis = brut * 0.205;
-            res.classList.remove('hidden');
-            res.innerHTML = `Cotisations (estim. 20.5%) : <strong>${cotis.toLocaleString('fr-BE')} €</strong><br>Revenu après cotis : <strong>${(brut - cotis).toLocaleString('fr-BE')} €</strong><br><small class='opacity-70 mt-1 block italic'>Attention : hors régularisations et frais d'administration.</small>`;
+            res.innerHTML = `Part Nette (Compte 15) : <strong>${net.toLocaleString('fr-BE')} €</strong><br>Impôts Différés (Compte 168) : <strong>${diff.toLocaleString('fr-BE')} €</strong><br><small class='opacity-70 mt-1 block italic text-[9px]'>Écriture : Débit 15 / Crédit 168 lors de la réception.</small>`;
         }
 
         function filterEverything() {
@@ -164,12 +130,11 @@
 
         function generateExamQuestion() {
             const qs = [
-                "Quel est le taux de précompte mobilier libératoire par défaut sur les dividendes ?",
-                "Citez deux exemples de revenus divers taxés à 33%.",
-                "Qu'est-ce que le test de liquidité dans une SRL ?"
+                "Un subside en capital est-il imposable immédiatement ?",
+                "Définissez le principe de 'Matching' (corrélation des charges et produits).",
+                "Comment traite-t-on un escompte obtenu sur achat en BE-GAAP ?"
             ];
-            const box = document.getElementById('exam-box');
-            box.classList.remove('hidden');
+            document.getElementById('exam-box').classList.remove('hidden');
             document.getElementById('question-text').innerText = qs[Math.floor(Math.random() * qs.length)];
         }
     </script>
