@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V3.2 - Déontologie ITAA</title>
+    <title>FiscoPilot V4.0 - AI Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="manifest.json">
     <style>
@@ -12,20 +12,17 @@
         .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
         .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .active-tab { color: #d4af37; transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
-        .alert-gold { background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); color: #fde68a; }
+        .chat-bubble { background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 1rem; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
 <body class="pb-32">
 
     <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#0b1120]/95 backdrop-blur-xl">
-        <div onclick="location.reload()">
+        <div>
             <h1 class="text-2xl font-black text-transparent bg-clip-text gold-gradient tracking-tighter italic">FiscoPilot</h1>
-            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black italic">Ethics & Integrity V3.2</p>
+            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black italic">AI Expert Hub V4.0</p>
         </div>
-        <div class="flex gap-3">
-            <button onclick="generateExamQuestion()" class="w-10 h-10 rounded-2xl glass flex items-center justify-center text-lg active:scale-90 transition">❓</button>
-            <div class="w-10 h-10 rounded-2xl gold-gradient flex items-center justify-center text-slate-900 font-black shadow-lg">M</div>
-        </div>
+        <div class="w-10 h-10 rounded-2xl gold-gradient flex items-center justify-center text-slate-900 font-black shadow-lg">M</div>
     </header>
 
     <main id="app-content" class="px-5 space-y-7">
@@ -34,46 +31,56 @@
             <div class="glass rounded-[2.5rem] p-8 border-t border-white/10 shadow-2xl">
                 <h2 class="text-xs font-black text-yellow-500 uppercase tracking-[0.3em] mb-4">Statut de la Révision</h2>
                 <div class="flex items-end justify-between mb-2">
-                    <span class="text-3xl font-black text-white">58<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
-                    <span class="text-[10px] text-slate-400 uppercase font-bold italic">Déontologie Activée</span>
+                    <span class="text-3xl font-black text-white">65<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
+                    <span class="text-[10px] text-slate-400 uppercase font-bold italic">Agents IA Activés</span>
                 </div>
                 <div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
-                    <div class="gold-gradient h-full w-[58%] transition-all duration-1000"></div>
+                    <div class="gold-gradient h-full w-[65%] transition-all duration-1000 shadow-[0_0_15px_rgba(212,175,55,0.3)]"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div onclick="changeTab('ai')" class="glass rounded-3xl p-6 flex flex-col items-center text-center space-y-3 border border-yellow-500/20">
+                    <span class="text-3xl">🤖</span>
+                    <span class="text-[10px] font-black uppercase text-white">Consulter l'IA</span>
+                </div>
+                <div onclick="changeTab('calc')" class="glass rounded-3xl p-6 flex flex-col items-center text-center space-y-3">
+                    <span class="text-3xl">🧮</span>
+                    <span class="text-[10px] font-black uppercase text-white">Calculateurs</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-ai" class="hidden space-y-4">
+            <h2 class="text-xl font-black px-2 text-white italic">Agents Experts</h2>
+            <div class="glass rounded-3xl p-6 space-y-4">
+                <select id="ai-expert" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs text-yellow-500 font-bold outline-none">
+                    <option value="compta">Expert-Comptable (BE-GAAP)</option>
+                    <option value="fisc">Fiscaliste (ISoc/TVA)</option>
+                    <option value="juridique">Juriste (CSA/Droit)</option>
+                </select>
+                
+                <div id="chat-window" class="h-64 overflow-y-auto space-y-3 p-2 text-[11px] text-slate-300 italic">
+                    <div class="chat-bubble">Bonjour Marouane. Je suis prêt à analyser vos questions sur le syllabus ITAA. Que souhaitez-vous approfondir ?</div>
+                </div>
+
+                <div class="flex gap-2">
+                    <input type="text" id="ai-query" placeholder="Posez votre question..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 text-xs outline-none focus:border-yellow-500">
+                    <button onclick="askAgent()" class="w-12 h-12 gold-gradient rounded-xl flex items-center justify-center text-slate-900">➔</button>
                 </div>
             </div>
         </section>
 
         <section id="view-calc" class="hidden space-y-6">
-            <h2 class="text-xl font-black px-2 text-white italic">Décisionnel Éthique</h2>
-            
-            <div class="glass rounded-[2.5rem] p-7 space-y-5 border-l-4 border-amber-500 shadow-xl">
-                <h3 class="text-[10px] font-black uppercase text-amber-400 tracking-widest italic">Le Déontomètre</h3>
-                <p class="text-xs text-slate-400">Évaluez une situation délicate :</p>
-                <select id="deonto-scenario" class="w-full bg-slate-900/60 border border-slate-700 rounded-2xl px-5 py-3 text-sm outline-none text-white focus:border-amber-500">
-                    <option value="cadeau">Un client m'offre un cadeau de valeur</option>
-                    <option value="conflit">Je travaille pour deux concurrents</option>
-                    <option value="secret">La police demande des infos sans mandat</option>
-                </select>
-                <button onclick="analyserDeonto()" class="w-full bg-amber-600/80 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest active:scale-95 transition">Vérifier la conformité</button>
-                <div id="res-deonto" class="hidden p-5 rounded-2xl alert-gold text-[11px] leading-relaxed italic"></div>
-            </div>
-        </section>
-
-        <section id="view-cours" class="hidden space-y-4">
-             <h2 class="text-xl font-black px-2 text-white italic">Syllabus : Éthique</h2>
-             
-             <div class="course-card glass rounded-3xl p-6 border-l-4 border-amber-500 shadow-xl">
-                <div class="flex justify-between items-start mb-4 text-white">
-                   <div>
-                       <h3 class="font-bold text-base italic tracking-tight">Code de Déontologie</h3>
-                       <p class="text-[9px] text-amber-400 uppercase font-black">Syllabus Page 30</p>
-                   </div>
-                   <span class="text-xl">⚖️</span>
+            <h2 class="text-xl font-black px-2 text-white italic">Bibliothèque d'outils</h2>
+            <div class="space-y-4">
+                <div class="glass rounded-2xl p-5 border-l-4 border-yellow-500 flex justify-between items-center">
+                    <div><h3 class="font-bold text-sm text-white">Fiscalité</h3><p class="text-[9px] text-slate-500">DNA, ATN, IPP...</p></div>
+                    <span class="text-lg">💰</span>
                 </div>
-                <div class="text-[11px] text-slate-400 space-y-2 leading-relaxed">
-                   <p>• <strong>Indépendance :</strong> L'expert doit être libre de toute pression extérieure.</p>
-                   <p>• <strong>Secret Professionnel :</strong> Fondement de la confiance (sanctions pénales sinon).</p>
-                   <p>• <strong>Confraternité :</strong> Pas de concurrence déloyale ou de dénigrement.</p>
+                <div class="glass rounded-2xl p-5 border-l-4 border-blue-500 flex justify-between items-center">
+                    <div><h3 class="font-bold text-sm text-white">Juridique (CSA)</h3><p class="text-[9px] text-slate-500">Distribution, Sonnette...</p></div>
+                    <span class="text-lg">⚖️</span>
                 </div>
             </div>
         </section>
@@ -81,40 +88,46 @@
 
     <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl ring-1 ring-white/10">
         <button onclick="changeTab('home')" id="btn-home" class="nav-btn active-tab"><span class="text-2xl">🏠</span></button>
+        <button onclick="changeTab('ai')" id="btn-ai" class="nav-btn text-slate-500"><span class="text-2xl">🤖</span></button>
         <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500"><span class="text-2xl">📊</span></button>
         <button onclick="changeTab('cours')" id="btn-cours" class="nav-btn text-slate-500"><span class="text-2xl">🎓</span></button>
-        <button class="text-yellow-500/10"><span class="text-2xl">🤝</span></button>
     </nav>
 
     <script>
         function changeTab(tabName) {
-            ['view-home', 'view-calc', 'view-cours'].forEach(v => document.getElementById(v).classList.add('hidden'));
+            ['view-home', 'view-ai', 'view-calc', 'view-cours'].forEach(v => {
+                const el = document.getElementById(v);
+                if(el) el.classList.add('hidden');
+            });
             document.getElementById('view-' + tabName).classList.remove('hidden');
-            ['btn-home', 'btn-calc', 'btn-cours'].forEach(b => {
-                document.getElementById(b).classList.remove('active-tab');
-                document.getElementById(b).classList.add('text-slate-500');
+            
+            ['btn-home', 'btn-ai', 'btn-calc', 'btn-cours'].forEach(b => {
+                const btn = document.getElementById(b);
+                if(btn) {
+                    btn.classList.remove('active-tab');
+                    btn.classList.add('text-slate-500');
+                }
             });
             document.getElementById('btn-' + tabName).classList.add('active-tab');
         }
 
-        function analyserDeonto() {
-            const s = document.getElementById('deonto-scenario').value;
-            const res = document.getElementById('res-deonto');
-            res.classList.remove('hidden');
-            let txt = "";
-            if(s === "cadeau") txt = "❌ **DANGER :** Accepter des cadeaux peut compromettre votre objectivité. Un cadeau de valeur doit être refusé.";
-            if(s === "conflit") txt = "⚠️ **PRUDENCE :** Les conflits d'intérêts doivent être signalés. Vous devez obtenir l'accord écrit des deux parties.";
-            if(s === "secret") txt = "❌ **ALERTE :** Le secret professionnel est d'ordre public. Sans mandat ou obligation légale spécifique, vous devez vous taire.";
-            res.innerHTML = txt;
-        }
+        function askAgent() {
+            const query = document.getElementById('ai-query').value;
+            const expert = document.getElementById('ai-expert').value;
+            if(!query) return;
 
-        function generateExamQuestion() {
-            const qs = [
-                "Qu'est-ce que le 'test de l'observateur raisonnable et informé' ?",
-                "Peut-on succéder à un confrère sans l'en informer ?",
-                "Le secret professionnel est-il levé en cas de témoignage en justice ?"
-            ];
-            alert("Question Éthique ITAA :\n\n" + qs[Math.floor(Math.random() * qs.length)]);
+            const win = document.getElementById('chat-window');
+            win.innerHTML += `<div class="text-right text-yellow-500 mb-2 font-bold uppercase text-[9px]">Vous</div><div class="mb-4 text-white text-xs">${query}</div>`;
+            
+            // Simulation de réponse basée sur le syllabus
+            setTimeout(() => {
+                let resp = "Selon le syllabus ITAA, ce point concerne la page 25 du programme. Voulez-vous que je simule une question d'examen sur ce sujet ?";
+                if(expert === "juridique") resp = "D'un point de vue juridique (CSA), l'Art. 5:142 stipule que le test de liquidité est indispensable avant toute distribution. C'est un point critique.";
+                
+                win.innerHTML += `<div class="text-indigo-400 mb-2 font-bold uppercase text-[9px]">Agent ${expert}</div><div class="chat-bubble text-white text-xs">${resp}</div>`;
+                document.getElementById('ai-query').value = "";
+                win.scrollTop = win.scrollHeight;
+            }, 1000);
         }
     </script>
 </body>
