@@ -3,34 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FiscoPilot V5.2 - Amortissements</title>
+    <title>FiscoPilot V5.3 - Recovery</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #05080a; color: #f8fafc; margin: 0; padding-bottom: 110px; }
-        .gold-text { color: #d4af37; }
+        body { font-family: 'Inter', sans-serif; background-color: #05080a; color: #f8fafc; margin: 0; padding-bottom: 120px; }
         .gold-bg { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
         .glass { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
         .view-section { display: none; }
-        .view-section.active { display: block; }
-        .nav-active { color: #d4af37 !important; border-top: 2px solid #d4af37; background: rgba(212, 175, 55, 0.05); }
+        .view-section.active { display: block; animation: fadeIn 0.2s; }
+        .nav-btn { color: #64748b; transition: 0.2s; }
+        .nav-btn.active { color: #d4af37; border-top: 2px solid #d4af37; background: rgba(212, 175, 55, 0.05); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#05080a] border-b border-white/10">
         <div>
-            <h1 class="text-xl font-black gold-text italic tracking-tighter">FISCOPILOT V5.2</h1>
-            <p class="text-slate-500 text-[8px] uppercase font-bold tracking-[0.3em]">Module Amortissements OK</p>
+            <h1 class="text-xl font-black text-[#d4af37] italic italic">FISCOPILOT V5.3</h1>
+            <p class="text-slate-500 text-[8px] uppercase font-bold tracking-[0.3em]">Navigation Rétablie</p>
         </div>
         <div class="w-10 h-10 rounded-lg gold-bg flex items-center justify-center text-slate-900 font-black">M</div>
     </header>
 
     <main class="px-5 mt-6">
         
-        <section id="view-home" class="view-section active space-y-6">
+        <section id="view-home" class="view-section active">
             <div class="glass rounded-3xl p-8 border border-white/5 shadow-2xl">
-                <h2 class="text-[10px] font-black gold-text uppercase tracking-widest mb-4">Progression ITAA</h2>
+                <h2 class="text-[10px] font-black text-[#d4af37] uppercase tracking-widest mb-4">Statut de Travail</h2>
                 <div class="text-4xl font-black text-white italic">94%</div>
                 <div class="w-full bg-white/10 h-2 rounded-full mt-4 overflow-hidden">
                     <div class="gold-bg h-full w-[94%] shadow-[0_0_15px_rgba(212,175,55,0.4)]"></div>
@@ -39,24 +40,110 @@
         </section>
 
         <section id="view-ai" class="view-section space-y-4">
+            <h2 class="text-xl font-black px-2 italic text-white">Expert Fiscal</h2>
             <div class="glass rounded-3xl p-6 h-[400px] flex flex-col">
                 <div id="chat" class="flex-1 overflow-y-auto space-y-4 text-[11px] text-slate-300 italic">
-                    <div>Posez-moi une question sur les taux d'amortissement ou le prorata temporis.</div>
+                    <div>Posez-moi une question sur les amortissements ou le CIR92.</div>
                 </div>
                 <div class="flex gap-2 mt-4">
-                    <input type="text" id="aiQ" placeholder="Question..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 text-xs text-white outline-none py-3">
+                    <input type="text" id="aiQ" placeholder="Question..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 text-xs text-white py-3">
                     <button onclick="doAsk()" class="w-12 gold-bg rounded-xl flex items-center justify-center text-slate-900 font-bold">></button>
                 </div>
             </div>
         </section>
 
         <section id="view-calc" class="view-section space-y-6">
-            <h2 class="text-xl font-black px-2 italic text-white">Calculateurs</h2>
+            <h2 class="text-xl font-black px-2 italic text-white">Outils</h2>
             
-            <div class="glass rounded-3xl p-6 space-y-4 border-l-4 border-emerald-500">
-                <h3 class="text-[10px] font-black uppercase text-emerald-400 italic tracking-widest">Amortissement & Prorata</h3>
-                <input type="number" id="base-amort" placeholder="Base amortissable €" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white">
-                <div class="flex gap-2">
-                    <input type="number" id="taux-amort" placeholder="Taux %" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white">
-                    <input type="number" id="jours" placeholder="Jours possédés (max 365)" class="w-full bg-slate-900 border border-
+            <div class="glass rounded-3xl p-6 border-l-4 border-yellow-500">
+                <h3 class="text-[10px] font-black uppercase text-[#d4af37] italic mb-3">Calculateur Amortissement</h3>
+                <input type="number" id="baseA" placeholder="Base €" class="w-full bg-slate-900 rounded-xl px-4 py-3 text-xs mb-2">
+                <input type="number" id="tauxA" placeholder="Taux %" class="w-full bg-slate-900 rounded-xl px-4 py-3 text-xs mb-3">
+                <button onclick="calcAmort()" class="w-full py-3 gold-bg text-slate-900 rounded-xl font-black text-[10px] uppercase">Calculer Annuité</button>
+                <div id="resA" class="hidden text-xs text-[#d4af37] font-bold pt-3"></div>
+            </div>
 
+            <div class="glass rounded-3xl p-6 border-l-4 border-blue-500">
+                <h3 class="text-[10px] font-black uppercase text-blue-400 italic mb-3">Déductibilité CO2</h3>
+                <input type="number" id="co2" placeholder="CO2 g/km" class="w-full bg-slate-900 rounded-xl px-4 py-3 text-xs mb-3">
+                <button onclick="calcCO2()" class="w-full py-3 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase">Vérifier %</button>
+                <div id="resC" class="hidden text-xs text-blue-300 font-bold pt-3"></div>
+            </div>
+        </section>
+
+        <section id="view-cours" class="view-section space-y-4">
+            <div class="glass rounded-3xl p-6 border-l-4 border-emerald-500">
+                <h3 class="font-bold text-sm text-white italic">Syllabus : Amortissements</h3>
+                <p class="text-[11px] text-slate-400 mt-2 italic leading-relaxed">
+                    Depuis 2020, l'amortissement dégressif est supprimé pour les sociétés. Le prorata temporis est obligatoire pour toutes les immobilisations.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#05080a] flex justify-around items-center border-t border-white/10 z-[100] h-[90px]">
+        <button onclick="nav('home')" id="n-home" class="nav-btn active flex-col flex items-center justify-center w-full h-full">
+            <span class="text-xl">🏠</span>
+            <span class="text-[8px] font-black uppercase mt-1">Accueil</span>
+        </button>
+        <button onclick="nav('ai')" id="n-ai" class="nav-btn flex-col flex items-center justify-center w-full h-full">
+            <span class="text-xl">🤖</span>
+            <span class="text-[8px] font-black uppercase mt-1">Expert IA</span>
+        </button>
+        <button onclick="nav('calc')" id="n-calc" class="nav-btn flex-col flex items-center justify-center w-full h-full">
+            <span class="text-xl">📊</span>
+            <span class="text-[8px] font-black uppercase mt-1">Outils</span>
+        </button>
+        <button onclick="nav('cours')" id="n-cours" class="nav-btn flex-col flex items-center justify-center w-full h-full">
+            <span class="text-xl">🎓</span>
+            <span class="text-[8px] font-black uppercase mt-1">Syllabus</span>
+        </button>
+    </nav>
+
+    <script>
+        function nav(id) {
+            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('view-' + id).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('n-' + id).classList.add('active');
+            
+            window.scrollTo(0,0);
+        }
+
+        function calcAmort() {
+            const b = parseFloat(document.getElementById('baseA').value);
+            const t = parseFloat(document.getElementById('tauxA').value) / 100;
+            const res = document.getElementById('resA');
+            if(b && t) {
+                res.classList.remove('hidden');
+                res.innerText = `Annuité : ${(b * t).toFixed(2)} €`;
+            }
+        }
+
+        function calcCO2() {
+            const c = document.getElementById('co2').value;
+            const res = document.getElementById('resC');
+            if(c) {
+                let taux = Math.max(50, Math.min(100, 120 - (0.5 * c)));
+                if(c > 200) taux = 40;
+                res.classList.remove('hidden');
+                res.innerText = `Déductibilité : ${taux.toFixed(2)}%`;
+            }
+        }
+
+        function doAsk() {
+            const q = document.getElementById('aiQ').value;
+            const win = document.getElementById('chat');
+            if(!q) return;
+            win.innerHTML += `<div class="text-right text-yellow-500 font-bold mb-1 uppercase text-[9px]">M</div><div class="bg-white/5 p-3 rounded-xl mb-3 text-xs">${q}</div>`;
+            document.getElementById('aiQ').value = "";
+            setTimeout(() => {
+                win.innerHTML += `<div class="text-blue-400 font-bold mb-1 uppercase text-[9px]">BOT</div><div class="bg-blue-500/10 p-3 rounded-xl mb-3 italic text-xs">D'après le CIR92, cette question est liée aux DNA...</div>`;
+                win.scrollTop = win.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
