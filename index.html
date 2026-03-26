@@ -3,149 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V9 - Specialist</title>
+    <title>FiscoPilot V10 - The Brain</title>
     <style>
-        :root { --gold: #d4af37; --bg: #05080a; --card: #0f172a; --blue: #3b82f6; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #f8fafc; margin: 0; padding-bottom: 100px; }
-        header { padding: 25px; text-align: center; border-bottom: 1px solid #333; position: sticky; top: 0; background: var(--bg); z-index: 100; }
-        .view { display: none; padding: 20px; }
-        .active { display: block; animation: fadeIn 0.3s; }
-        .card { background: var(--card); border-radius: 15px; padding: 20px; border-left: 5px solid var(--gold); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        .tag { font-size: 10px; font-weight: 900; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; display: block; letter-spacing: 1px; }
-        input { width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #333; background: #000; color: white; box-sizing: border-box; font-size: 14px; outline: none; }
-        input:focus { border-color: var(--gold); }
-        button { width: 100%; padding: 16px; border-radius: 12px; border: none; background: var(--gold); color: black; font-weight: bold; margin-top: 10px; cursor: pointer; text-transform: uppercase; transition: 0.2s; }
-        button:active { transform: scale(0.98); }
-        nav { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: flex; height: 85px; border-top: 1px solid #333; }
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 9px; color: #555; cursor: pointer; font-weight: bold; }
-        .nav-item.on { color: var(--gold); border-top: 2px solid var(--gold); background: rgba(212, 175, 55, 0.05); }
-        #chat { height: 400px; overflow-y: auto; padding-right: 5px; scroll-behavior: smooth; }
-        .msg-ai { background: #1e293b; padding: 15px; border-radius: 12px; border-bottom-left-radius: 0; margin-bottom: 15px; border: 1px solid #334155; }
-        .legal-ref { display: block; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #444; color: var(--gold); font-size: 11px; font-weight: bold; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        :root { --gold: #d4af37; --bg: #05080a; --card: #111827; --blue: #3b82f6; --red: #ef4444; --green: #10b981; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: #f3f4f6; margin: 0; padding-bottom: 100px; line-height: 1.6; }
+        header { padding: 30px; text-align: center; border-bottom: 2px solid #1f2937; position: sticky; top: 0; background: var(--bg); z-index: 100; }
+        .gold-title { color: var(--gold); font-weight: 900; letter-spacing: 4px; font-size: 22px; text-transform: uppercase; }
+        .view { display: none; padding: 20px; max-width: 600px; margin: auto; }
+        .active { display: block; animation: slideUp 0.3s ease-out; }
+        .card { background: var(--card); border-radius: 16px; padding: 20px; border: 1px solid #374151; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+        .section-title { font-size: 10px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; border-bottom: 1px solid #374151; padding-bottom: 5px; }
+        input { width: 100%; padding: 18px; border-radius: 12px; border: 2px solid #374151; background: #000; color: white; box-sizing: border-box; font-size: 15px; transition: 0.3s; }
+        input:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+        button { width: 100%; padding: 16px; border-radius: 12px; border: none; background: var(--gold); color: black; font-weight: 900; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
+        
+        #chat { height: 500px; overflow-y: auto; padding-right: 10px; }
+        .expert-block { border-left: 4px solid var(--gold); padding: 15px; background: rgba(255,255,255,0.02); margin-bottom: 20px; border-radius: 0 12px 12px 0; }
+        .pill { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: bold; margin-right: 5px; margin-bottom: 10px; }
+        .pill-law { background: var(--blue); color: white; }
+        .pill-tax { background: var(--red); color: white; }
+        .pill-acc { background: var(--green); color: white; }
+        .ref-text { font-size: 11px; color: var(--gold); font-weight: bold; display: block; margin-top: 10px; }
+        
+        nav { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: flex; height: 85px; border-top: 1px solid #1f2937; justify-content: space-around; align-items: center; }
+        .nav-item { color: #4b5563; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 9px; font-weight: 800; cursor: pointer; }
+        .nav-item.on { color: var(--gold); }
+        .nav-item span { font-size: 20px; margin-bottom: 5px; }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <header>
-        <div style="color: var(--gold); font-weight: 900; letter-spacing: 3px; font-size: 20px;">FISCOPILOT V9</div>
-        <div style="font-size: 9px; color: #666; margin-top: 5px;">ACCOUNTANT DEEP INTELLIGENCE</div>
-    </header>
+<header>
+    <div class="gold-title italic">FiscoPilot V10</div>
+    <div style="font-size: 9px; color: #9ca3af; margin-top: 5px;">SYLLABUS INTELLIGENCE UNIT</div>
+</header>
 
-    <main>
-        <section id="a" class="view active">
-            <div class="card" style="border-left-color: var(--blue);">
-                <span class="tag" style="color:var(--blue)">Expertise Intelligence</span>
-                <div id="chat">
-                    <div class="msg-ai">
-                        <b>Système Expert Opérationnel</b><br><br>
-                        Marouane, posez une question précise sur une base légale (ex: <i>Sonnette</i>, <i>Prorata TVA</i>, <i>Liquidation</i>). <br><br>
-                        L'IA analyse maintenant selon le <b>CSA</b>, le <b>CIR92</b> et les <b>Normes ITAA</b>.
-                    </div>
-                </div>
-                <div style="display:flex; gap:10px;">
-                    <input type="text" id="aiQ" placeholder="Votre requête fiscale ou juridique...">
-                    <button onclick="ask()" style="width: 70px; margin-top:0;">➔</button>
+<main>
+    <section id="a" class="view active">
+        <div class="card">
+            <span class="section-title">Analyseur de Doctrine</span>
+            <div id="chat">
+                <div class="expert-block">
+                    <div class="pill pill-law">SYLLABUS ITAA</div>
+                    <b>Bienvenue dans l'unité d'analyse, Marouane.</b><br>
+                    Le moteur est prêt. Entrez un sujet pour obtenir une synthèse **Juridique (CSA)**, **Fiscale (CIR/TVA)** et **Comptable (CNC)**.
                 </div>
             </div>
-        </section>
-
-        <section id="o" class="view">
-            <h2 style="font-size: 18px; margin-bottom: 20px;">Analyseurs Métier</h2>
-            <div class="card">
-                <span class="tag">Droit des Sociétés</span>
-                <div style="font-weight: bold; margin-bottom: 15px;">PROCÉDURE DE SONNETTE D'ALARME</div>
-                <input type="number" id="an" placeholder="Actif Net (Capitaux Propres)">
-                <input type="number" id="cap" placeholder="Total des Apports">
-                <button onclick="check()">Lancer l'audit de seuil</button>
-                <div id="res-s" style="margin-top: 15px; font-size: 13px; line-height: 1.4;"></div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="aiQ" placeholder="Ex: Sonnette d'alarme, Amortissements, ATN...">
+                <button onclick="ask()" style="width: 80px; margin-top:0;">➔</button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="m" class="view">
-            <h2 style="font-size: 18px; margin-bottom: 20px;">Fiches de Doctrine</h2>
-            <div class="card">
-                <span class="tag">TVA Immobilière</span>
-                <div style="font-weight: bold;">Régularisations (15 ans)</div>
-                <p style="font-size: 12px; color: #aaa; margin-top: 10px; line-height: 1.6;">Le délai de 15 ans commence le 1er janvier de l'année de mise en service. Tout changement d'affectation (passage de soumis à exonéré) entraîne un reversement pro rata temporis des 15èmes restants.</p>
-                <span class="legal-ref">Réf: Arrêté Royal n°3, Art. 9</span>
-            </div>
-        </section>
-    </main>
+    <section id="m" class="view">
+        <h2 style="font-size: 18px; margin-bottom: 20px;">Corpus Doctrinal</h2>
+        <div class="card">
+            <span class="section-title">Droit des Sociétés</span>
+            <div class="pill pill-law">CSA 5:142</div>
+            <b>Test de Liquidité & Solvabilité</b>
+            <p style="font-size: 12px; color: #9ca3af;">Avant toute distribution, l'organe d'administration doit vérifier que la SRL reste capable de s'acquitter de ses dettes au fur et à mesure de leur échéance sur une période de 12 mois.</p>
+        </div>
+        <div class="card">
+            <span class="section-title">Fiscalité Directe</span>
+            <div class="pill pill-tax">CIR92 Art. 49</div>
+            <b>Condition de Déductibilité</b>
+            <p style="font-size: 12px; color: #9ca3af;">Pour être déductibles, les frais doivent être faits en vue d'acquérir ou de conserver des revenus imposables, et la réalité/montant doit être justifié.</p>
+        </div>
+    </section>
+</main>
 
-    <nav>
-        <div class="nav-item on" onclick="nav('a', this)">🤖<span>EXPERT</span></div>
-        <div class="nav-item" onclick="nav('o', this)">📊<span>OUTILS</span></div>
-        <div class="nav-item" onclick="nav('m', this)">📚<span>DOCTRINE</span></div>
-    </nav>
+<nav>
+    <div class="nav-item on" onclick="nav('a', this)"><span>🧠</span>EXPERT</div>
+    <div class="nav-item" onclick="nav('m', this)"><span>📚</span>DOCTRINE</div>
+</nav>
 
-    <script>
-        const specialistDB = {
-            "sonnette": {
-                "text": "<b>Procédure de la Sonnette d'Alarme</b><br><br>1. <u>Seuil :</u> Actif net devient < à 50% des apports.<br>2. <u>Obligation :</u> Convocation de l'AG dans les 2 mois par l'organe d'administration.<br>3. <u>Rapport Spécial :</u> Indiquer les mesures de redressement proposées.<br>4. <u>Sanction :</u> Responsabilité solidaire des administrateurs pour les dommages subis.",
-                "ref": "Art. 5:150 et suiv. du CSA"
-            },
-            "tva": {
-                "text": "<b>Déductibilité & Limitation</b><br><br>• Véhicules mixtes : Limitation à 50% max (Art 45 §2).<br>• Affectation réelle : Obligatoire si usage pro < 50%.<br>• Régularisations : 5 ans (meubles) / 15 ans (immeubles).<br>• Prorata général : Applicable si l'affectation réelle est impossible à déterminer.",
-                "ref": "Code TVA - Art. 45 / Circulaire 2023/C/72"
-            },
-            "dna": {
-                "text": "<b>Dépenses Non Admises (DNA)</b><br><br>• Amendes : 100% DNA (sauf amendes de circulation liées au véhicule sous conditions).<br>• Cadeaux d'affaires : 50% DNA (si > 50€).<br>• Frais de réception : 50% DNA.<br>• Vêtements de travail : 100% DNA si utilisables en dehors du pro.",
-                "ref": "Art. 53 du CIR92"
-            },
-            "aml": {
-                "text": "<b>Lutte contre le Blanchiment (Anti-Money Laundering)</b><br><br>1. <u>Identification :</u> KYC (Know Your Customer) et UBO (Ultimate Beneficial Owner).<br>2. <u>Vigilance :</u> Analyse de la cohérence des opérations.<br>3. <u>Déclaration :</u> Soupçon transmis au CTIF (Cellule de Traitement des Informations Financières).<br>4. <u>Interdiction :</u> Interdiction de 'Tipping off' (informer le client du signalement).",
-                "ref": "Loi du 18 sept. 2017 / Norme ITAA"
-            }
-        };
-
-        function nav(id, el) {
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('on'));
-            el.classList.add('on');
-            window.scrollTo(0,0);
+<script>
+    const engine = {
+        "sonnette": {
+            "title": "Procédure de la Sonnette d'Alarme",
+            "law": "Art. 5:150 (SRL) / 7:228 (SA) du CSA. Seuil : Actif net inférieur à la moitié des apports (ou du capital).",
+            "tax": "Impact fiscal : Nécessité de justifier la continuité pour éviter la taxation immédiate des réserves immunisées.",
+            "acc": "Principe de continuité (Going Concern). Si l'AG décide la dissolution, passage aux règles d'évaluation en liquidation (valeurs de réalisation).",
+            "ref": "CSA - Livre 5 & 7 / Avis CNC 2012/17"
+        },
+        "amort": {
+            "title": "Régime des Amortissements",
+            "law": "Pas de contrainte stricte en droit des sociétés, mais doit correspondre à la dépréciation réelle de l'actif.",
+            "tax": "Art. 61-64 CIR92. Amortissement dégressif interdit pour les sociétés. Prorata temporis obligatoire. Frais accessoires : amortissement unique ou rythme du principal.",
+            "acc": "Avis CNC 2010/11. L'amortissement doit être systématique et ne peut dépendre du résultat de l'exercice.",
+            "ref": "CIR92 / Avis CNC 2010/13"
+        },
+        "tva": {
+            "title": "Déduction & Prorata TVA",
+            "law": "Droit à déduction né dès l'exigibilité de la taxe. Limitation de la responsabilité solidaire en cas de non-paiement.",
+            "tax": "Art. 45 §2 CTVA. Limitation auto à 50% pour voitures mixtes. Affectation réelle vs Prorata général. Régularisation 5/15 ans.",
+            "acc": "La TVA non déductible fait partie du coût d'acquisition de l'actif ou de la charge (Avis CNC).",
+            "ref": "Code TVA / Circulaire 2023/C/72"
         }
+    };
 
-        function ask() {
-            const q = document.getElementById('aiQ').value.toLowerCase();
-            if(!q) return;
-            const chat = document.getElementById('chat');
-            chat.innerHTML += `<div style="text-align:right; color:var(--gold); font-size:10px; font-weight:bold; margin-bottom:5px;">CANDIDAT</div><div style="background:var(--gold); color:black; padding:12px; border-radius:12px; font-size:13px; font-weight:bold; margin-left:20%; margin-bottom:20px;">${q}</div>`;
-            document.getElementById('aiQ').value = "";
-            
-            setTimeout(() => {
-                let found = false;
-                let response = "Requête non reconnue dans le noyau doctrinal actuel. Essayez des termes clés comme : <b>Sonnette, TVA, DNA, AML</b>.";
-                let ref = "";
+    function nav(id, el) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('on'));
+        el.classList.add('on');
+        window.scrollTo(0,0);
+    }
 
-                for(let k in specialistDB) {
-                    if(q.includes(k)) {
-                        response = specialistDB[k].text;
-                        ref = specialistDB[k].ref;
-                        found = true; break;
-                    }
+    function ask() {
+        const q = document.getElementById('aiQ').value.toLowerCase();
+        if(!q) return;
+        const chat = document.getElementById('chat');
+        chat.innerHTML += `<div style="text-align:right; margin: 20px 0;"><span style="background:var(--gold); color:black; padding:10px 15px; border-radius:15px; font-weight:bold; font-size:13px;">${q.toUpperCase()}</span></div>`;
+        document.getElementById('aiQ').value = "";
+        
+        setTimeout(() => {
+            let found = false;
+            let html = "";
+            for(let key in engine) {
+                if(q.includes(key)) {
+                    const d = engine[key];
+                    html = `
+                    <div class="expert-block">
+                        <b style="font-size:16px; color:var(--gold);">${d.title}</b><br><br>
+                        <div class="pill pill-law">JURIDIQUE</div> ${d.law}<br><br>
+                        <div class="pill pill-tax">FISCAL</div> ${d.tax}<br><br>
+                        <div class="pill pill-acc">COMPTABLE</div> ${d.acc}<br>
+                        <span class="ref-text">Source : ${d.ref}</span>
+                    </div>`;
+                    found = true; break;
                 }
-
-                chat.innerHTML += `<div style="color:var(--blue); font-size:10px; font-weight:bold; margin-bottom:5px;">OFFICIER DE DOCTRINE</div><div class="msg-ai">${response}${ref ? '<span class="legal-ref">Réf: '+ref+'</span>' : ''}</div>`;
-                chat.scrollTop = chat.scrollHeight;
-            }, 500);
-        }
-
-        function check() {
-            const an = parseFloat(document.getElementById('an').value);
-            const cap = parseFloat(document.getElementById('cap').value);
-            const res = document.getElementById('res-s');
-            if(isNaN(an) || isNaN(cap)) return;
+            }
+            if(!found) html = `<div class="expert-block">Matière non indexée. Essayez 'Sonnette', 'Amortissement' ou 'TVA'.</div>`;
             
-            let status = "";
-            if(an < 0) status = "<b style='color:#ef4444'>🚨 CRITIQUE : Actif net négatif.</b> La dissolution est présumée. Application de l'Art. 5:153 du CSA.";
-            else if(an < (cap/2)) status = "<b style='color:#fbbf24'>⚠️ ALERTE : Seuil des 50% franchi.</b> Procédure de sonnette d'alarme obligatoire (Art. 5:150).";
-            else status = "<b style='color:#10b981'>✅ CONFORME :</b> L'actif net est supérieur au seuil légal de protection des tiers.";
-            
-            res.innerHTML = status;
-        }
-    </script>
+            chat.innerHTML += html;
+            chat.scrollTop = chat.scrollHeight;
+        }, 600);
+    }
+</script>
 </body>
 </html>
-
