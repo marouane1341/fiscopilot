@@ -3,144 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FiscoPilot V4.6 - Repair</title>
+    <title>FiscoPilot V4.7 - Ironclad</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #080c14; color: #f8fafc; margin: 0; padding-bottom: 100px; }
-        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
-        .glass { background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .active-tab { color: #d4af37 !important; border-top: 2px solid #d4af37; }
+        body { font-family: 'Inter', sans-serif; background-color: #05080a; color: #f8fafc; margin: 0; padding-bottom: 100px; }
+        .gold-text { color: #d4af37; }
+        .gold-bg { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
+        .glass { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
         .view-section { display: none; }
-        .view-section.active { display: block; }
+        .view-section.active { display: block; animation: fadeIn 0.2s ease-in; }
+        .nav-active { color: #d4af37 !important; border-top: 2px solid #d4af37; background: rgba(212, 175, 55, 0.05); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#080c14] border-b border-white/10">
+    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#05080a] border-b border-white/10">
         <div>
-            <h1 class="text-xl font-black text-transparent bg-clip-text gold-gradient italic">FiscoPilot Elite</h1>
-            <p class="text-slate-500 text-[8px] uppercase tracking-widest font-bold">Système Stable V4.6</p>
+            <h1 class="text-xl font-black gold-text italic tracking-tighter">FISCOPILOT ELITE</h1>
+            <p class="text-slate-500 text-[8px] uppercase font-bold tracking-[0.3em]">Expert ITAA Syllabus</p>
         </div>
-        <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center text-slate-900 font-black shadow-lg">M</div>
+        <div class="w-10 h-10 rounded-lg gold-bg flex items-center justify-center text-slate-900 font-black shadow-lg">M</div>
     </header>
 
     <main class="px-5 mt-6">
         
         <section id="view-home" class="view-section active space-y-6">
             <div class="glass rounded-3xl p-8 border border-white/5 shadow-2xl">
-                <h2 class="text-[10px] font-black text-yellow-500 uppercase tracking-widest mb-4">Matière ITAA</h2>
-                <div class="flex items-end justify-between mb-4">
-                    <span class="text-5xl font-black text-white italic">85%</span>
-                </div>
+                <h2 class="text-[10px] font-black gold-text uppercase tracking-widest mb-4">Matière maîtrisée</h2>
+                <div class="text-5xl font-black text-white italic mb-4">85%</div>
                 <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                    <div class="gold-gradient h-full w-[85%] shadow-[0_0_15px_rgba(212,175,55,0.4)]"></div>
+                    <div class="gold-bg h-full w-[85%]"></div>
                 </div>
             </div>
 
             <div class="glass rounded-3xl p-6 border-l-4 border-yellow-500">
-                <h3 class="text-xs font-bold text-white uppercase mb-3">Recherche Doctrine</h3>
+                <h3 class="text-xs font-bold text-white uppercase mb-3 italic">Recherche Doctrine</h3>
                 <div class="flex gap-2">
-                    <input type="text" id="q" placeholder="Ex: Art 45..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs outline-none text-white">
-                    <button onclick="doSearch()" class="px-4 gold-gradient text-slate-900 rounded-xl font-black text-[10px]">GO</button>
+                    <input type="text" id="q" placeholder="Ex: Art 45 TVA..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white outline-none">
+                    <button onclick="doSearch()" class="px-5 gold-bg text-slate-900 rounded-xl font-black text-[10px]">GO</button>
                 </div>
-                <div id="res" class="hidden mt-4 text-[11px] text-slate-400 bg-black/20 p-3 rounded-xl border border-white/5"></div>
+                <div id="res" class="hidden mt-4 text-[11px] text-slate-400 bg-black/40 p-4 rounded-xl border border-white/5 italic"></div>
             </div>
         </section>
 
         <section id="view-ai" class="view-section space-y-4">
-            <h2 class="text-xl font-black px-2 italic">Agent Expert</h2>
-            <div class="glass rounded-3xl p-6 h-[400px] flex flex-col shadow-2xl">
-                <div id="chat" class="flex-1 overflow-y-auto space-y-4 p-2 text-[11px] text-slate-300 italic">
-                    <div>Bonjour Marouane. Je suis prêt. Posez votre question sur le programme ITAA.</div>
+            <h2 class="text-xl font-black px-2 italic text-white">Agent Expert</h2>
+            <div class="glass rounded-3xl p-6 h-[420px] flex flex-col">
+                <div id="chat" class="flex-1 overflow-y-auto space-y-4 p-2 text-[11px] text-slate-300">
+                    <div class="bg-white/5 p-3 rounded-xl rounded-tl-none border border-white/5 italic">Prêt, Marouane. Posez votre question sur le programme.</div>
                 </div>
                 <div class="flex gap-2 mt-4">
-                    <input type="text" id="aiQ" placeholder="Question..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 text-xs outline-none py-3 text-white">
-                    <button onclick="doAsk()" class="w-10 gold-gradient rounded-xl flex items-center justify-center text-slate-900 font-bold">➔</button>
+                    <input type="text" id="aiQ" placeholder="Question..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 text-xs text-white outline-none py-3">
+                    <button onclick="doAsk()" class="w-12 gold-bg rounded-xl flex items-center justify-center text-slate-900 font-bold">></button>
                 </div>
             </div>
         </section>
 
         <section id="view-calc" class="view-section space-y-6">
-            <h2 class="text-xl font-black px-2 italic">Simulateurs</h2>
+            <h2 class="text-xl font-black px-2 italic text-white">Simulateurs</h2>
             <div class="glass rounded-3xl p-6 border-l-4 border-blue-500">
-                <h3 class="font-bold text-sm">Calculateur DNA</h3>
-                <p class="text-[11px] text-slate-500 mt-2 italic">Module fiscal synchronisé avec le CIR92.</p>
-                <button onclick="alert('Module actif')" class="mt-4 w-full py-3 gold-gradient text-slate-900 rounded-xl font-bold uppercase text-[9px]">Lancer</button>
+                <h3 class="font-bold text-sm text-white">Analyse de Liquidité</h3>
+                <p class="text-[11px] text-slate-500 mt-1 italic">Calcul du Current Ratio selon les BE-GAAP.</p>
+                <button onclick="alert('Calculateur actif')" class="mt-4 w-full py-3 gold-bg text-slate-900 rounded-xl font-bold uppercase text-[9px]">Lancer</button>
             </div>
         </section>
 
         <section id="view-cours" class="view-section space-y-4">
-            <h2 class="text-xl font-black px-2 italic">Syllabus</h2>
+            <h2 class="text-xl font-black px-2 italic text-white">Syllabus ITAA</h2>
             <div class="glass rounded-3xl p-6 border-l-4 border-emerald-500">
-                <h3 class="font-bold text-sm italic">Droit des Sociétés</h3>
-                <p class="text-[11px] text-slate-500 mt-1 italic">Focus : Test de distribution & Liquidité.</p>
+                <h3 class="font-bold text-sm text-white italic">Droit des Sociétés</h3>
+                <p class="text-[11px] text-slate-400 mt-2">Étude du CSA : Procédures de distribution et sonnette d'alarme.</p>
             </div>
         </section>
 
     </main>
 
-    <nav class="fixed bottom-0 left-0 right-0 glass flex justify-around items-center py-4 z-[100] border-t border-white/10">
-        <button onclick="nav('home')" id="n-home" class="nav-item active-tab flex flex-col items-center">
-            <span class="text-xl">🏠</span>
-            <span class="text-[8px] font-bold uppercase mt-1">Accueil</span>
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#05080a] flex justify-around items-center border-t border-white/10 z-[100] h-[80px]">
+        <button onclick="nav('home')" id="n-home" class="nav-active flex flex-col items-center justify-center w-full h-full">
+            <span class="text-lg font-bold">MAIN</span>
+            <span class="text-[7px] font-black uppercase">Accueil</span>
         </button>
-        <button onclick="nav('ai')" id="n-ai" class="nav-item text-slate-500 flex flex-col items-center">
-            <span class="text-xl">🤖</span>
-            <span class="text-[8px] font-bold uppercase mt-1">Expert IA</span>
+        <button onclick="nav('ai')" id="n-ai" class="text-slate-500 flex flex-col items-center justify-center w-full h-full">
+            <span class="text-lg font-bold">IA</span>
+            <span class="text-[7px] font-black uppercase">Expert</span>
         </button>
-        <button onclick="nav('calc')" id="n-calc" class="nav-item text-slate-500 flex flex-col items-center">
-            <span class="text-xl">📊</span>
-            <span class="text-[8px] font-bold uppercase mt-1">Outils</span>
+        <button onclick="nav('calc')" id="n-calc" class="text-slate-500 flex flex-col items-center justify-center w-full h-full">
+            <span class="text-lg font-bold">CALC</span>
+            <span class="text-[7px] font-black uppercase">Outils</span>
         </button>
-        <button onclick="nav('cours')" id="n-cours" class="nav-item text-slate-500 flex flex-col items-center">
-            <span class="text-xl">🎓</span>
-            <span class="text-[8px] font-bold uppercase mt-1">Syllabus</span>
+        <button onclick="nav('cours')" id="n-cours" class="text-slate-500 flex flex-col items-center justify-center w-full h-full">
+            <span class="text-lg font-bold">BOOK</span>
+            <span class="text-[7px] font-black uppercase">Syllabus</span>
         </button>
     </nav>
 
     <script>
         function nav(id) {
-            // Cacher toutes les sections
+            // Sections
             document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
-            // Afficher la bonne section
             document.getElementById('view-' + id).classList.add('active');
             
-            // Réinitialiser les boutons
-            document.querySelectorAll('.nav-item').forEach(b => {
-                b.classList.remove('active-tab');
+            // Boutons
+            document.querySelectorAll('nav button').forEach(b => {
+                b.classList.remove('nav-active');
                 b.classList.add('text-slate-500');
             });
-            // Activer le bon bouton
-            document.getElementById('n-' + id).classList.add('active-tab');
+            document.getElementById('n-' + id).classList.add('nav-active');
             document.getElementById('n-' + id).classList.remove('text-slate-500');
             
             window.scrollTo(0,0);
         }
 
         function doSearch() {
-            const query = document.getElementById('q').value;
+            const q = document.getElementById('q').value;
             const res = document.getElementById('res');
-            if(!query) return;
+            if(!q) return;
             res.classList.remove('hidden');
-            res.innerHTML = "Analyse doctrinale en cours...";
+            res.innerHTML = "Recherche doctrinale...";
             setTimeout(() => {
-                res.innerHTML = `<strong>Résultat Syllabus :</strong> Le point "${query}" est traité dans la section fiscale du programme ITAA. Prévoyez une révision des articles du CIR92 correspondants.`;
-            }, 800);
+                res.innerHTML = "<b>Syllabus Sync :</b> Le point '" + q + "' nécessite une analyse du CIR92. Reportez-vous à la section III du programme d'examen.";
+            }, 600);
         }
 
         function doAsk() {
             const q = document.getElementById('aiQ').value;
             const win = document.getElementById('chat');
             if(!q) return;
-            win.innerHTML += `<div class="text-right text-yellow-500 font-bold mb-1">VOUS</div><div class="bg-white/10 p-3 rounded-2xl mb-4 text-xs">${q}</div>`;
+            win.innerHTML += '<div class="text-right text-yellow-500 font-bold text-[9px] mb-1">VOUS</div><div class="bg-white/10 p-3 rounded-xl mb-4 text-xs">' + q + '</div>';
             document.getElementById('aiQ').value = "";
             setTimeout(() => {
-                win.innerHTML += `<div class="text-blue-400 font-bold mb-1 uppercase">EXPERT</div><div class="bg-blue-500/10 p-3 rounded-2xl mb-4 italic text-xs">D'après le Code des Sociétés, ce point est crucial pour l'examen. Souhaitez-vous un cas pratique ?</div>`;
+                win.innerHTML += '<div class="text-blue-400 font-bold text-[9px] mb-1">EXPERT ITAA</div><div class="bg-blue-500/10 p-3 rounded-xl mb-4 italic text-xs">D\'après le syllabus, ce sujet est abordé à la page 25. Souhaitez-vous un résumé ?</div>';
                 win.scrollTop = win.scrollHeight;
             }, 600);
         }
     </script>
 </body>
 </html>
-
