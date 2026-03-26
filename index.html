@@ -2,101 +2,123 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V4.4 - Ultra-Stable</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FiscoPilot V4.5 - Expert Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #080c14; color: #f8fafc; margin: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #080c14; color: #f8fafc; margin: 0; padding-bottom: 120px; }
         .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
         .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .active-tab { color: #d4af37; transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5)); }
-        .hidden { display: none; }
+        .active-tab { color: #d4af37 !important; transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
-<body class="pb-32">
+<body>
 
-    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#080c14]/95 backdrop-blur-xl border-b border-white/5">
+    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-[#080c14]/90 backdrop-blur-xl border-b border-white/5">
         <div>
             <h1 class="text-2xl font-black text-transparent bg-clip-text gold-gradient tracking-tighter italic">FiscoPilot</h1>
-            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black italic">Stable Edition V4.4</p>
+            <p class="text-slate-500 text-[8px] uppercase tracking-[0.4em] font-black italic">ITAA Elite V4.5</p>
         </div>
         <div class="w-10 h-10 rounded-2xl gold-gradient flex items-center justify-center text-slate-900 font-black shadow-lg">M</div>
     </header>
 
-    <main id="app-content" class="px-5 space-y-7 pt-4">
+    <main class="px-5 mt-6">
         
-        <section id="view-home" class="space-y-6">
+        <section id="view-home" class="tab-content active space-y-6">
             <div class="glass rounded-[2.5rem] p-8 border border-white/5 shadow-2xl">
                 <h2 class="text-[10px] font-black text-yellow-500 uppercase tracking-[0.3em] mb-4">Progression Syllabus</h2>
                 <div class="flex items-end justify-between mb-3">
-                    <span class="text-5xl font-black text-white italic">82<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
+                    <span class="text-5xl font-black text-white italic">85<span class="text-sm font-light text-slate-500 ml-1">%</span></span>
                 </div>
                 <div class="w-full bg-white/5 h-2.5 rounded-full overflow-hidden">
-                    <div class="gold-gradient h-full w-[82%]"></div>
+                    <div class="gold-gradient h-full w-[85%]"></div>
                 </div>
             </div>
 
             <div class="glass rounded-3xl p-6 border-l-4 border-yellow-500 space-y-3">
-                <h3 class="text-sm font-bold text-white uppercase tracking-widest italic">Deep Search Doctrine</h3>
+                <h3 class="text-xs font-bold text-white uppercase tracking-widest italic">Analyse Doctrinale</h3>
                 <div class="flex gap-2">
-                    <input type="text" id="deepQuery" placeholder="Ex: Art 45 TVA..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 text-xs outline-none py-3">
-                    <button onclick="runDeepSearch()" class="px-4 gold-gradient text-slate-900 rounded-xl font-black text-[10px] uppercase tracking-widest active:scale-90 transition">Go</button>
+                    <input type="text" id="deepQuery" placeholder="Mot-clé syllabus..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 text-xs outline-none py-3 text-white">
+                    <button onclick="runDeepSearch()" class="px-4 gold-gradient text-slate-900 rounded-xl font-black text-[10px] uppercase">Go</button>
                 </div>
-                <div id="deepResult" class="hidden text-[11px] text-slate-400 italic bg-white/5 p-3 rounded-xl border border-white/10"></div>
+                <div id="deepResult" class="hidden text-[11px] text-slate-400 italic bg-white/5 p-3 rounded-xl border border-white/10 mt-3"></div>
             </div>
         </section>
 
-        <section id="view-ai" class="hidden space-y-4">
-            <div class="glass rounded-[2rem] p-6 h-[500px] flex flex-col shadow-2xl">
-                <div id="chat-window" class="flex-1 overflow-y-auto space-y-4 p-2 text-[11px] scrollbar-hide">
-                    <div class="bg-white/5 p-4 rounded-2xl rounded-tl-none border border-white/5 italic">Bonjour Marouane. Posez votre question sur le programme ITAA ou collez un texte complexe.</div>
+        <section id="view-ai" class="tab-content space-y-4">
+            <h2 class="text-xl font-black text-white italic">Agent Expert</h2>
+            <div class="glass rounded-[2rem] p-6 h-[450px] flex flex-col shadow-2xl">
+                <div id="chat-window" class="flex-1 overflow-y-auto space-y-4 p-2 text-[11px]">
+                    <div class="bg-white/5 p-4 rounded-2xl rounded-tl-none border border-white/5 italic text-slate-300">
+                        Bonjour Marouane. Je suis prêt pour l'analyse. Quelle matière du programme ITAA abordons-nous ?
+                    </div>
                 </div>
-                <div class="flex gap-2 mt-4 bg-slate-900/50 p-2 rounded-2xl">
+                <div class="flex gap-2 mt-4 bg-slate-900/50 p-2 rounded-2xl border border-white/10">
                     <input type="text" id="ai-query" placeholder="Question..." class="flex-1 bg-transparent px-3 text-xs outline-none text-white">
                     <button onclick="askAgent()" class="w-12 h-12 gold-gradient rounded-xl flex items-center justify-center text-slate-900 font-bold">➔</button>
                 </div>
             </div>
         </section>
 
-        <section id="view-calc" class="hidden space-y-6">
-            <h2 class="text-xl font-black px-2 text-white italic">Outils de calcul</h2>
-            <div class="glass rounded-3xl p-6 border-l-4 border-blue-500">
+        <section id="view-calc" class="tab-content space-y-6">
+            <h2 class="text-xl font-black text-white italic">Simulateurs</h2>
+            <div class="glass rounded-3xl p-6 border-l-4 border-blue-500 bg-blue-500/5">
                 <h3 class="font-bold text-white text-sm">Calculateur DNA / ATN</h3>
-                <p class="text-[11px] text-slate-400 mt-2">Modules de simulation fiscale.</p>
-                <button onclick="alert('Module actif')" class="mt-4 w-full py-3 gold-gradient text-slate-900 rounded-xl font-bold uppercase text-[9px]">Lancer</button>
+                <p class="text-[11px] text-slate-400 mt-2">Simulation fiscale des frais de véhicules et avantages de toute nature.</p>
+                <button onclick="alert('Module de calcul prêt')" class="mt-4 w-full py-3 gold-gradient text-slate-900 rounded-xl font-bold uppercase text-[9px]">Lancer le calcul</button>
             </div>
         </section>
 
-        <section id="view-cours" class="hidden space-y-4">
-            <h2 class="text-xl font-black px-2 text-white italic">Fiches de Révision</h2>
+        <section id="view-cours" class="tab-content space-y-4">
+            <h2 class="text-xl font-black text-white italic">Matières ITAA</h2>
             <div class="glass rounded-3xl p-6 border-l-4 border-emerald-500">
-                <h3 class="font-bold text-white text-sm italic">Comptabilité Générale</h3>
-                <p class="text-[11px] text-slate-400">BE-GAAP & Avis CNC.</p>
+                <h3 class="font-bold text-white text-sm italic">Droit des Sociétés (CSA)</h3>
+                <p class="text-[11px] text-slate-400">Synthèse des procédures : Sonnette d'alarme et tests de distribution.</p>
+            </div>
+            <div class="glass rounded-3xl p-6 border-l-4 border-indigo-500 opacity-60">
+                <h3 class="font-bold text-white text-sm italic">Fiscalité Directe (IPP/ISoc)</h3>
+                <p class="text-[11px] text-slate-400">Rappel des principes de base du CIR92.</p>
             </div>
         </section>
+
     </main>
 
-    <nav class="fixed bottom-8 left-6 right-6 glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center z-50 shadow-2xl border-white/10">
-        <button onclick="changeTab('home')" id="btn-home" class="nav-btn active-tab transition-all"><span class="text-2xl">🏠</span></button>
-        <button onclick="changeTab('ai')" id="btn-ai" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">🤖</span></button>
-        <button onclick="changeTab('calc')" id="btn-calc" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">📊</span></button>
-        <button onclick="changeTab('cours')" id="btn-cours" class="nav-btn text-slate-500 transition-all"><span class="text-2xl">🎓</span></button>
+    <nav class="fixed bottom-6 left-5 right-5 glass rounded-[2.5rem] px-6 py-4 flex justify-between items-center z-[100] shadow-2xl border border-white/10">
+        <button onclick="changeTab('home')" class="nav-btn active-tab p-2" id="btn-home"><span class="text-2xl">🏠</span></button>
+        <button onclick="changeTab('ai')" class="nav-btn text-slate-500 p-2" id="btn-ai"><span class="text-2xl">🤖</span></button>
+        <button onclick="changeTab('calc')" class="nav-btn text-slate-500 p-2" id="btn-calc"><span class="text-2xl">📊</span></button>
+        <button onclick="changeTab('cours')" class="nav-btn text-slate-500 p-2" id="btn-cours"><span class="text-2xl">🎓</span></button>
     </nav>
 
     <script>
         function changeTab(tabName) {
-            const views = ['view-home', 'view-ai', 'view-calc', 'view-cours'];
-            views.forEach(v => document.getElementById(v).classList.add('hidden'));
-            document.getElementById('view-' + tabName).classList.remove('hidden');
-            
-            const buttons = ['btn-home', 'btn-ai', 'btn-calc', 'btn-cours'];
-            buttons.forEach(b => {
-                document.getElementById(b).classList.remove('active-tab');
-                document.getElementById(b).classList.add('text-slate-500');
+            // Masquer tout
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
             });
-            document.getElementById('btn-' + tabName).classList.add('active-tab');
-            document.getElementById('btn-' + tabName).classList.remove('text-slate-500');
+            // Désactiver les boutons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('text-slate-500');
+            });
+
+            // Activer le bon contenu
+            const activeView = document.getElementById('view-' + tabName);
+            if(activeView) activeView.classList.add('active');
+
+            // Activer le bon bouton
+            const activeBtn = document.getElementById('btn-' + tabName);
+            if(activeBtn) {
+                activeBtn.classList.add('active-tab');
+                activeBtn.classList.remove('text-slate-500');
+            }
+            
+            // Forcer le scroll en haut
+            window.scrollTo(0,0);
         }
 
         function runDeepSearch() {
@@ -104,22 +126,31 @@
             const res = document.getElementById('deepResult');
             if(!q) return;
             res.classList.remove('hidden');
-            res.innerHTML = "Analyse en cours...";
+            res.innerHTML = `<span class="text-yellow-500 animate-pulse text-[9px] uppercase font-bold">Analyse en cours...</span>`;
             setTimeout(() => {
-                res.innerHTML = `<strong>Résultat :</strong> Pour "${q}", le syllabus ITAA renvoie aux principes de l'image fidèle et à la fiscalité automobile (Art 45 §2).`;
-            }, 800);
+                res.innerHTML = `<strong>Syllabus Sync :</strong> "${q}" est traité dans le module fiscal (Section IV) et comptable (Section II). <br><br>💡 <em>Note :</em> Attention à la jurisprudence récente sur ce point.`;
+            }, 1000);
         }
 
         function askAgent() {
             const q = document.getElementById('ai-query').value;
             if(!q) return;
             const win = document.getElementById('chat-window');
-            win.innerHTML += `<div class="text-right text-yellow-500 text-[9px] font-black uppercase mb-1">Candidat</div><div class="bg-white/5 p-3 rounded-2xl mb-4 text-xs">${q}</div>`;
+            win.innerHTML += `
+                <div class="flex flex-col items-end mb-4">
+                    <span class="text-[8px] text-yellow-500 font-black mb-1">VOUS</span>
+                    <div class="bg-yellow-500/10 border border-yellow-500/20 p-3 rounded-2xl text-xs text-white">${q}</div>
+                </div>`;
             document.getElementById('ai-query').value = "";
+            
             setTimeout(() => {
-                win.innerHTML += `<div class="text-indigo-400 text-[9px] font-black uppercase mb-1">IA Master</div><div class="bg-indigo-500/10 border border-indigo-500/20 p-3 rounded-2xl italic text-xs mb-4">D'après le Code des Sociétés, ce point concerne les responsabilités de l'organe d'administration. Voulez-vous un résumé ?</div>`;
+                win.innerHTML += `
+                    <div class="flex flex-col items-start mb-4">
+                        <span class="text-[8px] text-blue-400 font-black mb-1">EXPERT IA</span>
+                        <div class="bg-blue-500/5 border border-blue-500/10 p-3 rounded-2xl text-xs text-slate-300 italic italic">D'après le programme d'examen ITAA, ce point est central. Précisez si vous souhaitez la règle fiscale ou comptable.</div>
+                    </div>`;
                 win.scrollTop = win.scrollHeight;
-            }, 600);
+            }, 800);
         }
     </script>
 </body>
