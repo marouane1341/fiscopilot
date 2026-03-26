@@ -3,87 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V5.6 - TVA Expert</title>
+    <title>FiscoPilot V5.7 - TVA & Immo</title>
     <style>
-        :root { --gold: #d4af37; --bg: #05080a; --glass: rgba(15, 23, 42, 0.95); --blue: #3b82f6; --emerald: #10b981; }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: white; margin: 0; padding-bottom: 110px; }
-        header { padding: 20px; border-bottom: 1px solid #222; background: var(--bg); position: sticky; top: 0; z-index: 100; text-align: center; }
-        .gold-text { color: var(--gold); font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
-        .view-section { display: none; padding: 20px; animation: fadeIn 0.3s; }
-        .view-section.active { display: block; }
+        :root { --gold: #d4af37; --bg: #05080a; --glass: rgba(15, 23, 42, 0.95); --red: #ef4444; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; margin: 0; padding-bottom: 110px; }
+        header { padding: 20px; border-bottom: 1px solid #222; background: var(--bg); text-align: center; }
+        .gold-text { color: var(--gold); font-weight: 900; text-transform: uppercase; }
+        .view-section { display: none; padding: 20px; }
+        .view-section.active { display: block; animation: fadeIn 0.3s; }
         .card { background: var(--glass); border-radius: 20px; padding: 20px; border: 1px solid #333; margin-bottom: 20px; border-left: 5px solid var(--gold); }
-        input, select { width: 100%; padding: 14px; margin: 10px 0; border-radius: 12px; border: 1px solid #444; background: #000; color: white; box-sizing: border-box; font-size: 14px; outline: none; }
-        input:focus { border-color: var(--gold); }
-        button { width: 100%; padding: 16px; border-radius: 14px; border: none; background: var(--gold); color: black; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 11px; transition: 0.2s; }
-        button:active { transform: scale(0.98); }
+        input, select { width: 100%; padding: 14px; margin: 10px 0; border-radius: 12px; border: 1px solid #444; background: #000; color: white; box-sizing: border-box; font-size: 13px; }
+        button { width: 100%; padding: 16px; border-radius: 14px; border: none; background: var(--gold); color: black; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 11px; }
         nav { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: flex; height: 85px; border-top: 1px solid #333; z-index: 1000; }
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #555; cursor: pointer; text-decoration: none; }
+        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #555; cursor: pointer; }
         .nav-item.active { color: var(--gold); background: rgba(212, 175, 55, 0.05); border-top: 2px solid var(--gold); }
         .nav-item b { font-size: 20px; }
         .nav-item span { font-size: 8px; font-weight: 800; margin-top: 4px; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .result-box { margin-top: 15px; padding: 12px; border-radius: 10px; font-weight: bold; font-size: 13px; display: none; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="gold-text italic">FISCOPILOT V5.6</div>
-        <div style="font-size: 8px; color: #666; margin-top: 4px; letter-spacing: 2px;">TVA & DOCTRINE MODULE</div>
+        <div class="gold-text">FISCOPILOT V5.7</div>
+        <div style="font-size: 8px; color: #666; margin-top: 4px;">TVA IMMO & RÉGULARISATIONS</div>
     </header>
 
     <main>
         <section id="view-home" class="view-section active">
             <div class="card">
-                <div style="font-size: 10px; color: var(--gold); font-weight: bold; letter-spacing: 1px;">MAÎTRISE SYLLABUS</div>
-                <div style="font-size: 45px; font-weight: 900; margin: 10px 0;">97%</div>
+                <div style="font-size: 10px; color: var(--gold); font-weight: bold;">MAÎTRISE SYLLABUS</div>
+                <div style="font-size: 45px; font-weight: 900;">98%</div>
                 <div style="width: 100%; background: #222; height: 6px; border-radius: 10px;">
-                    <div style="width: 97%; background: var(--gold); height: 100%; border-radius: 10px; box-shadow: 0 0 10px var(--gold);"></div>
+                    <div style="width: 98%; background: var(--gold); height: 100%; border-radius: 10px;"></div>
                 </div>
             </div>
-            <div class="card" style="border-left-color: var(--emerald);">
-                <div style="font-weight: bold; font-size: 12px; color: var(--emerald);">💡 Rappel TVA (Art. 45)</div>
-                <p style="font-size: 11px; color: #aaa; margin-top: 5px; line-height: 1.4;">N'oubliez pas le passage obligatoire à l'affectation réelle pour la déduction de la TVA sur les véhicules mixtes depuis 2023.</p>
+            <div class="card" style="border-left-color: #ef4444;">
+                <div style="font-weight: bold; font-size: 12px; color: #ef4444;">🚨 Focus Clôture</div>
+                <p style="font-size: 11px; color: #aaa; margin-top: 5px;">Pensez à vérifier les régularisations TVA si un actif a été vendu durant l'exercice.</p>
             </div>
         </section>
 
         <section id="view-ai" class="view-section">
             <div class="card">
-                <div id="chat-win" style="height: 320px; overflow-y: auto; font-size: 12px; color: #ccc;">
-                    <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; border-left: 3px solid var(--gold);">
-                        Bonjour Marouane. Je suis prêt pour vos questions sur la TVA ou le droit des sociétés.
-                    </div>
+                <div id="chat-win" style="height: 300px; overflow-y: auto; font-size: 11px; margin-bottom: 15px;">
+                    <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px;">Expert prêt pour analyse TVA immobilière.</div>
                 </div>
-                <input type="text" id="aiQ" placeholder="Question sur le CIR92, CSA ou TVA...">
-                <button onclick="ask()">Consulter le Master</button>
+                <input type="text" id="aiQ" placeholder="Question sur les 15 ans TVA...">
+                <button onclick="ask()">Consulter</button>
             </div>
         </section>
 
         <section id="view-calc" class="view-section">
-            <h2 style="font-size: 18px; margin-bottom: 20px; italic">Simulateurs d'Expertise</h2>
+            <h2 style="font-size: 18px; margin-bottom: 20px;">Calculateurs</h2>
             
-            <div class="card" style="border-left-color: var(--emerald);">
-                <div style="font-size: 11px; font-weight: bold; color: var(--emerald);">🏢 TVA : DÉDUCTION VÉHICULE</div>
-                <input type="number" id="tva-totale" placeholder="TVA totale sur facture (€)">
-                <input type="number" id="usage-pro" placeholder="% usage professionnel (ex: 65)">
-                <button onclick="calcTVA()" style="background: var(--emerald); color: white;">Calculer TVA déductible</button>
-                <div id="res-tva" class="result-box" style="background: rgba(16,185,129,0.1); color: var(--emerald);"></div>
+            <div class="card" style="border-left-color: #8b5cf6;">
+                <div style="font-size: 11px; font-weight: bold; color: #a78bfa;">🏠 RÉGULARISATION TVA</div>
+                <input type="number" id="tva-ini" placeholder="TVA initialement déduite (€)">
+                <select id="delai">
+                    <option value="5">Mobilier / Matériel (5 ans)</option>
+                    <option value="15">Immobilier (15 ans)</option>
+                </select>
+                <input type="number" id="annee-rest" placeholder="Années restant à courir">
+                <button onclick="calcRegul()" style="background: #8b5cf6; color: white;">Calculer le reversement</button>
+                <div id="res-reg" style="margin-top: 15px; font-weight: bold; font-size: 13px; color: #a78bfa; display:none;"></div>
             </div>
 
-            <div class="card" style="border-left-color: var(--blue);">
-                <div style="font-size: 11px; font-weight: bold; color: var(--blue);">🚗 ISOC : CALCUL ATN</div>
-                <input type="number" id="val-cat" placeholder="Valeur catalogue (€)">
-                <button onclick="calcATNSimple()" style="background: var(--blue); color: white;">ATN Estimé (CO2 moyen)</button>
-                <div id="res-atn" class="result-box" style="background: rgba(59,130,246,0.1); color: #60a5fa;"></div>
+            <div class="card">
+                <div style="font-size: 11px; font-weight: bold;">📊 TVA : DÉDUCTION VÉHICULE</div>
+                <button onclick="nav('calc', null)" style="background: #222; color: #666; font-size: 9px;">Utiliser le module V5.6</button>
             </div>
         </section>
 
         <section id="view-cours" class="view-section">
             <div class="card">
-                <div style="font-weight: bold; font-size: 14px;">🎓 EXAMEN ORAL ITAA</div>
-                <p style="font-size: 11px; color: #888; margin: 10px 0;">Entraînez-vous aux questions de doctrine TVA et CSA.</p>
-                <button onclick="quiz()" style="background: #111; color: var(--gold); border: 1px solid var(--gold);">Générer une question piège</button>
-                <div id="quiz-res" style="display:none; margin-top: 15px; padding: 15px; background: #000; border-radius: 12px; font-size: 12px; border: 1px dashed #444; color: #ddd; font-style: italic;"></div>
+                <div style="font-weight: bold;">Règle : Les délais de régularisation</div>
+                <p style="font-size: 11px; color: #aaa; line-height: 1.5;">
+                    • <b>Biens d'investissement :</b> 5 ans.<br>
+                    • <b>Bâtiments :</b> 15 ans (25 ans pour certains cas pro sous option).<br>
+                    • <b>Calcul :</b> 1/5ème ou 1/15ème par année restante, y compris l'année du changement.
+                </p>
+                <button onclick="quiz()" style="background: #111; color: var(--gold); border: 1px solid var(--gold); margin-top: 10px;">Question Piège</button>
+                <div id="quiz-res" style="display:none; margin-top: 10px; font-size: 12px; color: var(--gold); font-style: italic;"></div>
             </div>
         </section>
     </main>
@@ -99,53 +100,41 @@
         function nav(id, el) {
             document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
             document.getElementById('view-' + id).classList.add('active');
-            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-            el.classList.add('active');
+            if(el) {
+                document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+                el.classList.add('active');
+            }
             window.scrollTo(0,0);
         }
 
-        function calcTVA() {
-            const t = document.getElementById('tva-totale').value;
-            const p = document.getElementById('usage-pro').value;
-            const res = document.getElementById('res-tva');
-            if(!t || !p) return;
-            let deduc = Math.min(50, p); // Limitation légale Art. 45 §2
-            const montant = t * (deduc / 100);
+        function calcRegul() {
+            const tva = document.getElementById('tva-ini').value;
+            const delai = document.getElementById('delai').value;
+            const reste = document.getElementById('annee-rest').value;
+            const res = document.getElementById('res-reg');
+            if(!tva || !reste) return;
+            const montant = (tva / delai) * reste;
             res.style.display = "block";
-            res.innerHTML = `Taux appliqué : ${deduc}% (Max légal)<br>TVA récupérable : ${montant.toFixed(2)} €`;
-        }
-
-        function calcATNSimple() {
-            const v = document.getElementById('val-cat').value;
-            const res = document.getElementById('res-atn');
-            if(!v) return;
-            const atn = v * 0.04 * (6/7); // Estimation base
-            res.style.display = "block";
-            res.innerHTML = `ATN mensuel estimé : ${(atn/12).toFixed(2)} €`;
-        }
-
-        function quiz() {
-            const qs = [
-                "TVA : Quelle est la différence entre un assujetti déposant et un petit établissement (franchise) ?",
-                "CSA : Dans quel cas une SRL doit-elle réaliser un test de solvabilité ?",
-                "TVA : Qu'est-ce que le 'délai de cristallisation' pour les régularisations immobilières ?",
-                "Déonto : Un expert peut-il retenir les documents d'un client pour factures impayées ?"
-            ];
-            const qb = document.getElementById('quiz-res');
-            qb.style.display = "block";
-            qb.innerText = qs[Math.floor(Math.random() * qs.length)];
+            res.innerHTML = `Montant de la régularisation : ${montant.toFixed(2)} €<br>(${reste}/${delai}èmes à reverser)`;
         }
 
         function ask() {
             const q = document.getElementById('aiQ').value;
             if(!q) return;
             const win = document.getElementById('chat-win');
-            win.innerHTML += `<div style="text-align:right; color:var(--gold); font-weight:bold; font-size:10px; margin-top:15px;">MAROUANE</div><div style="background:var(--gold); color:black; padding:10px; border-radius:12px; font-size:12px; margin-top:5px; margin-left:20%;">${q}</div>`;
+            win.innerHTML += `<div style="text-align:right; color:var(--gold); margin-top:10px;">${q}</div>`;
             document.getElementById('aiQ').value = "";
             setTimeout(() => {
-                win.innerHTML += `<div style="text-align:left; color:#60a5fa; font-weight:bold; font-size:10px; margin-top:15px;">EXPERT IA</div><div style="background:#222; color:#ccc; padding:10px; border-radius:12px; font-size:12px; margin-top:5px; border-left:2px solid var(--gold); margin-right:20%;">Analyse Syllabus (p. 28) : Ce point concerne les règles de déduction. Attention aux exclusions de l'Art. 45.</div>`;
+                win.innerHTML += `<div style="background:rgba(255,255,255,0.05); padding:10px; border-radius:10px; margin-top:10px; border-left:2px solid var(--gold);">Le délai de 15 ans court à partir du 1er janvier de l'année de mise en service.</div>`;
                 win.scrollTop = win.scrollHeight;
             }, 600);
+        }
+
+        function quiz() {
+            const qs = ["Si je vends un immeuble après 12 ans, combien de 15èmes dois-je régulariser ?", "Un ordinateur acheté en 2022 est vendu en 2024. Calcul du reversement ?", "Quelle est la base légale du délai de 15 ans ?"];
+            const r = document.getElementById('quiz-res');
+            r.style.display = "block";
+            r.innerText = qs[Math.floor(Math.random()*qs.length)];
         }
     </script>
 </body>
