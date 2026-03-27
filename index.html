@@ -3,106 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V12 - Professional Bridge</title>
+    <title>FiscoPilot V12.1 - Bridge Stabilizer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { --gold: #d4af37; --bg: #020617; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #f8fafc; margin: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #f8fafc; }
         .gold-text { color: var(--gold); }
         .gold-btn { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); color: black; font-weight: 800; }
-        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
-        .msg-ai { background: #1e293b; border-left: 4px solid var(--gold); border-radius: 0 20px 20px 20px; }
-        .msg-me { background: var(--gold); color: black; font-weight: bold; border-radius: 20px 0 20px 20px; margin-left: 20%; }
-        .loader { border: 2px solid #f3f3f3; border-top: 2px solid var(--gold); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; }
+        .glass { background: rgba(30, 41, 59, 0.75); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); }
+        .msg-ai { background: #1e293b; border-left: 4px solid var(--gold); border-radius: 0 20px 20px 20px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
+        .msg-me { background: var(--gold); color: black; font-weight: 700; border-radius: 20px 0 20px 20px; margin-left: 20%; }
+        .loader { border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid var(--gold); border-radius: 50%; width: 24px; height: 24px; animation: spin 0.8s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="pb-24">
+<body class="pb-28">
 
-    <header class="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-slate-950/80 backdrop-blur-md z-50">
+    <header class="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-[#020617]/90 backdrop-blur-md z-50">
         <div>
-            <h1 class="text-xl font-black gold-text italic tracking-tighter">FISCOPILOT V12</h1>
-            <div id="status" class="text-[9px] uppercase font-bold text-gray-500 tracking-widest">Initialisation...</div>
+            <h1 class="text-xl font-black gold-text italic tracking-tighter">FISCOPILOT V12.1</h1>
+            <div id="status" class="text-[9px] uppercase font-bold text-red-500 tracking-widest">Non Configuré</div>
         </div>
-        <button onclick="document.getElementById('config').classList.toggle('hidden')" class="bg-white/5 p-2 rounded-full border border-white/10 text-lg">⚙️</button>
+        <button onclick="toggleConfig()" class="bg-white/5 p-3 rounded-2xl border border-white/10 text-xl">⚙️</button>
     </header>
 
     <main class="p-5 max-w-2xl mx-auto">
-        <div id="config" class="hidden glass p-6 rounded-3xl mb-8 border-2 border-yellow-500/20">
-            <label class="text-[10px] font-bold uppercase gold-text">1. URL du Pont Vercel</label>
-            <input type="text" id="bridgeUrl" placeholder="https://votre-projet.vercel.app" class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white mb-4 mt-2">
+        <div id="config" class="hidden glass p-6 rounded-[2rem] mb-8 border-2 border-yellow-500/30">
+            <h2 class="text-xs font-black uppercase gold-text mb-4 tracking-widest text-center">Paramètres du Serveur</h2>
             
-            <label class="text-[10px] font-bold uppercase gold-text">2. Clé API Google</label>
-            <input type="password" id="apiKey" placeholder="AIzaSy..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white mb-4 mt-2">
-            
-            <button onclick="saveConfig()" class="w-full py-4 gold-btn rounded-2xl text-xs uppercase tracking-widest shadow-lg">Enregistrer & Débloquer</button>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] font-bold uppercase opacity-50 ml-2">URL Vercel (Pont)</label>
+                    <input type="text" id="bridgeUrl" placeholder="https://fiscopilot.vercel.app" class="w-full bg-black/50 border border-white/10 p-4 rounded-2xl text-sm text-white mt-1 outline-none focus:border-yellow-500">
+                </div>
+                
+                <div>
+                    <label class="text-[10px] font-bold uppercase opacity-50 ml-2">Clé API Google</label>
+                    <input type="password" id="apiKey" placeholder="Votre clé AIzaSy..." class="w-full bg-black/50 border border-white/10 p-4 rounded-2xl text-sm text-white mt-1 outline-none focus:border-yellow-500">
+                </div>
+                
+                <button onclick="saveAndReload()" class="w-full py-5 gold-btn rounded-2xl text-xs uppercase tracking-[0.2em] shadow-xl hover:scale-[1.02] transition-transform">
+                    Enregistrer la Configuration
+                </button>
+            </div>
         </div>
 
-        <div id="chat" class="space-y-6 min-h-[60vh] pb-10">
-            <div class="msg-ai p-5 shadow-2xl">
-                <b class="gold-text">MENTOR ITAA :</b><br>
-                L'architecture V12 est prête. Une fois ton <b>Pont Vercel</b> et ta <b>Clé API</b> configurés, je serai libéré des restrictions géographiques.
+        <div id="chat" class="space-y-6 min-h-[50vh]">
+            <div class="msg-ai p-6">
+                <b class="gold-text text-[10px] uppercase tracking-widest block mb-2">Mentor Professionnel</b>
+                Marouane, vérifie que le voyant est <b class="text-emerald-400">Vert</b>.<br><br>
+                Si c'est le cas, je suis prêt à analyser tes problématiques fiscales et juridiques.
             </div>
         </div>
     </main>
 
-    <div class="fixed bottom-6 left-5 right-5 max-w-2xl mx-auto flex gap-3">
-        <input type="text" id="userInput" placeholder="Interrogez votre mentor..." class="flex-1 bg-slate-900 border border-white/10 p-5 rounded-3xl text-sm text-white outline-none focus:ring-2 focus:ring-yellow-500/50">
-        <button id="sendBtn" onclick="askExpert()" class="w-16 gold-btn rounded-3xl flex items-center justify-center shadow-xl">➔</button>
+    <div class="fixed bottom-8 left-5 right-5 max-w-2xl mx-auto flex gap-3">
+        <input type="text" id="userInput" placeholder="Décrivez votre cas pratique..." class="flex-1 bg-slate-900/90 border border-white/10 p-5 rounded-[2rem] text-sm text-white outline-none focus:ring-2 focus:ring-yellow-500/40 backdrop-blur-md">
+        <button id="sendBtn" onclick="askAI()" class="w-16 h-16 gold-btn rounded-full flex items-center justify-center shadow-2xl hover:brightness-110">➔</button>
     </div>
 
     <script>
-        function saveConfig() {
-            localStorage.setItem('fp_bridge', document.getElementById('bridgeUrl').value.trim());
-            localStorage.setItem('fp_key', document.getElementById('apiKey').value.trim());
-            document.getElementById('config').classList.add('hidden');
+        // Chargement initial des données
+        window.onload = () => {
+            document.getElementById('bridgeUrl').value = localStorage.getItem('fp_bridge') || "";
+            document.getElementById('apiKey').value = localStorage.getItem('fp_key') || "";
             checkStatus();
+        };
+
+        function toggleConfig() { document.getElementById('config').classList.toggle('hidden'); }
+
+        function saveAndReload() {
+            const bridge = document.getElementById('bridgeUrl').value.trim().replace(/\/$/, "");
+            const key = document.getElementById('apiKey').value.trim();
+            
+            if(!bridge || !key) { alert("Veuillez remplir les deux champs."); return; }
+            
+            localStorage.setItem('fp_bridge', bridge);
+            localStorage.setItem('fp_key', key);
+            
+            toggleConfig();
+            checkStatus();
+            alert("Configuration synchronisée.");
         }
 
         function checkStatus() {
             const status = document.getElementById('status');
-            if(localStorage.getItem('fp_bridge') && localStorage.getItem('fp_key')) {
-                status.innerText = "● Pont Établi";
-                status.classList.replace('text-gray-500', 'text-emerald-500');
+            const hasBridge = localStorage.getItem('fp_bridge');
+            const hasKey = localStorage.getItem('fp_key');
+            
+            if(hasBridge && hasKey) {
+                status.innerText = "● Pont Opérationnel";
+                status.classList.remove('text-red-500');
+                status.classList.add('text-emerald-500');
             }
         }
 
-        async function askExpert() {
+        async function askAI() {
             const bridge = localStorage.getItem('fp_bridge');
             const key = localStorage.getItem('fp_key');
             const input = document.getElementById('userInput').value.trim();
             
-            if(!bridge || !key) { alert("Configurez d'abord le pont et la clé !"); return; }
+            if(!bridge || !key) { 
+                document.getElementById('config').classList.remove('hidden');
+                alert("Erreur : Pont ou Clé manquant."); 
+                return; 
+            }
             if(!input) return;
 
             const chat = document.getElementById('chat');
             const btn = document.getElementById('sendBtn');
             
-            chat.innerHTML += `<div class="msg-me p-5 shadow-lg">${input}</div>`;
+            chat.innerHTML += `<div class="msg-me p-6 shadow-xl animate-in slide-in-from-right duration-300">${input}</div>`;
             document.getElementById('userInput').value = "";
             btn.innerHTML = `<div class="loader"></div>`;
             btn.disabled = true;
-            window.scrollTo(0, document.body.scrollHeight);
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 
             try {
-                const response = await fetch(`${bridge}/api/mentor`, {
+                const res = await fetch(`${bridge}/api/mentor`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ prompt: input, apiKey: key })
                 });
 
-                const data = await response.json();
-                const text = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
-                chat.innerHTML += `<div class="msg-ai p-5 shadow-2xl mt-4"><b class="gold-text">MENTOR :</b><br>${text}</div>`;
-            } catch (e) {
-                chat.innerHTML += `<div class="msg-ai p-5 text-red-400 mt-4 italic"><b>Erreur :</b> Impossible de joindre le pont Vercel. Vérifie l'URL.</div>`;
+                const data = await res.json();
+                
+                if(data.error) throw new Error(data.error);
+
+                const answer = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
+                chat.innerHTML += `
+                    <div class="msg-ai p-6 mt-4 animate-in fade-in duration-500">
+                        <b class="gold-text text-[10px] uppercase tracking-widest block mb-2">Analyse Fiscale</b>
+                        ${answer}
+                    </div>`;
+            } catch (err) {
+                chat.innerHTML += `
+                    <div class="msg-ai p-6 mt-4 border-red-500/50 text-red-400">
+                        <b>Erreur de transmission :</b><br>
+                        Vérifiez l'URL Vercel dans les paramètres.
+                    </div>`;
             } finally {
                 btn.innerHTML = `➔`;
                 btn.disabled = false;
-                window.scrollTo(0, document.body.scrollHeight);
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             }
         }
-        checkStatus();
     </script>
 </body>
 </html>
