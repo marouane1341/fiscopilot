@@ -2,147 +2,102 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V10 - The Brain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FiscoPilot V11.1 - Neural Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --gold: #d4af37; --bg: #05080a; --card: #111827; --blue: #3b82f6; --red: #ef4444; --green: #10b981; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: #f3f4f6; margin: 0; padding-bottom: 100px; line-height: 1.6; }
-        header { padding: 30px; text-align: center; border-bottom: 2px solid #1f2937; position: sticky; top: 0; background: var(--bg); z-index: 100; }
-        .gold-title { color: var(--gold); font-weight: 900; letter-spacing: 4px; font-size: 22px; text-transform: uppercase; }
-        .view { display: none; padding: 20px; max-width: 600px; margin: auto; }
-        .active { display: block; animation: slideUp 0.3s ease-out; }
-        .card { background: var(--card); border-radius: 16px; padding: 20px; border: 1px solid #374151; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-        .section-title { font-size: 10px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; border-bottom: 1px solid #374151; padding-bottom: 5px; }
-        input { width: 100%; padding: 18px; border-radius: 12px; border: 2px solid #374151; background: #000; color: white; box-sizing: border-box; font-size: 15px; transition: 0.3s; }
-        input:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-        button { width: 100%; padding: 16px; border-radius: 12px; border: none; background: var(--gold); color: black; font-weight: 900; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
-        
-        #chat { height: 500px; overflow-y: auto; padding-right: 10px; }
-        .expert-block { border-left: 4px solid var(--gold); padding: 15px; background: rgba(255,255,255,0.02); margin-bottom: 20px; border-radius: 0 12px 12px 0; }
-        .pill { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: bold; margin-right: 5px; margin-bottom: 10px; }
-        .pill-law { background: var(--blue); color: white; }
-        .pill-tax { background: var(--red); color: white; }
-        .pill-acc { background: var(--green); color: white; }
-        .ref-text { font-size: 11px; color: var(--gold); font-weight: bold; display: block; margin-top: 10px; }
-        
-        nav { position: fixed; bottom: 0; left: 0; right: 0; background: #000; display: flex; height: 85px; border-top: 1px solid #1f2937; justify-content: space-around; align-items: center; }
-        .nav-item { color: #4b5563; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 9px; font-weight: 800; cursor: pointer; }
-        .nav-item.on { color: var(--gold); }
-        .nav-item span { font-size: 20px; margin-bottom: 5px; }
-
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        :root { --gold: #d4af37; --bg: #05080a; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #f8fafc; margin: 0; padding-bottom: 100px; }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
+        .glass { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        .view-section { display: none; }
+        .view-section.active { display: block; }
+        .msg-ai { background: #1e293b; border-left: 3px solid var(--gold); }
+        .msg-me { background: var(--gold); color: black; font-weight: bold; margin-left: 15%; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="gold-title italic">FiscoPilot V10</div>
-    <div style="font-size: 9px; color: #9ca3af; margin-top: 5px;">SYLLABUS INTELLIGENCE UNIT</div>
-</header>
+    <header class="p-6 border-b border-white/10 sticky top-0 bg-[#05080a] z-50 flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-black text-[#d4af37] italic">FISCOPILOT V11.1</h1>
+            <div id="status-ia" class="text-[8px] text-red-500 font-bold uppercase">● IA Déconnectée</div>
+        </div>
+        <button onclick="toggleConfig()" class="text-xs bg-white/5 px-3 py-1 rounded-full border border-white/10">⚙️ Clé API</button>
+    </header>
 
-<main>
-    <section id="a" class="view active">
-        <div class="card">
-            <span class="section-title">Analyseur de Doctrine</span>
-            <div id="chat">
-                <div class="expert-block">
-                    <div class="pill pill-law">SYLLABUS ITAA</div>
-                    <b>Bienvenue dans l'unité d'analyse, Marouane.</b><br>
-                    Le moteur est prêt. Entrez un sujet pour obtenir une synthèse **Juridique (CSA)**, **Fiscale (CIR/TVA)** et **Comptable (CNC)**.
+    <main class="px-5 mt-4">
+        <div id="config-panel" class="hidden glass p-5 rounded-2xl mb-6 border-2 border-yellow-500/50">
+            <h3 class="text-sm font-bold mb-2">Configuration du Mentor</h3>
+            <input type="password" id="apiKey" placeholder="Coller votre clé API ici..." class="w-full bg-black border border-white/20 p-3 rounded-xl text-xs text-white mb-3">
+            <button onclick="saveKey()" class="w-full py-2 gold-gradient text-black font-bold rounded-xl text-xs uppercase">Activer l'intelligence</button>
+        </div>
+
+        <section id="view-ai" class="view-section active">
+            <div id="chat" class="space-y-4 h-[500px] overflow-y-auto pb-4 text-xs leading-relaxed">
+                <div class="msg-ai p-4 rounded-2xl rounded-tl-none">
+                    <b>Mentor ITAA :</b> Bonjour Marouane. Une fois ta clé activée, je pourrai analyser tes cas pratiques en profondeur. <br><br><i>Exemple : "Simule une question sur le test de liquidité en SRL".</i>
                 </div>
             </div>
-            <div style="display: flex; gap: 10px;">
-                <input type="text" id="aiQ" placeholder="Ex: Sonnette d'alarme, Amortissements, ATN...">
-                <button onclick="ask()" style="width: 80px; margin-top:0;">➔</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="m" class="view">
-        <h2 style="font-size: 18px; margin-bottom: 20px;">Corpus Doctrinal</h2>
-        <div class="card">
-            <span class="section-title">Droit des Sociétés</span>
-            <div class="pill pill-law">CSA 5:142</div>
-            <b>Test de Liquidité & Solvabilité</b>
-            <p style="font-size: 12px; color: #9ca3af;">Avant toute distribution, l'organe d'administration doit vérifier que la SRL reste capable de s'acquitter de ses dettes au fur et à mesure de leur échéance sur une période de 12 mois.</p>
-        </div>
-        <div class="card">
-            <span class="section-title">Fiscalité Directe</span>
-            <div class="pill pill-tax">CIR92 Art. 49</div>
-            <b>Condition de Déductibilité</b>
-            <p style="font-size: 12px; color: #9ca3af;">Pour être déductibles, les frais doivent être faits en vue d'acquérir ou de conserver des revenus imposables, et la réalité/montant doit être justifié.</p>
-        </div>
-    </section>
-</main>
-
-<nav>
-    <div class="nav-item on" onclick="nav('a', this)"><span>🧠</span>EXPERT</div>
-    <div class="nav-item" onclick="nav('m', this)"><span>📚</span>DOCTRINE</div>
-</nav>
-
-<script>
-    const engine = {
-        "sonnette": {
-            "title": "Procédure de la Sonnette d'Alarme",
-            "law": "Art. 5:150 (SRL) / 7:228 (SA) du CSA. Seuil : Actif net inférieur à la moitié des apports (ou du capital).",
-            "tax": "Impact fiscal : Nécessité de justifier la continuité pour éviter la taxation immédiate des réserves immunisées.",
-            "acc": "Principe de continuité (Going Concern). Si l'AG décide la dissolution, passage aux règles d'évaluation en liquidation (valeurs de réalisation).",
-            "ref": "CSA - Livre 5 & 7 / Avis CNC 2012/17"
-        },
-        "amort": {
-            "title": "Régime des Amortissements",
-            "law": "Pas de contrainte stricte en droit des sociétés, mais doit correspondre à la dépréciation réelle de l'actif.",
-            "tax": "Art. 61-64 CIR92. Amortissement dégressif interdit pour les sociétés. Prorata temporis obligatoire. Frais accessoires : amortissement unique ou rythme du principal.",
-            "acc": "Avis CNC 2010/11. L'amortissement doit être systématique et ne peut dépendre du résultat de l'exercice.",
-            "ref": "CIR92 / Avis CNC 2010/13"
-        },
-        "tva": {
-            "title": "Déduction & Prorata TVA",
-            "law": "Droit à déduction né dès l'exigibilité de la taxe. Limitation de la responsabilité solidaire en cas de non-paiement.",
-            "tax": "Art. 45 §2 CTVA. Limitation auto à 50% pour voitures mixtes. Affectation réelle vs Prorata général. Régularisation 5/15 ans.",
-            "acc": "La TVA non déductible fait partie du coût d'acquisition de l'actif ou de la charge (Avis CNC).",
-            "ref": "Code TVA / Circulaire 2023/C/72"
-        }
-    };
-
-    function nav(id, el) {
-        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('on'));
-        el.classList.add('on');
-        window.scrollTo(0,0);
-    }
-
-    function ask() {
-        const q = document.getElementById('aiQ').value.toLowerCase();
-        if(!q) return;
-        const chat = document.getElementById('chat');
-        chat.innerHTML += `<div style="text-align:right; margin: 20px 0;"><span style="background:var(--gold); color:black; padding:10px 15px; border-radius:15px; font-weight:bold; font-size:13px;">${q.toUpperCase()}</span></div>`;
-        document.getElementById('aiQ').value = "";
-        
-        setTimeout(() => {
-            let found = false;
-            let html = "";
-            for(let key in engine) {
-                if(q.includes(key)) {
-                    const d = engine[key];
-                    html = `
-                    <div class="expert-block">
-                        <b style="font-size:16px; color:var(--gold);">${d.title}</b><br><br>
-                        <div class="pill pill-law">JURIDIQUE</div> ${d.law}<br><br>
-                        <div class="pill pill-tax">FISCAL</div> ${d.tax}<br><br>
-                        <div class="pill pill-acc">COMPTABLE</div> ${d.acc}<br>
-                        <span class="ref-text">Source : ${d.ref}</span>
-                    </div>`;
-                    found = true; break;
-                }
-            }
-            if(!found) html = `<div class="expert-block">Matière non indexée. Essayez 'Sonnette', 'Amortissement' ou 'TVA'.</div>`;
             
-            chat.innerHTML += html;
+            <div class="fixed bottom-24 left-5 right-5 flex gap-2">
+                <input type="text" id="userInput" placeholder="Demandez au mentor..." class="flex-1 bg-black border border-white/20 p-4 rounded-2xl text-xs text-white outline-none focus:border-yellow-500">
+                <button onclick="callGemini()" class="w-14 gold-gradient rounded-2xl flex items-center justify-center text-black font-bold">➔</button>
+            </div>
+        </section>
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 h-20 bg-black border-t border-white/10 flex justify-around items-center z-50">
+        <button class="flex flex-col items-center text-[#d4af37]"><span class="text-xl">🧠</span><span class="text-[8px] font-bold">MENTOR</span></button>
+        <button class="flex flex-col items-center text-gray-500 opacity-50"><span class="text-xl">📊</span><span class="text-[8px] font-bold">OUTILS</span></button>
+    </nav>
+
+    <script>
+        function toggleConfig() { document.getElementById('config-panel').classList.toggle('hidden'); }
+
+        function saveKey() {
+            const key = document.getElementById('apiKey').value;
+            if(key) {
+                localStorage.setItem('gemini_key', key);
+                document.getElementById('status-ia').innerText = "● IA Opérationnelle";
+                document.getElementById('status-ia').classList.replace('text-red-500', 'text-emerald-500');
+                toggleConfig();
+            }
+        }
+
+        async function callGemini() {
+            const key = localStorage.getItem('gemini_key');
+            const input = document.getElementById('userInput').value;
+            if(!key) { alert("Configurez votre clé API d'abord !"); return; }
+            if(!input) return;
+
+            const chat = document.getElementById('chat');
+            chat.innerHTML += `<div class="msg-me p-4 rounded-2xl rounded-tr-none">${input}</div>`;
+            document.getElementById('userInput').value = "";
             chat.scrollTop = chat.scrollHeight;
-        }, 600);
-    }
-</script>
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: "Tu es un expert-comptable belge, mentor pour l'examen de l'ITAA. Réponds avec précision, cite les articles de loi (CSA, CIR92) et sois pédagogue. Question : " + input }] }]
+                    })
+                });
+                const data = await response.json();
+                const text = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
+                chat.innerHTML += `<div class="msg-ai p-4 rounded-2xl rounded-tl-none mt-4">${text}</div>`;
+            } catch (e) {
+                chat.innerHTML += `<div class="msg-ai p-4 rounded-2xl rounded-tl-none mt-4 text-red-400">Erreur de connexion. Vérifiez votre clé.</div>`;
+            }
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        // Init au chargement
+        if(localStorage.getItem('gemini_key')) {
+            document.getElementById('status-ia').innerText = "● IA Opérationnelle";
+            document.getElementById('status-ia').classList.replace('text-red-500', 'text-emerald-500');
+        }
+    </script>
 </body>
 </html>
