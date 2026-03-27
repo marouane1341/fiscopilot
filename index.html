@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FiscoPilot V11.2 - Connect Fix</title>
+    <title>FiscoPilot V11.3 - Final Fix</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { --gold: #d4af37; --bg: #05080a; }
@@ -20,37 +20,33 @@
 
     <header class="p-6 border-b border-white/10 sticky top-0 bg-[#05080a] z-50 flex justify-between items-center">
         <div>
-            <h1 class="text-xl font-black text-[#d4af37] italic">FISCOPILOT V11.2</h1>
+            <h1 class="text-xl font-black text-[#d4af37] italic">FISCOPILOT V11.3</h1>
             <div id="status-ia" class="text-[8px] text-red-500 font-bold uppercase tracking-widest">● IA Déconnectée</div>
         </div>
-        <button onclick="toggleConfig()" class="text-[10px] bg-white/5 px-4 py-2 rounded-xl border border-white/10 font-bold uppercase">⚙️ Config Clé</button>
+        <button onclick="toggleConfig()" class="text-[10px] bg-white/5 px-4 py-2 rounded-xl border border-white/10 font-bold uppercase tracking-tighter">⚙️ Config Clé</button>
     </header>
 
     <main class="px-5 mt-4">
         <div id="config-panel" class="hidden glass p-6 rounded-3xl mb-6 border-2 border-yellow-500/30">
             <h3 class="text-xs font-black uppercase gold-text mb-4 tracking-widest text-[#d4af37]">Activation du Mentor</h3>
-            <input type="password" id="apiKey" placeholder="Coller la clé API Google Studio..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white mb-4 outline-none focus:border-yellow-500">
-            <button onclick="saveKey()" class="w-full py-4 gold-gradient text-black font-black rounded-2xl text-[10px] uppercase tracking-widest shadow-lg shadow-yellow-500/20">Initialiser la connexion</button>
-            <p class="text-[9px] text-gray-500 mt-4 text-center">Votre clé est stockée localement et reste confidentielle.</p>
+            <input type="password" id="apiKey" placeholder="Coller la clé API Google..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white mb-4 outline-none">
+            <button onclick="saveKey()" class="w-full py-4 gold-gradient text-black font-black rounded-2xl text-[10px] uppercase tracking-widest">Initialiser la connexion</button>
         </div>
 
-        <div id="chat" class="space-y-4 h-[60vh] overflow-y-auto pb-4 text-xs leading-relaxed">
+        <div id="chat" class="space-y-4 h-[65vh] overflow-y-auto pb-4 text-xs leading-relaxed">
             <div class="msg-ai p-5 rounded-3xl rounded-tl-none border border-white/5 shadow-xl">
-                <b class="text-[#d4af37]">Mentor ITAA :</b> Bonjour Marouane. Je suis prêt pour le débriefing. <br><br>Assure-toi que le voyant est au vert, puis pose ta question sur le <b>CSA</b> ou le <b>CIR92</b>.
+                <b class="text-[#d4af37]">Mentor ITAA :</b> Bonjour Marouane. Le point de connexion a été mis à jour (V11.3). <br><br><b>Recolle ta clé dans la config</b> pour être certain, puis pose ta question.
             </div>
         </div>
         
         <div class="fixed bottom-24 left-5 right-5 flex gap-3">
-            <input type="text" id="userInput" placeholder="Question fiscale ou juridique..." class="flex-1 bg-slate-900 border border-white/5 p-5 rounded-3xl text-xs text-white outline-none focus:ring-2 focus:ring-yellow-500/50 shadow-2xl">
-            <button id="sendBtn" onclick="callGemini()" class="w-16 gold-gradient rounded-3xl flex items-center justify-center text-black font-black shadow-xl">➔</button>
+            <input type="text" id="userInput" placeholder="Question fiscale ou juridique..." class="flex-1 bg-slate-900 border border-white/5 p-5 rounded-3xl text-xs text-white outline-none">
+            <button id="sendBtn" onclick="callGemini()" class="w-16 gold-gradient rounded-3xl flex items-center justify-center text-black font-black">➔</button>
         </div>
     </main>
 
     <script>
-        function toggleConfig() { 
-            const panel = document.getElementById('config-panel');
-            panel.classList.toggle('hidden');
-        }
+        function toggleConfig() { document.getElementById('config-panel').classList.toggle('hidden'); }
 
         function saveKey() {
             const key = document.getElementById('apiKey').value.trim();
@@ -58,21 +54,13 @@
                 localStorage.setItem('gemini_key', key);
                 updateStatus(true);
                 toggleConfig();
-                alert("Clé enregistrée ! Tentative de connexion...");
             }
         }
 
         function updateStatus(isOk) {
             const status = document.getElementById('status-ia');
-            if(isOk) {
-                status.innerText = "● IA Opérationnelle";
-                status.classList.remove('text-red-500');
-                status.classList.add('text-emerald-500');
-            } else {
-                status.innerText = "● Erreur de Clé";
-                status.classList.remove('text-emerald-500');
-                status.classList.add('text-red-500');
-            }
+            status.innerText = isOk ? "● IA Opérationnelle" : "● Erreur de Clé";
+            status.className = isOk ? "text-[8px] text-emerald-500 font-bold uppercase tracking-widest" : "text-[8px] text-red-500 font-bold uppercase tracking-widest";
         }
 
         async function callGemini() {
@@ -84,40 +72,34 @@
             const chat = document.getElementById('chat');
             const btn = document.getElementById('sendBtn');
             
-            chat.innerHTML += `<div class="msg-me p-5 rounded-3xl rounded-tr-none shadow-lg">${input}</div>`;
+            chat.innerHTML += `<div class="msg-me p-5 rounded-3xl rounded-tr-none">${input}</div>`;
             document.getElementById('userInput').value = "";
             btn.innerHTML = `<div class="loader"></div>`;
             btn.disabled = true;
             chat.scrollTop = chat.scrollHeight;
 
             try {
-                // Version 1.5 Flash - URL de secours stable
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
+                // Utilisation du modèle gemini-pro (stable)
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${key}`;
                 
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: "Tu es un expert-comptable belge aguerri. Réponds avec rigueur, cite les articles de loi belges (CSA, CIR92, Code TVA) et sois direct. Question : " + input }] }]
+                        contents: [{ parts: [{ text: "Réponds en tant qu'expert-comptable belge ITAA. Question : " + input }] }]
                     })
                 });
 
                 const data = await response.json();
                 
-                if (data.error) {
-                    throw new Error(data.error.message);
-                }
+                if (data.error) throw new Error(data.error.message);
 
                 const text = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
                 chat.innerHTML += `<div class="msg-ai p-5 rounded-3xl rounded-tl-none mt-4 shadow-xl border border-white/5">${text}</div>`;
                 updateStatus(true);
 
             } catch (e) {
-                console.error(e);
-                chat.innerHTML += `<div class="msg-ai p-5 rounded-3xl rounded-tl-none mt-4 text-red-400 border border-red-500/20">
-                    ⚠️ <b>Erreur :</b> ${e.message}<br><br>
-                    <span class="text-[10px]">Vérifie ta clé dans la config (pas d'espaces) ou attends 5 min qu'elle s'active chez Google.</span>
-                </div>`;
+                chat.innerHTML += `<div class="msg-ai p-5 rounded-3xl rounded-tl-none mt-4 text-red-400 border border-red-500/20"><b>Erreur :</b> ${e.message}</div>`;
                 updateStatus(false);
             } finally {
                 btn.innerHTML = `➔`;
