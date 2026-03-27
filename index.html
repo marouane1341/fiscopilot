@@ -2,111 +2,108 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FiscoPilot V11.5 - Location Fix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiscoPilot V12 - Professional Bridge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --gold: #d4af37; --bg: #05080a; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #f8fafc; margin: 0; padding-bottom: 100px; }
-        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); }
-        .glass { background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
-        .msg-ai { background: #1e293b; border-left: 3px solid var(--gold); }
-        .msg-me { background: var(--gold); color: black; font-weight: bold; margin-left: 15%; }
-        .loader { border: 2px solid #f3f3f3; border-top: 2px solid var(--gold); border-radius: 50%; width: 14px; height: 14px; animation: spin 1s linear infinite; display: inline-block; }
+        :root { --gold: #d4af37; --bg: #020617; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #f8fafc; margin: 0; }
+        .gold-text { color: var(--gold); }
+        .gold-btn { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); color: black; font-weight: 800; }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+        .msg-ai { background: #1e293b; border-left: 4px solid var(--gold); border-radius: 0 20px 20px 20px; }
+        .msg-me { background: var(--gold); color: black; font-weight: bold; border-radius: 20px 0 20px 20px; margin-left: 20%; }
+        .loader { border: 2px solid #f3f3f3; border-top: 2px solid var(--gold); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body>
+<body class="pb-24">
 
-    <header class="p-6 border-b border-white/10 sticky top-0 bg-[#05080a] z-50 flex justify-between items-center">
+    <header class="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-slate-950/80 backdrop-blur-md z-50">
         <div>
-            <h1 class="text-xl font-black text-[#d4af37] italic">FISCOPILOT V11.5</h1>
-            <div id="status-ia" class="text-[8px] text-red-500 font-bold uppercase tracking-widest text-white">● Mode Régional</div>
+            <h1 class="text-xl font-black gold-text italic tracking-tighter">FISCOPILOT V12</h1>
+            <div id="status" class="text-[9px] uppercase font-bold text-gray-500 tracking-widest">Initialisation...</div>
         </div>
-        <button onclick="toggleConfig()" class="text-[10px] bg-white/5 px-4 py-2 rounded-xl border border-white/10 font-bold uppercase tracking-tighter text-white">⚙️ Clé API</button>
+        <button onclick="document.getElementById('config').classList.toggle('hidden')" class="bg-white/5 p-2 rounded-full border border-white/10 text-lg">⚙️</button>
     </header>
 
-    <main class="px-5 mt-4">
-        <div id="config-panel" class="hidden glass p-6 rounded-3xl mb-6 border-2 border-yellow-500/30">
-            <h3 class="text-xs font-black uppercase gold-text mb-4 tracking-widest text-[#d4af37]">Configuration Europe</h3>
-            <input type="password" id="apiKey" placeholder="Coller la clé API Google..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white mb-4 outline-none">
-            <button onclick="saveKey()" class="w-full py-4 gold-gradient text-black font-black rounded-2xl text-[10px] uppercase tracking-widest">Connecter via Node v1</button>
+    <main class="p-5 max-w-2xl mx-auto">
+        <div id="config" class="hidden glass p-6 rounded-3xl mb-8 border-2 border-yellow-500/20">
+            <label class="text-[10px] font-bold uppercase gold-text">1. URL du Pont Vercel</label>
+            <input type="text" id="bridgeUrl" placeholder="https://votre-projet.vercel.app" class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white mb-4 mt-2">
+            
+            <label class="text-[10px] font-bold uppercase gold-text">2. Clé API Google</label>
+            <input type="password" id="apiKey" placeholder="AIzaSy..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white mb-4 mt-2">
+            
+            <button onclick="saveConfig()" class="w-full py-4 gold-btn rounded-2xl text-xs uppercase tracking-widest shadow-lg">Enregistrer & Débloquer</button>
         </div>
 
-        <div id="chat" class="space-y-4 h-[65vh] overflow-y-auto pb-4 text-xs leading-relaxed">
-            <div class="msg-ai p-5 rounded-3xl rounded-tl-none border border-white/5 shadow-xl">
-                <b class="text-[#d4af37]">Mentor ITAA :</b> J'ai ajusté le protocole pour contourner le blocage géographique (V11.5). <br><br><b>Recolle ta clé</b> et envoie ta question.
+        <div id="chat" class="space-y-6 min-h-[60vh] pb-10">
+            <div class="msg-ai p-5 shadow-2xl">
+                <b class="gold-text">MENTOR ITAA :</b><br>
+                L'architecture V12 est prête. Une fois ton <b>Pont Vercel</b> et ta <b>Clé API</b> configurés, je serai libéré des restrictions géographiques.
             </div>
-        </div>
-        
-        <div class="fixed bottom-24 left-5 right-5 flex gap-3">
-            <input type="text" id="userInput" placeholder="Test de connexion..." class="flex-1 bg-slate-900 border border-white/5 p-5 rounded-3xl text-xs text-white outline-none">
-            <button id="sendBtn" onclick="callGemini()" class="w-16 gold-gradient rounded-3xl flex items-center justify-center text-black font-black">➔</button>
         </div>
     </main>
 
-    <script>
-        function toggleConfig() { document.getElementById('config-panel').classList.toggle('hidden'); }
+    <div class="fixed bottom-6 left-5 right-5 max-w-2xl mx-auto flex gap-3">
+        <input type="text" id="userInput" placeholder="Interrogez votre mentor..." class="flex-1 bg-slate-900 border border-white/10 p-5 rounded-3xl text-sm text-white outline-none focus:ring-2 focus:ring-yellow-500/50">
+        <button id="sendBtn" onclick="askExpert()" class="w-16 gold-btn rounded-3xl flex items-center justify-center shadow-xl">➔</button>
+    </div>
 
-        function saveKey() {
-            const key = document.getElementById('apiKey').value.trim();
-            if(key) {
-                localStorage.setItem('gemini_key', key);
-                updateStatus(true);
-                toggleConfig();
+    <script>
+        function saveConfig() {
+            localStorage.setItem('fp_bridge', document.getElementById('bridgeUrl').value.trim());
+            localStorage.setItem('fp_key', document.getElementById('apiKey').value.trim());
+            document.getElementById('config').classList.add('hidden');
+            checkStatus();
+        }
+
+        function checkStatus() {
+            const status = document.getElementById('status');
+            if(localStorage.getItem('fp_bridge') && localStorage.getItem('fp_key')) {
+                status.innerText = "● Pont Établi";
+                status.classList.replace('text-gray-500', 'text-emerald-500');
             }
         }
 
-        function updateStatus(isOk) {
-            const status = document.getElementById('status-ia');
-            status.innerText = isOk ? "● IA Prête" : "● Erreur Géo";
-            status.className = isOk ? "text-[8px] text-emerald-500 font-bold uppercase tracking-widest" : "text-[8px] text-red-500 font-bold uppercase tracking-widest";
-        }
-
-        async function callGemini() {
-            const key = localStorage.getItem('gemini_key');
+        async function askExpert() {
+            const bridge = localStorage.getItem('fp_bridge');
+            const key = localStorage.getItem('fp_key');
             const input = document.getElementById('userInput').value.trim();
-            if(!key) { toggleConfig(); return; }
+            
+            if(!bridge || !key) { alert("Configurez d'abord le pont et la clé !"); return; }
             if(!input) return;
 
             const chat = document.getElementById('chat');
             const btn = document.getElementById('sendBtn');
-            chat.innerHTML += `<div class="msg-me p-5 rounded-3xl rounded-tr-none">${input}</div>`;
+            
+            chat.innerHTML += `<div class="msg-me p-5 shadow-lg">${input}</div>`;
             document.getElementById('userInput').value = "";
             btn.innerHTML = `<div class="loader"></div>`;
             btn.disabled = true;
-            chat.scrollTop = chat.scrollHeight;
+            window.scrollTo(0, document.body.scrollHeight);
 
             try {
-                // Utilisation de la version v1 stable et du modèle gemini-pro universel
-                const url = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${key}`;
-                
-                const response = await fetch(url, {
+                const response = await fetch(`${bridge}/api/mentor`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: "Réponds brièvement en tant qu'expert-comptable belge. Question : " + input }] }]
-                    })
+                    body: JSON.stringify({ prompt: input, apiKey: key })
                 });
 
                 const data = await response.json();
-                if (data.error) throw new Error(data.error.message);
-
                 const text = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
-                chat.innerHTML += `<div class="msg-ai p-5 rounded-3xl rounded-tl-none mt-4 shadow-xl border border-white/5">${text}</div>`;
-                updateStatus(true);
-
+                chat.innerHTML += `<div class="msg-ai p-5 shadow-2xl mt-4"><b class="gold-text">MENTOR :</b><br>${text}</div>`;
             } catch (e) {
-                chat.innerHTML += `<div class="msg-ai p-5 rounded-3xl rounded-tl-none mt-4 text-red-400 border border-red-500/20 italic"><b>Erreur :</b> ${e.message}</div>`;
-                updateStatus(false);
+                chat.innerHTML += `<div class="msg-ai p-5 text-red-400 mt-4 italic"><b>Erreur :</b> Impossible de joindre le pont Vercel. Vérifie l'URL.</div>`;
             } finally {
                 btn.innerHTML = `➔`;
                 btn.disabled = false;
-                chat.scrollTop = chat.scrollHeight;
+                window.scrollTo(0, document.body.scrollHeight);
             }
         }
-
-        if(localStorage.getItem('gemini_key')) updateStatus(true);
+        checkStatus();
     </script>
 </body>
 </html>
+
