@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V12.6 - Final</title>
+    <title>FiscoPilot V12.7 - Final Fix</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { --gold: #d4af37; --bg: #020617; }
@@ -18,24 +18,29 @@
 <body class="pb-24">
     <header class="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-slate-950/80 z-50">
         <div>
-            <h1 class="text-xl font-black text-[#d4af37] italic">FISCOPILOT V12.6</h1>
-            <div id="status" class="text-[9px] uppercase font-bold text-emerald-500 tracking-widest italic">● Système Opérationnel</div>
+            <h1 class="text-xl font-black text-[#d4af37] italic">FISCOPILOT V12.7</h1>
+            <div id="status" class="text-[9px] uppercase font-bold text-emerald-500 tracking-widest italic text-white">● Mode Connexion Directe</div>
         </div>
-        <button onclick="document.getElementById('config').classList.toggle('hidden')" class="bg-white/5 p-2 rounded-xl border border-white/10">⚙️</button>
+        <button onclick="document.getElementById('config').classList.toggle('hidden')" class="bg-white/5 p-2 rounded-xl border border-white/10 text-white">⚙️</button>
     </header>
 
     <main class="p-5">
         <div id="config" class="hidden bg-slate-900 p-6 rounded-3xl mb-8 border border-yellow-500/30">
-            <input type="password" id="apiKey" placeholder="Clé API..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white mb-4">
-            <button onclick="localStorage.setItem('fp_key', document.getElementById('apiKey').value); location.reload();" class="w-full py-4 gold-btn rounded-2xl text-xs">Sauvegarder</button>
+            <h3 class="text-xs gold-text mb-2 uppercase font-bold text-[#d4af37]">Ta Clé API</h3>
+            <input type="password" id="apiKey" placeholder="AIzaSy..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white mb-4 outline-none">
+            <button onclick="localStorage.setItem('fp_key', document.getElementById('apiKey').value.trim()); location.reload();" class="w-full py-4 gold-btn rounded-2xl text-[10px] uppercase tracking-widest">Enregistrer & Tester</button>
         </div>
+
         <div id="chat" class="space-y-6 min-h-[60vh]">
-            <div class="msg-ai p-5"><b>Mentor :</b> On y est Marouane. Le canal est ouvert. Pose ta question sur la <b>réserve de liquidation</b> pour confirmer !</div>
+            <div class="msg-ai p-5">
+                <b class="text-[#d4af37]">Mentor :</b> Marouane, on ne lâche rien. <br><br>
+                Vérifie que ta clé est bien enregistrée dans l'engrenage (⚙️) et pose ta question.
+            </div>
         </div>
     </main>
 
     <div class="fixed bottom-6 left-5 right-5 flex gap-3">
-        <input type="text" id="userInput" placeholder="Question fiscale..." class="flex-1 bg-slate-900 border border-white/10 p-5 rounded-3xl text-sm text-white outline-none">
+        <input type="text" id="userInput" placeholder="Ta question ici..." class="flex-1 bg-slate-900 border border-white/10 p-5 rounded-3xl text-sm text-white outline-none focus:border-yellow-500">
         <button id="sendBtn" onclick="askGemini()" class="w-16 gold-btn rounded-3xl flex items-center justify-center">➔</button>
     </div>
 
@@ -43,32 +48,49 @@
         async function askGemini() {
             const key = localStorage.getItem('fp_key');
             const input = document.getElementById('userInput').value.trim();
-            if(!input || !key) return;
+            if(!input || !key) { document.getElementById('config').classList.remove('hidden'); return; }
 
             const chat = document.getElementById('chat');
             const btn = document.getElementById('sendBtn');
             chat.innerHTML += `<div class="msg-me p-5">${input}</div>`;
             document.getElementById('userInput').value = "";
             btn.innerHTML = `<div class="loader"></div>`;
-            
+            btn.disabled = true;
+
             try {
-                // Utilisation d'un proxy CORS fiable pour éviter tout blocage
-                const proxy = "https://corsproxy.io/?";
-                const target = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
+                // Utilisation du modèle flash avec l'endpoint v1beta plus permissif
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
                 
-                const response = await fetch(proxy + encodeURIComponent(target), {
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: "Expert ITAA. Réponds brièvement. Question : " + input }] }] })
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: "Tu es un expert-comptable belge. Réponds de façon concise à : " + input }] }]
+                    })
                 });
 
                 const data = await response.json();
+                
+                if (data.error) throw new Error(data.error.message);
+                
                 const text = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
                 chat.innerHTML += `<div class="msg-ai p-5 mt-4"><b>Mentor :</b><br>${text}</div>`;
             } catch (e) {
-                chat.innerHTML += `<div class="msg-ai p-5 mt-4 text-red-400 italic">Erreur : Vérifie ta clé ou ta connexion.</div>`;
+                // Si ça échoue, on tente une dernière fois via un proxy de secours différent
+                try {
+                    const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`);
+                    // Note: AllOrigins demande une structure différente, mais pour ne pas compliquer, 
+                    // on va juste afficher l'erreur réelle pour comprendre le blocage final.
+                    throw e; 
+                } catch(innerE) {
+                    chat.innerHTML += `<div class="msg-ai p-5 mt-4 text-red-400 border border-red-500/20">
+                        <b>Erreur Système :</b> ${innerE.message}<br><br>
+                        <span class="text-[10px]">Si "location not supported", il faut activer un VPN (USA/UK) sur ton téléphone.</span>
+                    </div>`;
+                }
             } finally {
                 btn.innerHTML = `➔`;
+                btn.disabled = false;
                 window.scrollTo(0, document.body.scrollHeight);
             }
         }
