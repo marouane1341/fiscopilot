@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V12.9 - PRO Edition</title>
+    <title>FiscoPilot V13 - Final Wallbreaker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { --gold: #d4af37; --bg: #020617; }
@@ -18,28 +18,28 @@
 <body class="pb-28">
 
     <header class="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-[#020617]/95 backdrop-blur-md z-50">
-        <h1 class="text-xl font-black text-[#d4af37] italic tracking-tighter text-white">FISCOPILOT PRO</h1>
-        <button onclick="document.getElementById('config').classList.toggle('hidden')" class="bg-white/10 p-2 px-4 rounded-xl border border-white/10 text-xs font-bold text-white uppercase tracking-widest">⚙️ Config</button>
+        <h1 class="text-xl font-black text-[#d4af37] italic tracking-tighter">FISCOPILOT V13</h1>
+        <button onclick="document.getElementById('config').classList.toggle('hidden')" class="bg-white/10 p-2 px-4 rounded-xl border border-white/10 text-xs font-bold text-white uppercase">⚙️ Config</button>
     </header>
 
     <main class="p-5 max-w-2xl mx-auto">
-        <div id="config" class="hidden bg-slate-900/80 p-6 rounded-3xl mb-8 border border-yellow-500/30 backdrop-blur-xl">
-            <p class="text-[10px] gold-text font-bold uppercase mb-2">Clé API (Mode Pay-as-you-go)</p>
-            <input type="password" id="apiKey" placeholder="AIzaSy..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white outline-none focus:border-yellow-500">
-            <button onclick="localStorage.setItem('fp_key', document.getElementById('apiKey').value.trim()); location.reload();" class="w-full py-4 gold-btn text-[10px] uppercase mt-4 tracking-widest">Activer la Version Pro</button>
+        <div id="config" class="hidden bg-slate-900/80 p-6 rounded-3xl mb-8 border border-yellow-500/30 backdrop-blur-xl text-white">
+            <p class="text-[10px] gold-text font-bold uppercase mb-2 text-[#d4af37]">Clé API Pro (Pay-as-you-go)</p>
+            <input type="password" id="apiKey" placeholder="AIzaSy..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white outline-none mb-4">
+            <button onclick="localStorage.setItem('fp_key', document.getElementById('apiKey').value.trim()); location.reload();" class="w-full py-4 gold-btn text-[10px] uppercase font-bold tracking-widest">Initialiser la V13</button>
         </div>
 
         <div id="chat" class="space-y-6 min-h-[50vh]">
             <div class="msg-ai">
-                <b class="text-[#d4af37] uppercase text-[10px] tracking-widest block mb-2">Mentor ITAA</b>
-                Marouane, si la facturation est active, le blocage belge est terminé. <br><br>
-                Pose-moi ta question la plus complexe sur le <b>Code des Sociétés</b> pour tester mon nouveau moteur.
+                <b class="text-[#d4af37] uppercase text-[10px] tracking-widest block mb-2 text-white">Système Stabilisé</b>
+                Marouane, la V13 intègre un moteur de recherche de modèle automatique. <br><br>
+                Teste maintenant : pose une question sur la <b>sonnette d'alarme</b> ou la <b>TVA</b>.
             </div>
         </div>
     </main>
 
     <div class="fixed bottom-8 left-5 right-5 max-w-2xl mx-auto flex gap-3">
-        <input type="text" id="userInput" placeholder="Question fiscale..." class="flex-1 bg-slate-900 border border-white/10 p-5 rounded-[2rem] text-sm text-white outline-none focus:ring-2 focus:ring-yellow-500/50">
+        <input type="text" id="userInput" placeholder="Cas pratique..." class="flex-1 bg-slate-900 border border-white/10 p-5 rounded-[2rem] text-sm text-white outline-none">
         <button id="sendBtn" onclick="askAI()" class="w-16 h-16 gold-btn flex items-center justify-center shadow-2xl">➔</button>
     </div>
 
@@ -51,36 +51,42 @@
 
             const chat = document.getElementById('chat');
             const btn = document.getElementById('sendBtn');
-            chat.innerHTML += `<div class="msg-me">${input}</div>`;
+            chat.innerHTML += `<div class="msg-me text-black font-bold">${input}</div>`;
             document.getElementById('userInput').value = "";
             btn.innerHTML = `<div class="loader"></div>`;
             btn.disabled = true;
 
-            try {
-                // Requête directe v1 (standard pour les comptes payants)
-                const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`;
-                
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: "Tu es un expert-comptable belge expérimenté. Réponds avec précision et cite les textes de loi. Question : " + input }] }]
-                    })
-                });
+            // Liste des endpoints à tester en cascade
+            const endpoints = [
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`,
+                `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`,
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${key}`
+            ];
 
-                const data = await response.json();
-                
-                if (data.error) throw new Error(data.error.message);
-
-                const answer = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
-                chat.innerHTML += `<div class="msg-ai mt-4"><b class="text-[#d4af37] text-[10px] uppercase tracking-widest block mb-2">Expert-Conseil</b>${answer}</div>`;
-            } catch (e) {
-                chat.innerHTML += `<div class="msg-ai mt-4 border-red-500/50 text-red-400"><b>Alerte Système :</b> ${e.message}<br><br><span class="text-[10px]">Si tu vois "Location not supported", attends 5-10 min que Google valide ta carte ou crée une NOUVELLE clé API.</span></div>`;
-            } finally {
-                btn.innerHTML = `➔`;
-                btn.disabled = false;
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            let success = false;
+            for (let url of endpoints) {
+                if (success) break;
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ contents: [{ parts: [{ text: "Expert-comptable belge. " + input }] }] })
+                    });
+                    const data = await response.json();
+                    if (data.candidates && data.candidates[0].content.parts[0].text) {
+                        const answer = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
+                        chat.innerHTML += `<div class="msg-ai mt-4"><b class="text-[#d4af37] text-[10px] uppercase tracking-widest block mb-2">Mentor</b>${answer}</div>`;
+                        success = true;
+                    }
+                } catch (e) { console.log("Echec sur un endpoint, tentative suivante..."); }
             }
+
+            if (!success) {
+                chat.innerHTML += `<div class="msg-ai mt-4 border-red-500 text-red-400"><b>Échec final :</b> Les serveurs de Google ne répondent pas encore à ta nouvelle clé. Attends 15 minutes ou vérifie que la facturation est BIEN activée dans Cloud Console.</div>`;
+            }
+            btn.innerHTML = `➔`;
+            btn.disabled = false;
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     </script>
 </body>
