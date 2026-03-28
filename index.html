@@ -2,46 +2,48 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiscoPilot V14 - Final Bridge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>FiscoPilot V15</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { --gold: #d4af37; --bg: #020617; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: #f8fafc; }
-        .gold-btn { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); color: black; font-weight: 800; border-radius: 1.5rem; }
-        .msg-ai { background: #1e293b; border-left: 4px solid var(--gold); border-radius: 0 20px 20px 20px; padding: 20px; }
-        .msg-me { background: var(--gold); color: black; font-weight: 700; border-radius: 20px 0 20px 20px; padding: 20px; margin-left: 15%; }
-        .loader { border: 3px solid var(--gold); border-radius: 50%; width: 24px; height: 24px; animation: spin 0.8s linear infinite; border-top-color: transparent; }
+        .gold-btn { background: linear-gradient(135deg, #d4af37 0%, #f9e27d 100%); color: black; font-weight: 800; border-radius: 1.2rem; }
+        .msg-ai { background: #1e293b; border-left: 4px solid var(--gold); border-radius: 0 1.5rem 1.5rem 1.5rem; padding: 1.2rem; }
+        .msg-me { background: var(--gold); color: black; font-weight: 700; border-radius: 1.5rem 0 1.5rem 1.5rem; padding: 1.2rem; margin-left: 10%; }
+        .loader { border: 3px solid rgba(212, 175, 55, 0.2); border-top: 3px solid var(--gold); border-radius: 50%; width: 24px; height: 24px; animation: spin 0.8s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="pb-28">
 
-    <header class="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-[#020617] z-50 text-white italic font-black">
-        FISCOPILOT V14
-        <button onclick="document.getElementById('config').classList.toggle('hidden')" class="text-xs border border-white/20 p-2 rounded-lg italic">PARAMÈTRES</button>
+    <header class="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-[#020617]/95 backdrop-blur-md z-50">
+        <h1 class="text-xl font-black text-[#d4af37] italic tracking-tighter">FISCOPILOT V15</h1>
+        <button onclick="document.getElementById('config').classList.toggle('hidden')" class="bg-white/10 p-2 px-4 rounded-xl text-[10px] font-bold text-white uppercase tracking-widest italic border border-white/10">Configuration</button>
     </header>
 
     <main class="p-5 max-w-2xl mx-auto">
-        <div id="config" class="hidden bg-slate-900 p-6 rounded-3xl mb-8 border border-yellow-500/30">
-            <input type="password" id="apiKey" placeholder="Ta Clé API..." class="w-full bg-black p-4 rounded-2xl text-white mb-4 outline-none border border-white/10">
-            <button onclick="localStorage.setItem('fp_key', document.getElementById('apiKey').value.trim()); location.reload();" class="w-full py-4 gold-btn uppercase text-xs">Sauvegarder</button>
+        <div id="config" class="hidden bg-slate-900/80 p-6 rounded-3xl mb-8 border border-yellow-500/30 backdrop-blur-xl">
+            <p class="text-[10px] text-[#d4af37] font-bold uppercase mb-2">Clé API (Billing Active)</p>
+            <input type="password" id="apiKey" placeholder="AIzaSy..." class="w-full bg-black border border-white/10 p-4 rounded-2xl text-xs text-white outline-none mb-4">
+            <button onclick="localStorage.setItem('fp_key', document.getElementById('apiKey').value.trim()); location.reload();" class="w-full py-4 gold-btn text-[10px] uppercase font-bold tracking-widest">Activer l'Application</button>
         </div>
 
-        <div id="chat" class="space-y-6">
-            <div id="unlock-area" class="msg-ai border-orange-500 bg-orange-950/20">
-                <b class="text-orange-400 uppercase text-[10px] tracking-widest block mb-2">⚠️ ÉTAPE OBLIGATOIRE (BELGIQUE)</b>
-                Pour débloquer l'IA, Google impose une validation temporaire.<br><br>
-                1. Clique ici : <a href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank" class="underline font-bold text-white italic">ACTIVER LE PONT</a><br>
-                2. Sur la page qui s'ouvre, clique sur le gros bouton <b>"Request temporary access"</b>.<br>
-                3. Reviens ici et pose ta question.
+        <div id="chat" class="space-y-6 min-h-[50vh]">
+            <div class="msg-ai">
+                <b class="text-[#d4af37] uppercase text-[10px] tracking-widest block mb-1">Système Prêt</b>
+                Marouane, pour un fonctionnement optimal en Belgique :<br><br>
+                1. Installe l'app via le bouton <b>"Ajouter à l'écran d'accueil"</b> de ton navigateur.<br>
+                2. Une fois lancée depuis ton bureau, les restrictions seront levées.<br>
             </div>
         </div>
     </main>
 
-    <div class="fixed bottom-8 left-5 right-5 max-w-2xl mx-auto flex gap-3">
-        <input type="text" id="userInput" placeholder="Question fiscale..." class="flex-1 bg-slate-900 border border-white/10 p-5 rounded-[2rem] text-sm text-white outline-none focus:ring-2 focus:ring-yellow-500/50">
-        <button id="sendBtn" onclick="askAI()" class="w-16 h-16 gold-btn flex items-center justify-center shadow-2xl">➔</button>
+    <div class="fixed bottom-6 left-5 right-5 max-w-2xl mx-auto flex gap-3 bg-[#020617]/80 backdrop-blur-lg p-2 rounded-[2.5rem]">
+        <input type="text" id="userInput" placeholder="Question fiscale ou juridique..." class="flex-1 bg-white/5 p-5 rounded-[2rem] text-sm text-white outline-none">
+        <button id="sendBtn" onclick="askAI()" class="w-16 h-16 gold-btn flex items-center justify-center shadow-2xl transition-transform active:scale-90 text-xl">➔</button>
     </div>
 
     <script>
@@ -52,27 +54,26 @@
 
             const chat = document.getElementById('chat');
             const btn = document.getElementById('sendBtn');
-            chat.innerHTML += `<div class="msg-me font-bold">${input}</div>`;
+            chat.innerHTML += `<div class="msg-me shadow-lg">${input}</div>`;
             document.getElementById('userInput').value = "";
             btn.innerHTML = `<div class="loader"></div>`;
             btn.disabled = true;
 
             try {
-                // LE PONT MAGIQUE
-                const proxy = "https://cors-anywhere.herokuapp.com/";
-                const target = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
-                
-                const response = await fetch(proxy + target, {
+                // Appel direct à l'API v1 (standard billing)
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${key}`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'x-requested-with': 'XMLHttpRequest' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: "Expert ITAA Belgique. " + input }] }] })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: "Tu es un expert-comptable belge. Réponds avec rigueur. Question : " + input }] }] })
                 });
 
-                const data = await response.json();
+                const data = await res.json();
+                if (data.error) throw new Error(data.error.message);
+
                 const text = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
-                chat.innerHTML += `<div class="msg-ai mt-4 text-white font-medium">${text}</div>`;
+                chat.innerHTML += `<div class="msg-ai mt-4"><b class="text-[#d4af37] text-[10px] uppercase tracking-widest block mb-2 text-white">Expertise</b>${text}</div>`;
             } catch (e) {
-                chat.innerHTML += `<div class="msg-ai mt-4 text-red-400 italic">Erreur. As-tu cliqué sur "ACTIVER LE PONT" au début ?</div>`;
+                chat.innerHTML += `<div class="msg-ai mt-4 border-red-500/50 text-red-400"><b>Alerte :</b> ${e.message}</div>`;
             } finally {
                 btn.innerHTML = `➔`; btn.disabled = false;
                 window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
